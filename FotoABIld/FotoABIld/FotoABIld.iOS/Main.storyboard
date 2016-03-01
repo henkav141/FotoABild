@@ -16,12 +16,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oBE-Ac-vcx" misplaced="YES">
-                                <rect key="frame" x="112" y="318" width="152" height="30"/>
-                                <state key="normal" title="Hello World, Click Me!">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="6" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
                                 <rect key="frame" x="101" y="166" width="46" height="30"/>
                                 <state key="normal" title="Button">
@@ -46,10 +40,6 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <constraints>
-                            <constraint firstItem="oBE-Ac-vcx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="HiD-uS-i16"/>
-                            <constraint firstItem="oBE-Ac-vcx" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="YgX-7e-bMc"/>
-                        </constraints>
                         <color key="tintColor" colorSpace="calibratedRGB" red="0" green="0.52549019607843139" blue="1" alpha="1"/>
                         <variation key="default">
                             <mask key="subviews">
@@ -64,7 +54,6 @@
                         <color key="backgroundColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
                     </view>
                     <connections>
-                        <outlet property="Button" destination="oBE-Ac-vcx" id="OkX-0Z-gth"/>
                         <outlet property="Bttn" destination="11" id="name-outlet-11"/>
                         <outlet property="FirstPage" destination="8bC-Xf-vdC" id="name-outlet-8bC-Xf-vdC"/>
                     </connections>
