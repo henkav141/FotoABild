@@ -6,7 +6,6 @@ namespace FotoABIld.iOS
 {
 	public partial class ViewController : UIViewController
 	{
-		int count = 1;
         
 
 		public ViewController (IntPtr handle) : base (handle)
