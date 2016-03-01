@@ -22,6 +22,10 @@ namespace FotoABIld.iOS
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UIButton Button { get; set; }
 
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIView FirstPage { get; set; }
+
 		[Action ("Bttn_TouchUpInside:")]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		partial void Bttn_TouchUpInside (UIButton sender);
@@ -39,6 +43,10 @@ namespace FotoABIld.iOS
 			if (Button != null) {
 				Button.Dispose ();
 				Button = null;
+			}
+			if (FirstPage != null) {
+				FirstPage.Dispose ();
+				FirstPage = null;
 			}
 		}
 	}
