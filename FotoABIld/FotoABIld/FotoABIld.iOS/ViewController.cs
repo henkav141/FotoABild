@@ -7,6 +7,7 @@ namespace FotoABIld.iOS
 	public partial class ViewController : UIViewController
 	{
 		int count = 1;
+        
 
 		public ViewController (IntPtr handle) : base (handle)
 		{
@@ -16,11 +17,8 @@ namespace FotoABIld.iOS
 		{
 			base.ViewDidLoad ();
 			// Perform any additional setup after loading the view, typically from a nib.
-			Button.AccessibilityIdentifier = "myButton";
-			Button.TouchUpInside += delegate {
-				var title = string.Format ("{0} clicks!", count++);
-				Button.SetTitle (title, UIControlState.Normal);
-			};
+            FirstPage.BackgroundColor = UIColor.FromRGB(31, 47, 64);
+		    Bttn.BackgroundColor = UIColor.FromRGB(255, 190, 31);
 		}
 
 		public override void DidReceiveMemoryWarning ()
@@ -28,6 +26,9 @@ namespace FotoABIld.iOS
 			base.DidReceiveMemoryWarning ();
 			// Release any cached data, images, etc that aren't in use.
 		}
-	}
+
+
+
+    }
 }
 
