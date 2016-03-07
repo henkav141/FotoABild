@@ -37,7 +37,22 @@
         android:layout_height="0dp"
         android:layout_weight="60"
         android:id="@+id/linearLayout3"
-        android:background="@android:color/white" />
+        android:background="@android:color/white">
+        <EditText
+            android:inputType="textPersonName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/editText1"
+            android:backgroundTint="#b4b4b4ff"
+            android:hint="Förnamn" />
+        <EditText
+            android:inputType="textPersonName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/editText2"
+            android:backgroundTint="#b4b4b4ff"
+            android:hint="Efternamn" />
+    </LinearLayout>
     <LinearLayout
         android:orientation="horizontal"
         android:minWidth="25px"
