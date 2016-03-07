@@ -52,6 +52,20 @@
             android:id="@+id/editText2"
             android:backgroundTint="#b4b4b4ff"
             android:hint="Efternamn" />
+        <EditText
+            android:inputType="phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/editText3"
+            android:backgroundTint="#b4b4b4ff"
+            android:hint="Telefonnummer" />
+        <EditText
+            android:inputType="textEmailAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/editText4"
+            android:backgroundTint="#b4b4b4ff"
+            android:hint="E-mail" />
     </LinearLayout>
     <LinearLayout
         android:orientation="horizontal"
