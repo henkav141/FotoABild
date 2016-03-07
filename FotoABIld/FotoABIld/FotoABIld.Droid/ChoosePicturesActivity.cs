@@ -17,6 +17,8 @@ namespace FotoABIld.Droid
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {
+            Window.RequestFeature(WindowFeatures.NoTitle);
+
             base.OnCreate(savedInstanceState);
 
             // Create your application here
