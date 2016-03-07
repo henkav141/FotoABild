@@ -22,9 +22,19 @@ namespace FotoABIld.Droid
 			// Set our view from the "main" layout resource
 			SetContentView (Resource.Layout.Main);
 
+		    Button orderButton = FindViewById<Button>(Resource.Id.orderButton);
 
-		}
-	}
+            orderButton.Click += OrderButton_Click;
+
+
+        }
+
+        private void OrderButton_Click(object sender, EventArgs e)
+        {
+            var intent = new Intent(this, typeof(ChoosePicturesActivity));
+            StartActivity(intent);
+        }
+    }
 }
 
 
