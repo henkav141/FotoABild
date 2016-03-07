@@ -16,30 +16,14 @@ namespace FotoABIld.iOS
 	{
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UIButton Bttn { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
 		UIView FirstPage { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UIView topDiv { get; set; }
 
-		[Action ("Bttn_TouchUpInside:")]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		partial void Bttn_TouchUpInside (UIButton sender);
-
-		[Action ("UIButton6_TouchUpInside:")]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		partial void UIButton6_TouchUpInside (UIButton sender);
-
 		void ReleaseDesignerOutlets ()
 		{
-			if (Bttn != null) {
-				Bttn.Dispose ();
-				Bttn = null;
-			}
 			if (FirstPage != null) {
 				FirstPage.Dispose ();
 				FirstPage = null;
