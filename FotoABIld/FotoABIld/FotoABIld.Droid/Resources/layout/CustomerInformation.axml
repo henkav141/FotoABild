@@ -78,7 +78,7 @@
         android:background="#1F2F40"
         android:paddingTop="50px">
         <Button
-            android:text="Avbryt"
+            android:text="Föregående"
             android:layout_width="0dp"
             android:layout_height="108px"
             android:layout_weight="1"
