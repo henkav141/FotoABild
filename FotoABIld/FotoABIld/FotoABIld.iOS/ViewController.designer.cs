@@ -16,6 +16,10 @@ namespace FotoABIld.iOS
 	{
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UIButton bttnOrder { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UIView FirstPage { get; set; }
 
 		[Outlet]
@@ -24,6 +28,10 @@ namespace FotoABIld.iOS
 
 		void ReleaseDesignerOutlets ()
 		{
+			if (bttnOrder != null) {
+				bttnOrder.Dispose ();
+				bttnOrder = null;
+			}
 			if (FirstPage != null) {
 				FirstPage.Dispose ();
 				FirstPage = null;

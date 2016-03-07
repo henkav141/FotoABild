@@ -21,6 +21,14 @@
                                 <color key="backgroundColor" customColorSpace="calibratedWhite" colorSpace="calibratedRGB" red="0.5607843137254902" green="0.92549019607843142" blue="0.25098039215686274" alpha="1"/>
                                 <rect key="contentStretch" x="0.0" y="0.0" width="1" height="1"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="36" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
+                                <rect key="frame" x="150" y="200" width="300" height="200"/>
+                                <color key="backgroundColor" colorSpace="calibratedRGB" red="1" green="0.83529411764705885" blue="0" alpha="1"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="tintColor" colorSpace="calibratedRGB" red="0" green="0.52549019607843139" blue="1" alpha="1"/>
                         <color key="backgroundColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
@@ -28,6 +36,7 @@
                     <connections>
                         <outlet property="FirstPage" destination="8bC-Xf-vdC" id="name-outlet-8bC-Xf-vdC"/>
                         <outlet property="topDiv" destination="28" id="name-outlet-28"/>
+                        <outlet property="bttnOrder" destination="36" id="name-outlet-36"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -38,7 +47,4 @@
     <resources>
         <image name="janna_poster_art_by_artgerm-d6qohys.jpg" width="800" height="1155"/>
     </resources>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedScreenMetrics key="destination" type="retina47"/>
-    </simulatedMetricsContainer>
 </document>
