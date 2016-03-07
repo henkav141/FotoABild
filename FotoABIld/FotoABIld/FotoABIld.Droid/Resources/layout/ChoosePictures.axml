@@ -39,32 +39,38 @@
         android:id="@+id/linearLayout3"
         android:background="@android:color/white">
         <Button
-            android:text="Beställ"
+            android:text="Välj Bilder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/ChoosePicturesButton"
             android:background="#ffbe1f"
-            android:layout_width="504px"
-            android:layout_height="376px"
-            android:layout_marginTop="288px"
-            android:layout_marginLeft="288px"
-            android:id="@+id/orderButton"
             android:textColor="#1F2F40" />
     </LinearLayout>
     <LinearLayout
-        android:orientation="vertical"
+        android:orientation="horizontal"
         android:minWidth="25px"
         android:minHeight="25px"
         android:layout_width="match_parent"
         android:layout_height="196px"
-        android:layout_weight="5"
+        android:layout_weight="11"
         android:id="@+id/linearLayout4"
-        android:background="#1F2F40">
+        android:background="#1F2F40"
+        android:paddingTop="50px">
         <Button
-            android:text="Historik"
-            android:layout_width="336px"
+            android:text="Avbryt"
+            android:layout_width="0dp"
             android:layout_height="108px"
-            android:layout_marginLeft="105px"
-            android:layout_marginTop="30dp"
+            android:layout_weight="1"
+            android:id="@+id/CancelButton"
             android:background="#ffbe1f"
-            android:textColor="#1F2F40"
-            android:id="@+id/historyButton" />
+            android:textColor="#1F2F40" />
+        <Button
+            android:text="Nästa"
+            android:layout_width="0dp"
+            android:layout_height="108px"
+            android:layout_weight="1"
+            android:id="@+id/NextButton"
+            android:background="#ffbe1f"
+            android:textColor="#1F2F40" />
     </LinearLayout>
 </LinearLayout>
