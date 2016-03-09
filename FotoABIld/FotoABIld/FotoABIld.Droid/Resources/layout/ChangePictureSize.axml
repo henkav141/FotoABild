@@ -38,14 +38,6 @@
         android:layout_weight="60"
         android:id="@+id/linearLayout3"
         android:background="@android:color/white">
-        <Button
-            android:text="Välj Bilder"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_weight="1"
-            android:id="@+id/ChoosePicturesButton"
-            android:background="#ffbe1f"
-            android:textColor="#1F2F40" />
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -62,55 +54,22 @@
                     <LinearLayout
                         android:layout_height="wrap_content"
                         android:layout_width="wrap_content"
-                        android:orientation="vertical">
-                        <ImageView
-                            android:src="@drawable/henrik"
-                            android:layout_height="160dp"
-                            android:layout_width="160dp"
-                            android:id="@+id/imageview1"
-                            android:layout_weight="1"
-                            android:layout_marginLeft="20dp" />
-                        <NumberPicker
-                            android:id="@+id/numberPicker1"
-                            android:layout_height="wrap_content"
-                            android:layout_width="wrap_content"
-                            android:layout_marginLeft="75dp" />
-                    </LinearLayout>
+                        android:orientation="vertical"
+                        android:minWidth="25px"
+                        android:minHeight="25px" />
                     <LinearLayout
                         android:layout_height="wrap_content"
                         android:layout_width="wrap_content"
-                        android:orientation="vertical">
-                        <ImageView
-                            android:src="@drawable/johan"
-                            android:layout_height="160dp"
-                            android:layout_width="160dp"
-                            android:id="@+id/imageview2"
-                            android:layout_weight="1" />
-                        <NumberPicker
-                            android:id="@+id/numberPicker2"
-                            android:layout_height="wrap_content"
-                            android:layout_width="wrap_content"
-                            android:layout_marginLeft="40dp" />
-                    </LinearLayout>
+                        android:orientation="vertical"
+                        android:minWidth="25px"
+                        android:minHeight="25px" />
                 </LinearLayout>
                 <LinearLayout
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
-                    android_orientation="horizontal">
-                    <ImageView
-                        android:src="@drawable/Johan"
-                        android:layout_height="160dp"
-                        android:layout_width="160dp"
-                        android:id="@+id/imageview3"
-                        android:layout_weight="1"
-                        android:layout_marginLeft="20dp" />
-                    <ImageView
-                        android:src="@drawable/richard"
-                        android:layout_height="160dp"
-                        android:layout_width="160dp"
-                        android:id="@+id/imageview4"
-                        android:layout_weight="1" />
-                </LinearLayout>
+                    android_orientation="horizontal"
+                    android:minWidth="25px"
+                    android:minHeight="25px" />
             </LinearLayout>
         </ScrollView>
     </LinearLayout>
