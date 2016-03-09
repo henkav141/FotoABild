@@ -19,7 +19,10 @@ namespace FotoABIld.iOS
             topDivView.BackgroundColor = UIColor.FromRGB(31, 47, 64);
             bttnOrder.BackgroundColor = UIColor.FromRGB(255, 190, 31);
 		    bttnOrder.Layer.CornerRadius = 10;
-		}
+            bttnHistoryIphone.Layer.CornerRadius = 10;
+            bttnHistoryIpad.Layer.CornerRadius = 10;
+
+        }
 
 		public override void DidReceiveMemoryWarning ()
 		{

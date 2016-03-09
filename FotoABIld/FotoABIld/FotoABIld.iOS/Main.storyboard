@@ -45,7 +45,7 @@
                                 <rect key="frame" x="100" y="51" width="500" height="149"/>
                                 <color key="backgroundColor" customColorSpace="calibratedWhite" colorSpace="calibratedRGB" red="1" green="0.81568627450980391" blue="0.25882352941176473" alpha="1"/>
                                 <variation key="heightClass=regular-widthClass=compact">
-                                    <rect key="frame" x="100" y="51" width="314" height="93.5"/>
+                                    <rect key="frame" x="100" y="51" width="220" height="65.5"/>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=regular">
                                     <rect key="frame" x="100" y="51" width="668" height="199"/>
@@ -58,7 +58,7 @@
                                 <rect key="frame" x="0.0" y="51" width="500" height="149"/>
                                 <color key="backgroundColor" customColorSpace="calibratedWhite" colorSpace="calibratedRGB" red="1" green="0.81568627450980391" blue="0.25882352941176473" alpha="1"/>
                                 <variation key="heightClass=regular-widthClass=compact">
-                                    <rect key="frame" x="0.0" y="51" width="314" height="93.5"/>
+                                    <rect key="frame" x="0.0" y="51" width="220" height="65.5"/>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=regular">
                                     <rect key="frame" x="0.0" y="51" width="668" height="199"/>
@@ -71,7 +71,7 @@
                                 <rect key="frame" x="50" y="51" width="500" height="149"/>
                                 <color key="backgroundColor" colorSpace="calibratedRGB" red="1" green="0.81568627450980391" blue="0.25882352941176473" alpha="1"/>
                                 <variation key="heightClass=regular-widthClass=compact">
-                                    <rect key="frame" x="50" y="51" width="314" height="93.5"/>
+                                    <rect key="frame" x="50" y="51" width="220" height="65.5"/>
                                 </variation>
                                 <constraints>
                                     <constraint id="316" firstAttribute="width" secondItem="263" secondAttribute="height" multiplier="500:149"/>
@@ -80,9 +80,77 @@
                             <view contentMode="scaleToFill" id="415" translatesAutoresizingMaskIntoConstraints="NO">
                                 <rect key="frame" x="0.0" y="451" width="600" height="149"/>
                                 <color key="backgroundColor" customColorSpace="calibratedWhite" colorSpace="calibratedRGB" red="0.12156862745098039" green="0.18431372549019609" blue="0.25098039215686274" alpha="1"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="565" translatesAutoresizingMaskIntoConstraints="NO">
+                                        <rect key="frame" x="31" y="25" width="46" height="30"/>
+                                        <color key="backgroundColor" colorSpace="calibratedRGB" red="1" green="0.74509803921568629" blue="0.12156862745098039" alpha="1"/>
+                                        <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="17"/>
+                                        <state key="normal" title="Historik">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
+                                        <variation key="heightClass=regular-widthClass=compact">
+                                            <rect key="frame" x="31" y="25.5" width="114" height="30"/>
+                                            <mask key="constraints">
+                                                <include reference="572"/>
+                                            </mask>
+                                        </variation>
+                                        <constraints>
+                                            <constraint id="572" firstAttribute="width" secondItem="565" secondAttribute="height" multiplier="19:5"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="572"/>
+                                            </mask>
+                                        </variation>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="573" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
+                                        <rect key="frame" x="70" y="57" width="46" height="30"/>
+                                        <color key="backgroundColor" colorSpace="calibratedRGB" red="1" green="0.74509803921568629" blue="0.12156862745098039" alpha="1"/>
+                                        <fontDescription key="fontDescription" name="TimesNewRomanPS-BoldMT" family="Times New Roman" pointSize="30"/>
+                                        <state key="normal" title="Historik">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
+                                        <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
+                                            <rect key="frame" x="50" y="53" width="290" height="85"/>
+                                        </variation>
+                                    </button>
+                                </subviews>
                                 <constraints>
                                     <constraint id="425" firstAttribute="width" secondItem="415" secondAttribute="height" multiplier="600:149"/>
+                                    <constraint id="568" firstItem="565" firstAttribute="leading" secondItem="415" secondAttribute="leading" constant="31"/>
+                                    <constraint id="569" firstItem="415" firstAttribute="bottom" secondItem="565" secondAttribute="bottom" constant="24"/>
+                                    <constraint id="571" firstItem="415" firstAttribute="trailing" secondItem="565" secondAttribute="trailing" constant="175"/>
                                 </constraints>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <rect key="frame" x="0.0" y="400.5" width="320" height="79.5"/>
+                                    <mask key="subviews">
+                                        <include reference="565"/>
+                                    </mask>
+                                    <mask key="constraints">
+                                        <include reference="568"/>
+                                        <include reference="569"/>
+                                        <include reference="571"/>
+                                    </mask>
+                                </variation>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="565"/>
+                                        <exclude reference="573"/>
+                                    </mask>
+                                    <mask key="constraints">
+                                        <exclude reference="568"/>
+                                        <exclude reference="569"/>
+                                        <exclude reference="571"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <mask key="subviews">
+                                        <include reference="573"/>
+                                    </mask>
+                                    <rect key="frame" x="0.0" y="833.5" width="768" height="190.5"/>
+                                </variation>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="434" translatesAutoresizingMaskIntoConstraints="NO">
                                 <rect key="frame" x="164" y="318" width="46" height="30"/>
@@ -93,7 +161,7 @@
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <variation key="heightClass=regular-widthClass=compact">
-                                    <rect key="frame" x="75" y="266" width="264" height="188"/>
+                                    <rect key="frame" x="75" y="171.5" width="170" height="121"/>
                                     <mask key="constraints">
                                         <include reference="532"/>
                                     </mask>
@@ -105,6 +173,18 @@
                                     <mask key="constraints">
                                         <exclude reference="532"/>
                                     </mask>
+                                </variation>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="541" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
+                                <rect key="frame" x="285" y="431" width="46" height="30"/>
+                                <color key="backgroundColor" colorSpace="calibratedRGB" red="1" green="0.74509803921568629" blue="0.12156862745098039" alpha="1"/>
+                                <fontDescription key="fontDescription" name="TimesNewRomanPS-BoldMT" family="Times New Roman" pointSize="50"/>
+                                <state key="normal" title="Beställl">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="186" y="378" width="395" height="269"/>
                                 </variation>
                             </button>
                         </subviews>
@@ -123,6 +203,7 @@
                             </mask>
                             <mask key="subviews">
                                 <exclude reference="434"/>
+                                <exclude reference="541"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=regular">
@@ -131,6 +212,9 @@
                                 <include reference="294"/>
                                 <include reference="297"/>
                                 <include reference="298"/>
+                            </mask>
+                            <mask key="subviews">
+                                <include reference="541"/>
                             </mask>
                         </variation>
                         <constraints>
@@ -173,6 +257,9 @@
                         <outlet property="logoBackgroundViewRight" destination="405" id="name-outlet-405"/>
                         <outlet property="botDivView" destination="415" id="name-outlet-415"/>
                         <outlet property="bttnOrder" destination="434" id="name-outlet-434"/>
+                        <outlet property="bttnOrderIpad" destination="541" id="name-outlet-541"/>
+                        <outlet property="bttnHistoryIphone" destination="565" id="name-outlet-565"/>
+                        <outlet property="bttnHistoryIpad" destination="573" id="name-outlet-573"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -184,7 +271,4 @@
         <image name="janna_poster_art_by_artgerm-d6qohys.jpg" width="800" height="1155"/>
         <image name="logo.png" width="500" height="149"/>
     </resources>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedScreenMetrics key="destination" type="retina55"/>
-    </simulatedMetricsContainer>
 </document>
