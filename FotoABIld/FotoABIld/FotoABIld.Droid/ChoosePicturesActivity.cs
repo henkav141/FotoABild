@@ -24,13 +24,21 @@ namespace FotoABIld.Droid
             // Create your application here
             SetContentView(Resource.Layout.ChoosePictures);
 
-            
-            
-            
+            Button cancelButton = FindViewById<Button>(Resource.Id.CancelButton);
 
- 
-
+            cancelButton.Click += Cancelbutton_Click;
 
         }
+
+        private void Cancelbutton_Click(object sender, EventArgs e)
+        {
+            var intent = new Intent(this, typeof(MainActivity));
+            StartActivity(intent);
+        }
+
+
+
+
+
     }
-}
+    }
