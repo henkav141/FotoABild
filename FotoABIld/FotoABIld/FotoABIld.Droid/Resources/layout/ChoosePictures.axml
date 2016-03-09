@@ -41,8 +41,8 @@
         <Button
             android:text="Välj Bilder"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="10"
+            android:layout_height="40dp"
+            android:layout_weight="1"
             android:id="@+id/ChoosePicturesButton"
             android:background="#ffbe1f"
             android:textColor="#1F2F40" />
@@ -65,13 +65,15 @@
                         android:orientation="vertical">
                         <ImageView
                             android:src="@drawable/henrik"
-                            android:layout_height="500px"
-                            android:layout_width="500px"
-                            android:id="@+id/imageview1" />
+                            android:layout_height="160dp"
+                            android:layout_width="160dp"
+                            android:id="@+id/imageview1"
+                            android:layout_weight="1" />
                         <NumberPicker
                             android:id="@+id/numberPicker1"
                             android:layout_height="wrap_content"
-                            android:layout_width="wrap_content" />
+                            android:layout_width="wrap_content"
+                            android:layout_marginLeft="35dp" />
                     </LinearLayout>
                     <LinearLayout
                         android:layout_height="wrap_content"
@@ -79,13 +81,15 @@
                         android:orientation="vertical">
                         <ImageView
                             android:src="@drawable/johan"
-                            android:layout_height="500px"
-                            android:layout_width="500px"
-                            android:id="@+id/imageview2" />
+                            android:layout_height="160dp"
+                            android:layout_width="160dp"
+                            android:id="@+id/imageview2"
+                            android:layout_weight="1" />
                         <NumberPicker
                             android:id="@+id/numberPicker2"
                             android:layout_height="wrap_content"
-                            android:layout_width="wrap_content" />
+                            android:layout_width="wrap_content"
+                            android:layout_marginLeft="35dp" />
                     </LinearLayout>
                 </LinearLayout>
                 <LinearLayout
@@ -94,14 +98,16 @@
                     android_orientation="horizontal">
                     <ImageView
                         android:src="@drawable/Johan"
-                        android:layout_height="500px"
-                        android:layout_width="500px"
-                        android:id="@+id/imageview3" />
+                        android:layout_height="160dp"
+                        android:layout_width="160dp"
+                        android:id="@+id/imageview3"
+                        android:layout_weight="1" />
                     <ImageView
                         android:src="@drawable/richard"
-                        android:layout_height="500px"
-                        android:layout_width="500px"
-                        android:id="@+id/imageview4" />
+                        android:layout_height="160dp"
+                        android:layout_width="160dp"
+                        android:id="@+id/imageview4"
+                        android:layout_weight="1" />
                 </LinearLayout>
             </LinearLayout>
         </ScrollView>
@@ -118,19 +124,19 @@
         android:paddingTop="50px">
         <Button
             android:text="Avbryt"
-            android:layout_width="0dp"
-            android:layout_height="108px"
-            android:layout_weight="1"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
             android:id="@+id/CancelButton"
             android:background="#ffbe1f"
-            android:textColor="#1F2F40" />
+            android:textColor="#1F2F40"
+            android:layout_weight="1" />
         <Button
             android:text="Nästa"
-            android:layout_width="0dp"
-            android:layout_height="108px"
-            android:layout_weight="1"
+            android:layout_width="50dp"
             android:id="@+id/NextButton"
             android:background="#ffbe1f"
-            android:textColor="#1F2F40" />
+            android:textColor="#1F2F40"
+            android:layout_height="40dp"
+            android:layout_weight="1" />
     </LinearLayout>
 </LinearLayout>
