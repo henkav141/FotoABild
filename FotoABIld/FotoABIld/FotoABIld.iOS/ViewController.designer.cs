@@ -16,6 +16,14 @@ namespace FotoABIld.iOS
 	{
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UIView botDivView { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIButton bttnOrder { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UIView FirstPage { get; set; }
 
 		[Outlet]
@@ -32,10 +40,18 @@ namespace FotoABIld.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UIView topDiv { get; set; }
+		UIView topDivView { get; set; }
 
 		void ReleaseDesignerOutlets ()
 		{
+			if (botDivView != null) {
+				botDivView.Dispose ();
+				botDivView = null;
+			}
+			if (bttnOrder != null) {
+				bttnOrder.Dispose ();
+				bttnOrder = null;
+			}
 			if (FirstPage != null) {
 				FirstPage.Dispose ();
 				FirstPage = null;
@@ -52,9 +68,9 @@ namespace FotoABIld.iOS
 				logoType.Dispose ();
 				logoType = null;
 			}
-			if (topDiv != null) {
-				topDiv.Dispose ();
-				topDiv = null;
+			if (topDivView != null) {
+				topDivView.Dispose ();
+				topDivView = null;
 			}
 		}
 	}
