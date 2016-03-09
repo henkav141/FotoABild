@@ -9,6 +9,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Android.Widget.NumberPicker;
 
 namespace FotoABIld.Droid
 {
@@ -23,6 +24,12 @@ namespace FotoABIld.Droid
 
             // Create your application here
             SetContentView(Resource.Layout.ChoosePictures);
+
+            
+            
+            
+
+ 
 
 
         }
