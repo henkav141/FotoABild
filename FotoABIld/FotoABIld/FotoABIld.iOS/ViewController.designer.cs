@@ -20,7 +20,19 @@ namespace FotoABIld.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UIButton bttnHistoryIpad { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIButton bttnHistoryIphone { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UIButton bttnOrder { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIButton bttnOrderIpad { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -48,9 +60,21 @@ namespace FotoABIld.iOS
 				botDivView.Dispose ();
 				botDivView = null;
 			}
+			if (bttnHistoryIpad != null) {
+				bttnHistoryIpad.Dispose ();
+				bttnHistoryIpad = null;
+			}
+			if (bttnHistoryIphone != null) {
+				bttnHistoryIphone.Dispose ();
+				bttnHistoryIphone = null;
+			}
 			if (bttnOrder != null) {
 				bttnOrder.Dispose ();
 				bttnOrder = null;
+			}
+			if (bttnOrderIpad != null) {
+				bttnOrderIpad.Dispose ();
+				bttnOrderIpad = null;
 			}
 			if (FirstPage != null) {
 				FirstPage.Dispose ();
