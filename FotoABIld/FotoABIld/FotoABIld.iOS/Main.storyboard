@@ -87,7 +87,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="434" translatesAutoresizingMaskIntoConstraints="NO">
                                 <rect key="frame" x="164" y="318" width="46" height="30"/>
                                 <color key="backgroundColor" colorSpace="calibratedRGB" red="1" green="0.74509803921568629" blue="0.12156862745098039" alpha="1"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="TimesNewRomanPS-BoldMT" family="Times New Roman" pointSize="32"/>
                                 <state key="normal" title="Beställ">
                                     <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>

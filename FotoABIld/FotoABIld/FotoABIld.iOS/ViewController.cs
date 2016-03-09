@@ -18,6 +18,7 @@ namespace FotoABIld.iOS
             //FirstPage.BackgroundColor = UIColor.FromRGB(255, 208, 66);
             topDivView.BackgroundColor = UIColor.FromRGB(31, 47, 64);
             bttnOrder.BackgroundColor = UIColor.FromRGB(255, 190, 31);
+		    bttnOrder.Layer.CornerRadius = 10;
 		}
 
 		public override void DidReceiveMemoryWarning ()
