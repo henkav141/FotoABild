@@ -17,7 +17,8 @@ namespace FotoABIld.iOS
             // Perform any additional setup after loading the view, typically from a nib.
             //FirstPage.BackgroundColor = UIColor.FromRGB(255, 208, 66);
             topDiv.BackgroundColor = UIColor.FromRGB(31, 47, 64);
-            bttnOrder.BackgroundColor = UIColor.FromRGB(255, 190, 31);
+            //bttnOrder.BackgroundColor = UIColor.FromRGB(255, 190, 31);
+		    
 		}
 
 		public override void DidReceiveMemoryWarning ()

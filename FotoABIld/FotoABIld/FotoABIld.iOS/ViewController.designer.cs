@@ -16,11 +16,19 @@ namespace FotoABIld.iOS
 	{
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UIButton bttnOrder { get; set; }
+		UIView FirstPage { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UIView FirstPage { get; set; }
+		UIView logoBackgroundViewLeft { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIView logoBackgroundViewRight { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIImageView logoType { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -28,13 +36,21 @@ namespace FotoABIld.iOS
 
 		void ReleaseDesignerOutlets ()
 		{
-			if (bttnOrder != null) {
-				bttnOrder.Dispose ();
-				bttnOrder = null;
-			}
 			if (FirstPage != null) {
 				FirstPage.Dispose ();
 				FirstPage = null;
+			}
+			if (logoBackgroundViewLeft != null) {
+				logoBackgroundViewLeft.Dispose ();
+				logoBackgroundViewLeft = null;
+			}
+			if (logoBackgroundViewRight != null) {
+				logoBackgroundViewRight.Dispose ();
+				logoBackgroundViewRight = null;
+			}
+			if (logoType != null) {
+				logoType.Dispose ();
+				logoType = null;
 			}
 			if (topDiv != null) {
 				topDiv.Dispose ();
