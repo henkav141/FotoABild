@@ -50,10 +50,6 @@ namespace FotoABIld.iOS
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UIImageView logoType { get; set; }
 
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UIView topDivView { get; set; }
-
 		void ReleaseDesignerOutlets ()
 		{
 			if (botDivView != null) {
@@ -91,10 +87,6 @@ namespace FotoABIld.iOS
 			if (logoType != null) {
 				logoType.Dispose ();
 				logoType = null;
-			}
-			if (topDivView != null) {
-				topDivView.Dispose ();
-				topDivView = null;
 			}
 		}
 	}
