@@ -22,6 +22,7 @@ namespace FotoABIld.iOS
             bttnHistoryIphone.Layer.CornerRadius = 10;
             bttnHistoryIpad.Layer.CornerRadius = 10;
 
+
         }
 
 		public override void DidReceiveMemoryWarning ()
