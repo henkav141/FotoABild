@@ -56,7 +56,7 @@
                         <barButtonItem key="backBarButtonItem" title="Tillbaka" id="4817"/>
                         <barButtonItem id="4818" translatesAutoresizingMaskIntoConstraints="NO" key="leftBarButtonItem" systemItem="play">
                             <connections>
-                                <segue id="4903" destination="4689" kind="show"/>
+                                <segue id="5110" destination="4689" kind="show"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -86,7 +86,7 @@
                         <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <color key="tintColor" colorSpace="calibratedRGB" red="1" green="0.81568627450980391" blue="0.25882352941176473" alpha="1"/>
-                        <color key="barTintColor" colorSpace="calibratedRGB" red="0.12156862745098039" green="0.18431372549019609" blue="0.25098039215686274" alpha="1"/>
+                        <color key="barTintColor" colorSpace="calibratedRGB" red="0.074509803921568626" green="0.13725490196078433" blue="0.20392156862745098" alpha="1"/>
                     </toolbar>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <toolbarItems/>
@@ -97,20 +97,21 @@
         </scene>
         <scene sceneID="4688">
             <objects>
-                <viewController id="4689" sceneMemberID="viewController">
+                <viewController id="4689" sceneMemberID="viewController" automaticallyAdjustsScrollViewInsets="NO">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="4686"/>
                         <viewControllerLayoutGuide type="bottom" id="4687"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="4690">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="492"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4691" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="713" y="-451"/>
+            <point key="canvasLocation" x="585" y="-302"/>
         </scene>
     </scenes>
     <resources>
