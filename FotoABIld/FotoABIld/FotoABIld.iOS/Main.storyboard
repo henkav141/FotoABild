@@ -7,162 +7,25 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController" automaticallyAdjustsScrollViewInsets="NO">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleAspectFit" id="405" translatesAutoresizingMaskIntoConstraints="NO">
-                                <rect key="frame" x="100" y="51" width="500" height="149"/>
-                                <color key="backgroundColor" customColorSpace="calibratedWhite" colorSpace="calibratedRGB" red="1" green="0.81568627450980391" blue="0.25882352941176473" alpha="1"/>
-                                <variation key="heightClass=regular-widthClass=compact">
-                                    <rect key="frame" x="100" y="51" width="314" height="93.5"/>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=regular">
-                                    <rect key="frame" x="100" y="51" width="668" height="199"/>
-                                </variation>
-                                <constraints>
-                                    <constraint id="412" firstAttribute="width" secondItem="405" secondAttribute="height" multiplier="500:149"/>
-                                </constraints>
-                            </view>
-                            <view contentMode="scaleAspectFit" id="319" translatesAutoresizingMaskIntoConstraints="NO">
-                                <rect key="frame" x="0.0" y="51" width="500" height="149"/>
-                                <color key="backgroundColor" customColorSpace="calibratedWhite" colorSpace="calibratedRGB" red="1" green="0.81568627450980391" blue="0.25882352941176473" alpha="1"/>
-                                <variation key="heightClass=regular-widthClass=compact">
-                                    <rect key="frame" x="0.0" y="51" width="314" height="93.5"/>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=regular">
-                                    <rect key="frame" x="0.0" y="51" width="668" height="199"/>
-                                </variation>
-                                <constraints>
-                                    <constraint id="404" firstAttribute="width" secondItem="319" secondAttribute="height" multiplier="500:149"/>
-                                </constraints>
-                            </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" id="263" translatesAutoresizingMaskIntoConstraints="NO" image="logo.png">
-                                <rect key="frame" x="50" y="51" width="500" height="149"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" id="4094" translatesAutoresizingMaskIntoConstraints="NO" image="logo.png">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
                                 <color key="backgroundColor" colorSpace="calibratedRGB" red="1" green="0.81568627450980391" blue="0.25882352941176473" alpha="1"/>
                                 <variation key="heightClass=regular-widthClass=compact">
-                                    <rect key="frame" x="50" y="51" width="314" height="93.5"/>
+                                    <rect key="frame" x="0.0" y="64" width="375" height="62.5"/>
                                 </variation>
                                 <constraints>
-                                    <constraint id="316" firstAttribute="width" secondItem="263" secondAttribute="height" multiplier="500:149"/>
+                                    <constraint id="4948" firstAttribute="width" secondItem="4094" secondAttribute="height" multiplier="6:1"/>
                                 </constraints>
                             </imageView>
-                            <view contentMode="scaleToFill" id="415" translatesAutoresizingMaskIntoConstraints="NO">
-                                <rect key="frame" x="0.0" y="451" width="600" height="149"/>
-                                <color key="backgroundColor" customColorSpace="calibratedWhite" colorSpace="calibratedRGB" red="0.12156862745098039" green="0.18431372549019609" blue="0.25098039215686274" alpha="1"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="565" translatesAutoresizingMaskIntoConstraints="NO">
-                                        <rect key="frame" x="31" y="25" width="46" height="30"/>
-                                        <color key="backgroundColor" colorSpace="calibratedRGB" red="1" green="0.74509803921568629" blue="0.12156862745098039" alpha="1"/>
-                                        <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="17"/>
-                                        <state key="normal" title="Historik">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="titleColor" colorSpace="calibratedRGB" red="0.12156862745098039" green="0.18431372549019609" blue="0.25098039215686274" alpha="1"/>
-                                        </state>
-                                        <variation key="heightClass=regular-widthClass=compact">
-                                            <rect key="frame" x="31" y="24.5" width="208" height="54.5"/>
-                                            <mask key="constraints">
-                                                <include reference="572"/>
-                                            </mask>
-                                        </variation>
-                                        <constraints>
-                                            <constraint id="572" firstAttribute="width" secondItem="565" secondAttribute="height" multiplier="19:5"/>
-                                        </constraints>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="572"/>
-                                            </mask>
-                                        </variation>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="573" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
-                                        <rect key="frame" x="70" y="57" width="46" height="30"/>
-                                        <color key="backgroundColor" colorSpace="calibratedRGB" red="1" green="0.74509803921568629" blue="0.12156862745098039" alpha="1"/>
-                                        <fontDescription key="fontDescription" name="TimesNewRomanPS-BoldMT" family="Times New Roman" pointSize="30"/>
-                                        <state key="normal" title="Historik">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="titleColor" colorSpace="calibratedRGB" red="0.12156862745098039" green="0.18431372549019609" blue="0.25098039215686274" alpha="1"/>
-                                        </state>
-                                        <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
-                                            <rect key="frame" x="50" y="53" width="290" height="85"/>
-                                        </variation>
-                                    </button>
-                                </subviews>
-                                <constraints>
-                                    <constraint id="425" firstAttribute="width" secondItem="415" secondAttribute="height" multiplier="600:149"/>
-                                    <constraint id="568" firstItem="565" firstAttribute="leading" secondItem="415" secondAttribute="leading" constant="31"/>
-                                    <constraint id="569" firstItem="415" firstAttribute="bottom" secondItem="565" secondAttribute="bottom" constant="24"/>
-                                    <constraint id="571" firstItem="415" firstAttribute="trailing" secondItem="565" secondAttribute="trailing" constant="175"/>
-                                </constraints>
-                                <variation key="heightClass=regular-widthClass=compact">
-                                    <rect key="frame" x="0.0" y="633" width="414" height="103"/>
-                                    <mask key="subviews">
-                                        <include reference="565"/>
-                                    </mask>
-                                    <mask key="constraints">
-                                        <include reference="568"/>
-                                        <include reference="569"/>
-                                        <include reference="571"/>
-                                    </mask>
-                                </variation>
-                                <variation key="default">
-                                    <mask key="subviews">
-                                        <exclude reference="565"/>
-                                        <exclude reference="573"/>
-                                    </mask>
-                                    <mask key="constraints">
-                                        <exclude reference="568"/>
-                                        <exclude reference="569"/>
-                                        <exclude reference="571"/>
-                                    </mask>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=regular">
-                                    <mask key="subviews">
-                                        <include reference="573"/>
-                                    </mask>
-                                    <rect key="frame" x="0.0" y="833.5" width="768" height="190.5"/>
-                                </variation>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="434" translatesAutoresizingMaskIntoConstraints="NO">
-                                <rect key="frame" x="164" y="318" width="46" height="30"/>
-                                <color key="backgroundColor" colorSpace="calibratedRGB" red="1" green="0.74509803921568629" blue="0.12156862745098039" alpha="1"/>
-                                <fontDescription key="fontDescription" name="TimesNewRomanPS-BoldMT" family="Times New Roman" pointSize="30"/>
-                                <state key="normal" title="Beställ">
-                                    <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
-                                    <color key="titleColor" colorSpace="calibratedRGB" red="0.12156862745098039" green="0.18431372549019609" blue="0.25098039215686274" alpha="1"/>
-                                </state>
-                                <variation key="heightClass=regular-widthClass=compact">
-                                    <rect key="frame" x="75" y="266" width="264" height="188"/>
-                                    <mask key="constraints">
-                                        <include reference="532"/>
-                                    </mask>
-                                </variation>
-                                <constraints>
-                                    <constraint id="532" firstAttribute="width" secondItem="434" secondAttribute="height" multiplier="45:32"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="532"/>
-                                    </mask>
-                                </variation>
-                                <connections/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="541" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
-                                <rect key="frame" x="285" y="431" width="46" height="30"/>
-                                <color key="backgroundColor" colorSpace="calibratedRGB" red="1" green="0.74509803921568629" blue="0.12156862745098039" alpha="1"/>
-                                <fontDescription key="fontDescription" name="TimesNewRomanPS-BoldMT" family="Times New Roman" pointSize="50"/>
-                                <state key="normal" title="Beställ">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleColor" colorSpace="calibratedRGB" red="0.12156862745098039" green="0.18431372549019609" blue="0.25098039215686274" alpha="1"/>
-                                </state>
-                                <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
-                                    <rect key="frame" x="186" y="378" width="395" height="269"/>
-                                </variation>
-                            </button>
                         </subviews>
                         <color key="tintColor" colorSpace="calibratedRGB" red="0" green="0.52549019607843139" blue="1" alpha="1"/>
                         <color key="backgroundColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
@@ -170,14 +33,6 @@
                             <mask key="constraints">
                                 <exclude reference="293"/>
                                 <exclude reference="294"/>
-                                <exclude reference="529"/>
-                                <exclude reference="530"/>
-                                <exclude reference="536"/>
-                                <exclude reference="537"/>
-                            </mask>
-                            <mask key="subviews">
-                                <exclude reference="434"/>
-                                <exclude reference="541"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=regular">
@@ -185,76 +40,92 @@
                                 <include reference="293"/>
                                 <include reference="294"/>
                             </mask>
-                            <mask key="subviews">
-                                <include reference="541"/>
-                            </mask>
                         </variation>
                         <constraints>
-                            <constraint id="301" firstItem="8bC-Xf-vdC" firstAttribute="trailing" secondItem="263" secondAttribute="trailing" constant="50"/>
-                            <constraint id="302" firstItem="263" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="51"/>
-                            <constraint id="305" firstItem="263" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="50"/>
-                            <constraint id="398" firstItem="319" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading"/>
-                            <constraint id="399" firstItem="319" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="51"/>
-                            <constraint id="403" firstItem="8bC-Xf-vdC" firstAttribute="trailing" secondItem="319" secondAttribute="trailing" constant="100"/>
-                            <constraint id="407" firstItem="8bC-Xf-vdC" firstAttribute="trailing" secondItem="405" secondAttribute="trailing"/>
-                            <constraint id="408" firstItem="405" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="51"/>
-                            <constraint id="411" firstItem="405" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="100"/>
-                            <constraint id="421" firstItem="8bC-Xf-vdC" firstAttribute="trailing" secondItem="415" secondAttribute="trailing"/>
-                            <constraint id="422" firstItem="8bC-Xf-vdC" firstAttribute="bottom" secondItem="415" secondAttribute="bottom"/>
-                            <constraint id="426" firstItem="415" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading"/>
-                            <constraint id="529" firstItem="8bC-Xf-vdC" firstAttribute="trailing" secondItem="434" secondAttribute="trailing" constant="75"/>
-                            <constraint id="530" firstItem="434" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="75"/>
-                            <constraint id="536" firstItem="434" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX"/>
-                            <constraint id="537" firstItem="8bC-Xf-vdC" firstAttribute="centerY" secondItem="434" secondAttribute="centerY" constant="8"/>
+                            <constraint id="4943" firstItem="8bC-Xf-vdC" firstAttribute="trailing" secondItem="4094" secondAttribute="trailing"/>
+                            <constraint id="4944" firstItem="4094" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top"/>
+                            <constraint id="4947" firstItem="4094" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading"/>
                         </constraints>
-                        <variation key="heightClass=regular-widthClass=compact">
-                            <mask key="subviews">
-                                <include reference="434"/>
-                            </mask>
-                            <mask key="constraints">
-                                <include reference="529"/>
-                                <include reference="530"/>
-                                <include reference="536"/>
-                                <include reference="537"/>
-                            </mask>
-                        </variation>
                     </view>
                     <connections>
                         <outlet property="FirstPage" destination="8bC-Xf-vdC" id="name-outlet-8bC-Xf-vdC"/>
-                        <outlet property="logoType" destination="263" id="name-outlet-263"/>
-                        <outlet property="logoBackgroundViewLeft" destination="319" id="name-outlet-319"/>
-                        <outlet property="logoBackgroundViewRight" destination="405" id="name-outlet-405"/>
-                        <outlet property="botDivView" destination="415" id="name-outlet-415"/>
-                        <outlet property="bttnOrder" destination="434" id="name-outlet-434"/>
-                        <outlet property="bttnOrderIpad" destination="541" id="name-outlet-541"/>
-                        <outlet property="bttnHistoryIphone" destination="565" id="name-outlet-565"/>
-                        <outlet property="bttnHistoryIpad" destination="573" id="name-outlet-573"/>
+                        <outlet property="hej" destination="4677" id="name-outlet-4677"/>
                     </connections>
-                    <navigationItem id="2797" key="navigationItem"/>
+                    <toolbarItems/>
+                    <navigationItem id="4677" key="navigationItem">
+                        <barButtonItem key="backBarButtonItem" title="Tillbaka" id="4817"/>
+                        <barButtonItem id="4818" translatesAutoresizingMaskIntoConstraints="NO" key="leftBarButtonItem" systemItem="play">
+                            <connections>
+                                <segue id="4903" destination="4689" kind="show"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="11" y="-286"/>
+            <point key="canvasLocation" x="-185" y="-443"/>
         </scene>
         <scene sceneID="2728">
             <objects>
-                <navigationController definesPresentationContext="YES" id="2729" sceneMemberID="viewController" customClass="MainNavController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2732" translucent="NO">
+                <navigationController definesPresentationContext="YES" id="2729" sceneMemberID="viewController" customClass="MainNavController" automaticallyAdjustsScrollViewInsets="NO">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2732" barStyle="black" autoresizesSubviews="NO" translucent="NO">
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                         <rect key="frame" x="0.0" y="20" width="880" height="44"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        </textAttributes>
                         <color key="barTintColor" colorSpace="calibratedRGB" red="0.12156862745098039" green="0.18431372549019609" blue="0.25098039215686274" alpha="1"/>
                     </navigationBar>
                     <connections>
-                        <segue id="2901" destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController"/>
+                        <outlet property="bottomToolbar" destination="2906" id="name-outlet-2906"/>
+                        <outlet property="mainNavBar" destination="2732" id="name-outlet-2732"/>
+                        <segue id="4678" destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController"/>
                     </connections>
+                    <toolbar key="toolbar" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="2906">
+                        <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <color key="barTintColor" colorSpace="calibratedRGB" red="0.12156862745098039" green="0.18431372549019609" blue="0.25098039215686274" alpha="1"/>
+                        <color key="tintColor" colorSpace="calibratedRGB" red="0" green="0.52549019607843139" blue="1" alpha="1"/>
+                    </toolbar>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <toolbarItems/>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2733" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-844" y="-391"/>
+            <point key="canvasLocation" x="-993" y="-454"/>
+        </scene>
+        <scene sceneID="4688">
+            <objects>
+                <viewController id="4689" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4686"/>
+                        <viewControllerLayoutGuide type="bottom" id="4687"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4690">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4691" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="506" y="-447"/>
         </scene>
     </scenes>
     <resources>
         <image name="janna_poster_art_by_artgerm-d6qohys.jpg" width="800" height="1155"/>
         <image name="logo.png" width="500" height="149"/>
+        <image name="blu.png" width="1422" height="218"/>
+        <image name="activity_feed-50.png" width="50" height="50"/>
+        <image name="activity_feed_filled-50.png" width="50" height="50"/>
+        <image name="receipt_filled-50.png" width="50" height="50"/>
+        <image name="purchase_order_filled-50.png" width="50" height="50"/>
+        <image name="saving_book_filled-32.png" width="32" height="32"/>
+        <image name="112312312.png" width="1422" height="218"/>
+        <image name="right3_filled-50.png" width="50" height="50"/>
+        <image name="FOTOABILD Logga-knapp.png" width="792" height="876"/>
+        <image name="12321.png" width="40" height="44"/>
     </resources>
+    <color key="tintColor" colorSpace="calibratedRGB" red="1" green="0.81568627450980391" blue="0.25882352941176473" alpha="1"/>
 </document>

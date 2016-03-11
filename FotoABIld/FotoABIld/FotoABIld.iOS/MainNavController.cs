@@ -11,9 +11,7 @@ namespace FotoABIld.iOS
 		{
 		}
 
-        public override UIStatusBarStyle PreferredStatusBarStyle()
-        {
-            return UIStatusBarStyle.LightContent;
-        }
+
     }
 }
+
