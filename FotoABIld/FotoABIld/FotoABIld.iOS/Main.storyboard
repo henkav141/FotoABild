@@ -26,6 +26,32 @@
                                     <constraint id="4948" firstAttribute="width" secondItem="4094" secondAttribute="height" multiplier="6:1"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="5125" translatesAutoresizingMaskIntoConstraints="NO">
+                                <rect key="frame" x="137" y="171" width="46" height="30"/>
+                                <color key="backgroundColor" colorSpace="calibratedRGB" red="1" green="0.74509803921568629" blue="0.12156862745098039" alpha="1"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <state key="normal" title="Beställ">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" colorSpace="calibratedRGB" red="0.12156862745098039" green="0.18431372549019609" blue="0.25098039215686274" alpha="1"/>
+                                </state>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <rect key="frame" x="100" y="146" width="120" height="80"/>
+                                    <mask key="constraints">
+                                        <include reference="5133"/>
+                                    </mask>
+                                </variation>
+                                <constraints>
+                                    <constraint id="5133" firstAttribute="width" secondItem="5125" secondAttribute="height" multiplier="3:2"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="5133"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <segue id="5249" destination="4689" kind="show"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="tintColor" colorSpace="calibratedRGB" red="0" green="0.52549019607843139" blue="1" alpha="1"/>
                         <color key="backgroundColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
@@ -33,6 +59,13 @@
                             <mask key="constraints">
                                 <exclude reference="293"/>
                                 <exclude reference="294"/>
+                                <exclude reference="5128"/>
+                                <exclude reference="5132"/>
+                                <exclude reference="5135"/>
+                                <exclude reference="5136"/>
+                            </mask>
+                            <mask key="subviews">
+                                <exclude reference="5125"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=regular">
@@ -45,19 +78,34 @@
                             <constraint id="4943" firstItem="8bC-Xf-vdC" firstAttribute="trailing" secondItem="4094" secondAttribute="trailing"/>
                             <constraint id="4944" firstItem="4094" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top"/>
                             <constraint id="4947" firstItem="4094" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading"/>
+                            <constraint id="5128" firstItem="8bC-Xf-vdC" firstAttribute="trailing" secondItem="5125" secondAttribute="trailing" constant="100"/>
+                            <constraint id="5132" firstItem="5125" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="100"/>
+                            <constraint id="5135" firstItem="5125" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX"/>
+                            <constraint id="5136" firstItem="5125" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY"/>
                         </constraints>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="5125"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="5128"/>
+                                <include reference="5132"/>
+                                <include reference="5135"/>
+                                <include reference="5136"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="FirstPage" destination="8bC-Xf-vdC" id="name-outlet-8bC-Xf-vdC"/>
                         <outlet property="hej" destination="4677" id="name-outlet-4677"/>
+                        <outlet property="bttnOrderIphone" destination="5125" id="name-outlet-5125"/>
+                        <outlet property="bttnMenu" destination="4818" id="name-outlet-4818"/>
                     </connections>
                     <toolbarItems/>
                     <navigationItem id="4677" key="navigationItem">
                         <barButtonItem key="backBarButtonItem" title="Tillbaka" id="4817"/>
                         <barButtonItem id="4818" translatesAutoresizingMaskIntoConstraints="NO" key="leftBarButtonItem" systemItem="play">
-                            <connections>
-                                <segue id="5110" destination="4689" kind="show"/>
-                            </connections>
+                            <connections/>
                         </barButtonItem>
                     </navigationItem>
                     <extendedEdge key="edgesForExtendedLayout"/>
@@ -97,7 +145,7 @@
         </scene>
         <scene sceneID="4688">
             <objects>
-                <viewController id="4689" sceneMemberID="viewController" automaticallyAdjustsScrollViewInsets="NO">
+                <viewController id="4689" sceneMemberID="viewController" automaticallyAdjustsScrollViewInsets="NO" customClass="ChooseImageController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="4686"/>
                         <viewControllerLayoutGuide type="bottom" id="4687"/>
@@ -106,12 +154,138 @@
                         <rect key="frame" x="0.0" y="64" width="600" height="492"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" id="5339" translatesAutoresizingMaskIntoConstraints="NO" image="logo.png">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
+                                <color key="backgroundColor" colorSpace="calibratedRGB" red="1" green="0.81568627450980391" blue="0.25882352941176473" alpha="1"/>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="53.5"/>
+                                </variation>
+                                <constraints>
+                                    <constraint id="5355" firstAttribute="width" secondItem="5339" secondAttribute="height" multiplier="6:1"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="5359" translatesAutoresizingMaskIntoConstraints="NO">
+                                <rect key="frame" x="20" y="62" width="46" height="30"/>
+                                <color key="backgroundColor" colorSpace="calibratedRGB" red="1" green="0.74509803921568629" blue="0.12156862745098039" alpha="1"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <state key="normal" title="Lägg till bilder">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" colorSpace="calibratedRGB" red="0.12156862745098039" green="0.18431372549019609" blue="0.25098039215686274" alpha="1"/>
+                                </state>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <rect key="frame" x="20" y="61.5" width="280" height="33"/>
+                                    <mask key="constraints">
+                                        <include reference="5388"/>
+                                    </mask>
+                                </variation>
+                                <constraints>
+                                    <constraint id="5388" firstAttribute="width" secondItem="5359" secondAttribute="height" multiplier="280:33"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="5388"/>
+                                    </mask>
+                                </variation>
+                            </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="5362" translatesAutoresizingMaskIntoConstraints="NO">
+                                <rect key="frame" x="20" y="112" width="160" height="240"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="5364">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="5363" reuseIdentifier="addImageCell">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <rect key="frame" x="20" y="99.5" width="280" height="261"/>
+                                    <mask key="constraints">
+                                        <include reference="5431"/>
+                                    </mask>
+                                </variation>
+                                <constraints>
+                                    <constraint id="5431" firstAttribute="width" secondItem="5362" secondAttribute="height" multiplier="187:174"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="5431"/>
+                                    </mask>
+                                </variation>
+                            </collectionView>
+                        </subviews>
+                        <constraints>
+                            <constraint id="5351" firstItem="4690" firstAttribute="trailing" secondItem="5339" secondAttribute="trailing"/>
+                            <constraint id="5352" firstItem="5339" firstAttribute="top" secondItem="4690" secondAttribute="top"/>
+                            <constraint id="5354" firstItem="5339" firstAttribute="leading" secondItem="4690" secondAttribute="leading"/>
+                            <constraint id="5384" firstItem="4690" firstAttribute="trailing" secondItem="5359" secondAttribute="trailing" constant="20"/>
+                            <constraint id="5389" firstItem="5359" firstAttribute="leading" secondItem="4690" secondAttribute="leading" constant="20"/>
+                            <constraint id="5390" firstItem="5359" firstAttribute="top" secondItem="5339" secondAttribute="bottom" constant="8"/>
+                            <constraint id="5427" firstItem="5362" firstAttribute="leading" secondItem="4690" secondAttribute="leading" constant="20"/>
+                            <constraint id="5428" firstItem="4690" firstAttribute="trailing" secondItem="5362" secondAttribute="trailing" constant="20"/>
+                            <constraint id="5429" firstItem="5362" firstAttribute="centerY" secondItem="4690" secondAttribute="centerY" constant="44"/>
+                            <constraint id="5430" firstItem="5362" firstAttribute="centerX" secondItem="4690" secondAttribute="centerX"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="5359"/>
+                                <exclude reference="5362"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="5384"/>
+                                <exclude reference="5389"/>
+                                <exclude reference="5390"/>
+                                <exclude reference="5427"/>
+                                <exclude reference="5428"/>
+                                <exclude reference="5429"/>
+                                <exclude reference="5430"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="5359"/>
+                                <include reference="5362"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="5384"/>
+                                <include reference="5389"/>
+                                <include reference="5390"/>
+                                <include reference="5427"/>
+                                <include reference="5428"/>
+                                <include reference="5429"/>
+                                <include reference="5430"/>
+                            </mask>
+                        </variation>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
+                    <toolbarItems>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="5263" translatesAutoresizingMaskIntoConstraints="NO"/>
+                        <barButtonItem id="5278" translatesAutoresizingMaskIntoConstraints="NO" width="70" title="Nästa">
+                            <connections/>
+                        </barButtonItem>
+                        <barButtonItem id="5262" translatesAutoresizingMaskIntoConstraints="NO">
+                            <color key="tintColor" colorSpace="calibratedRGB" red="1" green="0.74509803921568629" blue="0.12156862745098039" alpha="1"/>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="5261" translatesAutoresizingMaskIntoConstraints="NO"/>
+                    </toolbarItems>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="bttnNextFromChooseImage" destination="5262" id="name-outlet-5262"/>
+                        <outlet property="addImageCollectionView" destination="5362" id="name-outlet-5362"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4691" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="585" y="-302"/>
+            <point key="canvasLocation" x="604" y="-426"/>
         </scene>
     </scenes>
     <resources>
@@ -127,6 +301,11 @@
         <image name="right3_filled-50.png" width="50" height="50"/>
         <image name="FOTOABILD Logga-knapp.png" width="792" height="876"/>
         <image name="12321.png" width="40" height="44"/>
+        <image name="right4-32.png" width="32" height="32"/>
+        <image name="123.png" width="32" height="32"/>
     </resources>
     <color key="tintColor" colorSpace="calibratedRGB" red="1" green="0.81568627450980391" blue="0.25882352941176473" alpha="1"/>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedScreenMetrics key="destination"/>
+    </simulatedMetricsContainer>
 </document>

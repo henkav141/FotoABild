@@ -132,6 +132,10 @@
     <None Include="Entitlements.plist" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChooseImageController.cs" />
+    <Compile Include="ChooseImageController.designer.cs">
+      <DependentUpon>ChooseImageController.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <Compile Include="MainNavController.cs" />
