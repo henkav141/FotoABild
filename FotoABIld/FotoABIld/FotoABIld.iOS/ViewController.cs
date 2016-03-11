@@ -18,7 +18,7 @@ namespace FotoABIld.iOS
 			base.ViewDidLoad ();
             // Perform any additional setup after loading the view, typically from a nib.
             //FirstPage.BackgroundColor = UIColor.FromRGB(255, 208, 66);
-            
+            this.NavigationController.Toolbar.BarTintColor = UIColor.FromRGBA(31, 47, 64, 1);
         }
 
 		public override void DidReceiveMemoryWarning ()
