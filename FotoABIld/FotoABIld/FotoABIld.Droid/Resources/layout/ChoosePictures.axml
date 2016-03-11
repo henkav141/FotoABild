@@ -50,19 +50,23 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="50"
-            android:background="#1F2F40">
+            android:minWidth="25px"
+            android:minHeight="25px">
             <LinearLayout
                 android:layout_height="match_parent"
                 android:layout_width="match_parent"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:id="@+id/linearLayout11">
                 <LinearLayout
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
-                    android_orientation="horizontal">
+                    android_orientation="horizontal"
+                    android:id="@+id/linearLayout7">
                     <LinearLayout
                         android:layout_height="wrap_content"
                         android:layout_width="wrap_content"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:id="@+id/linearLayout8">
                         <ImageView
                             android:src="@drawable/henrik"
                             android:layout_height="160dp"
@@ -79,7 +83,8 @@
                     <LinearLayout
                         android:layout_height="wrap_content"
                         android:layout_width="wrap_content"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:id="@+id/linearLayout9">
                         <ImageView
                             android:src="@drawable/johan"
                             android:layout_height="160dp"
@@ -96,7 +101,8 @@
                 <LinearLayout
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
-                    android_orientation="horizontal">
+                    android_orientation="horizontal"
+                    android:id="@+id/linearLayout10">
                     <ImageView
                         android:src="@drawable/Johan"
                         android:layout_height="160dp"
