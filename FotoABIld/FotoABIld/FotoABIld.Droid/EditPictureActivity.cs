@@ -18,8 +18,15 @@ namespace FotoABIld.Droid
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+            SetContentView(Resource.Layout.EditPicture);
+           // Create your application here
+            
+            
+            var position = Intent.GetIntExtra("id",3);
+            var imageAdapter = new ImageAdapter(this);
 
-            // Create your application here
+            var imageView = FindViewById<ImageView>(Resource.Id.full_image_view);
+            imageView.SetImageResource(imageAdapter.thumbIds[position]);
         }
     }
 }

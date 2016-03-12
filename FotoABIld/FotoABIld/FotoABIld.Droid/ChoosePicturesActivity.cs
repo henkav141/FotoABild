@@ -48,7 +48,9 @@ namespace FotoABIld.Droid
 
         void gridview_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
-
+            var i = new Intent(this, typeof (EditPictureActivity));
+            i.PutExtra("id",e.Position);
+            StartActivity(i);
             //Toast.MakeText(this, e.Position.ToString(), ToastLength.Short).Show();
         }
 

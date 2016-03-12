@@ -93,11 +93,14 @@ namespace FotoABIld.Droid
 			// aapt resource value: 0x7f05000c
 			public const int editText4 = 2131034124;
 			
+			// aapt resource value: 0x7f05000d
+			public const int full_image_view = 2131034125;
+			
 			// aapt resource value: 0x7f050008
 			public const int gridview = 2131034120;
 			
-			// aapt resource value: 0x7f05000e
-			public const int historyButton = 2131034126;
+			// aapt resource value: 0x7f05000f
+			public const int historyButton = 2131034127;
 			
 			// aapt resource value: 0x7f050002
 			public const int imageView1 = 2131034114;
@@ -114,8 +117,8 @@ namespace FotoABIld.Droid
 			// aapt resource value: 0x7f050000
 			public const int linearLayout6 = 2131034112;
 			
-			// aapt resource value: 0x7f05000d
-			public const int orderButton = 2131034125;
+			// aapt resource value: 0x7f05000e
+			public const int orderButton = 2131034126;
 			
 			static Id()
 			{

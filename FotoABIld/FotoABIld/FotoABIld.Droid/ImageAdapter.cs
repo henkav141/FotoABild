@@ -26,7 +26,7 @@ namespace FotoABIld.Droid
         }
         public override Java.Lang.Object GetItem(int position)
         {
-            return null;
+            return thumbIds[position];
         }
 
         public override long GetItemId(int position)
@@ -56,7 +56,7 @@ namespace FotoABIld.Droid
         }
 
         // references to our images
-        int[] thumbIds = {
+        public int[] thumbIds = {
         Resource.Drawable.richard, Resource.Drawable.Johan,
         Resource.Drawable.richard, Resource.Drawable.richard,
         Resource.Drawable.Henrik, Resource.Drawable.Henrik,
