@@ -48,7 +48,8 @@ namespace FotoABIld.Droid
 
         void gridview_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
-            Toast.MakeText(this, e.Position.ToString(), ToastLength.Short).Show();
+
+            //Toast.MakeText(this, e.Position.ToString(), ToastLength.Short).Show();
         }
 
         private void Cancelbutton_Click(object sender, EventArgs e)
