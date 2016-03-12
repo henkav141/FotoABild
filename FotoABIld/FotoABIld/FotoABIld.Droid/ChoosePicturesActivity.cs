@@ -30,18 +30,6 @@ namespace FotoABIld.Droid
             gridview.Adapter = new ImageAdapter(this);
 
             gridview.ItemClick += gridview_ItemClick;
-
-            //NumberPicker nr1 = FindViewById<NumberPicker>(Resource.Id.numberPicker1);
-            //NumberPicker nr2 = FindViewById<NumberPicker>(Resource.Id.numberPicker2);
-
-            //nr2.MaxValue = 20;
-            //nr2.MinValue = 0;
-            //nr2.Value = 0;
-            //nr2.Selected = true;
-            //nr1.MaxValue = 20;
-            //nr1.MinValue = 0;
-            //nr1.Value = 0;
-            //nr1.Selected = false;
             cancelButton.Click += Cancelbutton_Click;
 
         }

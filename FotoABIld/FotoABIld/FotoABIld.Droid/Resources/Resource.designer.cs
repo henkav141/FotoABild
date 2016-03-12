@@ -94,7 +94,7 @@ namespace FotoABIld.Droid
 			public const int editText4 = 2131034124;
 			
 			// aapt resource value: 0x7f05000d
-			public const int full_image_view = 2131034125;
+			public const int edit_picture = 2131034125;
 			
 			// aapt resource value: 0x7f050008
 			public const int gridview = 2131034120;

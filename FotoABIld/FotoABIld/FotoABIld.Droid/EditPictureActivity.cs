@@ -25,7 +25,7 @@ namespace FotoABIld.Droid
             var position = Intent.GetIntExtra("id",3);
             var imageAdapter = new ImageAdapter(this);
 
-            var imageView = FindViewById<ImageView>(Resource.Id.full_image_view);
+            var imageView = FindViewById<ImageView>(Resource.Id.edit_picture);
             imageView.SetImageResource(imageAdapter.thumbIds[position]);
         }
     }
