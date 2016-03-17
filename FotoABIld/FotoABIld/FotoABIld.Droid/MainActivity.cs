@@ -28,11 +28,16 @@ namespace FotoABIld.Droid
 
             var menu = FindViewById<FlyOutContainer>(Resource.Id.BaseContainer);
             Button menuButton = FindViewById<Button>(Resource.Id.FlyOutMenuButton);
+		    var homeText = FindViewById<EditText>(Resource.Id.HomeText);
 		    menuButton.Click += (sender, e) => {
 		                                           menu.AnimatedOpened = !menu.AnimatedOpened; };
 
+            homeText.Click += (sender, e) => {
+                menu.AnimatedOpened = !menu.AnimatedOpened;
+            };
 
-		}
+
+        }
 
         private void OrderButton_Click(object sender, EventArgs e)
         {

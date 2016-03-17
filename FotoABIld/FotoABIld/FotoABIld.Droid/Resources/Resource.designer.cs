@@ -72,8 +72,8 @@ namespace FotoABIld.Droid
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f050012
-			public const int BaseContainer = 2131034130;
+			// aapt resource value: 0x7f050015
+			public const int BaseContainer = 2131034133;
 			
 			// aapt resource value: 0x7f050005
 			public const int CancelButton = 2131034117;
@@ -81,17 +81,29 @@ namespace FotoABIld.Droid
 			// aapt resource value: 0x7f050007
 			public const int ChoosePicturesButton = 2131034119;
 			
-			// aapt resource value: 0x7f050013
-			public const int FlyOutMenu = 2131034131;
+			// aapt resource value: 0x7f050016
+			public const int FlyOutMenu = 2131034134;
 			
-			// aapt resource value: 0x7f050010
-			public const int FlyOutMenuButton = 2131034128;
+			// aapt resource value: 0x7f050013
+			public const int FlyOutMenuButton = 2131034131;
+			
+			// aapt resource value: 0x7f05001b
+			public const int HelpText = 2131034139;
+			
+			// aapt resource value: 0x7f05001a
+			public const int HistoryText = 2131034138;
+			
+			// aapt resource value: 0x7f050018
+			public const int HomeText = 2131034136;
 			
 			// aapt resource value: 0x7f050006
 			public const int NextButton = 2131034118;
 			
-			// aapt resource value: 0x7f050014
-			public const int SideMenu = 2131034132;
+			// aapt resource value: 0x7f050019
+			public const int OrderText = 2131034137;
+			
+			// aapt resource value: 0x7f050017
+			public const int SideMenu = 2131034135;
 			
 			// aapt resource value: 0x7f050009
 			public const int editText1 = 2131034121;
@@ -110,12 +122,12 @@ namespace FotoABIld.Droid
 			
 			// aapt resource value: 0x7f050008
 			public const int gridview = 2131034120;
-
-            // aapt resource value: 0x7f050011
-            public const int historyButton = 2131034129;
-
-            // aapt resource value: 0x7f050002
-            public const int imageView1 = 2131034114;
+			
+			// aapt resource value: 0x7f050014
+			public const int historyButton = 2131034132;
+			
+			// aapt resource value: 0x7f050002
+			public const int imageView1 = 2131034114;
 			
 			// aapt resource value: 0x7f050001
 			public const int linearLayout2 = 2131034113;
@@ -128,20 +140,21 @@ namespace FotoABIld.Droid
 			
 			// aapt resource value: 0x7f050000
 			public const int linearLayout6 = 2131034112;
-
-            // aapt resource value: 0x7f05000e
-            public const int linearLayout7 = 2131034126;
-
-            // aapt resource value: 0x7f05000f
-            public const int numberLabel = 2131034127;
-
-            // aapt resource value: 0x7f050010
-            public const int numberPicker1 = 2131034128;
-
-            // aapt resource value: 0x7f050011
-            public const int orderButton = 2131034129;
-
-            public const int orderButton = 2131034126;
+			
+			// aapt resource value: 0x7f05000e
+			public const int linearLayout7 = 2131034126;
+			
+			// aapt resource value: 0x7f050011
+			public const int mainLayout = 2131034129;
+			
+			// aapt resource value: 0x7f05000f
+			public const int numberLabel = 2131034127;
+			
+			// aapt resource value: 0x7f050010
+			public const int numberPicker1 = 2131034128;
+			
+			// aapt resource value: 0x7f050012
+			public const int orderButton = 2131034130;
 			
 			static Id()
 			{

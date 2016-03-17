@@ -80,7 +80,7 @@ namespace FotoABIld.Droid
 
 		View MenuView {
 			get {
-				return FindViewById (Resource.Id.FlyOutMenuButton);
+				return FindViewById (Resource.Id.SideMenu);
 			}
 		}
 
