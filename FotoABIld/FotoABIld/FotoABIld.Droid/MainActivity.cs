@@ -1,5 +1,5 @@
 ﻿using System;
-
+using System.Net.Mime;
 using Android.App;
 using Android.Content;
 using Android.Runtime;
@@ -24,9 +24,11 @@ namespace FotoABIld.Droid
 
 		    Button orderButton = FindViewById<Button>(Resource.Id.orderButton);
 		    Button historyButton = FindViewById<Button>(Resource.Id.historyButton);
+            var historyText = FindViewById<EditText>(Resource.Id.HistoryText);
 
             orderButton.Click += OrderButton_Click;
 		    historyButton.Click += HistoryButton_Click;
+		    historyText.Click += HistoryButton_Click;
 
             var menu = FindViewById<FlyOutContainer>(Resource.Id.BaseContainer);
             var menuButton = FindViewById<ImageView>(Resource.Id.FlyOutMenuButton);
@@ -52,6 +54,7 @@ namespace FotoABIld.Droid
 	        var history = new Intent(this, typeof(HistoryActivity));
             StartActivity(history);
 	    }
+
     }
 }
 
