@@ -26,11 +26,13 @@ namespace FotoABIld.Droid
 		    Button historyButton = FindViewById<Button>(Resource.Id.historyButton);
             var historyText = FindViewById<EditText>(Resource.Id.HistoryText);
 		    var orderText = FindViewById<EditText>(Resource.Id.OrderText);
+		    var helpText = FindViewById<EditText>(Resource.Id.HelpText);
 
             orderButton.Click += OrderButton_Click;
 		    historyButton.Click += HistoryButton_Click;
 		    historyText.Click += HistoryButton_Click;
 		    orderText.Click += OrderButton_Click;
+		    helpText.Click += HelpButton_Click;
 
             var menu = FindViewById<FlyOutContainer>(Resource.Id.BaseContainer);
             var menuButton = FindViewById<ImageView>(Resource.Id.FlyOutMenuButton);
@@ -55,6 +57,12 @@ namespace FotoABIld.Droid
 	    {
 	        var history = new Intent(this, typeof(HistoryActivity));
             StartActivity(history);
+	    }
+
+	    private void HelpButton_Click(object sender, EventArgs e)
+	    {
+	        var help = new Intent(this, typeof(HelpActivity));
+            StartActivity(help);
 	    }
 
     }
