@@ -194,7 +194,10 @@ namespace FotoABIld.Droid
 			public const int MainFrame = 2130903045;
 			
 			// aapt resource value: 0x7f030006
-			public const int SideMenuLayout = 2130903046;
+			public const int OrderHistory = 2130903046;
+			
+			// aapt resource value: 0x7f030007
+			public const int SideMenuLayout = 2130903047;
 			
 			static Layout()
 			{
