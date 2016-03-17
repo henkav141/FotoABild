@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="300dp"
+    android:layout_height="match_parent"
+    android:minWidth="300dp"
+    android:minHeight="25px"
+    android:id="@+id/FlyOutMenu">
+    <LinearLayout
+        android:orientation="vertical"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="238.3dp"
+        android:layout_height="614.0dp"
+        android:id="@+id/SideMenu"
+        android:background="#FFFFFF"
+        android:layout_marginLeft="0.0dp">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/HomeText"
+            android:layout_marginTop="40dp"
+            android:clickable="true"
+            android:text="Hem"
+            android:textColor="#000000"
+            android:editable="false"
+            android:focusable="false"
+            android:layout_marginLeft="10dp" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/OrderText"
+            android:layout_marginTop="20dp"
+            android:clickable="true"
+            android:text="Beställ kort"
+            android:textColor="#000000"
+            android:editable="false"
+            android:focusable="false"
+            android:layout_marginLeft="10dp" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/HistoryText"
+            android:clickable="true"
+            android:layout_marginTop="20dp"
+            android:text="Tidigare beställningar"
+            android:textColor="#000000"
+            android:editable="false"
+            android:focusable="false"
+            android:layout_marginLeft="10dp" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/HelpText"
+            android:clickable="true"
+            android:layout_marginTop="20dp"
+            android:text="Hjälp"
+            android:textColor="#000000"
+            android:editable="false"
+            android:focusable="false"
+            android:layout_marginLeft="10dp" />
+    </LinearLayout>
+</LinearLayout>
