@@ -25,10 +25,12 @@ namespace FotoABIld.Droid
 		    Button orderButton = FindViewById<Button>(Resource.Id.orderButton);
 		    Button historyButton = FindViewById<Button>(Resource.Id.historyButton);
             var historyText = FindViewById<EditText>(Resource.Id.HistoryText);
+		    var orderText = FindViewById<EditText>(Resource.Id.OrderText);
 
             orderButton.Click += OrderButton_Click;
 		    historyButton.Click += HistoryButton_Click;
 		    historyText.Click += HistoryButton_Click;
+		    orderText.Click += OrderButton_Click;
 
             var menu = FindViewById<FlyOutContainer>(Resource.Id.BaseContainer);
             var menuButton = FindViewById<ImageView>(Resource.Id.FlyOutMenuButton);

@@ -87,32 +87,32 @@ namespace FotoABIld.Droid
 			// aapt resource value: 0x7f050007
 			public const int ChoosePicturesButton = 2131034119;
 			
-			// aapt resource value: 0x7f050017
-			public const int FlyOutMenu = 2131034135;
+			// aapt resource value: 0x7f050018
+			public const int FlyOutMenu = 2131034136;
 			
 			// aapt resource value: 0x7f050012
 			public const int FlyOutMenuButton = 2131034130;
 			
+			// aapt resource value: 0x7f05001d
+			public const int HelpText = 2131034141;
+			
 			// aapt resource value: 0x7f05001c
-			public const int HelpText = 2131034140;
+			public const int HistoryText = 2131034140;
 			
-			// aapt resource value: 0x7f05001b
-			public const int HistoryText = 2131034139;
+			// aapt resource value: 0x7f050017
+			public const int HomeButton = 2131034135;
 			
-			// aapt resource value: 0x7f050016
-			public const int HomeButton = 2131034134;
-			
-			// aapt resource value: 0x7f050019
-			public const int HomeText = 2131034137;
+			// aapt resource value: 0x7f05001a
+			public const int HomeText = 2131034138;
 			
 			// aapt resource value: 0x7f050006
 			public const int NextButton = 2131034118;
 			
-			// aapt resource value: 0x7f05001a
-			public const int OrderText = 2131034138;
+			// aapt resource value: 0x7f05001b
+			public const int OrderText = 2131034139;
 			
-			// aapt resource value: 0x7f050018
-			public const int SideMenu = 2131034136;
+			// aapt resource value: 0x7f050019
+			public const int SideMenu = 2131034137;
 			
 			// aapt resource value: 0x7f050009
 			public const int editText1 = 2131034121;
@@ -165,6 +165,9 @@ namespace FotoABIld.Droid
 			// aapt resource value: 0x7f050013
 			public const int orderButton = 2131034131;
 			
+			// aapt resource value: 0x7f050016
+			public const int textView1 = 2131034134;
+			
 			static Id()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
@@ -191,16 +194,19 @@ namespace FotoABIld.Droid
 			public const int EditPicture = 2130903043;
 			
 			// aapt resource value: 0x7f030004
-			public const int Main = 2130903044;
+			public const int HelpPage = 2130903044;
 			
 			// aapt resource value: 0x7f030005
-			public const int MainFrame = 2130903045;
+			public const int Main = 2130903045;
 			
 			// aapt resource value: 0x7f030006
-			public const int OrderHistory = 2130903046;
+			public const int MainFrame = 2130903046;
 			
 			// aapt resource value: 0x7f030007
-			public const int SideMenuLayout = 2130903047;
+			public const int OrderHistory = 2130903047;
+			
+			// aapt resource value: 0x7f030008
+			public const int SideMenuLayout = 2130903048;
 			
 			static Layout()
 			{
