@@ -20,14 +20,19 @@ namespace FotoABIld.Droid
             Window.RequestFeature(WindowFeatures.NoTitle);
 
 			// Set our view from the "main" layout resource
-			SetContentView (Resource.Layout.Main);
+			SetContentView (Resource.Layout.MainFrame);
 
 		    Button orderButton = FindViewById<Button>(Resource.Id.orderButton);
 
             orderButton.Click += OrderButton_Click;
 
+            var menu = FindViewById<FlyOutContainer>(Resource.Id.BaseContainer);
+            Button menuButton = FindViewById<Button>(Resource.Id.FlyOutMenuButton);
+		    menuButton.Click += (sender, e) => {
+		                                           menu.AnimatedOpened = !menu.AnimatedOpened; };
 
-        }
+
+		}
 
         private void OrderButton_Click(object sender, EventArgs e)
         {
