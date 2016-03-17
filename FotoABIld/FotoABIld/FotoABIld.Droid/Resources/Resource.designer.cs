@@ -87,29 +87,32 @@ namespace FotoABIld.Droid
 			// aapt resource value: 0x7f050007
 			public const int ChoosePicturesButton = 2131034119;
 			
-			// aapt resource value: 0x7f050016
-			public const int FlyOutMenu = 2131034134;
+			// aapt resource value: 0x7f050017
+			public const int FlyOutMenu = 2131034135;
 			
 			// aapt resource value: 0x7f050012
 			public const int FlyOutMenuButton = 2131034130;
 			
+			// aapt resource value: 0x7f05001c
+			public const int HelpText = 2131034140;
+			
 			// aapt resource value: 0x7f05001b
-			public const int HelpText = 2131034139;
+			public const int HistoryText = 2131034139;
 			
-			// aapt resource value: 0x7f05001a
-			public const int HistoryText = 2131034138;
+			// aapt resource value: 0x7f050016
+			public const int HomeButton = 2131034134;
 			
-			// aapt resource value: 0x7f050018
-			public const int HomeText = 2131034136;
+			// aapt resource value: 0x7f050019
+			public const int HomeText = 2131034137;
 			
 			// aapt resource value: 0x7f050006
 			public const int NextButton = 2131034118;
 			
-			// aapt resource value: 0x7f050019
-			public const int OrderText = 2131034137;
+			// aapt resource value: 0x7f05001a
+			public const int OrderText = 2131034138;
 			
-			// aapt resource value: 0x7f050017
-			public const int SideMenu = 2131034135;
+			// aapt resource value: 0x7f050018
+			public const int SideMenu = 2131034136;
 			
 			// aapt resource value: 0x7f050009
 			public const int editText1 = 2131034121;

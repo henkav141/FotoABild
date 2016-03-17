@@ -55,6 +55,7 @@
     <Compile Include="ChoosePicturesActivity.cs" />
     <Compile Include="EditPictureActivity.cs" />
     <Compile Include="FlyOutContainer.cs" />
+    <Compile Include="HistoryActivity.cs" />
     <Compile Include="ImageAdapter.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />

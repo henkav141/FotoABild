@@ -23,8 +23,10 @@ namespace FotoABIld.Droid
 			SetContentView (Resource.Layout.MainFrame);
 
 		    Button orderButton = FindViewById<Button>(Resource.Id.orderButton);
+		    Button historyButton = FindViewById<Button>(Resource.Id.historyButton);
 
             orderButton.Click += OrderButton_Click;
+		    historyButton.Click += HistoryButton_Click;
 
             var menu = FindViewById<FlyOutContainer>(Resource.Id.BaseContainer);
             var menuButton = FindViewById<ImageView>(Resource.Id.FlyOutMenuButton);
@@ -44,6 +46,12 @@ namespace FotoABIld.Droid
             var intent = new Intent(this, typeof(ChoosePicturesActivity));
             StartActivity(intent);
         }
+
+	    private void HistoryButton_Click(object sender, EventArgs e)
+	    {
+	        var history = new Intent(this, typeof(HistoryActivity));
+            StartActivity(history);
+	    }
     }
 }
 
