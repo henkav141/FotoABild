@@ -51,7 +51,7 @@
         android:id="@+id/linearLayout3"
         android:background="@android:color/white">
         <Button
-            android:text="Beställ"
+            android:text="Beställ kort"
             android:background="#ffbe1f"
             android:layout_width="150dp"
             android:layout_height="100dp"
