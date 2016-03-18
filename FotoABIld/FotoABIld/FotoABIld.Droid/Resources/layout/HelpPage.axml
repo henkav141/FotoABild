@@ -39,7 +39,7 @@
         android:id="@+id/linearLayout3"
         android:background="@android:color/white">
         <TextView
-            android:text="Tidigare beställningar"
+            android:text="Hjälpavsnitt"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -58,12 +58,20 @@
         android:background="#1F2F40"
         android:paddingTop="50px">
         <Button
-            android:text="Hem"
+            android:text="Avbryt"
             android:layout_width="50dp"
             android:layout_height="40dp"
-            android:id="@+id/HomeButton"
+            android:id="@+id/CancelButton"
             android:background="#ffbe1f"
             android:textColor="#1F2F40"
+            android:layout_weight="1" />
+        <Button
+            android:text="Nästa"
+            android:layout_width="50dp"
+            android:id="@+id/NextButton"
+            android:background="#ffbe1f"
+            android:textColor="#1F2F40"
+            android:layout_height="40dp"
             android:layout_weight="1" />
     </LinearLayout>
 </LinearLayout>

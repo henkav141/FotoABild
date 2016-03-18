@@ -55,6 +55,7 @@
     <Compile Include="ChoosePicturesActivity.cs" />
     <Compile Include="EditPictureActivity.cs" />
     <Compile Include="FlyOutContainer.cs" />
+    <Compile Include="HelpActivity.cs" />
     <Compile Include="HistoryActivity.cs" />
     <Compile Include="ImageAdapter.cs" />
     <Compile Include="MainActivity.cs" />
@@ -85,6 +86,9 @@
       <SubType>AndroidResource</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\OrderHistory.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\HelpPage.axml">
       <SubType>AndroidResource</SubType>
     </AndroidResource>
   </ItemGroup>
