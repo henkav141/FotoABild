@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:minWidth="25px"
+    android:minHeight="25px">
+    <LinearLayout
+        android:orientation="vertical"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="8"
+        android:id="@+id/linearLayout6"
+        android:background="#1F2F40" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="12"
+        android:id="@+id/linearLayout2"
+        android:background="#ffd042">
+        <ImageView
+            android:src="@drawable/logo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/imageView1" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="60"
+        android:id="@+id/linearLayout3"
+        android:background="@android:color/white">
+        <TextView
+            android:text="Se över dina uppgifter."
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView1"
+            android:textColor="#000000"
+            android:layout_gravity="center_horizontal"
+            android:editable="false"
+            android:focusable="false" />
+        <EditText
+            android:inputType="textPersonName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/editText1"
+            android:text="Förnamn + Efternamn"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:editable="false"
+            android:focusable="false" />
+        <EditText
+            android:inputType="phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Telefonnummer"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:editable="false"
+            android:focusable="false"
+            android:id="@+id/editText2" />
+        <EditText
+            android:inputType="textEmailAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="E-mail"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:editable="false"
+            android:focusable="false"
+            android:id="@+id/editText3" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:id="@+id/linearLayout7">
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/editText4"
+                android:text="Antal bilder:"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1" />
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/editText5"
+                android:text="Pris:"
+                android:layout_weight="1" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_weight="5"
+        android:id="@+id/linearLayout4"
+        android:background="#1F2F40"
+        android:paddingTop="50px">
+        <Button
+            android:text="Föregående"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:id="@+id/CancelButton"
+            android:background="#ffbe1f"
+            android:textColor="#1F2F40" />
+    </LinearLayout>
+</LinearLayout>
