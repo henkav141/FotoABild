@@ -164,14 +164,14 @@ namespace FotoABIld.Droid
 
         public override View GetView(int position, View convertView, ViewGroup parent)
         {
-            GalleryAdapter.ViewHolder holder;
+            ViewHolder holder;
 
             if (convertView == null)
             {
 
                 convertView = inflater.Inflate(Resource.Layout.gallery_item, null);
 
-                holder = new GalleryAdapter.ViewHolder();
+                holder = new ViewHolder();
 
                 holder.ImgQueue = (ImageView)convertView.FindViewById(Resource.Id.imgQueue);
 
@@ -184,7 +184,7 @@ namespace FotoABIld.Droid
             }
             else
             {
-                holder = (GalleryAdapter.ViewHolder)convertView.Tag;
+                holder = (ViewHolder)convertView.Tag;
             }
 
             holder.ImgQueue.Tag = position;
@@ -195,7 +195,7 @@ namespace FotoABIld.Droid
                 imageLoader.DisplayImage(
                     "file://" + data[position].SdCardPath,
                     holder.ImgQueue,
-                    new GalleryAdapter.SimpleImageLoadingListenerImpl(holder));
+                    new SimpleImageLoadingListenerImpl(holder));
 
                 if (isActionMultiplePick)
                 {
