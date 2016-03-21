@@ -74,6 +74,7 @@
   <ItemGroup>
     <Compile Include="Action.cs" />
     <Compile Include="ChoosePicturesActivity.cs" />
+    <Compile Include="CustomerInformationActivity.cs" />
     <Compile Include="CustomGallery.cs" />
     <Compile Include="CustomGalleryActivity.cs" />
     <Compile Include="EditPictureActivity.cs" />
