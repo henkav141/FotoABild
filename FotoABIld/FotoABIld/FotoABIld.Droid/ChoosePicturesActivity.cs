@@ -13,7 +13,6 @@ using Android.Widget;
 using Com.Nostra13.Universalimageloader.Cache.Memory.Impl;
 using Com.Nostra13.Universalimageloader.Core;
 using Com.Nostra13.Universalimageloader.Core.Assist;
-using Uri = Android.Net.Uri;
 
 namespace FotoABIld.Droid
 {
@@ -35,10 +34,11 @@ namespace FotoABIld.Droid
             // Create your application here
             SetContentView(Resource.Layout.ChoosePictures);
 
+            Init();
+            InitImageLoader();
 
 
 
-             
 
 
         }
