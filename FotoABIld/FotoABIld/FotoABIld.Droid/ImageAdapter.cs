@@ -9,24 +9,28 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Uri = Android.Net.Uri;
 
 namespace FotoABIld.Droid
 {
     public class ImageAdapter : BaseAdapter
     {
         Context context;
-        public ImageAdapter(Context c)
+        public List<Uri> uriList;
+        public ImageAdapter(Context c,List<Uri> listUri )
         {
             context = c;
+            uriList = listUri;
+
         }
 
         public override int Count
         {
-            get { return thumbIds.Length; }
+            get { return uriList.Count; }
         }
         public override Java.Lang.Object GetItem(int position)
         {
-            return thumbIds[position];
+            return null;
         }
 
         public override long GetItemId(int position)
@@ -51,24 +55,11 @@ namespace FotoABIld.Droid
                 imageView = (ImageView)convertView;
             }
 
-            imageView.SetImageResource(thumbIds[position]);
+            imageView.SetImageURI(uriList[position]);
             return imageView;
         }
 
         // references to our images
-        public int[] thumbIds = {
-        Resource.Drawable.richard, Resource.Drawable.Johan,
-        Resource.Drawable.richard, Resource.Drawable.richard,
-        Resource.Drawable.Henrik, Resource.Drawable.Henrik,
-        Resource.Drawable.Johan, Resource.Drawable.Johan,
-        Resource.Drawable.Henrik, Resource.Drawable.richard,
-        Resource.Drawable.richard, Resource.Drawable.Henrik,
-        Resource.Drawable.Henrik, Resource.Drawable.Johan,
-        Resource.Drawable.Johan, Resource.Drawable.richard,
-        Resource.Drawable.Henrik, Resource.Drawable.Henrik,
-        Resource.Drawable.Johan, Resource.Drawable.Johan,
-        Resource.Drawable.Henrik, Resource.Drawable.richard
-    };
 
     }
 }

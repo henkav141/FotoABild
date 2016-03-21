@@ -11,7 +11,7 @@
         android:minHeight="25px"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="5"
+        android:layout_weight="8"
         android:id="@+id/linearLayout6"
         android:background="#1F2F40" />
     <LinearLayout
@@ -20,7 +20,7 @@
         android:minHeight="25px"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="17"
+        android:layout_weight="12"
         android:id="@+id/linearLayout2"
         android:background="#ffd042">
         <ImageView
@@ -38,23 +38,14 @@
         android:layout_weight="60"
         android:id="@+id/linearLayout3"
         android:background="@android:color/white">
-        <Button
-            android:text="Välj Bilder"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:id="@+id/ChoosePicturesButton"
-            android:background="#ffbe1f"
-            android:textColor="#1F2F40" />
-        <GridView
-            android:id="@+id/gridview"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:columnWidth="90dp"
-            android:numColumns="auto_fit"
-            android:verticalSpacing="10dp"
-            android:horizontalSpacing="10dp"
-            android:stretchMode="columnWidth"
-            android:gravity="center" />
+        <TextView
+            android:text="Tidigare beställningar"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView1"
+            android:textColor="#000000"
+            android:layout_gravity="center_horizontal" />
     </LinearLayout>
     <LinearLayout
         android:orientation="horizontal"
@@ -67,20 +58,12 @@
         android:background="#1F2F40"
         android:paddingTop="50px">
         <Button
-            android:text="Avbryt"
+            android:text="Hem"
             android:layout_width="50dp"
             android:layout_height="40dp"
-            android:id="@+id/CancelButton"
+            android:id="@+id/HomeButton"
             android:background="#ffbe1f"
             android:textColor="#1F2F40"
-            android:layout_weight="1" />
-        <Button
-            android:text="Nästa"
-            android:layout_width="50dp"
-            android:id="@+id/NextButton"
-            android:background="#ffbe1f"
-            android:textColor="#1F2F40"
-            android:layout_height="40dp"
             android:layout_weight="1" />
     </LinearLayout>
 </LinearLayout>

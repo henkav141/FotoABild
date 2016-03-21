@@ -23,10 +23,10 @@ namespace FotoABIld.Droid
             
             
             var position = Intent.GetIntExtra("id",3);
-            var imageAdapter = new ImageAdapter(this);
+            //var imageAdapter = new ImageAdapter(this);
 
-            var imageView = FindViewById<ImageView>(Resource.Id.edit_picture);
-            imageView.SetImageResource(imageAdapter.thumbIds[position]);
+            //var imageView = FindViewById<ImageView>(Resource.Id.edit_picture);
+            //imageView.SetImageURI(imageAdapter.uriList[position]);
         }
     }
 }
