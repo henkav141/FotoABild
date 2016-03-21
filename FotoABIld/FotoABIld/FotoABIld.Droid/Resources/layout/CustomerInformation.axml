@@ -11,7 +11,7 @@
         android:minHeight="25px"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="5"
+        android:layout_weight="8"
         android:id="@+id/linearLayout6"
         android:background="#1F2F40" />
     <LinearLayout
@@ -20,7 +20,7 @@
         android:minHeight="25px"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="17"
+        android:layout_weight="12"
         android:id="@+id/linearLayout2"
         android:background="#ffd042">
         <ImageView
@@ -44,51 +44,55 @@
             android:layout_height="wrap_content"
             android:id="@+id/editText1"
             android:backgroundTint="#b4b4b4ff"
-            android:hint="Förnamn" />
+            android:hint="Förnamn"
+            android:layout_marginTop="20dp" />
         <EditText
             android:inputType="textPersonName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/editText2"
             android:backgroundTint="#b4b4b4ff"
-            android:hint="Efternamn" />
+            android:hint="Efternamn"
+            android:layout_marginTop="20dp" />
         <EditText
             android:inputType="phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/editText3"
             android:backgroundTint="#b4b4b4ff"
-            android:hint="Telefonnummer" />
+            android:hint="Telefonnummer"
+            android:layout_marginTop="20dp" />
         <EditText
             android:inputType="textEmailAddress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/editText4"
             android:backgroundTint="#b4b4b4ff"
-            android:hint="E-mail" />
+            android:hint="E-mail"
+            android:layout_marginTop="20dp" />
     </LinearLayout>
     <LinearLayout
         android:orientation="horizontal"
         android:minWidth="25px"
         android:minHeight="25px"
         android:layout_width="match_parent"
-        android:layout_height="196px"
-        android:layout_weight="11"
+        android:layout_height="55dp"
+        android:layout_weight="5"
         android:id="@+id/linearLayout4"
         android:background="#1F2F40"
         android:paddingTop="50px">
         <Button
             android:text="Föregående"
-            android:layout_width="0dp"
-            android:layout_height="108px"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
             android:layout_weight="1"
             android:id="@+id/CancelButton"
             android:background="#ffbe1f"
             android:textColor="#1F2F40" />
         <Button
             android:text="Nästa"
-            android:layout_width="0dp"
-            android:layout_height="108px"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
             android:layout_weight="1"
             android:id="@+id/NextButton"
             android:background="#ffbe1f"
