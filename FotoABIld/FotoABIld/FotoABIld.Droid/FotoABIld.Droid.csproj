@@ -50,8 +50,9 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Mono.Android" />
-    <Reference Include="UniversalImageLoader">
-      <HintPath>..\..\..\..\..\..\Dropbox\src\MultiImagePicker.XamarinPort\bin\Debug\UniversalImageLoader.dll</HintPath>
+    <Reference Include="UniversalImageLoader, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\UniversalImageLoader.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
