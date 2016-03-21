@@ -20,6 +20,10 @@ namespace FotoABIld.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UINavigationItem baj { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UIBarButtonItem bttnNextFromChooseImage { get; set; }
 
 		void ReleaseDesignerOutlets ()
@@ -27,6 +31,10 @@ namespace FotoABIld.iOS
 			if (addImageCollectionView != null) {
 				addImageCollectionView.Dispose ();
 				addImageCollectionView = null;
+			}
+			if (baj != null) {
+				baj.Dispose ();
+				baj = null;
 			}
 			if (bttnNextFromChooseImage != null) {
 				bttnNextFromChooseImage.Dispose ();

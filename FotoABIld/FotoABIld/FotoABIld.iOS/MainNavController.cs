@@ -9,6 +9,7 @@ namespace FotoABIld.iOS
 	{
 		public MainNavController (IntPtr handle) : base (handle)
 		{
+          
         }
 
 

@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Drawing;
 using System.Net.Mime;
+using CoreGraphics;
 using UIKit;
+
 
 namespace FotoABIld.iOS
 {
@@ -18,6 +20,7 @@ namespace FotoABIld.iOS
 			base.ViewDidLoad ();
             // Perform any additional setup after loading the view, typically from a nib.
             //FirstPage.BackgroundColor = UIColor.FromRGB(255, 208, 66);
+
         }
 
 		public override void DidReceiveMemoryWarning ()

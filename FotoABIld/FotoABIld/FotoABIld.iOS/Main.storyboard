@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
                                 <color key="backgroundColor" colorSpace="calibratedRGB" red="1" green="0.81568627450980391" blue="0.25882352941176473" alpha="1"/>
                                 <variation key="heightClass=regular-widthClass=compact">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="53.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="62.5"/>
                                 </variation>
                                 <constraints>
                                     <constraint id="4948" firstAttribute="width" secondItem="4094" secondAttribute="height" multiplier="6:1"/>
@@ -35,7 +35,7 @@
                                     <color key="titleColor" colorSpace="calibratedRGB" red="0.12156862745098039" green="0.18431372549019609" blue="0.25098039215686274" alpha="1"/>
                                 </state>
                                 <variation key="heightClass=regular-widthClass=compact">
-                                    <rect key="frame" x="100" y="146" width="120" height="80"/>
+                                    <rect key="frame" x="100" y="221" width="175" height="117"/>
                                     <mask key="constraints">
                                         <include reference="5133"/>
                                     </mask>
@@ -159,7 +159,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
                                 <color key="backgroundColor" colorSpace="calibratedRGB" red="1" green="0.81568627450980391" blue="0.25882352941176473" alpha="1"/>
                                 <variation key="heightClass=regular-widthClass=compact">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="53.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="62.5"/>
                                 </variation>
                                 <constraints>
                                     <constraint id="5355" firstAttribute="width" secondItem="5339" secondAttribute="height" multiplier="6:1"/>
@@ -174,7 +174,7 @@
                                     <color key="titleColor" colorSpace="calibratedRGB" red="0.12156862745098039" green="0.18431372549019609" blue="0.25098039215686274" alpha="1"/>
                                 </state>
                                 <variation key="heightClass=regular-widthClass=compact">
-                                    <rect key="frame" x="20" y="61.5" width="280" height="33"/>
+                                    <rect key="frame" x="20" y="70.5" width="335" height="39.5"/>
                                     <mask key="constraints">
                                         <include reference="5388"/>
                                     </mask>
@@ -187,6 +187,7 @@
                                         <exclude reference="5388"/>
                                     </mask>
                                 </variation>
+                                <connections/>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="5362" translatesAutoresizingMaskIntoConstraints="NO">
                                 <rect key="frame" x="20" y="112" width="160" height="240"/>
@@ -208,7 +209,7 @@
                                     </collectionViewCell>
                                 </cells>
                                 <variation key="heightClass=regular-widthClass=compact">
-                                    <rect key="frame" x="20" y="99.5" width="280" height="261"/>
+                                    <rect key="frame" x="20" y="167.5" width="335" height="312"/>
                                     <mask key="constraints">
                                         <include reference="5431"/>
                                     </mask>
@@ -277,7 +278,6 @@
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="5261" translatesAutoresizingMaskIntoConstraints="NO"/>
                     </toolbarItems>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="bttnNextFromChooseImage" destination="5262" id="name-outlet-5262"/>
                         <outlet property="addImageCollectionView" destination="5362" id="name-outlet-5362"/>
@@ -285,7 +285,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4691" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="604" y="-426"/>
+            <point key="canvasLocation" x="384" y="-439"/>
         </scene>
     </scenes>
     <resources>
@@ -306,6 +306,6 @@
     </resources>
     <color key="tintColor" colorSpace="calibratedRGB" red="1" green="0.81568627450980391" blue="0.25882352941176473" alpha="1"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedScreenMetrics key="destination"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
 </document>
