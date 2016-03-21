@@ -52,7 +52,7 @@
     <Reference Include="Mono.Android" />
     <Reference Include="UniversalImageLoader, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\UniversalImageLoader.dll</HintPath>
+      <HintPath>..\..\UniversalImageLoader.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
