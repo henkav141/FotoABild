@@ -79,9 +79,10 @@ namespace FotoABIld.Droid
             Button cancelButton = FindViewById<Button>(Resource.Id.CancelButton);
             chooseButton = FindViewById<Button>(Resource.Id.ChoosePicturesButton);
             cancelButton.Click += Cancelbutton_Click;
-            chooseButton.Click += chooseButton_Click;   
+            chooseButton.Click += chooseButton_Click;
+            gridGallery.ItemClick += gridGallery_ItemClick;
 
-            
+
 
 
         }
@@ -94,10 +95,10 @@ namespace FotoABIld.Droid
 
         }
 
-        void gridview_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
+       private void gridGallery_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
             var i = new Intent(this, typeof (EditPictureActivity));
-            i.PutExtra("id",e.Position);
+            i.PutExtra("single_path",adapter[e.Position].SdCardPath);
             StartActivity(i);
             
         }
