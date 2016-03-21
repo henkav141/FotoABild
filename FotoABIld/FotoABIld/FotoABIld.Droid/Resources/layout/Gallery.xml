@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="#5EBFE6"
+    android:background="#ffd042"
     android:orientation="vertical" >
 
     <include
@@ -52,8 +52,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@drawable/btn_sel"
-            android:text="Klar" />
+            android:background="#ffbe1f"
+            android:text="Klar"
+            android:textColor="#1F2F40"/>
     </LinearLayout>
 
 </LinearLayout>

@@ -24,6 +24,7 @@ namespace FotoABIld.Droid
         private GalleryAdapter galleryAdapter;
         private Button chooseButton;
         private ImageLoader imageLoader;
+        private ImageAdapter imageAdapter;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -36,11 +37,6 @@ namespace FotoABIld.Droid
 
             Init();
             InitImageLoader();
-
-
-
-
-
         }
 
         private void InitImageLoader()
@@ -70,6 +66,8 @@ namespace FotoABIld.Droid
             chooseButton = FindViewById<Button>(Resource.Id.ChoosePicturesButton);
             cancelButton.Click += Cancelbutton_Click;
             chooseButton.Click += chooseButton_Click;   
+
+            
 
 
         }
@@ -111,6 +109,7 @@ namespace FotoABIld.Droid
                     item.SdCardPath = uri;
                     dataT.Add(item);
                 }
+
                 galleryAdapter.AddAll(dataT);
 
             }
