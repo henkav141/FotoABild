@@ -107,7 +107,7 @@
             android:background="#ffbe1f"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="20dp"
-            android:textSize="15" />
+            android:textSize="15dp" />
     </LinearLayout>
     <LinearLayout
         android:orientation="horizontal"
