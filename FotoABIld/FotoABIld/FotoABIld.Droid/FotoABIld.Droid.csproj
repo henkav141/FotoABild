@@ -78,6 +78,7 @@
     <Compile Include="CustomGallery.cs" />
     <Compile Include="CustomGalleryActivity.cs" />
     <Compile Include="EditPictureActivity.cs" />
+    <Compile Include="FinalizeActivity.cs" />
     <Compile Include="FlyOutContainer.cs" />
     <Compile Include="GalleryAdapter.cs" />
     <Compile Include="HelpActivity.cs" />
