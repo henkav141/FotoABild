@@ -99,6 +99,15 @@
                 android:text="Pris:"
                 android:layout_weight="1" />
         </LinearLayout>
+        <Button
+            android:text="Lägg beställning"
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:id="@+id/PlaceOrderButton"
+            android:background="#ffbe1f"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:textSize="15dp" />
     </LinearLayout>
     <LinearLayout
         android:orientation="horizontal"
