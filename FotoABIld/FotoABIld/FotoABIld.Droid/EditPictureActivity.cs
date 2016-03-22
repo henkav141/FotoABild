@@ -27,6 +27,9 @@ namespace FotoABIld.Droid
         private Spinner spinner;
         private PictureProperties picture;
         private int amount;
+        private int index;
+        private string position;
+        private string size;
         protected override void OnCreate(Bundle savedInstanceState)
 
         {
@@ -55,10 +58,10 @@ namespace FotoABIld.Droid
             imageView = FindViewById<ImageView>(Resource.Id.edit_picture);
             Button doneButton = FindViewById<Button>(Resource.Id.doneButton);
             doneButton.Click += DoneButton_Click;
-            var bundle = Intent.Extras;
-            var position = bundle.GetString("file_path");
-             amount = bundle.GetInt("amount",1);
-            var size = bundle.GetString("size");
+            //var bundle = Intent.Extras;
+            picture = (PictureProperties)Intent.GetParcelableExtra("picture");
+            position = picture.FilePath;
+
             File imgFile = new File(position);
             if (imgFile.Exists())
             {
@@ -73,8 +76,9 @@ namespace FotoABIld.Droid
             picture.Amount = numberPicker.Value;
             picture.Size = spinner.SelectedItem.ToString();
             var bundle = new Bundle();
-
-            FinishActivity(300);
+            var intent = new Intent().PutExtras(bundle);
+            SetResult(Result.Ok,intent);
+            Finish();
         }
 
         private void InitNumberPicker()

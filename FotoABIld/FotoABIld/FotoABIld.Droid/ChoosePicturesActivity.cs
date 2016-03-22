@@ -102,11 +102,14 @@ namespace FotoABIld.Droid
             //i.PutExtra("single_path",adapter[e.Position].SdCardPath);
 
             var bundle = new Bundle();
-            bundle.PutString("file_path", picturesList[e.Position].FilePath);
-            bundle.PutInt("amount", picturesList[e.Position].Amount);
-            bundle.PutString("size", picturesList[e.Position].Size);
-            bundle.PutInt("index",e.Position);
-           i.PutExtras(bundle);
+            //bundle.PutString("file_path", picturesList[e.Position].FilePath);
+            //bundle.PutInt("amount", picturesList[e.Position].Amount);
+            //bundle.PutString("size", picturesList[e.Position].Size);
+            //bundle.PutInt("index",e.Position);
+           //bundle.PutParcelable("picture", picturesList[e.Position]);
+           // bundle.PutInt("index", e.Position);
+           
+           i.PutExtra("picture",picturesList[e.Position]);
             StartActivityForResult(i,300);
             
         }
@@ -139,20 +142,21 @@ namespace FotoABIld.Droid
             {
                 String[] all_path = data.GetStringArrayExtra("all_path");
 
+
                 List<CustomGallery> dataT = new List<CustomGallery>();
+                picturesList = new List<PictureProperties>();
 
                 foreach (string uri in all_path)
                 {
                     CustomGallery item = new CustomGallery();
                     PictureProperties picture = new PictureProperties(uri);
-                    picturesList =  new List<PictureProperties>();
+                    
                     picturesList.Add(picture);
-                    picturesList.Reverse();
+                   
                     item.SdCardPath = uri;
-
                     dataT.Add(item);
                 }
-
+                picturesList.Reverse();
                 viewSwitcher.DisplayedChild = 0;
 
                 adapter.AddAll(dataT);
