@@ -13,13 +13,14 @@ using Android.Widget;
 using Com.Nostra13.Universalimageloader.Cache.Memory.Impl;
 using Com.Nostra13.Universalimageloader.Core;
 using Com.Nostra13.Universalimageloader.Core.Assist;
+using Java.IO;
 
 namespace FotoABIld.Droid
 {
     [Activity(Label = "ChoosePicturesActivity")]
     public class ChoosePicturesActivity : Activity
     {
-        List<Android.Net.Uri> uriList = new List<Android.Net.Uri>();
+        private List<PictureProperties> picturesList; 
         private GridView gridGallery;
         private Handler handler;
         private GalleryAdapter adapter;
@@ -98,8 +99,15 @@ namespace FotoABIld.Droid
        private void gridGallery_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
             var i = new Intent(this, typeof (EditPictureActivity));
-            i.PutExtra("single_path",adapter[e.Position].SdCardPath);
-            StartActivity(i);
+            //i.PutExtra("single_path",adapter[e.Position].SdCardPath);
+
+            var bundle = new Bundle();
+            bundle.PutString("file_path", picturesList[e.Position].FilePath);
+            bundle.PutInt("amount", picturesList[e.Position].Amount);
+            bundle.PutString("size", picturesList[e.Position].Size);
+            bundle.PutInt("index",e.Position);
+           i.PutExtras(bundle);
+            StartActivityForResult(i,300);
             
         }
 
@@ -113,6 +121,8 @@ namespace FotoABIld.Droid
         {
             base.OnActivityResult(requestCode, resultCode, data);
 
+            base.OnActivityResult(requestCode, resultCode, data);
+            
             base.OnActivityResult(requestCode, resultCode, data);
 
             if (requestCode == 100 && resultCode == Result.Ok)
@@ -134,6 +144,10 @@ namespace FotoABIld.Droid
                 foreach (string uri in all_path)
                 {
                     CustomGallery item = new CustomGallery();
+                    PictureProperties picture = new PictureProperties(uri);
+                    picturesList =  new List<PictureProperties>();
+                    picturesList.Add(picture);
+                    picturesList.Reverse();
                     item.SdCardPath = uri;
 
                     dataT.Add(item);
@@ -142,6 +156,10 @@ namespace FotoABIld.Droid
                 viewSwitcher.DisplayedChild = 0;
 
                 adapter.AddAll(dataT);
+            }
+            else if (requestCode == 300 && resultCode == Result.Ok)
+            {
+                var text = data.GetStringExtra("size");
             }
         }
 

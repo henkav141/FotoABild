@@ -37,16 +37,19 @@
         android:layout_height="0dp"
         android:layout_weight="60"
         android:id="@+id/linearLayout3"
-        android:background="@android:color/white">
+        android:background="@android:color/white"
+        android:weightSum="3">
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:id="@+id/edit_picture" />
+            android:layout_height="0dp"
+            android:id="@+id/edit_picture"
+            android:layout_weight="2" />
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="0dp"
             android:id="@+id/linearLayout7"
+            android:layout_weight="1"
             android:weightSum="2">
             <LinearLayout
                 android:orientation="horizontal"
@@ -102,12 +105,30 @@
                     android:orientation="vertical"
                     android:layout_width="0dp"
                     android:layout_weight="1"
-                    android:layout_height="match_parent" />
+                    android:layout_height="match_parent"
+                    android:background="#1F2F40">
+                    <Button
+                        android:layout_height="match_parent"
+                        android:layout_width="match_parent"
+                        android:id="@+id/cropButton"
+                        android:text="Beskär Bilden"
+                        android:background="#ffbe1f"
+                        android:textColor="#1F2F40" />
+                </LinearLayout>
                 <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="0dp"
                     android:layout_weight="1"
-                    android:layout_height="match_parent" />
+                    android:layout_height="match_parent"
+                    android:background="#1F2F40">
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Skapa Kopia"
+                        android:id="@+id/copyButton"
+                        android:background="#ffbe1f"
+                        android:textColor="#1F2F40" />
+                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
@@ -130,9 +151,9 @@
             android:textColor="#1F2F40"
             android:layout_weight="1" />
         <Button
-            android:text="Nästa"
+            android:text="Klar"
             android:layout_width="50dp"
-            android:id="@+id/NextButton"
+            android:id="@+id/doneButton"
             android:background="#ffbe1f"
             android:textColor="#1F2F40"
             android:layout_height="40dp"
