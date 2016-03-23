@@ -1,6 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using FotoABIld;
+using FotoABIld.Droid;
+
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace FotoABildTest
@@ -11,7 +12,7 @@ namespace FotoABildTest
         [TestMethod]
         public void TestMethod1()
         {
-            var sharedpropertieslist = new List<SharedProperties>();
+            var sharedpropertieslist = new List<FotoABIld.SharedProperties>();
             var shared1 = new SharedProperties("", 25, "10x15");
             var shared2 = new SharedProperties("", 420, "15x21");
             var shared3 = new SharedProperties("", 7, "20x30");
@@ -27,22 +28,22 @@ namespace FotoABildTest
 
 
 
-            int expected1 = 100 + 420*15 + 360 + 630;
+            int expected1 = 100 + 420 * 15 + 360 + 630;
             var actual1 = pricecalc.CalculateTotalPrice();
 
-            //var expected2 = 130;
-            //var actual2 = pricecalc.Calculate2();
-            //var expected3 = 150;
-            //var actual3 = pricecalc.Calculate3();
-            //var expected4 = 400;
-            //var actual4 = pricecalc.Calculate4();
+            var expected2 = 130;
+            var actual2 = pricecalc.Calculate2();
+            var expected3 = 150;
+            var actual3 = pricecalc.Calculate3();
+            var expected4 = 400;
+            var actual4 = pricecalc.Calculate4();
 
 
 
             Assert.AreEqual(expected1, actual1);
-            //Assert.AreEqual(expected2,actual2);
-            //Assert.AreEqual(expected3, actual3);
-            //Assert.AreEqual(expected4, actual4);
+            Assert.AreEqual(expected2, actual2);
+            Assert.AreEqual(expected3, actual3);
+            Assert.AreEqual(expected4, actual4);
 
         }
     }
