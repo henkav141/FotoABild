@@ -20,7 +20,8 @@ namespace FotoABIld.Droid
     [Activity(Label = "ChoosePicturesActivity")]
     public class ChoosePicturesActivity : Activity
     {
-        private List<PictureProperties> picturesList; 
+        private int editIndex;
+        private IList<PictureProperties> pictureList; 
         private GridView gridGallery;
         private Handler handler;
         private GalleryAdapter adapter;
@@ -99,17 +100,10 @@ namespace FotoABIld.Droid
        private void gridGallery_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
             var i = new Intent(this, typeof (EditPictureActivity));
-            //i.PutExtra("single_path",adapter[e.Position].SdCardPath);
 
-            var bundle = new Bundle();
-            //bundle.PutString("file_path", picturesList[e.Position].FilePath);
-            //bundle.PutInt("amount", picturesList[e.Position].Amount);
-            //bundle.PutString("size", picturesList[e.Position].Size);
-            //bundle.PutInt("index",e.Position);
-           //bundle.PutParcelable("picture", picturesList[e.Position]);
-           // bundle.PutInt("index", e.Position);
            
-           i.PutExtra("picture",picturesList[e.Position]);
+           i.PutExtra("picture",pictureList[e.Position]);
+           editIndex = e.Position;
             StartActivityForResult(i,300);
             
         }
@@ -144,26 +138,28 @@ namespace FotoABIld.Droid
 
 
                 List<CustomGallery> dataT = new List<CustomGallery>();
-                picturesList = new List<PictureProperties>();
+                pictureList = new List<PictureProperties>();
 
                 foreach (string uri in all_path)
                 {
                     CustomGallery item = new CustomGallery();
                     PictureProperties picture = new PictureProperties(uri);
                     
-                    picturesList.Add(picture);
+                    pictureList.Add(picture);
                    
                     item.SdCardPath = uri;
                     dataT.Add(item);
                 }
-                picturesList.Reverse();
                 viewSwitcher.DisplayedChild = 0;
 
                 adapter.AddAll(dataT);
             }
             else if (requestCode == 300 && resultCode == Result.Ok)
             {
-                var text = data.GetStringExtra("size");
+
+                var picture = (PictureProperties)data.GetParcelableExtra("picture");
+                pictureList[editIndex] = picture;
+
             }
         }
 

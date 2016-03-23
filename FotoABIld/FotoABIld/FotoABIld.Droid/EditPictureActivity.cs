@@ -69,8 +69,8 @@ namespace FotoABIld.Droid
         {
             picture.Amount = numberPicker.Value;
             picture.Size = spinner.SelectedItem.ToString();
-            var bundle = new Bundle();
-            var intent = new Intent().PutExtras(bundle);
+            
+            var intent = new Intent().PutExtra("picture", picture);
             SetResult(Result.Ok,intent);
             Finish();
         }
