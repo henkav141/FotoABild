@@ -13,17 +13,25 @@ using Android.Widget;
 using Com.Nostra13.Universalimageloader.Cache.Memory.Impl;
 using Com.Nostra13.Universalimageloader.Core;
 using Com.Nostra13.Universalimageloader.Core.Assist;
+using Java.IO;
 
 namespace FotoABIld.Droid
 {
     [Activity(Label = "ChoosePicturesActivity")]
     public class ChoosePicturesActivity : Activity
     {
-        List<Android.Net.Uri> uriList = new List<Android.Net.Uri>();
-        private GridView gridview;
-        private GalleryAdapter galleryAdapter;
+        private List<PictureProperties> picturesList; 
+        private GridView gridGallery;
+        private Handler handler;
+        private GalleryAdapter adapter;
+
+        private ImageView imgSinglePick;
+
         private Button chooseButton;
+
         private ImageLoader imageLoader;
+        private ViewSwitcher viewSwitcher;
+        //private ImageAdapter imageAdapter;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -33,23 +41,19 @@ namespace FotoABIld.Droid
 
             // Create your application here
             SetContentView(Resource.Layout.ChoosePictures);
-
-            Init();
             InitImageLoader();
-
-
-
-
+            Init();
 
         }
 
         private void InitImageLoader()
         {
-            DisplayImageOptions defaultOptions =
+            var defaultOptions =
                 new DisplayImageOptions.Builder().CacheOnDisc()
                     .ImageScaleType(ImageScaleType.ExactlyStretched)
                     .BitmapConfig(Bitmap.Config.
                         Rgb565).Build();
+
             ImageLoaderConfiguration.Builder builder =
                 new ImageLoaderConfiguration.Builder(this).DefaultDisplayImageOptions(defaultOptions)
                     .MemoryCache(new WeakMemoryCache()
@@ -62,14 +66,24 @@ namespace FotoABIld.Droid
 
         private void Init()
         {
-           var handler = new Handler();
-           gridview = gridview = FindViewById<GridView>(Resource.Id.gridview);
-            galleryAdapter = new GalleryAdapter(ApplicationContext, imageLoader);
-            gridview.Adapter = galleryAdapter;
+            handler = new Handler();
+            gridGallery = FindViewById<GridView>(Resource.Id.gridGallery);
+            gridGallery.FastScrollEnabled = true;
+            
+            adapter = new GalleryAdapter(ApplicationContext, imageLoader);
+            adapter.IsMultiplePick = false;
+            gridGallery.Adapter = adapter;
+
+            viewSwitcher = FindViewById<ViewSwitcher>(Resource.Id.viewSwitcher);
+            viewSwitcher.DisplayedChild = 1;
+
             Button cancelButton = FindViewById<Button>(Resource.Id.CancelButton);
             chooseButton = FindViewById<Button>(Resource.Id.ChoosePicturesButton);
             cancelButton.Click += Cancelbutton_Click;
-            chooseButton.Click += chooseButton_Click;   
+            chooseButton.Click += chooseButton_Click;
+            gridGallery.ItemClick += gridGallery_ItemClick;
+
+
 
 
         }
@@ -77,16 +91,26 @@ namespace FotoABIld.Droid
         void chooseButton_Click(object sender, EventArgs e)
         {
             Intent intent = new Intent(Action.ActionPickMultiple);
-            StartActivityForResult(intent, 0);
+            StartActivityForResult(intent, 200);
 
 
         }
 
-        void gridview_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
+       private void gridGallery_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
             var i = new Intent(this, typeof (EditPictureActivity));
-            i.PutExtra("id",e.Position);
-            StartActivity(i);
+            //i.PutExtra("single_path",adapter[e.Position].SdCardPath);
+
+            var bundle = new Bundle();
+            //bundle.PutString("file_path", picturesList[e.Position].FilePath);
+            //bundle.PutInt("amount", picturesList[e.Position].Amount);
+            //bundle.PutString("size", picturesList[e.Position].Size);
+            //bundle.PutInt("index",e.Position);
+           //bundle.PutParcelable("picture", picturesList[e.Position]);
+           // bundle.PutInt("index", e.Position);
+           
+           i.PutExtra("picture",picturesList[e.Position]);
+            StartActivityForResult(i,300);
             
         }
 
@@ -96,23 +120,50 @@ namespace FotoABIld.Droid
             StartActivity(intent);
         }
 
-        protected override void OnActivityResult(int requestCode, Result resultCode, Intent intent)
+        protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
         {
-            base.OnActivityResult(requestCode, resultCode, intent);
+            base.OnActivityResult(requestCode, resultCode, data);
 
-            if (requestCode == 0 && resultCode == Result.Ok)
+            base.OnActivityResult(requestCode, resultCode, data);
+            
+            base.OnActivityResult(requestCode, resultCode, data);
+
+            if (requestCode == 100 && resultCode == Result.Ok)
             {
-                var all_path = intent.GetStringArrayExtra("all_path");
-                var dataT = new List<CustomGallery>();
+                adapter.Clear();
+
+                viewSwitcher.DisplayedChild = 1;
+                string single_path = data.GetStringExtra("single_path");
+
+                imageLoader.DisplayImage("file://" + single_path, imgSinglePick);
+
+            }
+            else if (requestCode == 200 && resultCode == Result.Ok)
+            {
+                String[] all_path = data.GetStringArrayExtra("all_path");
+
+
+                List<CustomGallery> dataT = new List<CustomGallery>();
+                picturesList = new List<PictureProperties>();
 
                 foreach (string uri in all_path)
                 {
-                    var item = new CustomGallery();
+                    CustomGallery item = new CustomGallery();
+                    PictureProperties picture = new PictureProperties(uri);
+                    
+                    picturesList.Add(picture);
+                   
                     item.SdCardPath = uri;
                     dataT.Add(item);
                 }
-                galleryAdapter.AddAll(dataT);
+                picturesList.Reverse();
+                viewSwitcher.DisplayedChild = 0;
 
+                adapter.AddAll(dataT);
+            }
+            else if (requestCode == 300 && resultCode == Result.Ok)
+            {
+                var text = data.GetStringExtra("size");
             }
         }
 

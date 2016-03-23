@@ -27,7 +27,7 @@ namespace FotoABIld.Droid
             var historyText = FindViewById<EditText>(Resource.Id.HistoryText);
 		    var orderText = FindViewById<EditText>(Resource.Id.OrderText);
 		    var helpText = FindViewById<EditText>(Resource.Id.HelpText);
-
+		    
             orderButton.Click += OrderButton_Click;
 		    historyButton.Click += HistoryButton_Click;
 		    historyText.Click += HistoryButton_Click;

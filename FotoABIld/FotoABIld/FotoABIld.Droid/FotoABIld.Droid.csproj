@@ -38,6 +38,7 @@
     <ConsolePause>false</ConsolePause>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Mono.Android.Export" />
     <Reference Include="Plugin.CurrentActivity, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Plugin.CurrentActivity.1.0.1\lib\MonoAndroid10\Plugin.CurrentActivity.dll</HintPath>
       <Private>True</Private>
@@ -74,15 +75,18 @@
   <ItemGroup>
     <Compile Include="Action.cs" />
     <Compile Include="ChoosePicturesActivity.cs" />
+    <Compile Include="CustomerInformationActivity.cs" />
     <Compile Include="CustomGallery.cs" />
     <Compile Include="CustomGalleryActivity.cs" />
     <Compile Include="EditPictureActivity.cs" />
+    <Compile Include="FinalizeActivity.cs" />
     <Compile Include="FlyOutContainer.cs" />
     <Compile Include="GalleryAdapter.cs" />
     <Compile Include="HelpActivity.cs" />
     <Compile Include="HistoryActivity.cs" />
     <Compile Include="ImageAdapter.cs" />
     <Compile Include="MainActivity.cs" />
+    <Compile Include="PictureProperties.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -117,6 +121,9 @@
     <AndroidResource Include="Resources\layout\HelpPage.axml">
       <SubType>AndroidResource</SubType>
     </AndroidResource>
+    <AndroidResource Include="Resources\layout\FinalizeOrder.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Main.axml" />
@@ -126,7 +133,6 @@
     <AndroidResource Include="Resources\drawable-mdpi\Icon.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\Icon.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\Icon.png" />
-    <AndroidResource Include="Resources\drawable-xxxhdpi\Icon.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\logo.png" />
@@ -201,24 +207,6 @@
     <AndroidResource Include="Resources\drawable-xxhdpi\top_bar.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\btn.9.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\btn_hover.9.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\checkbox_selected.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\checkbox_up.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_launcher.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\top_bar.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\on_focus_checkbox.xml" />
   </ItemGroup>
   <ItemGroup>
@@ -234,16 +222,24 @@
     <AndroidResource Include="Resources\drawable-mdpi\no_media.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\no_media.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxhdpi\no_media.jpg" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xhdpi\no_media.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxxhdpi\btn.9.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\btn_hover.9.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\checkbox_selected.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\checkbox_up.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\Icon.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_launcher.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\no_media.jpg" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\top_bar.png" />
     <Content Include="UniversalImageLoader.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\layout\drawable-xxxhdpi\" />
   </ItemGroup>
   <Import Project="..\FotoABIld\FotoABIld.projitems" Label="Shared" Condition="Exists('..\FotoABIld\FotoABIld.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
