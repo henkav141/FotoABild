@@ -47,6 +47,18 @@ namespace FotoABIld.Droid
 		public partial class Attribute
 		{
 			
+			// aapt resource value: 0x7f010002
+			public const int cropviewMaxScale = 2130771970;
+			
+			// aapt resource value: 0x7f010003
+			public const int cropviewMinScale = 2130771971;
+			
+			// aapt resource value: 0x7f010001
+			public const int cropviewViewportHeaderFooterColor = 2130771969;
+			
+			// aapt resource value: 0x7f010000
+			public const int cropviewViewportHeightRatio = 2130771968;
+			
 			static Attribute()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
@@ -110,28 +122,34 @@ namespace FotoABIld.Droid
 			public const int Henrik = 2130837511;
 			
 			// aapt resource value: 0x7f020008
-			public const int ic_launcher = 2130837512;
+			public const int ic_content_add = 2130837512;
 			
 			// aapt resource value: 0x7f020009
-			public const int Icon = 2130837513;
+			public const int ic_content_content_cut = 2130837513;
 			
 			// aapt resource value: 0x7f02000a
-			public const int Johan = 2130837514;
+			public const int ic_launcher = 2130837514;
 			
 			// aapt resource value: 0x7f02000b
-			public const int logo = 2130837515;
+			public const int Icon = 2130837515;
 			
 			// aapt resource value: 0x7f02000c
-			public const int no_media = 2130837516;
+			public const int Johan = 2130837516;
 			
 			// aapt resource value: 0x7f02000d
-			public const int on_focus_checkbox = 2130837517;
+			public const int logo = 2130837517;
 			
 			// aapt resource value: 0x7f02000e
-			public const int richard = 2130837518;
+			public const int no_media = 2130837518;
 			
 			// aapt resource value: 0x7f02000f
-			public const int top_bar = 2130837519;
+			public const int on_focus_checkbox = 2130837519;
+			
+			// aapt resource value: 0x7f020010
+			public const int richard = 2130837520;
+			
+			// aapt resource value: 0x7f020011
+			public const int top_bar = 2130837521;
 			
 			static Drawable()
 			{
@@ -191,32 +209,32 @@ namespace FotoABIld.Droid
 			// aapt resource value: 0x7f08001c
 			public const int btnGalleryOk = 2131230748;
 			
-			// aapt resource value: 0x7f080015
-			public const int copyButton = 2131230741;
-			
-			// aapt resource value: 0x7f080014
-			public const int cropButton = 2131230740;
-			
 			// aapt resource value: 0x7f080016
-			public const int doneButton = 2131230742;
+			public const int copyButton = 2131230742;
 			
-			// aapt resource value: 0x7f08000b
-			public const int editText1 = 2131230731;
-			
-			// aapt resource value: 0x7f08000c
-			public const int editText2 = 2131230732;
+			// aapt resource value: 0x7f080015
+			public const int cropButton = 2131230741;
 			
 			// aapt resource value: 0x7f08000d
-			public const int editText3 = 2131230733;
+			public const int doneButton = 2131230733;
 			
 			// aapt resource value: 0x7f08000e
-			public const int editText4 = 2131230734;
+			public const int editText1 = 2131230734;
+			
+			// aapt resource value: 0x7f08000f
+			public const int editText2 = 2131230735;
+			
+			// aapt resource value: 0x7f080010
+			public const int editText3 = 2131230736;
+			
+			// aapt resource value: 0x7f080011
+			public const int editText4 = 2131230737;
 			
 			// aapt resource value: 0x7f080018
 			public const int editText5 = 2131230744;
 			
-			// aapt resource value: 0x7f08000f
-			public const int edit_picture = 2131230735;
+			// aapt resource value: 0x7f08000b
+			public const int edit_picture = 2131230731;
 			
 			// aapt resource value: 0x7f08001d
 			public const int frmQueue = 2131230749;
@@ -254,8 +272,8 @@ namespace FotoABIld.Droid
 			// aapt resource value: 0x7f080000
 			public const int linearLayout6 = 2131230720;
 			
-			// aapt resource value: 0x7f080010
-			public const int linearLayout7 = 2131230736;
+			// aapt resource value: 0x7f08000c
+			public const int linearLayout7 = 2131230732;
 			
 			// aapt resource value: 0x7f08001b
 			public const int llBottomContainer = 2131230747;
@@ -263,17 +281,17 @@ namespace FotoABIld.Droid
 			// aapt resource value: 0x7f080020
 			public const int mainLayout = 2131230752;
 			
-			// aapt resource value: 0x7f080011
-			public const int numberLabel = 2131230737;
-			
 			// aapt resource value: 0x7f080012
-			public const int numberPicker1 = 2131230738;
+			public const int numberLabel = 2131230738;
+			
+			// aapt resource value: 0x7f080013
+			public const int numberPicker1 = 2131230739;
 			
 			// aapt resource value: 0x7f080022
 			public const int orderButton = 2131230754;
 			
-			// aapt resource value: 0x7f080013
-			public const int spinner = 2131230739;
+			// aapt resource value: 0x7f080014
+			public const int spinner = 2131230740;
 			
 			// aapt resource value: 0x7f080017
 			public const int textView1 = 2131230743;
@@ -301,37 +319,40 @@ namespace FotoABIld.Droid
 			public const int ChoosePictures = 2130903041;
 			
 			// aapt resource value: 0x7f030002
-			public const int CustomerInformation = 2130903042;
+			public const int CropImage = 2130903042;
 			
 			// aapt resource value: 0x7f030003
-			public const int EditPicture = 2130903043;
+			public const int CustomerInformation = 2130903043;
 			
 			// aapt resource value: 0x7f030004
-			public const int FinalizeOrder = 2130903044;
+			public const int EditPicture = 2130903044;
 			
 			// aapt resource value: 0x7f030005
-			public const int gallery = 2130903045;
+			public const int FinalizeOrder = 2130903045;
 			
 			// aapt resource value: 0x7f030006
-			public const int gallery_item = 2130903046;
+			public const int gallery = 2130903046;
 			
 			// aapt resource value: 0x7f030007
-			public const int HelpPage = 2130903047;
+			public const int gallery_item = 2130903047;
 			
 			// aapt resource value: 0x7f030008
-			public const int Main = 2130903048;
+			public const int HelpPage = 2130903048;
 			
 			// aapt resource value: 0x7f030009
-			public const int MainFrame = 2130903049;
+			public const int Main = 2130903049;
 			
 			// aapt resource value: 0x7f03000a
-			public const int OrderHistory = 2130903050;
+			public const int MainFrame = 2130903050;
 			
 			// aapt resource value: 0x7f03000b
-			public const int SideMenuLayout = 2130903051;
+			public const int OrderHistory = 2130903051;
 			
 			// aapt resource value: 0x7f03000c
-			public const int titlebar = 2130903052;
+			public const int SideMenuLayout = 2130903052;
+			
+			// aapt resource value: 0x7f03000d
+			public const int titlebar = 2130903053;
 			
 			static Layout()
 			{
@@ -377,6 +398,37 @@ namespace FotoABIld.Droid
 			}
 			
 			private Style()
+			{
+			}
+		}
+		
+		public partial class Styleable
+		{
+			
+			public static int[] CropView = new int[] {
+					2130771968,
+					2130771969,
+					2130771970,
+					2130771971};
+			
+			// aapt resource value: 2
+			public const int CropView_cropviewMaxScale = 2;
+			
+			// aapt resource value: 3
+			public const int CropView_cropviewMinScale = 3;
+			
+			// aapt resource value: 1
+			public const int CropView_cropviewViewportHeaderFooterColor = 1;
+			
+			// aapt resource value: 0
+			public const int CropView_cropviewViewportHeightRatio = 0;
+			
+			static Styleable()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Styleable()
 			{
 			}
 		}
