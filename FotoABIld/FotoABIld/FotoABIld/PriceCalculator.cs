@@ -19,12 +19,12 @@ namespace FotoABIld
             listProperties = listproperties;
         }
 
-        private int CalculateTotalPrice()
+        public int CalculateTotalPrice()
         {
             return Calculate1() + Calculate2() + Calculate3() + Calculate4();
         }
 
-        private int Calculate1()
+        public int Calculate1()
         {
             var price1 = 0;
 
@@ -41,11 +41,12 @@ namespace FotoABIld
                  price1 = Size1Amount * 2;
 
 
+
             
             return price1;
         }
 
-        private int Calculate2()
+        public int Calculate2()
         {
             var price2 = 0;
             var list2 = listProperties.Where(item => item.Size.Equals("13x18(vit kant)") || item.Size.Equals("15x21"));
@@ -64,32 +65,43 @@ namespace FotoABIld
                 var numberof3 = ((Size2Amount - 1) / 3);
                 price2 = numberof3*90 + 80;
             }
+            else if (Size2Amount % 3 == 0 && Size2Amount < 10)
+            {
+                var numberof3 = Size2Amount / 3;
+                price2 = numberof3 * 90;
+            }
+
             return price2;
         }
 
-        private int Calculate3()
+        public int Calculate3()
         {
             var price3 = 0;
             var list3 = listProperties.Where(item => item.Size.Equals("18x24(vit kant)") || item.Size.Equals("20x30"));
-            var Size3 = list3.Sum(item => item.Amount);
-            if (Size3 > 9)
-                price3 = Size3 * 30;
-            else if (Size3 < 3)
-                price3 = Size3 * 60;
-            else if (Size3 % 3 == 1 && Size3 < 10)
+            Size3Amount = list3.Sum(item => item.Amount);
+            if (Size3Amount > 9)
+                price3 = Size3Amount * 30;
+            else if (Size3Amount < 3)
+                price3 = Size3Amount * 60;
+            else if (Size3Amount % 3 == 1 && Size3Amount < 10)
             {
-                var numberof3 = ((Size3 - 1) / 3);
+                var numberof3 = ((Size3Amount - 1) / 3);
                 price3 = numberof3 * 150 + 60;
             }
-            else if (Size3 % 3 == 2 & Size3 < 10)
+            else if (Size3Amount % 3 == 2 & Size3Amount < 10)
             {
-                var numberof3 = ((Size3 - 1) / 3);
+                var numberof3 = ((Size3Amount - 1) / 3);
                 price3 = numberof3 * 150 + 120;
+            }
+            else if (Size3Amount % 3 == 0 && Size3Amount < 10)
+            {
+                var numberof3 = Size3Amount / 3;
+                price3 = numberof3 * 150;
             }
             return price3;
 
         }
-        private int Calculate4()
+        public int Calculate4()
         {
             var price4 = 0;
             var list4 = listProperties.Where(item => item.Size.Equals("24x30(vit kant)") || item.Size.Equals("25x38"));
@@ -107,6 +119,11 @@ namespace FotoABIld
             {
                 var numberof3 = ((Size4Amount - 1) / 3);
                 price4 = numberof3 * 210 + 80;
+            }
+            else if (Size4Amount%3 == 0 && Size4Amount < 10)
+            {
+                var numberof3 = Size4Amount / 3;
+                price4 = numberof3 * 210;
             }
             return price4;
         }
