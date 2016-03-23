@@ -49,7 +49,9 @@ namespace FotoABIld.Droid
         {
             imageView = FindViewById<ImageView>(Resource.Id.edit_picture);
             Button doneButton = FindViewById<Button>(Resource.Id.doneButton);
+            Button cropButton = FindViewById<Button>(Resource.Id.cropButton);
             doneButton.Click += DoneButton_Click;
+            cropButton.Click += CropButton_Click;
             //var bundle = Intent.Extras;
             picture = (PictureProperties)Intent.GetParcelableExtra("picture");
             position = picture.FilePath;
@@ -73,6 +75,14 @@ namespace FotoABIld.Droid
             var intent = new Intent().PutExtra("picture", picture);
             SetResult(Result.Ok,intent);
             Finish();
+        }
+
+        private void CropButton_Click(object sender, EventArgs e)
+        {
+            var crop = new Intent(this, typeof(CropImageActivity));
+            crop.PutExtra("image", picture.FilePath);
+            StartActivity(crop);
+
         }
 
         private void InitNumberPicker()

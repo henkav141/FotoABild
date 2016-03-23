@@ -95,6 +95,7 @@
   <ItemGroup>
     <Compile Include="Action.cs" />
     <Compile Include="ChoosePicturesActivity.cs" />
+    <Compile Include="CropImageActivity.cs" />
     <Compile Include="CustomerInformationActivity.cs" />
     <Compile Include="CustomGallery.cs" />
     <Compile Include="CustomGalleryActivity.cs" />
