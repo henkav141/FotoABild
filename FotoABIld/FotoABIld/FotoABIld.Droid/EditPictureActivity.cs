@@ -42,14 +42,6 @@ namespace FotoABIld.Droid
             Init();
             InitNumberPicker();
             InitSpinner();
-            var position = Intent.GetStringExtra("file_path");
-            
-            File imgFile = new File(position);
-            if (imgFile.Exists())
-            {
-                Bitmap bitMap = BitmapFactory.DecodeFile(imgFile.AbsolutePath);
-                imageView.SetImageBitmap(bitMap);
-            }
 
         }
 
@@ -61,6 +53,8 @@ namespace FotoABIld.Droid
             //var bundle = Intent.Extras;
             picture = (PictureProperties)Intent.GetParcelableExtra("picture");
             position = picture.FilePath;
+            amount = picture.Amount;
+            size = picture.Size;
 
             File imgFile = new File(position);
             if (imgFile.Exists())
@@ -68,7 +62,7 @@ namespace FotoABIld.Droid
                 Bitmap bitMap = BitmapFactory.DecodeFile(imgFile.AbsolutePath);
                 imageView.SetImageBitmap(bitMap);
             }
-            picture = new PictureProperties(position,amount,size);
+
         }
 
         private void DoneButton_Click(object sender, EventArgs e)
@@ -84,9 +78,9 @@ namespace FotoABIld.Droid
         private void InitNumberPicker()
         {
             numberPicker = FindViewById<NumberPicker>(Resource.Id.numberPicker1);
-            numberPicker.Value = amount;
             numberPicker.MinValue = 0;
             numberPicker.MaxValue = 100;
+            numberPicker.Value = amount;
         }
 
         private void InitSpinner()
@@ -95,6 +89,12 @@ namespace FotoABIld.Droid
             var adapter = ArrayAdapter.CreateFromResource(this, Resource.Array.Sizes, Android.Resource.Layout.SimpleSpinnerItem);
             adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerItem);
             spinner.Adapter = adapter;
+            
+            if (!size.Equals(null))
+            {
+                var spinnerPosition = adapter.GetPosition(size);
+                spinner.SetSelection(spinnerPosition);
+            }
         }
 
 
