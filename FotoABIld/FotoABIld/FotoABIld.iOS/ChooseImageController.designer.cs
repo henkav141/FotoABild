@@ -16,29 +16,49 @@ namespace FotoABIld.iOS
 	{
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UICollectionView addImageCollectionView { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UINavigationItem baj { get; set; }
+		UIButton addImages { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UIBarButtonItem bttnNextFromChooseImage { get; set; }
 
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIView ChooseImageView { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UICollectionView imageCollection { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIBarButtonItem nextButton { get; set; }
+
+		[Action ("AddImages_TouchUpInside")]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		partial void AddImages_TouchUpInside ();
+
 		void ReleaseDesignerOutlets ()
 		{
-			if (addImageCollectionView != null) {
-				addImageCollectionView.Dispose ();
-				addImageCollectionView = null;
-			}
-			if (baj != null) {
-				baj.Dispose ();
-				baj = null;
+			if (addImages != null) {
+				addImages.Dispose ();
+				addImages = null;
 			}
 			if (bttnNextFromChooseImage != null) {
 				bttnNextFromChooseImage.Dispose ();
 				bttnNextFromChooseImage = null;
+			}
+			if (ChooseImageView != null) {
+				ChooseImageView.Dispose ();
+				ChooseImageView = null;
+			}
+			if (imageCollection != null) {
+				imageCollection.Dispose ();
+				imageCollection = null;
+			}
+			if (nextButton != null) {
+				nextButton.Dispose ();
+				nextButton = null;
 			}
 		}
 	}
