@@ -82,6 +82,7 @@ namespace FotoABIld.Droid
             cancelButton.Click += Cancelbutton_Click;
             chooseButton.Click += chooseButton_Click;
             gridGallery.ItemClick += gridGallery_ItemClick;
+            Button nextButton = FindViewById<Button>(Resource.Id.NextButton);
 
 
 
@@ -118,6 +119,12 @@ namespace FotoABIld.Droid
         {
             var intent = new Intent(this, typeof(MainActivity));
             StartActivity(intent);
+        }
+
+        private void NextButton_Click(object sender, EventArgs e)
+        {
+            var next = new Intent(this, typeof(CustomerInformationActivity));
+            StartActivity(next);
         }
 
         protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
