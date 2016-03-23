@@ -83,6 +83,7 @@ namespace FotoABIld.Droid
             chooseButton.Click += chooseButton_Click;
             gridGallery.ItemClick += gridGallery_ItemClick;
             Button nextButton = FindViewById<Button>(Resource.Id.NextButton);
+            nextButton.Click += NextButton_Click;
 
 
 
