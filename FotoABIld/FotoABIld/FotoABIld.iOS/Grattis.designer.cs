@@ -18,6 +18,10 @@ namespace FotoABIld.iOS
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UIImageView twetImage { get; set; }
 
+		[Action ("UIBarButtonItem8411_Activated:")]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		partial void UIBarButtonItem8411_Activated (UIBarButtonItem sender);
+
 		void ReleaseDesignerOutlets ()
 		{
 			if (twetImage != null) {
