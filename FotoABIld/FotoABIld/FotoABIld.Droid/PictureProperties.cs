@@ -45,6 +45,7 @@ namespace FotoABIld
             dest.WriteString(Size);
         }
 
+
         public static readonly GenericParcelableCreator<PictureProperties> Creator = new GenericParcelableCreator<PictureProperties>(parcel =>
         new PictureProperties(parcel));
 

@@ -57,7 +57,8 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="10dp"
             android:editable="false"
-            android:focusable="false" />
+            android:focusable="false"
+            android:textColor="#000000" />
         <EditText
             android:inputType="phone"
             android:layout_width="wrap_content"
@@ -67,7 +68,8 @@
             android:layout_marginTop="10dp"
             android:editable="false"
             android:focusable="false"
-            android:id="@+id/editText2" />
+            android:id="@+id/editText2"
+            android:textColor="#000000" />
         <EditText
             android:inputType="textEmailAddress"
             android:layout_width="wrap_content"
@@ -77,7 +79,8 @@
             android:layout_marginTop="10dp"
             android:editable="false"
             android:focusable="false"
-            android:id="@+id/editText3" />
+            android:id="@+id/editText3"
+            android:textColor="#000000" />
         <LinearLayout
             android:orientation="horizontal"
             android:minWidth="25px"
@@ -91,13 +94,19 @@
                 android:id="@+id/editText4"
                 android:text="Antal bilder:"
                 android:layout_marginRight="10dp"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:focusable="false"
+                android:editable="false"
+                android:textColor="#000000" />
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:id="@+id/editText5"
                 android:text="Pris:"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:editable="false"
+                android:focusable="false"
+                android:textColor="#000000" />
         </LinearLayout>
         <Button
             android:text="Lägg beställning"
@@ -107,7 +116,8 @@
             android:background="#ffbe1f"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="20dp"
-            android:textSize="15dp" />
+            android:textSize="15dp"
+            android:textColor="#1F2F40" />
     </LinearLayout>
     <LinearLayout
         android:orientation="horizontal"

@@ -25,14 +25,22 @@ namespace FotoABIld.Droid
             SetContentView(Resource.Layout.CustomerInformation);
 
             Button cancelButton = FindViewById<Button>(Resource.Id.CancelButton);
+            Button nextButton = FindViewById<Button>(Resource.Id.NextButton);
 
             cancelButton.Click += CancelButton_Click;
+            nextButton.Click += NextButton_Click;
         }
 
         private void CancelButton_Click(object sender, EventArgs e)
         {
             var home = new Intent(this, typeof(MainActivity));
             StartActivity(home);
+        }
+
+        private void NextButton_Click(object sender, EventArgs e)
+        {
+            var next = new Intent(this, typeof(FinalizeActivity));
+            StartActivity(next);
         }
     }
 }

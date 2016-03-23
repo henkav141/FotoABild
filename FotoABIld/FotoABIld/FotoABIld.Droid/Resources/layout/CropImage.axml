@@ -56,80 +56,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:weightSum="2">
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="match_parent"
-                    android:minWidth="25px"
-                    android:minHeight="25px"
-                    android:background="#1F2F40">
-                    <TextView
-                        android:text="Antal:"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/numberLabel"
-                        android:textColor="#ffffff" />
-                    <NumberPicker
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/numberPicker1"
-                        android:background="#1F2F40" />
-                </LinearLayout>
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="match_parent"
-                    android:background="#1F2F40">
-                    <TextView
-                        android:text="Välj Storlek"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textColor="#ffffff" />
-                    <Spinner
-                        android:id="@+id/spinner"
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="1" />
-                </LinearLayout>
-            </LinearLayout>
+                android:weightSum="2"
+                android:minWidth="25px"
+                android:minHeight="25px" />
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:weightSum="2">
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="match_parent"
-                    android:background="#1F2F40">
-                    <Button
-                        android:layout_height="match_parent"
-                        android:layout_width="match_parent"
-                        android:id="@+id/cropButton"
-                        android:text="Beskär Bilden"
-                        android:background="#ffbe1f"
-                        android:textColor="#1F2F40" />
-                </LinearLayout>
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="match_parent"
-                    android:background="#1F2F40">
-                    <Button
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="Skapa Kopia"
-                        android:id="@+id/copyButton"
-                        android:background="#ffbe1f"
-                        android:textColor="#1F2F40" />
-                </LinearLayout>
-            </LinearLayout>
+                android:weightSum="2"
+                android:minWidth="25px"
+                android:minHeight="25px" />
         </LinearLayout>
     </LinearLayout>
     <LinearLayout
