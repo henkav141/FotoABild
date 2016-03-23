@@ -6,6 +6,7 @@ using CoreGraphics;
 using UIKit;
 
 
+
 namespace FotoABIld.iOS
 {
 	public partial class ViewController : UIViewController
