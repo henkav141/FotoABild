@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
@@ -38,13 +38,21 @@
         android:layout_height="0dp"
         android:layout_weight="60"
         android:id="@+id/linearLayout3"
-        android:background="@android:color/white"
-        android:weightSum="3">
-        <com.lyft.android.scissors.CropView
-            android:id="@+id/crop_view"
-            app:cropviewViewportHeightRatio="0.9"
+        android:background="@android:color/white">
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="wrap_content"
+            android:id="@+id/scrollView1">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/pricetext"
+                    android:textColor="#1F2F40" />
+            </LinearLayout>
+        </ScrollView>
     </LinearLayout>
     <LinearLayout
         android:orientation="horizontal"
@@ -57,20 +65,12 @@
         android:background="#1F2F40"
         android:paddingTop="50px">
         <Button
-            android:text="Avbryt"
+            android:text="Tillbaka"
             android:layout_width="50dp"
             android:layout_height="40dp"
-            android:id="@+id/CancelButton"
+            android:id="@+id/BackButton"
             android:background="#ffbe1f"
             android:textColor="#1F2F40"
-            android:layout_weight="1" />
-        <Button
-            android:text="Klar"
-            android:layout_width="50dp"
-            android:id="@+id/doneButton"
-            android:background="#ffbe1f"
-            android:textColor="#1F2F40"
-            android:layout_height="40dp"
             android:layout_weight="1" />
     </LinearLayout>
 </LinearLayout>

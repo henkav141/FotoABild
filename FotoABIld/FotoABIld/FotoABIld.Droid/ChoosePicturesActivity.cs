@@ -25,7 +25,7 @@ namespace FotoABIld.Droid
         private GridView gridGallery;
         private Handler handler;
         private GalleryAdapter adapter;
-
+        private List<CustomGallery> dataT;
         private ImageView imgSinglePick;
 
         private Button chooseButton;
@@ -145,7 +145,7 @@ namespace FotoABIld.Droid
                 String[] all_path = data.GetStringArrayExtra("all_path");
 
 
-                List<CustomGallery> dataT = new List<CustomGallery>();
+                dataT = new List<CustomGallery>();
                 pictureList = new List<PictureProperties>();
 
                 foreach (string uri in all_path)
@@ -164,10 +164,26 @@ namespace FotoABIld.Droid
             }
             else if (requestCode == 300 && resultCode == Result.Ok)
             {
+                var bundle = data.GetBundleExtra("bundle");
+                if (bundle.GetBoolean("bool"))
+                {
+                    var picture = (PictureProperties) bundle.GetParcelable("picture");
+                    pictureList[editIndex] = picture;
+                }
+                else
+                {
+                    var picture = (PictureProperties)bundle.GetParcelable("picture");
+                    pictureList.Add(picture);
+                    var item = new CustomGallery {SdCardPath = picture.FilePath};
+                    dataT.Add(item);
+                    adapter.AddAll(dataT);
+                }
 
-                var picture = (PictureProperties)data.GetParcelableExtra("picture");
-                pictureList[editIndex] = picture;
-
+            }
+            else if (requestCode == 400 && resultCode == Result.Ok)
+            {
+                var picture = (PictureProperties) data.GetParcelableExtra("picture");
+                pictureList.Add(picture);
             }
         }
 

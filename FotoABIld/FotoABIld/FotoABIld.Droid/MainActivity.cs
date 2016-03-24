@@ -12,7 +12,7 @@ namespace FotoABIld.Droid
 	[Activity (Label = "FotoABIld.Droid", MainLauncher = true, Icon = "@drawable/icon")]
 	public class MainActivity : Activity
 	{
-		
+	    private FlyOutContainer menu;
 
 		protected override void OnCreate (Bundle bundle)
 		{
@@ -27,20 +27,25 @@ namespace FotoABIld.Droid
             var historyText = FindViewById<EditText>(Resource.Id.HistoryText);
 		    var orderText = FindViewById<EditText>(Resource.Id.OrderText);
 		    var helpText = FindViewById<EditText>(Resource.Id.HelpText);
+		    var priceText = FindViewById<EditText>(Resource.Id.PriceText);
 		    
             orderButton.Click += OrderButton_Click;
 		    historyButton.Click += HistoryButton_Click;
 		    historyText.Click += HistoryButton_Click;
 		    orderText.Click += OrderButton_Click;
 		    helpText.Click += HelpButton_Click;
+		    priceText.Click += priceText_Click;
+            
 
-            var menu = FindViewById<FlyOutContainer>(Resource.Id.BaseContainer);
+            menu = FindViewById<FlyOutContainer>(Resource.Id.BaseContainer);
             var menuButton = FindViewById<ImageView>(Resource.Id.FlyOutMenuButton);
 		    var homeText = FindViewById<EditText>(Resource.Id.HomeText);
 		    menuButton.Click += (sender, e) => {
 		                                           menu.AnimatedOpened = !menu.AnimatedOpened; };
 
-            homeText.Click += (sender, e) => {
+            homeText.Click += (sender, e) =>
+            {
+                if (!menu.AnimatedOpened) return;
                 menu.AnimatedOpened = !menu.AnimatedOpened;
             };
 
@@ -55,14 +60,23 @@ namespace FotoABIld.Droid
 
 	    private void HistoryButton_Click(object sender, EventArgs e)
 	    {
+            if (!menu.AnimatedOpened) return;
 	        var history = new Intent(this, typeof(HistoryActivity));
             StartActivity(history);
 	    }
 
 	    private void HelpButton_Click(object sender, EventArgs e)
 	    {
+            if (!menu.AnimatedOpened) return;
 	        var help = new Intent(this, typeof(HelpActivity));
             StartActivity(help);
+	    }
+
+	    private void priceText_Click(object sender, EventArgs e)
+	    {
+	        if (!menu.AnimatedOpened) return;
+	        var price = new Intent(this, typeof (PricesSizesActivity));
+	        StartActivity(price);
 	    }
 
     }

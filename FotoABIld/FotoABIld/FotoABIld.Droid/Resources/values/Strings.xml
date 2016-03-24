@@ -13,4 +13,44 @@
     <item>24x30(vit kant)</item>
     <item>25x38</item>
   </string-array>
+  <string name="priceandsize"> <![CDATA[<p><strong>Våra storlekar på blankt papper:</strong></p>
+<ul>
+<li>10 x 15 cm(10,2 x 15,2)</li><br/>
+<li>11 x 15 cm (11,4 x 15,2)</li><br/>
+<li>13 x 18 cm (vit kant)</li><br/>
+<li>15 x 21 cm (15,2 x 21,6)</li><br/>
+</ul>
+<p><strong>Halvmatt papper:</strong></p>
+<ul>
+<li>18 x 24 cm (vitkant)</li><br/>
+<li>20 x 30 cm (20,3 x 30,5)</li><br/>
+<li>24 x 30 cm (vit kant)</li><br/>
+<li>25×38 cm (25,4 x 38,1)</li><br/>
+</ul>
+<h3>Priser:</h3>
+<p><strong>10 x 15 cm och 11 x 15 cm, gäller beställning vid samma tillfälle</strong></p>
+<ul>
+<li>1-19 10 kr/st</li><br/>
+<li>20-29 4 kr/st</li><br/>
+<li>30-59 3 kr/st</li><br/>
+<li>60 st och fler 2kr/st</li><br/>
+</ul>
+<p><strong>13 x 18 cm och 15 x 21 cm</strong></p>
+<ul>
+<li>40kr/st</li><br/>
+<li>3st vid samma tillfälle 90 kr</li><br/>
+<li>10st eller fler vid samma tillfälle 15kr/st</li><br/>
+</ul>
+<p><strong>18 x 24 cm och 20 x 30 cm</strong></p>
+<ul>
+<li>60kr/st</li><br/>
+<li>3 st vid samma tillfälle 150kr</li><br/>
+<li>10 st eller fler vid samma tillfälle 30kr/st</li><br/>
+</ul>
+<p><strong>24 x 30 cm och 25 x 38 cm</strong></p>
+<ul>
+<li>100kr/st</li><br/>
+<li>3 st vid samma tillfälle 210 kr</li><br/>
+<li>10 st eller fler vid samma tillfälle 40kr/st</li><br/>
+</ul>]]></string>
 </resources>

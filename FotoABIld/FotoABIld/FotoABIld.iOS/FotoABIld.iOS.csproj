@@ -67,14 +67,6 @@
     <Reference Include="ELCImagePicker">
       <HintPath>..\..\Components\elcimagepicker-1.3\lib\ios-unified\ELCImagePicker.dll</HintPath>
     </Reference>
-    <Reference Include="Media.Plugin, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Xam.Plugin.Media.1.0.1\lib\Xamarin.iOS10\Media.Plugin.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Media.Plugin.Abstractions, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Xam.Plugin.Media.1.0.1\lib\Xamarin.iOS10\Media.Plugin.Abstractions.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="MonoTouch.Dialog-1" />
     <Reference Include="SDWebImage, Version=3.7.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Xamarin.SDWebImage.3.7.5\lib\Xamarin.iOS\SDWebImage.dll</HintPath>

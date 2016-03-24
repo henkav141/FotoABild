@@ -51,14 +51,6 @@
       <HintPath>..\..\packages\Plugin.CurrentActivity.1.0.1\lib\MonoAndroid10\Plugin.CurrentActivity.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Plugin.Media, Version=2.2.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Xam.Plugin.Media.2.3.0\lib\MonoAndroid10\Plugin.Media.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Plugin.Media.Abstractions, Version=2.2.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Xam.Plugin.Media.2.3.0\lib\MonoAndroid10\Plugin.Media.Abstractions.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Plugin.Permissions, Version=1.1.6.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Plugin.Permissions.1.1.7\lib\MonoAndroid10\Plugin.Permissions.dll</HintPath>
       <Private>True</Private>
@@ -95,6 +87,7 @@
   <ItemGroup>
     <Compile Include="Action.cs" />
     <Compile Include="ChoosePicturesActivity.cs" />
+    <Compile Include="CropImageActivity.cs" />
     <Compile Include="CustomerInformationActivity.cs" />
     <Compile Include="CustomGallery.cs" />
     <Compile Include="CustomGalleryActivity.cs" />
@@ -107,6 +100,7 @@
     <Compile Include="ImageAdapter.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="PictureProperties.cs" />
+    <Compile Include="PricesSizesActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -145,6 +139,9 @@
       <SubType>AndroidResource</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\CropImage.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\PricesSizes.axml">
       <SubType>AndroidResource</SubType>
     </AndroidResource>
   </ItemGroup>
@@ -261,9 +258,7 @@
     <AndroidResource Include="Resources\drawable-xxxhdpi\top_bar.png" />
     <Content Include="UniversalImageLoader.dll" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\layout\drawable-xxxhdpi\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <XamarinComponentReference Include="Lyft.Scissors.Picasso">
       <Visible>False</Visible>
