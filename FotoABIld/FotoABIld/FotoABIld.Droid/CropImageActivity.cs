@@ -58,7 +58,7 @@ namespace FotoABIld.Droid
             }
 
 
-
+            
             sizeHeight = 10;
             sizeWidth = 15;
 
