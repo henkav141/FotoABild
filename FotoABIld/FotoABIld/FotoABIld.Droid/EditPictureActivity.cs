@@ -50,6 +50,8 @@ namespace FotoABIld.Droid
             imageView = FindViewById<ImageView>(Resource.Id.edit_picture);
             Button doneButton = FindViewById<Button>(Resource.Id.doneButton);
             Button cropButton = FindViewById<Button>(Resource.Id.cropButton);
+            var copyButton = FindViewById<Button>(Resource.Id.copyButton);
+            copyButton.Click += copyButton_Click;
             doneButton.Click += DoneButton_Click;
             cropButton.Click += CropButton_Click;
             //var bundle = Intent.Extras;
@@ -67,12 +69,25 @@ namespace FotoABIld.Droid
 
         }
 
+        void copyButton_Click(object sender, EventArgs e)
+        {
+            var copyImage = new PictureProperties(position,0,"10x15");
+            var bundle = new Bundle();
+            bundle.PutParcelable("picture", copyImage);
+            bundle.PutBoolean("bool",false);
+            var intent = new Intent().PutExtra("bundle", bundle);
+            SetResult(Result.Ok,intent);
+            Finish();
+        }
+
         private void DoneButton_Click(object sender, EventArgs e)
         {
             picture.Amount = numberPicker.Value;
             picture.Size = spinner.SelectedItem.ToString();
-            
-            var intent = new Intent().PutExtra("picture", picture);
+            var bundle = new Bundle();
+            bundle.PutParcelable("picture",picture);
+            bundle.PutBoolean("bool", true);
+            var intent = new Intent().PutExtra("bundle",bundle);
             SetResult(Result.Ok,intent);
             Finish();
         }

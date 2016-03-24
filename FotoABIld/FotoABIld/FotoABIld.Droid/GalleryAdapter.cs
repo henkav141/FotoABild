@@ -202,7 +202,7 @@ namespace FotoABIld.Droid
 
                     holder.ImgQueueMultiSelected.Selected = data[position].IsSelected;
                 }
-
+                ClearCache();
             }
             catch (Exception e)
             {

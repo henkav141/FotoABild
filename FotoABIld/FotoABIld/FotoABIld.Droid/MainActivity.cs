@@ -54,7 +54,6 @@ namespace FotoABIld.Droid
 
         private void OrderButton_Click(object sender, EventArgs e)
         {
-            if (!menu.AnimatedOpened) return;
             var intent = new Intent(this, typeof(ChoosePicturesActivity));
             StartActivity(intent);
         }
