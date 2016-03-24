@@ -42,9 +42,9 @@
         android:weightSum="3">
         <com.lyft.android.scissors.CropView
             android:id="@+id/crop_view"
-            app:cropviewViewportHeightRatio="1"
+            app:cropviewViewportHeightRatio="0.9"
             android:layout_width="match_parent"
-            android:layout_height="250dp" />
+            android:layout_height="match_parent" />
     </LinearLayout>
     <LinearLayout
         android:orientation="horizontal"
