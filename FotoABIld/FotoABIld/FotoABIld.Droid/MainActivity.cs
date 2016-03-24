@@ -12,7 +12,7 @@ namespace FotoABIld.Droid
 	[Activity (Label = "FotoABIld.Droid", MainLauncher = true, Icon = "@drawable/icon")]
 	public class MainActivity : Activity
 	{
-		
+	    private FlyOutContainer menu;
 
 		protected override void OnCreate (Bundle bundle)
 		{
@@ -37,13 +37,15 @@ namespace FotoABIld.Droid
 		    priceText.Click += priceText_Click;
             
 
-            var menu = FindViewById<FlyOutContainer>(Resource.Id.BaseContainer);
+            menu = FindViewById<FlyOutContainer>(Resource.Id.BaseContainer);
             var menuButton = FindViewById<ImageView>(Resource.Id.FlyOutMenuButton);
 		    var homeText = FindViewById<EditText>(Resource.Id.HomeText);
 		    menuButton.Click += (sender, e) => {
 		                                           menu.AnimatedOpened = !menu.AnimatedOpened; };
 
-            homeText.Click += (sender, e) => {
+            homeText.Click += (sender, e) =>
+            {
+                if (!menu.AnimatedOpened) return;
                 menu.AnimatedOpened = !menu.AnimatedOpened;
             };
 
@@ -52,26 +54,30 @@ namespace FotoABIld.Droid
 
         private void OrderButton_Click(object sender, EventArgs e)
         {
+            if (!menu.AnimatedOpened) return;
             var intent = new Intent(this, typeof(ChoosePicturesActivity));
             StartActivity(intent);
         }
 
 	    private void HistoryButton_Click(object sender, EventArgs e)
 	    {
+            if (!menu.AnimatedOpened) return;
 	        var history = new Intent(this, typeof(HistoryActivity));
             StartActivity(history);
 	    }
 
 	    private void HelpButton_Click(object sender, EventArgs e)
 	    {
+            if (!menu.AnimatedOpened) return;
 	        var help = new Intent(this, typeof(HelpActivity));
             StartActivity(help);
 	    }
 
 	    private void priceText_Click(object sender, EventArgs e)
 	    {
-	        var price = new Intent(this,typeof(PricesSizesActivity));
-            StartActivity(price);
+	        if (!menu.AnimatedOpened) return;
+	        var price = new Intent(this, typeof (PricesSizesActivity));
+	        StartActivity(price);
 	    }
 
     }
