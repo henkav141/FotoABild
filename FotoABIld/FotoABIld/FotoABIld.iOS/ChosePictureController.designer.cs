@@ -11,19 +11,11 @@ using UIKit;
 
 namespace FotoABIld.iOS
 {
-	[Register ("ImageResult")]
-	partial class ImageResult
+	[Register ("ChosePictureController")]
+	partial class ChosePictureController
 	{
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UIImageView imageInCell { get; set; }
-
 		void ReleaseDesignerOutlets ()
 		{
-			if (imageInCell != null) {
-				imageInCell.Dispose ();
-				imageInCell = null;
-			}
 		}
 	}
 }

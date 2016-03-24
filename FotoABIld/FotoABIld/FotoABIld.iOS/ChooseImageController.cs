@@ -76,12 +76,16 @@ namespace FotoABIld.iOS
             return mResults.Count;
         }
 
+
+
         public UICollectionViewCell GetCell(UICollectionView collectionView, NSIndexPath indexPath)
         {
             
             var cell = (ImageResult)collectionView.DequeueReusableCell(ImageResult.Id, indexPath);
             var asset = mResults[indexPath.Row]; ;
+
             cell.TheImage.Image = asset.Image;
+            
 
             return cell;
 
@@ -91,10 +95,15 @@ namespace FotoABIld.iOS
         {
             base.PrepareForSegue(segue, sender);
 
-            var vc = (Grattis)segue.DestinationViewController;
-            var cell = (ImageResult)sender;
+            var destination = (EditImageController)segue.DestinationViewController;
+            var imageToPass = (ImageResult)sender;
+            
+            //Create a list that contains the mResults list.
+            var list = mResults.ToList();
 
-            vc.TheImage = cell.TheImage.Image;
+            //Give the properties in DestinationViewController value of the locale variables e.g. the list of images and the selected image.
+            destination.EditImageControllerList = list;
+            destination.EditImageControllerImage = imageToPass.TheImage.Image;
         }
     }
 }

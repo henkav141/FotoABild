@@ -9,21 +9,13 @@ using System;
 using System.CodeDom.Compiler;
 using UIKit;
 
-namespace FotoABIld.iOS
+namespace ELCImagePickerSample
 {
-	[Register ("ImageViewController")]
-	partial class ImageViewController
+	[Register ("ELImagePickerDemoViewController")]
+	partial class ELImagePickerDemoViewController
 	{
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UIView ImagePickerView { get; set; }
-
 		void ReleaseDesignerOutlets ()
 		{
-			if (ImagePickerView != null) {
-				ImagePickerView.Dispose ();
-				ImagePickerView = null;
-			}
 		}
 	}
 }
