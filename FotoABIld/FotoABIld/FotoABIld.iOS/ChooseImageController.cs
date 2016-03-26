@@ -27,9 +27,48 @@ namespace FotoABIld.iOS
 
 
 
-        partial void AddImages_TouchUpInside()
-        {
 
+
+
+        public nint GetItemsCount(UICollectionView collectionView, nint section)
+        {
+            return mResults.Count;
+        }
+
+
+
+        public UICollectionViewCell GetCell(UICollectionView collectionView, NSIndexPath indexPath)
+        {
+            
+            var cell = (ImageResult)collectionView.DequeueReusableCell(ImageResult.Id, indexPath);
+            var asset = mResults[indexPath.Row]; ;
+
+            cell.TheImage.Image = asset.Image;
+            
+
+            return cell;
+
+        }
+
+        public override void PrepareForSegue(UIStoryboardSegue segue, NSObject sender)
+        {
+            base.PrepareForSegue(segue, sender);
+
+            var destination = (EditImageController)segue.DestinationViewController;
+            var imageToPass = (ImageResult)sender;
+            
+            //Create a list that contains the mResults list.
+            var list = mResults.ToList();
+
+            //Give the properties in DestinationViewController value of the locale variables e.g. the list of images and the selected image.
+            destination.EditImageControllerList = list;
+            destination.EditImageControllerImage = imageToPass.TheImage.Image;
+        }
+
+
+
+        partial void AddImagesBtn_TouchUpInside(UIButton sender)
+        {
             //create a new instance of the picker view controller
             var picker = ELCImagePickerViewController.Instance;
 
@@ -67,43 +106,6 @@ namespace FotoABIld.iOS
 
 
             this.PresentViewController(picker, true, null);
-
-        }
-
-
-        public nint GetItemsCount(UICollectionView collectionView, nint section)
-        {
-            return mResults.Count;
-        }
-
-
-
-        public UICollectionViewCell GetCell(UICollectionView collectionView, NSIndexPath indexPath)
-        {
-            
-            var cell = (ImageResult)collectionView.DequeueReusableCell(ImageResult.Id, indexPath);
-            var asset = mResults[indexPath.Row]; ;
-
-            cell.TheImage.Image = asset.Image;
-            
-
-            return cell;
-
-        }
-
-        public override void PrepareForSegue(UIStoryboardSegue segue, NSObject sender)
-        {
-            base.PrepareForSegue(segue, sender);
-
-            var destination = (EditImageController)segue.DestinationViewController;
-            var imageToPass = (ImageResult)sender;
-            
-            //Create a list that contains the mResults list.
-            var list = mResults.ToList();
-
-            //Give the properties in DestinationViewController value of the locale variables e.g. the list of images and the selected image.
-            destination.EditImageControllerList = list;
-            destination.EditImageControllerImage = imageToPass.TheImage.Image;
         }
     }
 }

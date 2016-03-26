@@ -49,7 +49,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <segue id="5249" destination="4689" kind="show"/>
+                                    <segue id="5701" destination="4689" kind="show"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -141,7 +141,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2733" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-993" y="-454"/>
+            <point key="canvasLocation" x="-788" y="-452"/>
         </scene>
         <scene sceneID="4688">
             <objects>
@@ -174,67 +174,82 @@
                                     <color key="titleColor" colorSpace="calibratedRGB" red="0.12156862745098039" green="0.18431372549019609" blue="0.25098039215686274" alpha="1"/>
                                 </state>
                                 <variation key="heightClass=regular-widthClass=compact">
-                                    <rect key="frame" x="20" y="70.5" width="335" height="39.5"/>
+                                    <rect key="frame" x="0.0" y="70.5" width="375" height="50"/>
                                     <mask key="constraints">
-                                        <include reference="5388"/>
+                                        <include reference="5450"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <action selector="AddImagesBtn_TouchUpInside:" destination="4689" id="5443" eventType="touchUpInside"/>
+                                </connections>
                                 <constraints>
-                                    <constraint id="5388" firstAttribute="width" secondItem="5359" secondAttribute="height" multiplier="280:33"/>
+                                    <constraint id="5450" firstAttribute="width" secondItem="5359" secondAttribute="height" multiplier="414:55"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="5388"/>
+                                        <exclude reference="5450"/>
                                     </mask>
                                 </variation>
-                                <connections/>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="5362" translatesAutoresizingMaskIntoConstraints="NO">
                                 <rect key="frame" x="20" y="112" width="160" height="240"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="5364">
-                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="itemSize" width="90" height="90"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="5363" reuseIdentifier="addImageCell">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="5363" reuseIdentifier="cellImage" customClass="ImageResult">
+                                        <rect key="frame" x="35" y="10" width="90" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <rect key="frame" x="10" y="10" width="90" height="90"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" id="5458" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
+                                                    <rect key="frame" x="-35" y="-75" width="160" height="240"/>
+                                                    <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                                        <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
+                                                    </variation>
+                                                </imageView>
+                                            </subviews>
                                         </view>
+                                        <variation key="default">
+                                            <mask key="subviews">
+                                                <exclude reference="5458"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=regular-widthClass=compact">
+                                            <mask key="subviews">
+                                                <include reference="5458"/>
+                                            </mask>
+                                            <rect key="frame" x="10" y="10" width="90" height="90"/>
+                                        </variation>
+                                        <connections>
+                                            <outlet property="imageInCell" destination="5458" id="name-outlet-5458"/>
+                                            <segue id="5852" destination="5462" kind="show"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <variation key="heightClass=regular-widthClass=compact">
-                                    <rect key="frame" x="20" y="167.5" width="335" height="312"/>
-                                    <mask key="constraints">
-                                        <include reference="5431"/>
-                                    </mask>
+                                    <rect key="frame" x="0.0" y="149.5" width="375" height="409.5"/>
                                 </variation>
-                                <constraints>
-                                    <constraint id="5431" firstAttribute="width" secondItem="5362" secondAttribute="height" multiplier="187:174"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="5431"/>
-                                    </mask>
-                                </variation>
+                                <color key="backgroundColor" colorSpace="calibratedRGB" red="1" green="1" blue="1" alpha="1"/>
                             </collectionView>
                         </subviews>
                         <constraints>
                             <constraint id="5351" firstItem="4690" firstAttribute="trailing" secondItem="5339" secondAttribute="trailing"/>
                             <constraint id="5352" firstItem="5339" firstAttribute="top" secondItem="4690" secondAttribute="top"/>
                             <constraint id="5354" firstItem="5339" firstAttribute="leading" secondItem="4690" secondAttribute="leading"/>
-                            <constraint id="5384" firstItem="4690" firstAttribute="trailing" secondItem="5359" secondAttribute="trailing" constant="20"/>
-                            <constraint id="5389" firstItem="5359" firstAttribute="leading" secondItem="4690" secondAttribute="leading" constant="20"/>
-                            <constraint id="5390" firstItem="5359" firstAttribute="top" secondItem="5339" secondAttribute="bottom" constant="8"/>
-                            <constraint id="5427" firstItem="5362" firstAttribute="leading" secondItem="4690" secondAttribute="leading" constant="20"/>
-                            <constraint id="5428" firstItem="4690" firstAttribute="trailing" secondItem="5362" secondAttribute="trailing" constant="20"/>
-                            <constraint id="5429" firstItem="5362" firstAttribute="centerY" secondItem="4690" secondAttribute="centerY" constant="44"/>
-                            <constraint id="5430" firstItem="5362" firstAttribute="centerX" secondItem="4690" secondAttribute="centerX"/>
+                            <constraint id="5444" firstItem="4690" firstAttribute="trailing" secondItem="5359" secondAttribute="trailing"/>
+                            <constraint id="5448" firstItem="5359" firstAttribute="leading" secondItem="4690" secondAttribute="leading"/>
+                            <constraint id="5449" firstItem="5359" firstAttribute="top" secondItem="5339" secondAttribute="bottom" constant="8"/>
+                            <constraint id="5451" firstItem="4690" firstAttribute="trailing" secondItem="5362" secondAttribute="trailing"/>
+                            <constraint id="5452" firstItem="4690" firstAttribute="bottom" secondItem="5362" secondAttribute="bottom"/>
+                            <constraint id="5455" firstItem="5362" firstAttribute="leading" secondItem="4690" secondAttribute="leading"/>
+                            <constraint id="5457" firstItem="5362" firstAttribute="top" secondItem="5359" secondAttribute="bottom" constant="29"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
@@ -242,13 +257,13 @@
                                 <exclude reference="5362"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="5384"/>
-                                <exclude reference="5389"/>
-                                <exclude reference="5390"/>
-                                <exclude reference="5427"/>
-                                <exclude reference="5428"/>
-                                <exclude reference="5429"/>
-                                <exclude reference="5430"/>
+                                <exclude reference="5444"/>
+                                <exclude reference="5448"/>
+                                <exclude reference="5449"/>
+                                <exclude reference="5451"/>
+                                <exclude reference="5452"/>
+                                <exclude reference="5455"/>
+                                <exclude reference="5457"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -257,13 +272,13 @@
                                 <include reference="5362"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="5384"/>
-                                <include reference="5389"/>
-                                <include reference="5390"/>
-                                <include reference="5427"/>
-                                <include reference="5428"/>
-                                <include reference="5429"/>
-                                <include reference="5430"/>
+                                <include reference="5444"/>
+                                <include reference="5448"/>
+                                <include reference="5449"/>
+                                <include reference="5451"/>
+                                <include reference="5452"/>
+                                <include reference="5455"/>
+                                <include reference="5457"/>
                             </mask>
                         </variation>
                     </view>
@@ -280,12 +295,107 @@
                     </toolbarItems>
                     <connections>
                         <outlet property="bttnNextFromChooseImage" destination="5262" id="name-outlet-5262"/>
-                        <outlet property="addImageCollectionView" destination="5362" id="name-outlet-5362"/>
+                        <outlet property="imageCollection" destination="5362" id="name-outlet-5362"/>
+                        <outlet property="addImagesBtn" destination="5359" id="name-outlet-5359"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4691" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="384" y="-439"/>
+        </scene>
+        <scene sceneID="5461">
+            <objects>
+                <viewController id="5462" sceneMemberID="viewController" customClass="EditImageController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5459"/>
+                        <viewControllerLayoutGuide type="bottom" id="5460"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5463">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" id="5466" translatesAutoresizingMaskIntoConstraints="NO">
+                                <rect key="frame" x="89" y="155" width="160" height="240"/>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <rect key="frame" x="20" y="98.5" width="335" height="335"/>
+                                    <mask key="constraints">
+                                        <include reference="5715"/>
+                                    </mask>
+                                </variation>
+                                <constraints>
+                                    <constraint id="5715" firstAttribute="width" secondItem="5466" secondAttribute="height" multiplier="1:1"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="5715"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" id="5705" translatesAutoresizingMaskIntoConstraints="NO" image="logo.png">
+                                <rect key="frame" x="210" y="123" width="160" height="240"/>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="62.5"/>
+                                    <mask key="constraints">
+                                        <include reference="5721"/>
+                                    </mask>
+                                </variation>
+                                <color key="backgroundColor" colorSpace="calibratedRGB" red="1" green="0.81568627450980391" blue="0.25882352941176473" alpha="1"/>
+                                <constraints>
+                                    <constraint id="5721" firstAttribute="width" secondItem="5705" secondAttribute="height" multiplier="6:1"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="5721"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
+                        </subviews>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="5466"/>
+                                <exclude reference="5705"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="5710"/>
+                                <exclude reference="5716"/>
+                                <exclude reference="5717"/>
+                                <exclude reference="5720"/>
+                                <exclude reference="5722"/>
+                                <exclude reference="5723"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="5466"/>
+                                <include reference="5705"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="5710"/>
+                                <include reference="5716"/>
+                                <include reference="5717"/>
+                                <include reference="5720"/>
+                                <include reference="5722"/>
+                                <include reference="5723"/>
+                            </mask>
+                        </variation>
+                        <constraints>
+                            <constraint id="5710" firstItem="5463" firstAttribute="trailing" secondItem="5466" secondAttribute="trailing" constant="20"/>
+                            <constraint id="5716" firstItem="5463" firstAttribute="trailing" secondItem="5705" secondAttribute="trailing"/>
+                            <constraint id="5717" firstItem="5705" firstAttribute="top" secondItem="5463" secondAttribute="top"/>
+                            <constraint id="5720" firstItem="5705" firstAttribute="leading" secondItem="5463" secondAttribute="leading"/>
+                            <constraint id="5722" firstItem="5466" firstAttribute="top" secondItem="5705" secondAttribute="bottom" constant="36"/>
+                            <constraint id="5723" firstItem="5466" firstAttribute="leading" secondItem="5463" secondAttribute="leading" constant="20"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="twetImage" destination="5466" id="name-outlet-5466"/>
+                    </connections>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5464" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="951" y="-435"/>
         </scene>
     </scenes>
     <resources>
@@ -303,9 +413,10 @@
         <image name="12321.png" width="40" height="44"/>
         <image name="right4-32.png" width="32" height="32"/>
         <image name="123.png" width="32" height="32"/>
+        <image name="tumblr.jpg" width="2047" height="2015"/>
     </resources>
     <color key="tintColor" colorSpace="calibratedRGB" red="1" green="0.81568627450980391" blue="0.25882352941176473" alpha="1"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedScreenMetrics key="destination" type="retina4"/>
+        <simulatedScreenMetrics key="destination" type="retina47"/>
     </simulatedMetricsContainer>
 </document>
