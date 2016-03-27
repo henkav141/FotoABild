@@ -1,4 +1,5 @@
 
+using Android.Content.PM;
 using Java.IO;
 using System.Collections;
 
@@ -29,7 +30,7 @@ namespace FotoABIld.Droid
     [IntentFilter(
         new[] { Action.ActionPick, Action.ActionPickMultiple },
         Categories = new[] { Intent.CategoryDefault })]
-    [Activity]
+    [Activity(ConfigurationChanges = ConfigChanges.Orientation, ScreenOrientation = ScreenOrientation.Portrait)]
     public class CustomGalleryActivity : Activity
     {
 

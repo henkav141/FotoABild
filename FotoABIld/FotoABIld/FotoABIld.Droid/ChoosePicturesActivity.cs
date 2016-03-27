@@ -5,6 +5,7 @@ using System.Text;
 using Android.Animation;
 using Android.App;
 using Android.Content;
+using Android.Content.PM;
 using Android.Graphics;
 using Android.OS;
 using Android.Runtime;
@@ -17,7 +18,7 @@ using Java.IO;
 
 namespace FotoABIld.Droid
 {
-    [Activity(Label = "ChoosePicturesActivity")]
+    [Activity(Label = "ChoosePicturesActivity", ConfigurationChanges = ConfigChanges.Orientation, ScreenOrientation = ScreenOrientation.Portrait)]
     public class ChoosePicturesActivity : Activity
     {
         private int editIndex;

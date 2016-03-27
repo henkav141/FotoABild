@@ -2,6 +2,7 @@
 using System.Net.Mime;
 using Android.App;
 using Android.Content;
+using Android.Content.PM;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
@@ -9,7 +10,8 @@ using Android.OS;
 
 namespace FotoABIld.Droid
 {
-	[Activity (Label = "FotoABIld.Droid", MainLauncher = true, Icon = "@drawable/icon")]
+    [Activity(Label = "FotoABIld.Droid", MainLauncher = true, Icon = "@drawable/icon",
+        ConfigurationChanges = ConfigChanges.Orientation, ScreenOrientation = ScreenOrientation.Portrait)]
 	public class MainActivity : Activity
 	{
 	    private FlyOutContainer menu;
