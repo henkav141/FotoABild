@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using UIKit;
 
-namespace FotoABIld.iOS
+namespace FotoABildShared.iOS
 {
     public class ImageHandler
     {

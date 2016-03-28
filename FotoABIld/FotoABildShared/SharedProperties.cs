@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace FotoABIld
+namespace FotoABildShared
 {
     public class SharedProperties
     {

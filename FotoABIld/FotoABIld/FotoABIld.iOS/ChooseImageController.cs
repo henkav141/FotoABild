@@ -8,7 +8,7 @@ using CoreGraphics;
 using ELCImagePicker;
 using UIKit;
 
-namespace FotoABIld.iOS
+namespace FotoABildShared.iOS
 {
     partial class ChooseImageController : UIViewController, IUICollectionViewDataSource
     {

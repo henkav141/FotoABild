@@ -57,6 +57,10 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\FotoABildShared\FotoABildShared.csproj">
+      <Project>{e8f447fd-9eed-48df-aada-05c575c990cf}</Project>
+      <Name>FotoABildShared</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FotoABIld\FotoABIld.Droid\FotoABIld.Droid.csproj">
       <Project>{58db07e6-b585-4c17-8838-ac95e43d8df8}</Project>
       <Name>FotoABIld.Droid</Name>

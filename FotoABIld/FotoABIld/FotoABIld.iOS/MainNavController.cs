@@ -3,7 +3,7 @@ using System;
 using System.CodeDom.Compiler;
 using UIKit;
 
-namespace FotoABIld.iOS
+namespace FotoABildShared.iOS
 {
 	partial class MainNavController : UINavigationController
 	{

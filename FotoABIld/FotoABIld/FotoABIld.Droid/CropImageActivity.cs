@@ -5,6 +5,7 @@ using System.Text;
 
 using Android.App;
 using Android.Content;
+using Android.Content.PM;
 using Android.Graphics;
 using Android.OS;
 using Android.Runtime;
@@ -13,9 +14,9 @@ using Android.Widget;
 using Java.IO;
 using Lyft.Scissors;
 
-namespace FotoABIld.Droid
+namespace FotoABildShared.Droid
 {
-    [Activity(Label = "CropImageActivity")]
+    [Activity(Label = "CropImageActivity", ConfigurationChanges = ConfigChanges.Orientation, ScreenOrientation = ScreenOrientation.Portrait)]
     public class CropImageActivity : Activity
     {
         private PictureProperties picture;

@@ -9,7 +9,7 @@ using System;
 using System.CodeDom.Compiler;
 using UIKit;
 
-namespace FotoABIld.iOS
+namespace FotoABildShared.iOS
 {
 	[Register ("ImageResult")]
 	partial class ImageResult

@@ -11,6 +11,8 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "FotoABIld", "FotoABIld\Foto
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FotoABildTest", "FotoABildTest\FotoABildTest.csproj", "{B5C8C697-085A-4EBB-B2C6-AB1BEB52B53B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FotoABildShared", "FotoABildShared\FotoABildShared.csproj", "{E8F447FD-9EED-48DF-AADA-05C575C990CF}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		FotoABIld\FotoABIld\FotoABIld.projitems*{30dcf875-29d0-4385-a413-e6f63e10940a}*SharedItemsImports = 13
@@ -107,6 +109,24 @@ Global
 		{B5C8C697-085A-4EBB-B2C6-AB1BEB52B53B}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
 		{B5C8C697-085A-4EBB-B2C6-AB1BEB52B53B}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{B5C8C697-085A-4EBB-B2C6-AB1BEB52B53B}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{E8F447FD-9EED-48DF-AADA-05C575C990CF}.AppStore|Any CPU.ActiveCfg = Release|Any CPU
+		{E8F447FD-9EED-48DF-AADA-05C575C990CF}.AppStore|Any CPU.Build.0 = Release|Any CPU
+		{E8F447FD-9EED-48DF-AADA-05C575C990CF}.AppStore|iPhone.ActiveCfg = Release|Any CPU
+		{E8F447FD-9EED-48DF-AADA-05C575C990CF}.AppStore|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{E8F447FD-9EED-48DF-AADA-05C575C990CF}.AppStore|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{E8F447FD-9EED-48DF-AADA-05C575C990CF}.AppStore|Mixed Platforms.Build.0 = Release|Any CPU
+		{E8F447FD-9EED-48DF-AADA-05C575C990CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8F447FD-9EED-48DF-AADA-05C575C990CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8F447FD-9EED-48DF-AADA-05C575C990CF}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{E8F447FD-9EED-48DF-AADA-05C575C990CF}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{E8F447FD-9EED-48DF-AADA-05C575C990CF}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{E8F447FD-9EED-48DF-AADA-05C575C990CF}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{E8F447FD-9EED-48DF-AADA-05C575C990CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8F447FD-9EED-48DF-AADA-05C575C990CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8F447FD-9EED-48DF-AADA-05C575C990CF}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{E8F447FD-9EED-48DF-AADA-05C575C990CF}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{E8F447FD-9EED-48DF-AADA-05C575C990CF}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{E8F447FD-9EED-48DF-AADA-05C575C990CF}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

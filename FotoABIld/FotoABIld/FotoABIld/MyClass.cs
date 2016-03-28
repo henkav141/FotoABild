@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace FotoABIld
+namespace FotoABildShared
 {
 	public class MyClass
 	{

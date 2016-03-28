@@ -1,4 +1,5 @@
 
+using Android.Content.PM;
 using Java.IO;
 using System.Collections;
 
@@ -24,12 +25,12 @@ using System.Collections.Generic;
 using Android.OS;
 using Com.Nostra13.Universalimageloader.Core.Assist;
 
-namespace FotoABIld.Droid
+namespace FotoABildShared.Droid
 {
     [IntentFilter(
         new[] { Action.ActionPick, Action.ActionPickMultiple },
         Categories = new[] { Intent.CategoryDefault })]
-    [Activity]
+    [Activity(ConfigurationChanges = ConfigChanges.Orientation, ScreenOrientation = ScreenOrientation.Portrait)]
     public class CustomGalleryActivity : Activity
     {
 

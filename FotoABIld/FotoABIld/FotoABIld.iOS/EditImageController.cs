@@ -6,7 +6,7 @@ using ELCImagePicker;
 using UIKit;
 using XamDialogs;
 
-namespace FotoABIld.iOS
+namespace FotoABildShared.iOS
 {
 	partial class EditImageController : UIViewController
 	{
