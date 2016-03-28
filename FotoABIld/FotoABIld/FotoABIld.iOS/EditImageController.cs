@@ -31,7 +31,14 @@ namespace FotoABIld.iOS
         {
             base.ViewDidAppear(animated);
             twetImage.Image = EditImageControllerImage;
-            tImageHandler = new ImageHandler(twetImage.Image);
+            foreach (var x in EditImageControllerList)
+            {
+                if (x.Image.Equals(EditImageControllerImage))
+                {
+                    tImageHandler = new ImageHandler(twetImage.Image, x.Path, x.Name);
+                }
+            }
+            Console.WriteLine(tImageHandler.Path);
         }
 
         //Method to chose amount of copies to be added to the ImageHandler>ImageAmount property.
