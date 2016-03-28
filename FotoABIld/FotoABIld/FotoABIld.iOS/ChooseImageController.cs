@@ -58,6 +58,7 @@ namespace FotoABIld.iOS
             var imageToPass = (ImageResult)sender;
             
             //Create a list that contains the mResults list.
+
             var list = mResults.ToList();
 
             //Give the properties in DestinationViewController value of the locale variables e.g. the list of images and the selected image.

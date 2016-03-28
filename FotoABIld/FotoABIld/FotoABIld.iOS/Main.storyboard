@@ -315,7 +315,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" id="5466" translatesAutoresizingMaskIntoConstraints="NO">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" id="5466" translatesAutoresizingMaskIntoConstraints="NO">
                                 <rect key="frame" x="89" y="155" width="160" height="240"/>
                                 <variation key="heightClass=regular-widthClass=compact">
                                     <rect key="frame" x="20" y="98.5" width="335" height="335"/>

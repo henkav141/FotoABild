@@ -23,9 +23,5 @@ namespace FotoABIld.iOS
             get { return this.imageInCell; }
         }
 
-        public string ImageFormat { get; set; }
-
-        public int ImageAmount { get; set; }
-
     }
 }
