@@ -8,7 +8,7 @@ using Android.Util;
 using Android.Views;
 using Android.Widget;
 
-namespace FotoABIld.Droid
+namespace FotoABildShared.Droid
 {
 	public class FlyOutContainer : FrameLayout
 	{

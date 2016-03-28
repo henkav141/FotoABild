@@ -11,7 +11,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 
-namespace FotoABIld.Droid
+namespace FotoABildShared.Droid
 {
     [Activity(Label = "HelpActivity", ConfigurationChanges = ConfigChanges.Orientation, ScreenOrientation = ScreenOrientation.Portrait)]
     public class HelpActivity : Activity

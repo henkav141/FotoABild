@@ -11,7 +11,7 @@ using Android.Views;
 using Android.Widget;
 using Uri = Android.Net.Uri;
 
-namespace FotoABIld.Droid
+namespace FotoABildShared.Droid
 {
     public class ImageAdapter : BaseAdapter
     {

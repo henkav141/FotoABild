@@ -14,7 +14,7 @@ using Android.Widget;
 using Java.IO;
 using Lyft.Scissors;
 
-namespace FotoABIld.Droid
+namespace FotoABildShared.Droid
 {
     [Activity(Label = "CropImageActivity", ConfigurationChanges = ConfigChanges.Orientation, ScreenOrientation = ScreenOrientation.Portrait)]
     public class CropImageActivity : Activity
