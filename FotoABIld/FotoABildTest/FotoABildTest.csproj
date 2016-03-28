@@ -61,10 +61,6 @@
       <Project>{58db07e6-b585-4c17-8838-ac95e43d8df8}</Project>
       <Name>FotoABIld.Droid</Name>
     </ProjectReference>
-    <ProjectReference Include="..\FotoABIld\FotoABildShared\FotoABildShared.csproj">
-      <Project>{72b1e04d-45be-42ec-82b3-dad4a34109eb}</Project>
-      <Name>FotoABildShared</Name>
-    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
