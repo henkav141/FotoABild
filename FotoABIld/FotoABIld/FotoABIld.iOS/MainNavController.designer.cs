@@ -9,7 +9,7 @@ using System;
 using System.CodeDom.Compiler;
 using UIKit;
 
-namespace FotoABildShared.iOS
+namespace FotoABIld.iOS
 {
 	[Register ("MainNavController")]
 	partial class MainNavController

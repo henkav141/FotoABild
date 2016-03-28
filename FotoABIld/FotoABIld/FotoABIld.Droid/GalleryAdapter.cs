@@ -8,7 +8,7 @@ using Com.Nostra13.Universalimageloader.Core.Listener;
 using Com.Nostra13.Universalimageloader.Core;
 
 
-namespace FotoABildShared.Droid
+namespace FotoABIld.Droid
 {
     public class GalleryAdapter : BaseAdapter<CustomGallery>
     {

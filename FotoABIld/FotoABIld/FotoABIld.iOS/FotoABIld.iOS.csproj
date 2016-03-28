@@ -6,7 +6,7 @@
     <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <ProjectGuid>{784A5FB7-CCFF-4820-A2B3-94007C24145F}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>FotoABildShared.iOS</RootNamespace>
+    <RootNamespace>FotoABIld.iOS</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AssemblyName>FotoABIldiOS</AssemblyName>
   </PropertyGroup>
@@ -191,12 +191,6 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="tumblr.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\FotoABildShared\FotoABildShared.csproj">
-      <Project>{e8f447fd-9eed-48df-aada-05c575c990cf}</Project>
-      <Name>FotoABildShared</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="..\FotoABIld\FotoABIld.projitems" Label="Shared" Condition="Exists('..\FotoABIld\FotoABIld.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
