@@ -22,7 +22,6 @@ namespace FotoABIld.Droid
     public class ChoosePicturesActivity : Activity
     {
         private int editIndex;
-        private IList<PictureProperties> pictureList; 
         private GridView gridGallery;
         private Handler handler;
         private GalleryAdapter adapter;
@@ -102,8 +101,10 @@ namespace FotoABIld.Droid
 
        private void gridGallery_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
+            
+            var serializer = new Serializer<List<PictureProperties>>(System.IO.Path.Combine(FilesDir.Path,"PictureList"));
             var i = new Intent(this, typeof (EditPictureActivity));
-
+           var pictureList = serializer.DeSerialize();
            
            i.PutExtra("picture",pictureList[e.Position]);
            editIndex = e.Position;
@@ -147,7 +148,8 @@ namespace FotoABIld.Droid
 
 
                 dataT = new List<CustomGallery>();
-                pictureList = new List<PictureProperties>();
+                var pictureList = new List<PictureProperties>();
+                var xmlSerializer = new Serializer<List<PictureProperties>>(System.IO.Path.Combine(FilesDir.Path, "PictureList"));
 
                 foreach (string uri in all_path)
                 {
@@ -162,9 +164,13 @@ namespace FotoABIld.Droid
                 viewSwitcher.DisplayedChild = 0;
 
                 adapter.AddAll(dataT);
+                xmlSerializer.Serialize(pictureList);
             }
             else if (requestCode == 300 && resultCode == Result.Ok)
             {
+                var xmlSerializer = new Serializer<List<PictureProperties>>(System.IO.Path.Combine(FilesDir.Path, "PictureList"));
+                var pictureList = xmlSerializer.DeSerialize();
+                
                 var bundle = data.GetBundleExtra("bundle");
                 if (bundle.GetBoolean("bool"))
                 {
@@ -179,12 +185,8 @@ namespace FotoABIld.Droid
                     dataT.Add(item);
                     adapter.AddAll(dataT);
                 }
+                xmlSerializer.DeSerialize();
 
-            }
-            else if (requestCode == 400 && resultCode == Result.Ok)
-            {
-                var picture = (PictureProperties) data.GetParcelableExtra("picture");
-                pictureList.Add(picture);
             }
         }
 
