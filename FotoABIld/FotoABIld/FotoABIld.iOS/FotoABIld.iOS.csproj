@@ -192,6 +192,12 @@
   <ItemGroup>
     <BundleResource Include="tumblr.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\FotoABildShared\FotoABildShared.csproj">
+      <Project>{e8f447fd-9eed-48df-aada-05c575c990cf}</Project>
+      <Name>FotoABildShared</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="..\FotoABIld\FotoABIld.projitems" Label="Shared" Condition="Exists('..\FotoABIld\FotoABIld.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

@@ -258,7 +258,12 @@
     <AndroidResource Include="Resources\drawable-xxxhdpi\top_bar.png" />
     <Content Include="UniversalImageLoader.dll" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\..\FotoABildShared\FotoABildShared.csproj">
+      <Project>{e8f447fd-9eed-48df-aada-05c575c990cf}</Project>
+      <Name>FotoABildShared</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="Lyft.Scissors.Picasso">
       <Visible>False</Visible>
