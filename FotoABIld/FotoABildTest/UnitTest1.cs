@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using FotoABIld;
+using FotoABildShared;
 using FotoABIld.Droid;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -12,7 +12,7 @@ namespace FotoABildTest
         [TestMethod]
         public void TestMethod1()
         {
-            var sharedpropertieslist = new List<FotoABIld.SharedProperties>();
+            var sharedpropertieslist = new List<SharedProperties>();
             var shared1 = new SharedProperties("", 25, "10x15");
             var shared2 = new SharedProperties("", 420, "15x21");
             var shared3 = new SharedProperties("", 7, "20x30");
