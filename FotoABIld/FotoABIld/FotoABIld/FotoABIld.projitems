@@ -12,5 +12,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)MyClass.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)PriceCalculator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SharedProperties.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Serializer.cs" />
   </ItemGroup>
 </Project>
