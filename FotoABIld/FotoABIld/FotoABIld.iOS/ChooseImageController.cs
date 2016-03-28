@@ -22,7 +22,7 @@ namespace FotoABildShared.iOS
         {
             base.ViewDidLoad();
             imageCollection.WeakDataSource = this;
-            
+
         }
 
 
