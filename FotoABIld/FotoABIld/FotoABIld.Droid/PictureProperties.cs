@@ -4,10 +4,10 @@ using System.Drawing;
 using System.Runtime.Serialization;
 using System.Text;
 using Android.OS;
-using FotoABildShared.Droid;
+using FotoABIld.Droid;
 using Java.Interop;
 
-namespace FotoABildShared
+namespace FotoABIld
 {   
     
     public sealed class PictureProperties : Java.Lang.Object, IParcelable

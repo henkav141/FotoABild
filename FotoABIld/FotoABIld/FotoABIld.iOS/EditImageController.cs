@@ -6,7 +6,7 @@ using ELCImagePicker;
 using UIKit;
 using XamDialogs;
 
-namespace FotoABildShared.iOS
+namespace FotoABIld.iOS
 {
 	partial class EditImageController : UIViewController
 	{
@@ -31,16 +31,7 @@ namespace FotoABildShared.iOS
         {
             base.ViewDidAppear(animated);
             twetImage.Image = EditImageControllerImage;
-            foreach (var x in EditImageControllerList)
-            {
-                if (x.Image.Equals(twetImage.Image))
-                {
-                    tImageHandler = new ImageHandler(twetImage.Image, x.Path, x.Name);
-                }
-            }
-          
-            Console.WriteLine(tImageHandler.Path);
-            
+            tImageHandler = new ImageHandler(twetImage.Image);
         }
 
         //Method to chose amount of copies to be added to the ImageHandler>ImageAmount property.

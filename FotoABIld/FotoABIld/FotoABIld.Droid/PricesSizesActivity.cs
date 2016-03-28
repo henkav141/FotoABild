@@ -12,7 +12,7 @@ using Android.Text;
 using Android.Views;
 using Android.Widget;
 
-namespace FotoABildShared.Droid
+namespace FotoABIld.Droid
 {
     [Activity(Label = "PricesSizesActivity",ConfigurationChanges = ConfigChanges.Orientation,ScreenOrientation = ScreenOrientation.Portrait)]
     public class PricesSizesActivity : Activity

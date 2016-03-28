@@ -5,7 +5,7 @@ using System.Linq;
 using Foundation;
 using UIKit;
 
-namespace FotoABildShared.iOS
+namespace FotoABIld.iOS
 {
 	public class Application
 	{

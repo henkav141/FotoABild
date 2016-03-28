@@ -7,7 +7,7 @@ using UIKit;
 
 
 
-namespace FotoABildShared.iOS
+namespace FotoABIld.iOS
 {
 	public partial class ViewController : UIViewController
 	{

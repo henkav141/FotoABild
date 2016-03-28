@@ -11,7 +11,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 
-namespace FotoABildShared.Droid
+namespace FotoABIld.Droid
 {
     [Activity(Label = "CustomerInformationActivity", ConfigurationChanges = ConfigChanges.Orientation, ScreenOrientation = ScreenOrientation.Portrait)]
     public class CustomerInformationActivity : Activity

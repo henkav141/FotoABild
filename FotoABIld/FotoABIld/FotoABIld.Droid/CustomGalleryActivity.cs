@@ -25,7 +25,7 @@ using System.Collections.Generic;
 using Android.OS;
 using Com.Nostra13.Universalimageloader.Core.Assist;
 
-namespace FotoABildShared.Droid
+namespace FotoABIld.Droid
 {
     [IntentFilter(
         new[] { Action.ActionPick, Action.ActionPickMultiple },

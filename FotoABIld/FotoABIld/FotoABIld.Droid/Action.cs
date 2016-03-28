@@ -10,7 +10,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 
-namespace FotoABildShared.Droid
+namespace FotoABIld.Droid
 {
 
     public static class Action

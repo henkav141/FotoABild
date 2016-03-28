@@ -8,7 +8,7 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 
-namespace FotoABildShared.Droid
+namespace FotoABIld.Droid
 {
     [Activity(Label = "FotoABIld.Droid", MainLauncher = true, Icon = "@drawable/icon",
         ConfigurationChanges = ConfigChanges.Orientation, ScreenOrientation = ScreenOrientation.Portrait)]

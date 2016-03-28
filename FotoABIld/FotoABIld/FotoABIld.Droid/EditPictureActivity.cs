@@ -16,7 +16,7 @@ using Com.Nostra13.Universalimageloader.Core;
 using Com.Nostra13.Universalimageloader.Core.Assist;
 using Java.IO;
 
-namespace FotoABildShared.Droid
+namespace FotoABIld.Droid
 {
     [Activity(Label = "EditPictureActivity", ConfigurationChanges = ConfigChanges.Orientation, ScreenOrientation = ScreenOrientation.Portrait)]
     public class EditPictureActivity : Activity

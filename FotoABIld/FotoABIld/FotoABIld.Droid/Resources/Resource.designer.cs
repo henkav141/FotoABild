@@ -11,7 +11,7 @@
 
 [assembly: global::Android.Runtime.ResourceDesignerAttribute("FotoABIld.Droid.Resource", IsApplication=true)]
 
-namespace FotoABildShared.Droid
+namespace FotoABIld.Droid
 {
 	
 	
