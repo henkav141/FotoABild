@@ -286,7 +286,9 @@
                     <toolbarItems>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="5263" translatesAutoresizingMaskIntoConstraints="NO"/>
                         <barButtonItem id="5278" translatesAutoresizingMaskIntoConstraints="NO" width="70" title="Nästa">
-                            <connections/>
+                            <connections>
+                                <action selector="NextBtn_Activated:" destination="4689" id="5859"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem id="5262" translatesAutoresizingMaskIntoConstraints="NO">
                             <color key="tintColor" colorSpace="calibratedRGB" red="1" green="0.74509803921568629" blue="0.12156862745098039" alpha="1"/>
@@ -297,6 +299,7 @@
                         <outlet property="bttnNextFromChooseImage" destination="5262" id="name-outlet-5262"/>
                         <outlet property="imageCollection" destination="5362" id="name-outlet-5362"/>
                         <outlet property="addImagesBtn" destination="5359" id="name-outlet-5359"/>
+                        <outlet property="nextBtn" destination="5278" id="name-outlet-5278"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4691" userLabel="First Responder" sceneMemberID="firstResponder"/>

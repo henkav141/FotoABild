@@ -189,9 +189,6 @@
       <Version>1.0</Version>
     </XamarinComponentReference>
   </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="tumblr.jpg" />
-  </ItemGroup>
   <Import Project="..\FotoABIld\FotoABIld.projitems" Label="Shared" Condition="Exists('..\FotoABIld\FotoABIld.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

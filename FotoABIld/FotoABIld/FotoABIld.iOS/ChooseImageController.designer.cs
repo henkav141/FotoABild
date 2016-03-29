@@ -26,9 +26,17 @@ namespace FotoABIld.iOS
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UICollectionView imageCollection { get; set; }
 
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIBarButtonItem nextBtn { get; set; }
+
 		[Action ("AddImagesBtn_TouchUpInside:")]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		partial void AddImagesBtn_TouchUpInside (UIButton sender);
+
+		[Action ("NextBtn_Activated:")]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		partial void NextBtn_Activated (UIBarButtonItem sender);
 
 		void ReleaseDesignerOutlets ()
 		{
@@ -43,6 +51,10 @@ namespace FotoABIld.iOS
 			if (imageCollection != null) {
 				imageCollection.Dispose ();
 				imageCollection = null;
+			}
+			if (nextBtn != null) {
+				nextBtn.Dispose ();
+				nextBtn = null;
 			}
 		}
 	}

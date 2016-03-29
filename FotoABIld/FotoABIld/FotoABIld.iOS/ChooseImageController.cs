@@ -13,6 +13,7 @@ namespace FotoABIld.iOS
     partial class ChooseImageController : UIViewController, IUICollectionViewDataSource
     {
         private List<AssetResult> mResults = new List<AssetResult>();
+        private List<ImageHandler> ImageHandlerLst = new List<ImageHandler>(); 
 
         public ChooseImageController(IntPtr handle) : base(handle)
         {
@@ -32,7 +33,7 @@ namespace FotoABIld.iOS
 
         public nint GetItemsCount(UICollectionView collectionView, nint section)
         {
-            return mResults.Count;
+            return ImageHandlerLst.Count;
         }
 
 
@@ -41,7 +42,7 @@ namespace FotoABIld.iOS
         {
             
             var cell = (ImageResult)collectionView.DequeueReusableCell(ImageResult.Id, indexPath);
-            var asset = mResults[indexPath.Row]; ;
+            var asset = ImageHandlerLst[indexPath.Row]; ;
 
             cell.TheImage.Image = asset.Image;
             
@@ -58,7 +59,7 @@ namespace FotoABIld.iOS
             var imageToPass = (ImageResult)sender;
             
             //Create a list that contains the mResults list.
-            var list = mResults.ToList();
+            var list = ImageHandlerLst.ToList();
 
             //Give the properties in DestinationViewController value of the locale variables e.g. the list of images and the selected image.
             destination.EditImageControllerList = list;
@@ -95,7 +96,9 @@ namespace FotoABIld.iOS
 
                         foreach (AssetResult aItem in items)
                         {
-                            mResults.Add(aItem);
+                            
+                            var x = new ImageHandler(aItem.Image, aItem.Path, aItem.Name);
+                            ImageHandlerLst.Add(x);
                         }
 
                         imageCollection.ReloadData();
@@ -106,6 +109,14 @@ namespace FotoABIld.iOS
 
 
             this.PresentViewController(picker, true, null);
+        }
+
+        partial void NextBtn_Activated(UIBarButtonItem sender)
+        {
+            foreach (var t in ImageHandlerLst)
+            {
+                Console.WriteLine("Namn: "+ t.Name + "\n" + "Path: " + t.Path + "\n" + "Hur många: " + t.ImageAmount + "\n" + "Storlek: " + t.ImageFormat);
+            }
         }
     }
 }
