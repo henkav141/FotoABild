@@ -10,8 +10,6 @@ namespace FotoABIld.iOS
 {
 	partial class EditImageController : UIViewController
 	{
-	    private ImageHandler tImageHandler;
-
 		public EditImageController (IntPtr handle) : base (handle)
 		{
 		}
@@ -21,7 +19,7 @@ namespace FotoABIld.iOS
             get; set;
         }
 
-        public List<AssetResult> EditImageControllerList
+        public List<ImageHandler> EditImageControllerList
         {
             get; set;
         }
@@ -35,10 +33,11 @@ namespace FotoABIld.iOS
             {
                 if (x.Image.Equals(EditImageControllerImage))
                 {
-                    tImageHandler = new ImageHandler(twetImage.Image, x.Path, x.Name);
+                    Console.WriteLine(x.Path + "\n" + x.Name + "\n" + x.ImageFormat);
+
                 }
             }
-            Console.WriteLine(tImageHandler.Path);
+
         }
 
         //Method to chose amount of copies to be added to the ImageHandler>ImageAmount property.
