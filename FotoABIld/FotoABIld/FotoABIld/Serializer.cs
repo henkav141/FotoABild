@@ -24,8 +24,6 @@ namespace FotoABIld
                 {
                     XmlSerializer.Serialize(streamwriter,item);
                 }
-
-
             }
             catch (Exception)
             {
