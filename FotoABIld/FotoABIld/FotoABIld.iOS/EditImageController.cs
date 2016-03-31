@@ -37,7 +37,7 @@ namespace FotoABIld.iOS
 
                 }
             }
-
+            
         }
 
         //Method to chose amount of copies to be added to the ImageHandler>ImageAmount property.

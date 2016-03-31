@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
                                 <color key="backgroundColor" colorSpace="calibratedRGB" red="1" green="0.81568627450980391" blue="0.25882352941176473" alpha="1"/>
                                 <variation key="heightClass=regular-widthClass=compact">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="62.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="69"/>
                                 </variation>
                                 <constraints>
                                     <constraint id="4948" firstAttribute="width" secondItem="4094" secondAttribute="height" multiplier="6:1"/>
@@ -35,7 +35,7 @@
                                     <color key="titleColor" colorSpace="calibratedRGB" red="0.12156862745098039" green="0.18431372549019609" blue="0.25098039215686274" alpha="1"/>
                                 </state>
                                 <variation key="heightClass=regular-widthClass=compact">
-                                    <rect key="frame" x="100" y="221" width="175" height="117"/>
+                                    <rect key="frame" x="100" y="242.5" width="214" height="143"/>
                                     <mask key="constraints">
                                         <include reference="5133"/>
                                     </mask>
@@ -159,7 +159,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
                                 <color key="backgroundColor" colorSpace="calibratedRGB" red="1" green="0.81568627450980391" blue="0.25882352941176473" alpha="1"/>
                                 <variation key="heightClass=regular-widthClass=compact">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="62.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="69"/>
                                 </variation>
                                 <constraints>
                                     <constraint id="5355" firstAttribute="width" secondItem="5339" secondAttribute="height" multiplier="6:1"/>
@@ -174,7 +174,7 @@
                                     <color key="titleColor" colorSpace="calibratedRGB" red="0.12156862745098039" green="0.18431372549019609" blue="0.25098039215686274" alpha="1"/>
                                 </state>
                                 <variation key="heightClass=regular-widthClass=compact">
-                                    <rect key="frame" x="0.0" y="70.5" width="375" height="50"/>
+                                    <rect key="frame" x="0.0" y="77" width="414" height="55"/>
                                     <mask key="constraints">
                                         <include reference="5450"/>
                                     </mask>
@@ -229,12 +229,12 @@
                                         </variation>
                                         <connections>
                                             <outlet property="imageInCell" destination="5458" id="name-outlet-5458"/>
-                                            <segue id="5852" destination="5462" kind="show"/>
+                                            <segue id="6075" destination="5462" kind="show"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <variation key="heightClass=regular-widthClass=compact">
-                                    <rect key="frame" x="0.0" y="149.5" width="375" height="409.5"/>
+                                    <rect key="frame" x="0.0" y="161" width="414" height="467"/>
                                 </variation>
                                 <color key="backgroundColor" colorSpace="calibratedRGB" red="1" green="1" blue="1" alpha="1"/>
                             </collectionView>
@@ -318,27 +318,27 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" id="5466" translatesAutoresizingMaskIntoConstraints="NO">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" id="5466" translatesAutoresizingMaskIntoConstraints="NO">
                                 <rect key="frame" x="89" y="155" width="160" height="240"/>
                                 <variation key="heightClass=regular-widthClass=compact">
-                                    <rect key="frame" x="20" y="98.5" width="335" height="335"/>
+                                    <rect key="frame" x="0.0" y="77" width="414" height="220"/>
                                     <mask key="constraints">
-                                        <include reference="5715"/>
+                                        <include reference="5889"/>
                                     </mask>
                                 </variation>
                                 <constraints>
-                                    <constraint id="5715" firstAttribute="width" secondItem="5466" secondAttribute="height" multiplier="1:1"/>
+                                    <constraint id="5889" firstAttribute="width" secondItem="5466" secondAttribute="height" multiplier="32:17"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="5715"/>
+                                        <exclude reference="5889"/>
                                     </mask>
                                 </variation>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" id="5705" translatesAutoresizingMaskIntoConstraints="NO" image="logo.png">
                                 <rect key="frame" x="210" y="123" width="160" height="240"/>
                                 <variation key="heightClass=regular-widthClass=compact">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="62.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="69"/>
                                     <mask key="constraints">
                                         <include reference="5721"/>
                                     </mask>
@@ -353,42 +353,74 @@
                                     </mask>
                                 </variation>
                             </imageView>
+                            <containerView contentMode="scaleToFill" id="6179" translatesAutoresizingMaskIntoConstraints="NO">
+                                <rect key="frame" x="0.0" y="305" width="320" height="300"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <connections>
+                                    <segue id="6298" destination="6189" kind="embed"/>
+                                </connections>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <rect key="frame" x="0.0" y="305" width="414" height="323"/>
+                                    <mask key="constraints">
+                                        <include reference="6307"/>
+                                    </mask>
+                                </variation>
+                                <constraints>
+                                    <constraint id="6307" firstAttribute="width" secondItem="6179" secondAttribute="height" multiplier="414:323"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="6307"/>
+                                    </mask>
+                                </variation>
+                            </containerView>
                         </subviews>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="5466"/>
                                 <exclude reference="5705"/>
+                                <exclude reference="6179"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="5710"/>
                                 <exclude reference="5716"/>
                                 <exclude reference="5717"/>
                                 <exclude reference="5720"/>
-                                <exclude reference="5722"/>
-                                <exclude reference="5723"/>
+                                <exclude reference="5883"/>
+                                <exclude reference="5887"/>
+                                <exclude reference="5888"/>
+                                <exclude reference="6300"/>
+                                <exclude reference="6305"/>
+                                <exclude reference="6306"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
                                 <include reference="5466"/>
                                 <include reference="5705"/>
+                                <include reference="6179"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="5710"/>
                                 <include reference="5716"/>
                                 <include reference="5717"/>
                                 <include reference="5720"/>
-                                <include reference="5722"/>
-                                <include reference="5723"/>
+                                <include reference="5883"/>
+                                <include reference="5887"/>
+                                <include reference="5888"/>
+                                <include reference="6300"/>
+                                <include reference="6305"/>
+                                <include reference="6306"/>
                             </mask>
                         </variation>
                         <constraints>
-                            <constraint id="5710" firstItem="5463" firstAttribute="trailing" secondItem="5466" secondAttribute="trailing" constant="20"/>
                             <constraint id="5716" firstItem="5463" firstAttribute="trailing" secondItem="5705" secondAttribute="trailing"/>
                             <constraint id="5717" firstItem="5705" firstAttribute="top" secondItem="5463" secondAttribute="top"/>
                             <constraint id="5720" firstItem="5705" firstAttribute="leading" secondItem="5463" secondAttribute="leading"/>
-                            <constraint id="5722" firstItem="5466" firstAttribute="top" secondItem="5705" secondAttribute="bottom" constant="36"/>
-                            <constraint id="5723" firstItem="5466" firstAttribute="leading" secondItem="5463" secondAttribute="leading" constant="20"/>
+                            <constraint id="5883" firstItem="5463" firstAttribute="trailing" secondItem="5466" secondAttribute="trailing"/>
+                            <constraint id="5887" firstItem="5466" firstAttribute="leading" secondItem="5463" secondAttribute="leading"/>
+                            <constraint id="5888" firstItem="5466" firstAttribute="top" secondItem="5705" secondAttribute="bottom" constant="8"/>
+                            <constraint id="6300" firstItem="5463" firstAttribute="trailing" secondItem="6179" secondAttribute="trailing"/>
+                            <constraint id="6305" firstItem="6179" firstAttribute="leading" secondItem="5463" secondAttribute="leading"/>
+                            <constraint id="6306" firstItem="6179" firstAttribute="top" secondItem="5466" secondAttribute="bottom" constant="8"/>
                         </constraints>
                     </view>
                     <connections>
@@ -399,6 +431,111 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5464" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="951" y="-435"/>
+        </scene>
+        <scene sceneID="6188">
+            <objects>
+                <tableViewController id="6189" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="6190">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="dataSource" destination="6189" id="6191"/>
+                            <outlet property="delegate" destination="6189" id="6192"/>
+                        </connections>
+                        <sections>
+                            <tableViewSection id="6312">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="6313" rowHeight="44" style="IBUITableViewCellStyleValue1" textLabel="6321" detailTextLabel="6322">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6313" id="6314">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6321">
+                                                    <rect key="frame" x="15" y="11" width="33" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6322">
+                                                    <rect key="frame" x="261" y="11" width="44" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="6315" rowHeight="44" style="IBUITableViewCellStyleValue1" textLabel="6323" detailTextLabel="6324">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6315" id="6316">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6323">
+                                                    <rect key="frame" x="15" y="11" width="33" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6324">
+                                                    <rect key="frame" x="261" y="11" width="44" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="6317" rowHeight="44" style="IBUITableViewCellStyleDefault" textLabel="6325">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6317" id="6318">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6325">
+                                                    <rect key="frame" x="46" y="0.0" width="259" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="6319" rowHeight="44" style="IBUITableViewCellStyleDefault" textLabel="6326">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6319" id="6320">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6326">
+                                                    <rect key="frame" x="46" y="0.0" width="259" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6195" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1455" y="-123"/>
         </scene>
     </scenes>
     <resources>
@@ -420,6 +557,6 @@
     </resources>
     <color key="tintColor" colorSpace="calibratedRGB" red="1" green="0.81568627450980391" blue="0.25882352941176473" alpha="1"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedScreenMetrics key="destination" type="retina47"/>
+        <simulatedScreenMetrics key="destination" type="retina55"/>
     </simulatedMetricsContainer>
 </document>

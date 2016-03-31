@@ -12,7 +12,6 @@ namespace FotoABIld.iOS
 {
     partial class ChooseImageController : UIViewController, IUICollectionViewDataSource
     {
-        private List<AssetResult> mResults = new List<AssetResult>();
         private List<ImageHandler> ImageHandlerLst = new List<ImageHandler>(); 
 
         public ChooseImageController(IntPtr handle) : base(handle)
@@ -42,7 +41,7 @@ namespace FotoABIld.iOS
         {
             
             var cell = (ImageResult)collectionView.DequeueReusableCell(ImageResult.Id, indexPath);
-            var asset = ImageHandlerLst[indexPath.Row]; ;
+            var asset = ImageHandlerLst[indexPath.Row];
 
             cell.TheImage.Image = asset.Image;
             
