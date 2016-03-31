@@ -3,18 +3,20 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF">
+    android:background="#FFFFFF"
+    android:id="@+id/receiptlayout">
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <TextView
+        <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="40dp"
             android:textColor="#000000"
-            android:text="Foto-A-Bild"
-            android:gravity="center" />
+            android:src="@drawable/logo"
+            android:gravity="center"
+            android:id="@+id/receipttext" />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -41,7 +43,8 @@
             android:orientation="vertical"
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:id="@+id/sizeLayout">
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -49,20 +52,13 @@
                 android:text="Storlek"
                 android:textStyle="bold"
                 android:textColor="#000000" />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android_textSize="5dp"
-                android:text="10x15"
-                android:textColor="#000000"
-                android:gravity="center"
-                android:textSize="20dp" />
         </LinearLayout>
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:id="@+id/amountLayout">
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -70,20 +66,13 @@
                 android:textStyle="bold"
                 android:text="Antal"
                 android:textColor="#000000" />
-            <TextView
-                android:layout_height="wrap_content"
-                android_textSize="20dp"
-                android:text="4"
-                android:textColor="#000000"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:textSize="20dp" />
         </LinearLayout>
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:id="@+id/priceLayout">
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -91,14 +80,6 @@
                 android:text="Pris"
                 android:textStyle="bold"
                 android:textColor="#000000" />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android_textSize="20dp"
-                android:text="40,00 kr"
-                android:textColor="#000000"
-                android:gravity="center"
-                android:textSize="20dp" />
         </LinearLayout>
     </LinearLayout>
     <LinearLayout
@@ -116,8 +97,14 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="40 kr "
+            android:text=""
             android:textColor="#000000"
-            android:textSize="20dp" />
+            android:textSize="20dp"
+            android:id="@+id/finalPrice" />
     </LinearLayout>
+    <ImageView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:visibility="invisible"
+        android:id="@+id/invisibleImageView" />
 </LinearLayout>

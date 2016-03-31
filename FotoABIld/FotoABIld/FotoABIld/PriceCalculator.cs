@@ -7,11 +7,11 @@ namespace FotoABIld
 {
     public class PriceCalculator
     {
-        private int Size1Amount;
-        private int Size2Amount;
-        private int Size3Amount;
-        private int Size4Amount;
-        private int Size5Amount;
+        public int Size1Amount;
+        public int Size2Amount;
+        public int Size3Amount;
+        public int Size4Amount;
+        public int Size5Amount;
         private readonly List<SharedProperties> listProperties;
 
 

@@ -23,7 +23,8 @@ namespace FotoABIld.Droid
         public void CreateDocument(View v)
         {
             var pdfDoc = new PdfDocument();
-            PdfDocument.PageInfo pageinfo = new PdfDocument.PageInfo.Builder(v.Width -20, v.Height -20, 1).Create();
+
+            PdfDocument.PageInfo pageinfo = new PdfDocument.PageInfo.Builder(v.MeasuredWidth, v.MeasuredHeight, 1).Create();
             
             var page = pdfDoc.StartPage(pageinfo);
             
