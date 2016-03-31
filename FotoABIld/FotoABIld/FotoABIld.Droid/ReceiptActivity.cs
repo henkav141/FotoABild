@@ -74,22 +74,33 @@ namespace FotoABIld.Droid
             var priceLayout = FindViewById<LinearLayout>(Resource.Id.priceLayout);
             var layoutparams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MatchParent,
                 LinearLayout.LayoutParams.WrapContent);
-            string size = "";
+            var size = "";
+            var amount = "";
+            var price = "";
             
             
             switch (switchSize)
             {
                 case 1:
                     size = "10x15";
+                    amount = priceCalc.Size1Amount.ToString();
+                    price = priceCalc.Calculate1().ToString();
                     break;
                 case 2:
                     size = "15x21";
+                    amount = priceCalc.Size2Amount.ToString();
+                    price = priceCalc.Calculate2().ToString();
+                    
                     break;
                 case 3:
                     size = "20x30";
+                    amount = priceCalc.Size3Amount.ToString();
+                    price = priceCalc.Calculate3().ToString();
                     break;
                 case 4:
                     size = "25x38";
+                    amount = priceCalc.Size4Amount.ToString();
+                    price = priceCalc.Calculate4().ToString();
                     break;
             }
 
@@ -102,8 +113,8 @@ namespace FotoABIld.Droid
             var amountText = new TextView(this) { LayoutParameters = layoutparams, TextSize = 20 };
             amountText.SetTextColor(Color.Black);
             amountText.Gravity = GravityFlags.Center;
-            if(size.Equals("10x15"))
-                amountText.Text = priceCalc.Size1Amount.ToString();
+            if (size.Equals("10x15"))
+                amountText.Text = amount;
             if(size.Equals("15x21"))
                 amountText.Text = priceCalc.Size2Amount.ToString();
             if (size.Equals("20x30"))
@@ -116,13 +127,13 @@ namespace FotoABIld.Droid
             priceText.SetTextColor(Color.Black);
             priceText.Gravity = GravityFlags.Center;
             if (size.Equals("10x15"))
-                priceText.Text = priceCalc.Calculate1().ToString();
+                priceText.Text = price;
             if (size.Equals("15x21"))
-                priceText.Text = priceCalc.Calculate2().ToString();
+                priceText.Text = price;
             if (size.Equals("20x30"))
-                priceText.Text = priceCalc.Calculate3().ToString();
+                priceText.Text = price;
             if (size.Equals("25x38"))
-                priceText.Text = priceCalc.Calculate4().ToString();
+                priceText.Text = price;
             priceLayout.AddView(priceText);
         }
 

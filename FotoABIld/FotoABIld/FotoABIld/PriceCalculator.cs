@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 using System.Text;
 
@@ -7,11 +8,49 @@ namespace FotoABIld
 {
     public class PriceCalculator
     {
-        public int Size1Amount;
-        public int Size2Amount;
-        public int Size3Amount;
-        public int Size4Amount;
-        public int Size5Amount;
+        public int Size1Amount { get; set; }
+        public int Size2Amount { get; set; }
+        public int Size3Amount { get; set; }
+        public int Size4Amount { get; set; }
+
+        public int Size10X15
+        {get { return listProperties.Where(item => item.Size.Equals("10x15")).Sum(item=> item.Amount); }}
+
+        public int Size11X15
+        {get { return listProperties.Where(item => item.Size.Equals("11x15")).Sum(item => item.Amount); }
+        
+    }
+
+        //public int Size13X18
+        //{
+        //    get { return listProperties.Where(item => item.Size.Equals("13x18(vit kant)")).Sum(item => item.Amount); }
+        //}
+
+        //public int Size15X21
+        //{
+        //    get { return listProperties.Where(item => item.Size.Equals("15x21")).Sum(item => item.Amount); }
+        //}
+
+        //public int Size18X21
+        //{
+        //    get { return listProperties.Where(item => item.Size.Equals("18x21(vit kant)")).Sum(item => item.Amount); }
+        //}
+
+        //public int Size20X30
+        //{
+        //    get { return listProperties.Where(item => item.Size.Equals("20x30")).Sum(item => item.Amount); }
+        //}
+
+        //public int Size24X30
+        //{
+        //    get { return listProperties.Where(item => item.Size.Equals("24x30(vit kant)")).Sum(item => item.Amount); }
+        //}
+
+        //public int Size25X38
+        //{
+        //    get { return listProperties.Where(item => item.Size.Equals("25x38")).Sum(item => item.Amount); }
+        //}
+
         private readonly List<SharedProperties> listProperties;
 
 
@@ -29,8 +68,10 @@ namespace FotoABIld
         {
             var price1 = 0;
 
-            var list1 = listProperties.Where(item => item.Size.Equals("10x15") || item.Size.Equals("11x15")).ToList();
-             Size1Amount = list1.Sum(item => item.Amount);
+            var list10x15 = listProperties.Where(item => item.Size.Equals("10x15")).ToList();
+            var list11x15 = listProperties.Where(item => item.Size.Equals("11x15")).ToList();
+             Size1Amount = list10x15.Sum(item => item.Amount) + list11x15.Sum(item => item.Amount);
+
 
              if (Size1Amount < 20)
                  price1 = Size1Amount * 10;
