@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using FotoABIld;
-using FotoABIld.Droid;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 

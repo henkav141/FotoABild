@@ -99,6 +99,7 @@
     <Compile Include="HistoryActivity.cs" />
     <Compile Include="ImageAdapter.cs" />
     <Compile Include="MainActivity.cs" />
+    <Compile Include="PdfCreator.cs" />
     <Compile Include="PictureProperties.cs" />
     <Compile Include="PricesSizesActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
@@ -142,6 +143,9 @@
       <SubType>AndroidResource</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\PricesSizes.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\receiptlayout.axml">
       <SubType>AndroidResource</SubType>
     </AndroidResource>
   </ItemGroup>

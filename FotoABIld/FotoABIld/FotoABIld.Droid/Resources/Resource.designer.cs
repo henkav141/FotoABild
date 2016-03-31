@@ -364,10 +364,13 @@ namespace FotoABIld.Droid
 			public const int PricesSizes = 2130903052;
 			
 			// aapt resource value: 0x7f03000d
-			public const int SideMenuLayout = 2130903053;
+			public const int receiptlayout = 2130903053;
 			
 			// aapt resource value: 0x7f03000e
-			public const int titlebar = 2130903054;
+			public const int SideMenuLayout = 2130903054;
+			
+			// aapt resource value: 0x7f03000f
+			public const int titlebar = 2130903055;
 			
 			static Layout()
 			{
