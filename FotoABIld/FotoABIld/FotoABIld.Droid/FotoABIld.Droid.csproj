@@ -146,7 +146,7 @@
     <AndroidResource Include="Resources\layout\PricesSizes.axml">
       <SubType>AndroidResource</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\receiptlayout.axml">
+    <AndroidResource Include="Resources\layout\Receipt.axml">
       <SubType>AndroidResource</SubType>
     </AndroidResource>
   </ItemGroup>

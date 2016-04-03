@@ -8,48 +8,14 @@ namespace FotoABIld
 {
     public class PriceCalculator
     {
-        public int Size1Amount { get; set; }
-        public int Size2Amount { get; set; }
-        public int Size3Amount { get; set; }
-        public int Size4Amount { get; set; }
-
-        public int Size10X15
-        {get { return listProperties.Where(item => item.Size.Equals("10x15")).Sum(item=> item.Amount); }}
-
-        public int Size11X15
-        {get { return listProperties.Where(item => item.Size.Equals("11x15")).Sum(item => item.Amount); }
-        
-    }
-
-        //public int Size13X18
-        //{
-        //    get { return listProperties.Where(item => item.Size.Equals("13x18(vit kant)")).Sum(item => item.Amount); }
-        //}
-
-        //public int Size15X21
-        //{
-        //    get { return listProperties.Where(item => item.Size.Equals("15x21")).Sum(item => item.Amount); }
-        //}
-
-        //public int Size18X21
-        //{
-        //    get { return listProperties.Where(item => item.Size.Equals("18x21(vit kant)")).Sum(item => item.Amount); }
-        //}
-
-        //public int Size20X30
-        //{
-        //    get { return listProperties.Where(item => item.Size.Equals("20x30")).Sum(item => item.Amount); }
-        //}
-
-        //public int Size24X30
-        //{
-        //    get { return listProperties.Where(item => item.Size.Equals("24x30(vit kant)")).Sum(item => item.Amount); }
-        //}
-
-        //public int Size25X38
-        //{
-        //    get { return listProperties.Where(item => item.Size.Equals("25x38")).Sum(item => item.Amount); }
-        //}
+        public int Size10X15Amount { get; set; }
+        public int Size11X15Amount { get; set; }
+        public int Size13X18Amount { get; set; }
+        public int Size15X21Amount { get; set; }
+        public int Size18X24Amount { get; set; }
+        public int Size20X30Amount { get; set; }
+        public int Size24X30Amount { get; set; }
+        public int Size25X38Amount { get; set; }
 
         private readonly List<SharedProperties> listProperties;
 
@@ -61,113 +27,123 @@ namespace FotoABIld
 
         public int CalculateTotalPrice()
         {
-            return Calculate1() + Calculate2() + Calculate3() + Calculate4();
+            return CalculateSmall() + CalculateMediumSmall() + CalculateMediumLarge() + CalculateLarge();
         }
 
-        public int Calculate1()
+        public int CalculateSmall()
         {
-            var price1 = 0;
+            var priceSmall = 0;
 
-            var list10x15 = listProperties.Where(item => item.Size.Equals("10x15")).ToList();
-            var list11x15 = listProperties.Where(item => item.Size.Equals("11x15")).ToList();
-             Size1Amount = list10x15.Sum(item => item.Amount) + list11x15.Sum(item => item.Amount);
+            var list10X15 = listProperties.Where(item => item.Size.Equals("10x15")).ToList();
+            var list11X15 = listProperties.Where(item => item.Size.Equals("11x15")).ToList();
+            Size10X15Amount = list10X15.Sum(item => item.Amount);
+            Size11X15Amount = list11X15.Sum(item => item.Amount);
+            var smallPhotos = Size10X15Amount + Size11X15Amount;
 
-
-             if (Size1Amount < 20)
-                 price1 = Size1Amount * 10;
-             else if (Size1Amount > 19 && Size1Amount < 30)
-                 price1 = Size1Amount * 4;
-             else if (Size1Amount > 29 && Size1Amount < 60)
-                 price1 = Size1Amount * 3;
-             else if (Size1Amount > 59)
-                 price1 = Size1Amount * 2;
-
-
-
-            
-            return price1;
+            if (smallPhotos < 20)
+                priceSmall = smallPhotos * 10;
+            else if (smallPhotos > 19 && smallPhotos < 30)
+                priceSmall = smallPhotos * 4;
+            else if (smallPhotos > 29 && smallPhotos < 60)
+                priceSmall = smallPhotos * 3;
+             else if (Size10X15Amount > 59)
+                priceSmall = smallPhotos * 2;
+            return priceSmall;
         }
 
-        public int Calculate2()
+        public int CalculateMediumSmall()
         {
-            var price2 = 0;
-            var list2 = listProperties.Where(item => item.Size.Equals("13x18(vit kant)") || item.Size.Equals("15x21"));
-            Size2Amount = list2.Sum(item => item.Amount);
-            if (Size2Amount > 9)
-                price2 = Size2Amount * 15;
-            else if (Size2Amount < 3)
-                price2 = Size2Amount * 40;
-            else if (Size2Amount % 3 == 1 && Size2Amount < 10)
+            var priceMediumSmall = 0;
+            var list13X18 = listProperties.Where(item => item.Size.Equals("13x18(vit kant)"));
+            var list15X21 = listProperties.Where(item => item.Size.Equals("15x21"));
+            Size13X18Amount = list13X18.Sum(item => item.Amount);
+            Size15X21Amount = list15X21.Sum(item => item.Amount);
+            var mediumSmallPhotos = Size13X18Amount + Size15X21Amount;
+
+
+            if (mediumSmallPhotos > 9)
+                priceMediumSmall = mediumSmallPhotos * 15;
+            else if (Size13X18Amount < 3)
+                priceMediumSmall = mediumSmallPhotos * 40;
+            else if (mediumSmallPhotos % 3 == 1 && mediumSmallPhotos < 10)
             {
-                var numberof3 = ((Size2Amount - 1) / 3);
-                price2 = numberof3*90 + 40;
+                var numberof3 = ((mediumSmallPhotos - 1) / 3);
+                priceMediumSmall = numberof3*90 + 40;
             }
-            else if (Size2Amount % 3 == 2 & Size2Amount < 10)
+            else if (mediumSmallPhotos % 3 == 2 & mediumSmallPhotos < 10)
             {
-                var numberof3 = ((Size2Amount - 1) / 3);
-                price2 = numberof3*90 + 80;
+                var numberof3 = ((mediumSmallPhotos - 1) / 3);
+                priceMediumSmall = numberof3*90 + 80;
             }
-            else if (Size2Amount % 3 == 0 && Size2Amount < 10)
+            else if (mediumSmallPhotos % 3 == 0 && mediumSmallPhotos < 10)
             {
-                var numberof3 = Size2Amount / 3;
-                price2 = numberof3 * 90;
+                var numberof3 = mediumSmallPhotos / 3;
+                priceMediumSmall = numberof3 * 90;
             }
 
-            return price2;
+            return priceMediumSmall;
         }
 
-        public int Calculate3()
+        public int CalculateMediumLarge()
         {
-            var price3 = 0;
-            var list3 = listProperties.Where(item => item.Size.Equals("18x24(vit kant)") || item.Size.Equals("20x30"));
-            Size3Amount = list3.Sum(item => item.Amount);
-            if (Size3Amount > 9)
-                price3 = Size3Amount * 30;
-            else if (Size3Amount < 3)
-                price3 = Size3Amount * 60;
-            else if (Size3Amount % 3 == 1 && Size3Amount < 10)
+            var priceMediumLarge = 0;
+            var list18X24 = listProperties.Where(item => item.Size.Equals("18x24(vit kant)"));
+            var list20X30 = listProperties.Where(item => item.Size.Equals("20x30"));
+            Size18X24Amount = list18X24.Sum(item => item.Amount);
+            Size20X30Amount = list20X30.Sum(item => item.Amount);
+            var mediumLargePhotos = Size18X24Amount + Size20X30Amount;
+
+            if (mediumLargePhotos > 9)
+                priceMediumLarge = mediumLargePhotos * 30;
+            else if (mediumLargePhotos < 3)
+                priceMediumLarge = mediumLargePhotos * 60;
+            else if (mediumLargePhotos % 3 == 1 && mediumLargePhotos < 10)
             {
-                var numberof3 = ((Size3Amount - 1) / 3);
-                price3 = numberof3 * 150 + 60;
+                var numberof3 = ((mediumLargePhotos - 1) / 3);
+                priceMediumLarge = numberof3 * 150 + 60;
             }
-            else if (Size3Amount % 3 == 2 & Size3Amount < 10)
+            else if (mediumLargePhotos % 3 == 2 & mediumLargePhotos < 10)
             {
-                var numberof3 = ((Size3Amount - 1) / 3);
-                price3 = numberof3 * 150 + 120;
+                var numberof3 = ((mediumLargePhotos - 1) / 3);
+                priceMediumLarge = numberof3 * 150 + 120;
             }
-            else if (Size3Amount % 3 == 0 && Size3Amount < 10)
+            else if (mediumLargePhotos % 3 == 0 && mediumLargePhotos < 10)
             {
-                var numberof3 = Size3Amount / 3;
-                price3 = numberof3 * 150;
+                var numberof3 = mediumLargePhotos / 3;
+                priceMediumLarge = numberof3 * 150;
             }
-            return price3;
+            return priceMediumLarge;
 
         }
-        public int Calculate4()
+        public int CalculateLarge()
         {
-            var price4 = 0;
-            var list4 = listProperties.Where(item => item.Size.Equals("24x30(vit kant)") || item.Size.Equals("25x38"));
-            Size4Amount = list4.Sum(item => item.Amount);
-            if (Size4Amount > 9)
-                price4 = Size4Amount * 40;
-            else if (Size4Amount < 3)
-                price4 = Size4Amount * 100;
-            else if (Size4Amount % 3 == 1 && Size4Amount < 10)
+            var priceLarge = 0;
+            var list24X30 = listProperties.Where(item => item.Size.Equals("24x30(vit kant)"));
+            var list25X38 = listProperties.Where(item => item.Size.Equals("25x38"));
+            Size24X30Amount = list24X30.Sum(item => item.Amount);
+            Size25X38Amount = list25X38.Sum(item => item.Amount);
+            var largePhotos = Size24X30Amount + Size25X38Amount;
+
+            if (largePhotos > 9)
+                priceLarge = largePhotos * 40;
+            else if (largePhotos < 3)
+                priceLarge = largePhotos * 100;
+            else if (largePhotos % 3 == 1 && largePhotos < 10)
             {
-                var numberof3 = ((Size4Amount - 1) / 3);
-                price4 = numberof3 * 210 + 100;
+                var numberof3 = ((largePhotos - 1) / 3);
+                priceLarge = numberof3 * 210 + 100;
             }
-            else if (Size4Amount % 3 == 2 & Size4Amount < 10)
+            else if (largePhotos % 3 == 2 & largePhotos < 10)
             {
-                var numberof3 = ((Size4Amount - 1) / 3);
-                price4 = numberof3 * 210 + 80;
+                var numberof3 = ((largePhotos - 1) / 3);
+                priceLarge = numberof3 * 210 + 80;
             }
-            else if (Size4Amount%3 == 0 && Size4Amount < 10)
+            else if (largePhotos % 3 == 0 && largePhotos < 10)
             {
-                var numberof3 = Size4Amount / 3;
-                price4 = numberof3 * 210;
+                var numberof3 = largePhotos / 3;
+                priceLarge = numberof3 * 210;
             }
-            return price4;
+            return priceLarge;
         }
         
     }

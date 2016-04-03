@@ -25,7 +25,7 @@ namespace FotoABIld.Droid
         {
             Window.RequestFeature(WindowFeatures.NoTitle);
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.receiptlayout);
+            SetContentView(Resource.Layout.Receipt);
 
             priceCalc = new PriceCalculator(CreateSampleList());
             priceCalc.CalculateTotalPrice();
@@ -34,10 +34,18 @@ namespace FotoABIld.Droid
             CreateTextViews(3);
             CreateTextViews(4);
             FindViewById<TextView>(Resource.Id.finalPrice).Text = priceCalc.CalculateTotalPrice().ToString();
+            SetDate();
 
             // Create your application here
         }
 
+        private void SetDate()
+        {
+            var datetime = DateTime.Now;
+            datetime.AddHours(1);
+            FindViewById<TextView>(Resource.Id.thankText).Text = "Din beställning är klar " +
+                                                                 datetime.ToString("yyyy-MM-dd hh:mm");
+        }
         private List<SharedProperties> CreateSampleList()
         {
             var sharedpropertieslist = new List<SharedProperties>();
@@ -77,30 +85,36 @@ namespace FotoABIld.Droid
             var size = "";
             var amount = "";
             var price = "";
+            int intamount;
             
             
             switch (switchSize)
             {
                 case 1:
                     size = "10x15";
-                    amount = priceCalc.Size1Amount.ToString();
-                    price = priceCalc.Calculate1().ToString();
+
+                    intamount = priceCalc.Size11X15Amount + priceCalc.Size10X15Amount;
+                    amount = intamount.ToString();
+                    price = priceCalc.CalculateSmall().ToString();
                     break;
                 case 2:
                     size = "15x21";
-                    amount = priceCalc.Size2Amount.ToString();
-                    price = priceCalc.Calculate2().ToString();
+                    intamount = priceCalc.Size13X18Amount + priceCalc.Size15X21Amount;
+                    amount = intamount.ToString();
+                    price = priceCalc.CalculateMediumSmall().ToString();
                     
                     break;
                 case 3:
                     size = "20x30";
-                    amount = priceCalc.Size3Amount.ToString();
-                    price = priceCalc.Calculate3().ToString();
+                    intamount = priceCalc.Size20X30Amount + priceCalc.Size18X24Amount;
+                    amount = intamount.ToString();
+                    price = priceCalc.CalculateMediumLarge().ToString();
                     break;
                 case 4:
                     size = "25x38";
-                    amount = priceCalc.Size4Amount.ToString();
-                    price = priceCalc.Calculate4().ToString();
+                    intamount = priceCalc.Size25X38Amount + priceCalc.Size24X30Amount;
+                    amount = intamount.ToString();
+                    price = priceCalc.CalculateLarge().ToString();
                     break;
             }
 
@@ -113,26 +127,12 @@ namespace FotoABIld.Droid
             var amountText = new TextView(this) { LayoutParameters = layoutparams, TextSize = 20 };
             amountText.SetTextColor(Color.Black);
             amountText.Gravity = GravityFlags.Center;
-            if (size.Equals("10x15"))
                 amountText.Text = amount;
-            if(size.Equals("15x21"))
-                amountText.Text = priceCalc.Size2Amount.ToString();
-            if (size.Equals("20x30"))
-                amountText.Text = priceCalc.Size3Amount.ToString();
-            if (size.Equals("25x38"))
-                amountText.Text = priceCalc.Size4Amount.ToString();
             amountLayout.AddView(amountText);
 
             var priceText = new TextView(this) { LayoutParameters = layoutparams, TextSize = 20 };
             priceText.SetTextColor(Color.Black);
             priceText.Gravity = GravityFlags.Center;
-            if (size.Equals("10x15"))
-                priceText.Text = price;
-            if (size.Equals("15x21"))
-                priceText.Text = price;
-            if (size.Equals("20x30"))
-                priceText.Text = price;
-            if (size.Equals("25x38"))
                 priceText.Text = price;
             priceLayout.AddView(priceText);
         }
