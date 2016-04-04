@@ -8,6 +8,7 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 
+
 namespace FotoABIld.Droid
 {
     [Activity(Label = "FotoABIld.Droid", MainLauncher = true, Icon = "@drawable/icon",
@@ -62,8 +63,7 @@ namespace FotoABIld.Droid
 
 	    private void HistoryButton_Click(object sender, EventArgs e)
 	    {
-            if (!menu.AnimatedOpened) return;
-	        var history = new Intent(this, typeof(HistoryActivity));
+	        var history = new Intent(this, typeof(ReceiptActivity));
             StartActivity(history);
 	    }
 

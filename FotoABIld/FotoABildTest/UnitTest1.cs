@@ -31,11 +31,11 @@ namespace FotoABildTest
             var actual1 = pricecalc.CalculateTotalPrice();
 
             var expected2 = 130;
-            var actual2 = pricecalc.Calculate2();
+            var actual2 = pricecalc.Calculate13X18();
             var expected3 = 150;
-            var actual3 = pricecalc.Calculate3();
+            var actual3 = pricecalc.Calculate18X24();
             var expected4 = 400;
-            var actual4 = pricecalc.Calculate4();
+            var actual4 = pricecalc.Calculate24X30();
 
 
 
