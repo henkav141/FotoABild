@@ -8,9 +8,11 @@ using XamDialogs;
 
 namespace FotoABIld.iOS
 {
+    
 	partial class EditImageController : UIViewController
 	{
-		public EditImageController (IntPtr handle) : base (handle)
+
+        public EditImageController (IntPtr handle) : base (handle)
 		{
 		}
 
@@ -37,7 +39,7 @@ namespace FotoABIld.iOS
 
                 }
             }
-            
+             
         }
 
         //Method to chose amount of copies to be added to the ImageHandler>ImageAmount property.
@@ -59,7 +61,7 @@ namespace FotoABIld.iOS
         //        //Confirmation pop-up window
         //        UIAlertView alert = new UIAlertView("Antal kopior", tImageHandler.ImageAmount + " kopior", null, "OK", null);
         //        alert.Show();
-                
+
         //    };
 
         //    dialog.SelectedItem = "1";
@@ -67,11 +69,11 @@ namespace FotoABIld.iOS
         //}
 
         //Method used to save the changes made to the image.
-	    //partial void SaveBtn_Click(UIBarButtonItem sender)
-	    //{
-     //       UIAlertView alert = new UIAlertView(null, tImageHandler.ImageAmount.ToString(), null, "OK", null);
-     //       alert.Show();
+        //partial void SaveBtn_Click(UIBarButtonItem sender)
+        //{
+        //       UIAlertView alert = new UIAlertView(null, tImageHandler.ImageAmount.ToString(), null, "OK", null);
+        //       alert.Show();
 
-     //   }
+        //   }
     }
     }

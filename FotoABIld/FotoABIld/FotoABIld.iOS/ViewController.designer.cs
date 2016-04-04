@@ -16,26 +16,14 @@ namespace FotoABIld.iOS
 	{
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UIBarButtonItem bttnMenu { get; set; }
-
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
 		UIButton bttnOrderIphone { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UIView FirstPage { get; set; }
 
-		[Outlet]
-		[GeneratedCode ("iOS Designer", "1.0")]
-		UINavigationItem hej { get; set; }
-
 		void ReleaseDesignerOutlets ()
 		{
-			if (bttnMenu != null) {
-				bttnMenu.Dispose ();
-				bttnMenu = null;
-			}
 			if (bttnOrderIphone != null) {
 				bttnOrderIphone.Dispose ();
 				bttnOrderIphone = null;
@@ -43,10 +31,6 @@ namespace FotoABIld.iOS
 			if (FirstPage != null) {
 				FirstPage.Dispose ();
 				FirstPage = null;
-			}
-			if (hej != null) {
-				hej.Dispose ();
-				hej = null;
 			}
 		}
 	}
