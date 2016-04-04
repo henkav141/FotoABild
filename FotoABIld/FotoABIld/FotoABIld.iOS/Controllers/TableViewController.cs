@@ -1,11 +1,10 @@
-using Foundation;
 using System;
-using System.CodeDom.Compiler;
 using System.Collections.Generic;
+using Foundation;
 using UIKit;
 using XamDialogs;
 
-namespace FotoABIld.iOS
+namespace FotoABIld.iOS.Controllers
 {
     
 	partial class TableViewController : UITableViewController
@@ -64,13 +63,15 @@ namespace FotoABIld.iOS
                 dialog.Show();
             }
 
-            else
+            else if (tableView.CellAt(indexPath).Equals(addACopyCell))
             {
-                Console.WriteLine(tableView.CellAt(indexPath));
-                Console.WriteLine("click");
+                Console.WriteLine(addACopyCell.TextLabel);
             }
 
-
+            else if (tableView.CellAt(indexPath).Equals(cropImageCell))
+            {
+                Console.WriteLine(cropImageCell.TextLabel);
+            }
 
         }
     }

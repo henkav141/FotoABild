@@ -1,12 +1,8 @@
-using Foundation;
 using System;
-using System.CodeDom.Compiler;
 using System.Collections.Generic;
-using ELCImagePicker;
 using UIKit;
-using XamDialogs;
 
-namespace FotoABIld.iOS
+namespace FotoABIld.iOS.Controllers
 {
     
 	partial class EditImageController : UIViewController

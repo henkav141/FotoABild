@@ -1,9 +1,7 @@
-using Foundation;
 using System;
-using System.CodeDom.Compiler;
 using UIKit;
 
-namespace FotoABIld.iOS
+namespace FotoABIld.iOS.Controllers
 {
 	partial class MainNavController : UINavigationController
 	{

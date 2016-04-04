@@ -16,6 +16,10 @@ namespace FotoABIld.iOS
 	{
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UITableViewCell addACopyCell { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UILabel addCopyLabel { get; set; }
 
 		[Outlet]
@@ -29,6 +33,10 @@ namespace FotoABIld.iOS
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UILabel amountRightLabel { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UITableViewCell cropImageCell { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -52,6 +60,10 @@ namespace FotoABIld.iOS
 
 		void ReleaseDesignerOutlets ()
 		{
+			if (addACopyCell != null) {
+				addACopyCell.Dispose ();
+				addACopyCell = null;
+			}
 			if (addCopyLabel != null) {
 				addCopyLabel.Dispose ();
 				addCopyLabel = null;
@@ -67,6 +79,10 @@ namespace FotoABIld.iOS
 			if (amountRightLabel != null) {
 				amountRightLabel.Dispose ();
 				amountRightLabel = null;
+			}
+			if (cropImageCell != null) {
+				cropImageCell.Dispose ();
+				cropImageCell = null;
 			}
 			if (cropImageLabel != null) {
 				cropImageLabel.Dispose ();

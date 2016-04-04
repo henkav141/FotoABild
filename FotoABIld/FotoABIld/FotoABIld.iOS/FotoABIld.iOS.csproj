@@ -148,12 +148,12 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ChooseImageController.cs" />
-    <Compile Include="ChooseImageController.designer.cs">
+    <Compile Include="Controllers\ChooseImageController.cs" />
+    <Compile Include="Controllers\ChooseImageController.designer.cs">
       <DependentUpon>ChooseImageController.cs</DependentUpon>
     </Compile>
-    <Compile Include="EditImageController.cs" />
-    <Compile Include="EditImageController.designer.cs">
+    <Compile Include="Controllers\EditImageController.cs" />
+    <Compile Include="Controllers\EditImageController.designer.cs">
       <DependentUpon>EditImageController.cs</DependentUpon>
     </Compile>
     <Compile Include="ImageHandler.cs" />
@@ -163,16 +163,16 @@
     </Compile>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
-    <Compile Include="MainNavController.cs" />
-    <Compile Include="MainNavController.designer.cs">
+    <Compile Include="Controllers\MainNavController.cs" />
+    <Compile Include="Controllers\MainNavController.designer.cs">
       <DependentUpon>MainNavController.cs</DependentUpon>
     </Compile>
-    <Compile Include="TableViewController.cs" />
-    <Compile Include="TableViewController.designer.cs">
+    <Compile Include="Controllers\TableViewController.cs" />
+    <Compile Include="Controllers\TableViewController.designer.cs">
       <DependentUpon>TableViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="ViewController.cs" />
-    <Compile Include="ViewController.designer.cs">
+    <Compile Include="Controllers\ViewController.cs" />
+    <Compile Include="Controllers\ViewController.designer.cs">
       <DependentUpon>ViewController.cs</DependentUpon>
     </Compile>
   </ItemGroup>

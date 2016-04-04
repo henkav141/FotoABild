@@ -1,14 +1,11 @@
-using Foundation;
 using System;
-using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Linq;
-using AssetsLibrary;
-using CoreGraphics;
 using ELCImagePicker;
+using Foundation;
 using UIKit;
 
-namespace FotoABIld.iOS
+namespace FotoABIld.iOS.Controllers
 {
     partial class ChooseImageController : UIViewController, IUICollectionViewDataSource
     {

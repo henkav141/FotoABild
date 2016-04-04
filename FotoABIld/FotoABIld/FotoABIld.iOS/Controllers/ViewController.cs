@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Specialized;
-using System.Drawing;
-using System.Net.Mime;
-using CoreGraphics;
 using UIKit;
 
-
-
-namespace FotoABIld.iOS
+namespace FotoABIld.iOS.Controllers
 {
 	public partial class ViewController : UIViewController
 	{
