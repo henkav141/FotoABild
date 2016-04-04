@@ -187,26 +187,5 @@ namespace FotoABIld.Droid
                 pictureList.Add(picture);
             }
         }
-
-        //protected override void OnActivityResult(int requestCode, Result resultCode, Intent intent)
-        //{
-        //    if (requestCode == 0)
-        //    {
-        //        if (resultCode == Result.Ok)
-        //        {
-        //                ClipData clipData = intent.ClipData;
-        //                for (int i = 0; i < intent.ClipData.ItemCount; i++)
-        //                {
-        //                    var item = clipData.GetItemAt(i);
-        //                    var uri = item.Uri;
-        //                    uriList.Add(uri);
-        //            }
-        //                ImageAdapter imageAdapter = new ImageAdapter(this, uriList);
-        //                gridview = FindViewById<GridView>(Resource.Id.gridview);
-        //                gridview.Adapter = imageAdapter;
-        //                gridview.ItemClick += gridview_ItemClick;
-        //        }
-        //    }
-        //}
     }
 }

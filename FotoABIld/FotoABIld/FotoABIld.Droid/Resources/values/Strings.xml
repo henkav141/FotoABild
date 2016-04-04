@@ -22,7 +22,7 @@
 </ul>
 <p><strong>Halvmatt papper:</strong></p>
 <ul>
-<li>18 x 24 cm (vitkant)</li><br/>
+<li>18 x 24 cm (vit kant)</li><br/>
 <li>20 x 30 cm (20,3 x 30,5)</li><br/>
 <li>24 x 30 cm (vit kant)</li><br/>
 <li>25×38 cm (25,4 x 38,1)</li><br/>
@@ -53,4 +53,14 @@
 <li>3 st vid samma tillfälle 210 kr</li><br/>
 <li>10 st eller fler vid samma tillfälle 40kr/st</li><br/>
 </ul>]]></string>
+  <string name ="date">
+    <u>2016-04-04</u>
+  </string>
+  <string name ="amount">
+    <u> | 16 Bilder </u>
+  </string>
+  <string name ="price">
+    <u> | 160;- </u>
+  </string>
+
 </resources>

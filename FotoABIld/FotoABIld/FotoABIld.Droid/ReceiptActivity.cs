@@ -50,14 +50,14 @@ namespace FotoABIld.Droid
             readyText.SetPadding(0,dpAsPixels,0,0);
 
         }
-        private List<SharedProperties> CreateSampleList()
+        private List<Pictures> CreateSampleList()
         {
-            var sharedpropertieslist = new List<SharedProperties>();
-            var shared1 = new SharedProperties("", 25, "10x15");
-            var shared2 = new SharedProperties("", 420, "15x21");
-            var shared3 = new SharedProperties("", 7, "20x30");
-            var shared4 = new SharedProperties("", 0, "25x38");
-            var shared5 = new SharedProperties("", 0, "25x38");
+            var sharedpropertieslist = new List<Pictures>();
+            var shared1 = new Pictures("", 25, "10x15");
+            var shared2 = new Pictures("", 420, "15x21");
+            var shared3 = new Pictures("", 7, "20x30");
+            var shared4 = new Pictures("", 0, "25x38");
+            var shared5 = new Pictures("", 1, "25x38");
             sharedpropertieslist.Add(shared1);
             sharedpropertieslist.Add(shared2);
             sharedpropertieslist.Add(shared3);

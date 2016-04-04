@@ -406,11 +406,20 @@ namespace FotoABIld.Droid
 		public partial class String
 		{
 			
+			// aapt resource value: 0x7f050004
+			public const int amount = 2131034116;
+			
 			// aapt resource value: 0x7f050001
 			public const int app_name = 2131034113;
 			
+			// aapt resource value: 0x7f050003
+			public const int date = 2131034115;
+			
 			// aapt resource value: 0x7f050000
 			public const int hello = 2131034112;
+			
+			// aapt resource value: 0x7f050005
+			public const int price = 2131034117;
 			
 			// aapt resource value: 0x7f050002
 			public const int priceandsize = 2131034114;

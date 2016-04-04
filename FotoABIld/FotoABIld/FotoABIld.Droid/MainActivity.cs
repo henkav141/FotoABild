@@ -63,7 +63,7 @@ namespace FotoABIld.Droid
 
 	    private void HistoryButton_Click(object sender, EventArgs e)
 	    {
-	        var history = new Intent(this, typeof(ReceiptActivity));
+	        var history = new Intent(this, typeof(HistoryActivity));
             StartActivity(history);
 	    }
 
