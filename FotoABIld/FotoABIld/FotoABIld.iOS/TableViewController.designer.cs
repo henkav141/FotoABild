@@ -16,6 +16,10 @@ namespace FotoABIld.iOS
 	{
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel addCopyLabel { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UITableViewCell amountCell { get; set; }
 
 		[Outlet]
@@ -28,7 +32,19 @@ namespace FotoABIld.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UILabel formatLabel { get; set; }
+		UILabel cropImageLabel { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UITableViewCell formatCell { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel formatLeftLabel { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel formatRightLabel { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -36,6 +52,10 @@ namespace FotoABIld.iOS
 
 		void ReleaseDesignerOutlets ()
 		{
+			if (addCopyLabel != null) {
+				addCopyLabel.Dispose ();
+				addCopyLabel = null;
+			}
 			if (amountCell != null) {
 				amountCell.Dispose ();
 				amountCell = null;
@@ -48,9 +68,21 @@ namespace FotoABIld.iOS
 				amountRightLabel.Dispose ();
 				amountRightLabel = null;
 			}
-			if (formatLabel != null) {
-				formatLabel.Dispose ();
-				formatLabel = null;
+			if (cropImageLabel != null) {
+				cropImageLabel.Dispose ();
+				cropImageLabel = null;
+			}
+			if (formatCell != null) {
+				formatCell.Dispose ();
+				formatCell = null;
+			}
+			if (formatLeftLabel != null) {
+				formatLeftLabel.Dispose ();
+				formatLeftLabel = null;
+			}
+			if (formatRightLabel != null) {
+				formatRightLabel.Dispose ();
+				formatRightLabel = null;
 			}
 			if (tableView != null) {
 				tableView.Dispose ();

@@ -529,8 +529,12 @@
                         <outlet property="tableView" destination="6190" id="name-outlet-6190"/>
                         <outlet property="amountCell" destination="6313" id="name-outlet-6313"/>
                         <outlet property="amountRightLabel" destination="6322" id="name-outlet-6322"/>
-                        <outlet property="formatLabel" destination="6324" id="name-outlet-6324"/>
+                        <outlet property="formatRightLabel" destination="6324" id="name-outlet-6324"/>
                         <outlet property="amountLeftLabel" destination="6321" id="name-outlet-6321"/>
+                        <outlet property="formatLeftLabel" destination="6323" id="name-outlet-6323"/>
+                        <outlet property="addCopyLabel" destination="6325" id="name-outlet-6325"/>
+                        <outlet property="cropImageLabel" destination="6326" id="name-outlet-6326"/>
+                        <outlet property="formatCell" destination="6315" id="name-outlet-6315"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6195" userLabel="First Responder" sceneMemberID="firstResponder"/>
