@@ -33,7 +33,7 @@ namespace FotoABIld.Droid
             CreateTextViews(2);
             CreateTextViews(3);
             CreateTextViews(4);
-            FindViewById<TextView>(Resource.Id.finalPrice).Text = priceCalc.CalculateTotalPrice().ToString();
+            var readyText = FindViewById<TextView>(Resource.Id.finalPrice).Text = priceCalc.CalculateTotalPrice().ToString();
             SetDate();
 
             // Create your application here
@@ -43,8 +43,12 @@ namespace FotoABIld.Droid
         {
             var datetime = DateTime.Now;
             datetime = datetime.AddHours(1);
-            FindViewById<TextView>(Resource.Id.thankText).Text = "Din beställning är klar " +
-                                                                 datetime.ToString("yyyy-MM-dd hh:mm");
+            var readyText = FindViewById<TextView>(Resource.Id.thankText);
+            readyText.Text = "Din beställning kommer att vara klar " + datetime.ToString("yyyy-MM-dd hh:mm");
+            var scale = Resources.DisplayMetrics.Density;
+            var dpAsPixels = (int) (60*scale);
+            readyText.SetPadding(0,dpAsPixels,0,0);
+
         }
         private List<SharedProperties> CreateSampleList()
         {
@@ -52,8 +56,8 @@ namespace FotoABIld.Droid
             var shared1 = new SharedProperties("", 25, "10x15");
             var shared2 = new SharedProperties("", 420, "15x21");
             var shared3 = new SharedProperties("", 7, "20x30");
-            var shared4 = new SharedProperties("", 2, "25x38");
-            var shared5 = new SharedProperties("", 7, "25x38");
+            var shared4 = new SharedProperties("", 0, "25x38");
+            var shared5 = new SharedProperties("", 0, "25x38");
             sharedpropertieslist.Add(shared1);
             sharedpropertieslist.Add(shared2);
             sharedpropertieslist.Add(shared3);
@@ -77,17 +81,11 @@ namespace FotoABIld.Droid
 
         private void CreateTextViews(int switchSize)
         {
-            var sizeLayout = FindViewById<LinearLayout>(Resource.Id.sizeLayout);
-            var amountLayout = FindViewById<LinearLayout>(Resource.Id.amountLayout);
-            var priceLayout = FindViewById<LinearLayout>(Resource.Id.priceLayout);
-            var layoutparams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MatchParent,
-                LinearLayout.LayoutParams.WrapContent);
+
             var size = "";
             var amount = "";
             var price = "";
-            int intamount;
-            
-            
+            var intamount = 0;
             switch (switchSize)
             {
                 case 1:
@@ -102,7 +100,7 @@ namespace FotoABIld.Droid
                     intamount = priceCalc.Size13X18Amount + priceCalc.Size15X21Amount;
                     amount = intamount.ToString();
                     price = priceCalc.CalculateMediumSmall().ToString();
-                    
+
                     break;
                 case 3:
                     size = "20x30";
@@ -117,6 +115,17 @@ namespace FotoABIld.Droid
                     price = priceCalc.CalculateLarge().ToString();
                     break;
             }
+            if (intamount == 0) return;
+
+            var sizeLayout = FindViewById<LinearLayout>(Resource.Id.sizeLayout);
+            var amountLayout = FindViewById<LinearLayout>(Resource.Id.amountLayout);
+            var priceLayout = FindViewById<LinearLayout>(Resource.Id.priceLayout);
+            var layoutparams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MatchParent,
+                LinearLayout.LayoutParams.WrapContent);
+
+            
+            
+
 
             var sizeText = new TextView(this) { LayoutParameters = layoutparams, TextSize = 20 };
             sizeText.SetTextColor(Color.Black);
