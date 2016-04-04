@@ -42,7 +42,7 @@ namespace FotoABIld.Droid
         private void SetDate()
         {
             var datetime = DateTime.Now;
-            datetime.AddHours(1);
+            datetime = datetime.AddHours(1);
             FindViewById<TextView>(Resource.Id.thankText).Text = "Din beställning är klar " +
                                                                  datetime.ToString("yyyy-MM-dd hh:mm");
         }
