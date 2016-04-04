@@ -1,12 +1,12 @@
 ﻿namespace FotoABIld
 {
-    public class SharedProperties
+    public class Pictures
     {
         public string FilePath { get; set; }
         public int Amount { get; set; }
         public string Size { get; set; }
 
-        public SharedProperties(string filepath, int amount, string size)
+        public Pictures(string filepath, int amount, string size)
         {
             FilePath = filepath;
             Amount = amount;

@@ -14,10 +14,10 @@ namespace FotoABIld
         public int Size24X30Amount { get; set; }
         public int Size25X38Amount { get; set; }
 
-        private readonly List<SharedProperties> listProperties;
+        private readonly List<Pictures> listProperties;
 
 
-        public PriceCalculator(List<SharedProperties> listproperties)
+        public PriceCalculator(List<Pictures> listproperties)
         {
             listProperties = listproperties;
         }
