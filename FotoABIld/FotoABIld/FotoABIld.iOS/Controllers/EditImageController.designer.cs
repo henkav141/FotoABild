@@ -14,7 +14,11 @@ namespace FotoABIld.iOS.Controllers
 	[Register ("EditImageController")]
 	partial class EditImageController
 	{
-		[Outlet]
+        [Outlet]
+        [GeneratedCode("iOS Designer", "1.0")]
+        UIBarButtonItem barbtn { get; set; }
+
+        [Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UIView containerView { get; set; }
 
@@ -24,7 +28,12 @@ namespace FotoABIld.iOS.Controllers
 
 		void ReleaseDesignerOutlets ()
 		{
-			if (containerView != null) {
+            if (barbtn != null)
+            {
+                barbtn.Dispose();
+                barbtn = null;
+            }
+            if (containerView != null) {
 				containerView.Dispose ();
 				containerView = null;
 			}

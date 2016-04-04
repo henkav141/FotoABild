@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using AVFoundation;
 using ELCImagePicker;
 using Foundation;
 using UIKit;
@@ -9,7 +10,7 @@ namespace FotoABIld.iOS.Controllers
 {
     partial class ChooseImageController : UIViewController, IUICollectionViewDataSource
     {
-        private List<ImageHandler> ImageHandlerLst = new List<ImageHandler>(); 
+        private List<ImageHandler> ImageHandlerList = new List<ImageHandler>();
 
         public ChooseImageController(IntPtr handle) : base(handle)
         {
@@ -24,12 +25,9 @@ namespace FotoABIld.iOS.Controllers
 
 
 
-
-
-
         public nint GetItemsCount(UICollectionView collectionView, nint section)
         {
-            return ImageHandlerLst.Count;
+            return ImageHandlerList.Count;
         }
 
 
@@ -38,7 +36,7 @@ namespace FotoABIld.iOS.Controllers
         {
             
             var cell = (ImageResult)collectionView.DequeueReusableCell(ImageResult.Id, indexPath);
-            var asset = ImageHandlerLst[indexPath.Row];
+            var asset = ImageHandlerList[indexPath.Row];
 
             cell.TheImage.Image = asset.Image;
             
@@ -53,13 +51,14 @@ namespace FotoABIld.iOS.Controllers
 
             var destination = (EditImageController)segue.DestinationViewController;
             var imageToPass = (ImageResult)sender;
-            
+
+
             //Create a list that contains the mResults list.
-            var list = ImageHandlerLst.ToList();
+            var list = ImageHandlerList.ToList();
 
             //Give the properties in DestinationViewController value of the locale variables e.g. the list of images and the selected image.
-            destination.EditImageControllerList = list;
-            destination.EditImageControllerImage = imageToPass.TheImage.Image;
+            EditImageController.EditImageControllerList = list;
+            EditImageController.EditImageControllerImage = imageToPass.TheImage.Image;
         }
 
 
@@ -94,7 +93,7 @@ namespace FotoABIld.iOS.Controllers
                         {
                             
                             var x = new ImageHandler(aItem.Image, aItem.Path, aItem.Name);
-                            ImageHandlerLst.Add(x);
+                            ImageHandlerList.Add(x);
                         }
 
                         imageCollection.ReloadData();
@@ -109,7 +108,7 @@ namespace FotoABIld.iOS.Controllers
 
         partial void NextBtn_Activated(UIBarButtonItem sender)
         {
-            foreach (var t in ImageHandlerLst)
+            foreach (var t in ImageHandlerList)
             {
                 Console.WriteLine("Namn: "+ t.Name + "\n" + "Path: " + t.Path + "\n" + "Hur många: " + t.ImageAmount + "\n" + "Storlek: " + t.ImageFormat);
             }

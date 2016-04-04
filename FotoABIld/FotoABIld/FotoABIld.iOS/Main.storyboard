@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
                                 <color key="backgroundColor" colorSpace="calibratedRGB" red="1" green="0.81568627450980391" blue="0.25882352941176473" alpha="1"/>
                                 <variation key="heightClass=regular-widthClass=compact">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="69"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="62.5"/>
                                 </variation>
                                 <constraints>
                                     <constraint id="4948" firstAttribute="width" secondItem="4094" secondAttribute="height" multiplier="6:1"/>
@@ -35,7 +35,7 @@
                                     <color key="titleColor" colorSpace="calibratedRGB" red="0.12156862745098039" green="0.18431372549019609" blue="0.25098039215686274" alpha="1"/>
                                 </state>
                                 <variation key="heightClass=regular-widthClass=compact">
-                                    <rect key="frame" x="100" y="242.5" width="214" height="143"/>
+                                    <rect key="frame" x="100" y="221" width="175" height="117"/>
                                     <mask key="constraints">
                                         <include reference="5133"/>
                                     </mask>
@@ -151,7 +151,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
                                 <color key="backgroundColor" colorSpace="calibratedRGB" red="1" green="0.81568627450980391" blue="0.25882352941176473" alpha="1"/>
                                 <variation key="heightClass=regular-widthClass=compact">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="69"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="62.5"/>
                                 </variation>
                                 <constraints>
                                     <constraint id="5355" firstAttribute="width" secondItem="5339" secondAttribute="height" multiplier="6:1"/>
@@ -166,7 +166,7 @@
                                     <color key="titleColor" colorSpace="calibratedRGB" red="0.12156862745098039" green="0.18431372549019609" blue="0.25098039215686274" alpha="1"/>
                                 </state>
                                 <variation key="heightClass=regular-widthClass=compact">
-                                    <rect key="frame" x="0.0" y="77" width="414" height="55"/>
+                                    <rect key="frame" x="0.0" y="70.5" width="375" height="50"/>
                                     <mask key="constraints">
                                         <include reference="5450"/>
                                     </mask>
@@ -226,7 +226,7 @@
                                     </collectionViewCell>
                                 </cells>
                                 <variation key="heightClass=regular-widthClass=compact">
-                                    <rect key="frame" x="0.0" y="161" width="414" height="467"/>
+                                    <rect key="frame" x="0.0" y="149.5" width="375" height="409.5"/>
                                 </variation>
                                 <color key="backgroundColor" colorSpace="calibratedRGB" red="1" green="1" blue="1" alpha="1"/>
                             </collectionView>
@@ -313,7 +313,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" id="5466" translatesAutoresizingMaskIntoConstraints="NO">
                                 <rect key="frame" x="89" y="155" width="160" height="240"/>
                                 <variation key="heightClass=regular-widthClass=compact">
-                                    <rect key="frame" x="0.0" y="77" width="414" height="220"/>
+                                    <rect key="frame" x="0.0" y="70.5" width="375" height="199"/>
                                     <mask key="constraints">
                                         <include reference="5889"/>
                                     </mask>
@@ -330,7 +330,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" id="5705" translatesAutoresizingMaskIntoConstraints="NO" image="logo.png">
                                 <rect key="frame" x="210" y="123" width="160" height="240"/>
                                 <variation key="heightClass=regular-widthClass=compact">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="69"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="62.5"/>
                                     <mask key="constraints">
                                         <include reference="5721"/>
                                     </mask>
@@ -352,7 +352,7 @@
                                     <segue id="6298" destination="6189" kind="embed"/>
                                 </connections>
                                 <variation key="heightClass=regular-widthClass=compact">
-                                    <rect key="frame" x="0.0" y="284" width="414" height="187"/>
+                                    <rect key="frame" x="0.0" y="277.5" width="375" height="187"/>
                                     <mask key="constraints">
                                         <include reference="6348"/>
                                     </mask>
@@ -418,8 +418,15 @@
                     <connections>
                         <outlet property="twetImage" destination="5466" id="name-outlet-5466"/>
                         <outlet property="containerView" destination="6179" id="name-outlet-6179"/>
+                        <outlet property="barbtn" destination="6396" id="name-outlet-6396"/>
                     </connections>
                     <extendedEdge key="edgesForExtendedLayout"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <toolbarItems>
+                        <barButtonItem id="6396" translatesAutoresizingMaskIntoConstraints="NO" systemItem="camera">
+                            <connections/>
+                        </barButtonItem>
+                    </toolbarItems>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5464" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -453,7 +460,7 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="14" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6322">
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="1" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6322">
                                                     <rect key="frame" x="285.5" y="12" width="18.5" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -564,6 +571,6 @@
     </resources>
     <color key="tintColor" colorSpace="calibratedRGB" red="1" green="0.81568627450980391" blue="0.25882352941176473" alpha="1"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedScreenMetrics key="destination" type="retina55"/>
+        <simulatedScreenMetrics key="destination" type="retina47"/>
     </simulatedMetricsContainer>
 </document>
