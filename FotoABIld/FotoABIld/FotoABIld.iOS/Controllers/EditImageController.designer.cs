@@ -4,33 +4,33 @@
 // actions declared in your storyboard file.
 // Manual changes to this file will not be maintained.
 //
-using Foundation;
-using System;
+
 using System.CodeDom.Compiler;
+using Foundation;
 using UIKit;
 
-namespace FotoABIld.iOS
+namespace FotoABIld.iOS.Controllers
 {
-	[Register ("MainNavController")]
-	partial class MainNavController
+	[Register ("EditImageController")]
+	partial class EditImageController
 	{
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UIToolbar bottomToolbar { get; set; }
+		UIView containerView { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UINavigationBar mainNavBar { get; set; }
+		UIImageView twetImage { get; set; }
 
 		void ReleaseDesignerOutlets ()
 		{
-			if (bottomToolbar != null) {
-				bottomToolbar.Dispose ();
-				bottomToolbar = null;
+			if (containerView != null) {
+				containerView.Dispose ();
+				containerView = null;
 			}
-			if (mainNavBar != null) {
-				mainNavBar.Dispose ();
-				mainNavBar = null;
+			if (twetImage != null) {
+				twetImage.Dispose ();
+				twetImage = null;
 			}
 		}
 	}

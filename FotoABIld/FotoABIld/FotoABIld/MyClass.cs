@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace FotoABIld
+﻿namespace FotoABIld
 {
 	public class MyClass
 	{

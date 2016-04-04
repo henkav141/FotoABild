@@ -16,6 +16,14 @@ namespace FotoABIld.iOS
 	{
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UITableViewCell addACopyCell { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel addCopyLabel { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UITableViewCell amountCell { get; set; }
 
 		[Outlet]
@@ -28,7 +36,23 @@ namespace FotoABIld.iOS
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UILabel formatLabel { get; set; }
+		UITableViewCell cropImageCell { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel cropImageLabel { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UITableViewCell formatCell { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel formatLeftLabel { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel formatRightLabel { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -36,6 +60,14 @@ namespace FotoABIld.iOS
 
 		void ReleaseDesignerOutlets ()
 		{
+			if (addACopyCell != null) {
+				addACopyCell.Dispose ();
+				addACopyCell = null;
+			}
+			if (addCopyLabel != null) {
+				addCopyLabel.Dispose ();
+				addCopyLabel = null;
+			}
 			if (amountCell != null) {
 				amountCell.Dispose ();
 				amountCell = null;
@@ -48,9 +80,25 @@ namespace FotoABIld.iOS
 				amountRightLabel.Dispose ();
 				amountRightLabel = null;
 			}
-			if (formatLabel != null) {
-				formatLabel.Dispose ();
-				formatLabel = null;
+			if (cropImageCell != null) {
+				cropImageCell.Dispose ();
+				cropImageCell = null;
+			}
+			if (cropImageLabel != null) {
+				cropImageLabel.Dispose ();
+				cropImageLabel = null;
+			}
+			if (formatCell != null) {
+				formatCell.Dispose ();
+				formatCell = null;
+			}
+			if (formatLeftLabel != null) {
+				formatLeftLabel.Dispose ();
+				formatLeftLabel = null;
+			}
+			if (formatRightLabel != null) {
+				formatRightLabel.Dispose ();
+				formatRightLabel = null;
 			}
 			if (tableView != null) {
 				tableView.Dispose ();
