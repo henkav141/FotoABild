@@ -30,12 +30,12 @@ namespace FotoABildTest
             int expected1 = 100 + 420 * 15 + 360 + 630;
             var actual1 = pricecalc.CalculateTotalPrice();
 
-            var expected2 = 130;
-            var actual2 = pricecalc.Calculate13X18();
-            var expected3 = 150;
-            var actual3 = pricecalc.Calculate18X24();
-            var expected4 = 400;
-            var actual4 = pricecalc.Calculate24X30();
+            var expected2 = 420*15;
+            var actual2 = pricecalc.CalculateMediumSmall();
+            var expected3 = 360;
+            var actual3 = pricecalc.CalculateMediumLarge();
+            var expected4 = 630;
+            var actual4 = pricecalc.CalculateLarge();
 
 
 
