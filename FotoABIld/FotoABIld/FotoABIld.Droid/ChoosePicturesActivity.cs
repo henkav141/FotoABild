@@ -121,8 +121,15 @@ namespace FotoABIld.Droid
 
         private void NextButton_Click(object sender, EventArgs e)
         {
-            var objectString = JsonConvert.SerializeObject(pictureList);
+            
+            var serializePictures = pictureList;
+            string objectString = JsonConvert.SerializeObject(pictureList, Formatting.Indented);
+            System.Console.WriteLine(objectString);
+
             var next = new Intent(this, typeof(CustomerInformationActivity));
+            var test = JsonConvert.DeserializeObject<List<PictureProperties>>(objectString);
+
+
             next.PutExtra("pictureList", objectString);
             StartActivity(next);
         }

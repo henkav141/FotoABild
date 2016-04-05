@@ -54,22 +54,24 @@ namespace FotoABIld.Droid
 
         private void AddTableRow()
         {
-            List<String> differentSizes = (order.Pictures.Select(picture => picture.Size).ToList());
-
+            List<String> differentSizes = (order.Pictures.Select(picture => picture.Size).Distinct().ToList());
+            var tableLayout = FindViewById<TableLayout>(Resource.Id.amountTable);
             foreach (var size in differentSizes)
             {
                 var tableRow = new TableRow(this);
 
-                var layoutParameters = new TableRow.LayoutParams(0, TableRow.LayoutParams.WrapContent, 1f);
+                
+                var layoutParameters = new TableRow.LayoutParams(TableRow.LayoutParams.WrapContent, TableRow.LayoutParams.WrapContent, 1f);
+                var params2 = new TableRow.LayoutParams(TableRow.LayoutParams.FillParent, TableRow.LayoutParams.WrapContent);
                 var textView = new TextView(this);
                 textView.LayoutParameters = layoutParameters;
                 textView.Text = size;
                 textView.Gravity = GravityFlags.Left;
                 textView.SetTextColor(Color.ParseColor("#1F2F40"));
                 textView.SetTextSize(ComplexUnitType.Dip,20);
+                tableRow.LayoutParameters = params2;
                 tableRow.AddView(textView);
-
-
+                tableLayout.AddView(tableRow);
 
 
             }
