@@ -10,7 +10,7 @@ namespace FotoABIld.iOS.Controllers
 {
     partial class ChooseImageController : UIViewController, IUICollectionViewDataSource
     {
-        private List<ImageHandler> ImageHandlerList = new List<ImageHandler>();
+        public static List<ImageHandler> ImageHandlerList = new List<ImageHandler>();
 
         public ChooseImageController(IntPtr handle) : base(handle)
         {
