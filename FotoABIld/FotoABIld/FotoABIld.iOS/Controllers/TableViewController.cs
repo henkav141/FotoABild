@@ -19,6 +19,7 @@ namespace FotoABIld.iOS.Controllers
 
         public override void ViewDidAppear(bool animated)
         {
+            // Set the correct values to the labels in the current view
             foreach (var z in ChooseImageController.ImageHandlerList)
             {
                 if (z.Name.Equals(EditImageController.EditControllerName))
@@ -45,6 +46,7 @@ namespace FotoABIld.iOS.Controllers
                     CancelButtonText = "Avbryt",
                     ConstantUpdates = false,
                 };
+
                 //Code to decide what to happen when an object in the picker is chosen
                 dialog.OnSelectedItemChanged += (object s, string e) =>
                 {
@@ -53,7 +55,7 @@ namespace FotoABIld.iOS.Controllers
                         x.ImageAmount = Int32.Parse(dialog.SelectedItem);
                         amountRightLabel.Text = dialog.SelectedItem;
                     }
-
+                    tableView.DeselectRow(indexPath, false);
                 };
 
                 dialog.SelectedItem = "1";
@@ -79,15 +81,17 @@ namespace FotoABIld.iOS.Controllers
                         x.ImageFormat = dialog.SelectedItem;
                         formatRightLabel.Text = dialog.SelectedItem;
                     }
-     
+                    tableView.DeselectRow(indexPath, false);
                 };
 
                 dialog.SelectedItem = "10x15";
                 dialog.Show();
             }
 
+            // If add a copy row is selected
             else if (tableView.CellAt(indexPath).Equals(addACopyCell))
             {
+                // A new list has to be created and added to, since it is not possible to add to a list that is performing a foreach loop
                 var newList = (from r in ChooseImageController.ImageHandlerList
                     where r.Name.Equals(EditImageController.EditControllerName)
                     select new ImageHandler(r.Image, r.Path, r.Name)
@@ -95,23 +99,25 @@ namespace FotoABIld.iOS.Controllers
                         Image = r.Image, ImageAmount = 1, ImageFormat = "10x15", Name = RandomString(12) + r.Name, Path = r.Path
                     }).ToList();
 
-
+                // Iterate through the new list and add the new item to the original list
                 foreach (var t in newList)
                 {
                     ChooseImageController.ImageHandlerList.Add(t);
                 }
-
+                tableView.DeselectRow(indexPath, false);
                 Console.WriteLine("klart");
             }
 
+            // If crop image row is selected
             else if (tableView.CellAt(indexPath).Equals(cropImageCell))
             {
                 Console.WriteLine(cropImageCell.TextLabel);
-
+                tableView.DeselectRow(indexPath, false);
             }
 
         }
 
+        // Method to create a random string
         public static string RandomString(int length)
         {
             const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";

@@ -19,11 +19,6 @@ namespace FotoABIld.iOS.Controllers
             get; set;
         }
 
-        public static int ImageIndex
-        {
-            get; set;
-        }
-
         public static string EditControllerName
         {
             get; set;
