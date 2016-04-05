@@ -6,14 +6,18 @@ using System.Text;
 using Android.OS;
 using FotoABIld.Droid;
 using Java.Interop;
+using Newtonsoft.Json;
 
 namespace FotoABIld
 {   
     
     public sealed class PictureProperties : Java.Lang.Object, IParcelable
     {
+        [JsonProperty]
         public string FilePath { get; set; }
+        [JsonProperty]
         public int Amount { get; set; }
+        [JsonProperty]
         public string Size { get; set; }
 
         public PictureProperties(string filePath)

@@ -57,9 +57,9 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FotoABIld\FotoABIld.iOS\FotoABIld.iOS.csproj">
-      <Project>{784a5fb7-ccff-4820-a2b3-94007c24145f}</Project>
-      <Name>FotoABIld.iOS</Name>
+    <ProjectReference Include="..\FotoABIld\FotoABIld.Droid\FotoABIld.Droid.csproj">
+      <Project>{58db07e6-b585-4c17-8838-ac95e43d8df8}</Project>
+      <Name>FotoABIld.Droid</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

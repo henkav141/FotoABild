@@ -38,91 +38,181 @@
         android:layout_weight="60"
         android:id="@+id/linearLayout3"
         android:background="@android:color/white">
-        <TextView
-            android:text="Se över dina uppgifter."
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:layout_width="wrap_content"
+        <ScrollView
             android:layout_height="wrap_content"
-            android:id="@+id/textView1"
-            android:textColor="#000000"
-            android:layout_gravity="center_horizontal"
-            android:editable="false"
-            android:focusable="false" />
-        <EditText
-            android:inputType="textPersonName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/editText1"
-            android:text="Förnamn + Efternamn"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="10dp"
-            android:editable="false"
-            android:focusable="false"
-            android:textColor="#000000" />
-        <EditText
-            android:inputType="phone"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Telefonnummer"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="10dp"
-            android:editable="false"
-            android:focusable="false"
-            android:id="@+id/editText2"
-            android:textColor="#000000" />
-        <EditText
-            android:inputType="textEmailAddress"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="E-mail"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="10dp"
-            android:editable="false"
-            android:focusable="false"
-            android:id="@+id/editText3"
-            android:textColor="#000000" />
-        <LinearLayout
-            android:orientation="horizontal"
-            android:minWidth="25px"
-            android:minHeight="25px"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:id="@+id/linearLayout7">
-            <EditText
-                android:layout_width="wrap_content"
+            android:layout_width="match_parent">
+            <RelativeLayout
                 android:layout_height="match_parent"
-                android:id="@+id/editText4"
-                android:text="Antal bilder:"
-                android:layout_marginRight="10dp"
-                android:layout_weight="1"
-                android:focusable="false"
-                android:editable="false"
-                android:textColor="#000000" />
-            <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:id="@+id/editText5"
-                android:text="Pris:"
-                android:layout_weight="1"
-                android:editable="false"
-                android:focusable="false"
-                android:textColor="#000000" />
-        </LinearLayout>
-        <Button
-            android:text="Lägg beställning"
-            android:layout_width="150dp"
-            android:layout_height="100dp"
-            android:id="@+id/PlaceOrderButton"
-            android:background="#ffbe1f"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="20dp"
-            android:textSize="15dp"
-            android:textColor="#1F2F40" />
+                android:layout_width="match_parent"
+                android:paddingLeft="40dp"
+                android:paddingRight="40dp"
+                android:id="@+id/RelativeLayout">
+                <TextView
+                    android:text="Se över dina uppgifter."
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/RelativeLayout"
+                    android:textColor="#000000"
+                    android:id="@+id/finalCheck"
+                    android:layout_alignParentTop="true"
+                    android:gravity="center"
+                    android:paddingBottom="30dp" />
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/finalCheck"
+                    android:id="@+id/nameLayout">
+                    <TextView
+                        android:inputType="textPersonName"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="Namn:"
+                        android:textColor="#000000"
+                        android:textSize="20dp"
+                        android:layout_alignParentLeft="true" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="Johan Larssons namn är väldigt irriterande "
+                        android:textColor="#000000"
+                        android:textSize="20dp"
+                        android:inputType="textMultiLine"
+                        android:gravity="right"
+                        android:id="@+id/finalizeNameSurnameText" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_below="@id/nameLayout"
+                    android:id="@+id/phoneNumberLayout">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="Telefonnummer"
+                        android:textColor="#000000"
+                        android:textSize="20dp" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="0732601404"
+                        android:textColor="#000000"
+                        android:textSize="20dp"
+                        android:id="@+id/finalizePhoneNumber"
+                        android:gravity="right"
+                        android:inputType="textMultiLine" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/phoneNumberLayout"
+                    android:id="@+id/emailLayout">
+                    <TextView
+                        android:inputType="textEmailAddress"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="E-mail"
+                        android:layout_marginTop="10dp"
+                        android:textColor="#000000"
+                        android:textSize="20dp"
+                        android:layout_alignParentLeft="true" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="johan.a.larsson@hotmail.com"
+                        android:textColor="#000000"
+                        android:textSize="20dp"
+                        android:id="@+id/finalizeEmail"
+                        android:gravity="right"
+                        android:inputType="textMultiLine" />
+                </LinearLayout>
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_below="@id/emailLayout"
+                    android:id="@+id/amountTable">
+                    <TableRow>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="match_parent"
+                            android:text="Storlek"
+                            android:textColor="#000000"
+                            android:textSize="20dp"
+                            android:gravity="left" />
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="2"
+                            android:layout_height="match_parent"
+                            android:text="Antal"
+                            android:textColor="#000000"
+                            android:textSize="20dp"
+                            android:gravity="center"
+                            android:layout_marginRight="20dp" />
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:text="Pris"
+                            android:textColor="#000000"
+                            android:textSize="20dp"
+                            android:gravity="right" />
+                    </TableRow>
+                    <TableRow>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:text="10x15"
+                            android:layout_weight="1"
+                            android:textColor="#000000"
+                            android:textSize="20dp"
+                            android:gravity="left" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="10"
+                            android:layout_weight="2"
+                            android:textColor="#000000"
+                            android:textSize="20dp"
+                            android:gravity="center" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="100kr"
+                            android:layout_weight="1"
+                            android:textColor="#000000"
+                            android:textSize="20dp"
+                            android:gravity="right" />
+                    </TableRow>
+                </TableLayout>
+            </RelativeLayout>
+        </ScrollView>
     </LinearLayout>
+    <Button
+        android:text="Lägg beställning"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/PlaceOrderButton"
+        android:background="#ffbe1f"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:textSize="15dp"
+        android:textColor="#1F2F40" />
     <LinearLayout
         android:orientation="horizontal"
-        android:minWidth="25px"
-        android:minHeight="25px"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:layout_weight="5"

@@ -70,7 +70,7 @@ namespace FotoABIld.Droid
         {
             if (!opened) return;
             opened = false;
-            var pdfcreator = new PdfCreator();
+            var pdfcreator = new PdfHandler();
             pdfcreator.CreateDocument(FindViewById(Resource.Id.receiptlayout));
             File file = new File(Android.OS.Environment.ExternalStorageDirectory.AbsolutePath + "/hej.pdf");
             Intent intent = new Intent(Intent.ActionView);

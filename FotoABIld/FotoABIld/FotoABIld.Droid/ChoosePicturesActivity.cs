@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Android.Animation;
 using Android.App;
+using Android.Bluetooth;
 using Android.Content;
 using Android.Content.PM;
 using Android.Graphics;
@@ -15,6 +16,7 @@ using Com.Nostra13.Universalimageloader.Cache.Memory.Impl;
 using Com.Nostra13.Universalimageloader.Core;
 using Com.Nostra13.Universalimageloader.Core.Assist;
 using Java.IO;
+using Newtonsoft.Json;
 
 namespace FotoABIld.Droid
 {
@@ -22,7 +24,7 @@ namespace FotoABIld.Droid
     public class ChoosePicturesActivity : Activity
     {
         private int editIndex;
-        private IList<PictureProperties> pictureList; 
+        private List<PictureProperties> pictureList; 
         private GridView gridGallery;
         private Handler handler;
         private GalleryAdapter adapter;
@@ -119,7 +121,16 @@ namespace FotoABIld.Droid
 
         private void NextButton_Click(object sender, EventArgs e)
         {
+            
+            var serializePictures = pictureList;
+            string objectString = JsonConvert.SerializeObject(pictureList, Formatting.Indented);
+            System.Console.WriteLine(objectString);
+
             var next = new Intent(this, typeof(CustomerInformationActivity));
+            var test = JsonConvert.DeserializeObject<List<PictureProperties>>(objectString);
+
+
+            next.PutExtra("pictureList", objectString);
             StartActivity(next);
         }
 
@@ -181,11 +192,7 @@ namespace FotoABIld.Droid
                 }
 
             }
-            else if (requestCode == 400 && resultCode == Result.Ok)
-            {
-                var picture = (PictureProperties) data.GetParcelableExtra("picture");
-                pictureList.Add(picture);
-            }
+
         }
     }
 }
