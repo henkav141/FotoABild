@@ -41,6 +41,8 @@ namespace FotoABIld.iOS.Controllers
 	            if (g.Image.Equals(twetImage.Image))
 	            {
 	                Console.WriteLine(g.ImageAmount);
+                    Console.WriteLine(g.ImageFormat);
+	                ChooseImageController.ImageHandlerList = EditImageControllerList;
 	            }
 	        }
         }
