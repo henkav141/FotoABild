@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using CoreFoundation;
+using Foundation;
 using UIKit;
 
 namespace FotoABIld.iOS.Controllers
@@ -13,39 +14,37 @@ namespace FotoABIld.iOS.Controllers
 		{
 		}
 
-        public static UIImage EditImageControllerImage
+        public UIImage EditImageControllerImage
         {
             get; set;
         }
 
-        public static List<ImageHandler> EditImageControllerList
+        public static int ImageIndex
+        {
+            get; set;
+        }
+
+        public static string EditControllerName
         {
             get; set;
         }
 
 
-
-
-	    public override void ViewDidAppear(bool animated)
+        public override void ViewDidAppear(bool animated)
         {
             base.ViewDidAppear(animated);
+
             twetImage.Image = EditImageControllerImage;
             barbtn.Clicked += BarbtnOnClicked;
-
+            Console.WriteLine(EditControllerName);
         }
 
 	    private void BarbtnOnClicked(object sender, EventArgs eventArgs)
 	    {
-	        foreach (var g in EditImageControllerList)
-	        {
-	            if (g.Image.Equals(twetImage.Image))
-	            {
-	                Console.WriteLine(g.ImageAmount);
-                    Console.WriteLine(g.ImageFormat);
-	                ChooseImageController.ImageHandlerList = EditImageControllerList;
-	            }
-	        }
-        }
-	}
+
+	                
+	    }
+
+
     }
-    
+}

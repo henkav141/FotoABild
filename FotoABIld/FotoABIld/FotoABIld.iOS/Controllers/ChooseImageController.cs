@@ -23,6 +23,12 @@ namespace FotoABIld.iOS.Controllers
 
         }
 
+        public override void ViewDidAppear(bool animated)
+        {
+            base.ViewDidAppear(animated);
+            imageCollection.ReloadData();
+
+        }
 
 
         public nint GetItemsCount(UICollectionView collectionView, nint section)
@@ -37,13 +43,12 @@ namespace FotoABIld.iOS.Controllers
             
             var cell = (ImageResult)collectionView.DequeueReusableCell(ImageResult.Id, indexPath);
             var asset = ImageHandlerList[indexPath.Row];
-
             cell.TheImage.Image = asset.Image;
-            
-
+            cell.TheName = asset.Name;
             return cell;
 
         }
+
 
         public override void PrepareForSegue(UIStoryboardSegue segue, NSObject sender)
         {
@@ -52,15 +57,11 @@ namespace FotoABIld.iOS.Controllers
             var destination = (EditImageController)segue.DestinationViewController;
             var imageToPass = (ImageResult)sender;
 
-
-            //Create a list that contains the mResults list.
-            var list = ImageHandlerList.ToList();
-
             //Give the properties in DestinationViewController value of the locale variables e.g. the list of images and the selected image.
-            EditImageController.EditImageControllerList = list;
-            EditImageController.EditImageControllerImage = imageToPass.TheImage.Image;
+            //EditImageController.EditImageControllerList = list;
+            destination.EditImageControllerImage = imageToPass.TheImage.Image;
+            EditImageController.EditControllerName = imageToPass.TheName;
         }
-
 
 
         partial void AddImagesBtn_TouchUpInside(UIButton sender)

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using System.Text;
 using UIKit;
 
@@ -16,6 +17,7 @@ namespace FotoABIld.iOS
         public string Path { get; set; }
 
         public string Name { get; set; }
+
 
 
         public ImageHandler(UIImage image, string path, string name)

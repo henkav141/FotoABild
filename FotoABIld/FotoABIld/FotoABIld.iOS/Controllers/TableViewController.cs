@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Foundation;
+using Microsoft.Scripting.Utils;
 using UIKit;
 using XamDialogs;
 
@@ -10,7 +11,6 @@ namespace FotoABIld.iOS.Controllers
     
 	partial class TableViewController : UITableViewController
 	{
-
         public TableViewController (IntPtr handle) : base (handle)
         {
 
@@ -19,9 +19,9 @@ namespace FotoABIld.iOS.Controllers
 
         public override void ViewDidAppear(bool animated)
         {
-            foreach (var z in EditImageController.EditImageControllerList)
+            foreach (var z in ChooseImageController.ImageHandlerList)
             {
-                if (z.Image.Equals(EditImageController.EditImageControllerImage))
+                if (z.Name.Equals(EditImageController.EditControllerName))
                 {
                     amountRightLabel.Text = z.ImageAmount.ToString();
                     formatRightLabel.Text = z.ImageFormat;
@@ -48,13 +48,10 @@ namespace FotoABIld.iOS.Controllers
                 //Code to decide what to happen when an object in the picker is chosen
                 dialog.OnSelectedItemChanged += (object s, string e) =>
                 {
-                    foreach (var x in EditImageController.EditImageControllerList)
+                    foreach (var x in ChooseImageController.ImageHandlerList.Where(x => x.Name.Equals(EditImageController.EditControllerName)))
                     {
-                        if (x.Image.Equals(EditImageController.EditImageControllerImage))
-                        {
-                            x.ImageAmount = Int32.Parse(dialog.SelectedItem);
-                            amountRightLabel.Text = dialog.SelectedItem;
-                        }
+                        x.ImageAmount = Int32.Parse(dialog.SelectedItem);
+                        amountRightLabel.Text = dialog.SelectedItem;
                     }
 
                 };
@@ -77,14 +74,12 @@ namespace FotoABIld.iOS.Controllers
 
                 dialog.OnSelectedItemChanged += (object s, string e) =>
                 {
-                    foreach (var x in EditImageController.EditImageControllerList)
+                    foreach (var x in ChooseImageController.ImageHandlerList.Where(x => x.Name.Equals(EditImageController.EditControllerName)))
                     {
-                        if (x.Image.Equals(EditImageController.EditImageControllerImage))
-                        {
-                            x.ImageFormat = dialog.SelectedItem;
-                            formatRightLabel.Text = dialog.SelectedItem;
-                        }
+                        x.ImageFormat = dialog.SelectedItem;
+                        formatRightLabel.Text = dialog.SelectedItem;
                     }
+     
                 };
 
                 dialog.SelectedItem = "10x15";
@@ -93,14 +88,37 @@ namespace FotoABIld.iOS.Controllers
 
             else if (tableView.CellAt(indexPath).Equals(addACopyCell))
             {
-                Console.WriteLine(addACopyCell.TextLabel);
+                var newList = (from r in ChooseImageController.ImageHandlerList
+                    where r.Name.Equals(EditImageController.EditControllerName)
+                    select new ImageHandler(r.Image, r.Path, r.Name)
+                    {
+                        Image = r.Image, ImageAmount = 1, ImageFormat = "10x15", Name = RandomString(12) + r.Name, Path = r.Path
+                    }).ToList();
+
+
+                foreach (var t in newList)
+                {
+                    ChooseImageController.ImageHandlerList.Add(t);
+                }
+
+                Console.WriteLine("klart");
             }
 
             else if (tableView.CellAt(indexPath).Equals(cropImageCell))
             {
                 Console.WriteLine(cropImageCell.TextLabel);
+
             }
 
         }
+
+        public static string RandomString(int length)
+        {
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            var random = new Random();
+            return new string(Enumerable.Repeat(chars, length)
+              .Select(s => s[random.Next(s.Length)]).ToArray());
+        }
+
     }
 }

@@ -1,6 +1,7 @@
 using Foundation;
 using System;
 using System.CodeDom.Compiler;
+using System.Linq;
 using UIKit;
 
 namespace FotoABIld.iOS
@@ -10,7 +11,7 @@ namespace FotoABIld.iOS
 	public partial class ImageResult : UICollectionViewCell
 	{
         public static readonly NSString Id = new NSString("cellImage");
-
+	    public string TheName { get; set; }
 
         public ImageResult (IntPtr handle) : base (handle)
         {
@@ -22,7 +23,6 @@ namespace FotoABIld.iOS
         {
             get { return this.imageInCell; }
         }
-
 
     }
 }
