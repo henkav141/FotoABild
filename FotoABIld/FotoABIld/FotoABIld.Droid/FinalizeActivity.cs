@@ -58,8 +58,7 @@ namespace FotoABIld.Droid
             var differentSizes = (order.Pictures.Select(picture => picture.Size).Distinct().ToList());
             var tableLayout = FindViewById<TableLayout>(Resource.Id.amountTable);
             var tablerowList = new List<TableRow>();
-            var pricecalculator = new PriceCalculator(order.Pictures);
-            pricecalculator.CalculateTotalPrice();
+            var amountHandler = new AmountHandler(order.Pictures);
             foreach (var size in differentSizes)
             {
                 var tableRow = new TableRow(this);
@@ -78,7 +77,7 @@ namespace FotoABIld.Droid
                 var amountText = new TextView(this)
                 {
                     LayoutParameters = layoutParameters2,
-                    Text = size,
+                    Text = amountHandler.GetAmountofSize(size).ToString(),
                     Gravity = GravityFlags.Right,
                     TextSize = 20
 
@@ -93,8 +92,8 @@ namespace FotoABIld.Droid
                 sizeText.SetTextColor(Color.Black);
                 amountText.SetTextColor(Color.Black);
                 priceText.SetTextColor(Color.Black);
-                tableRow.AddView(amountText);
                 tableRow.AddView(sizeText);
+                tableRow.AddView(amountText);
                 tableRow.AddView(priceText);
                 tableLayout.AddView(tableRow);
             }

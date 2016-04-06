@@ -9,11 +9,12 @@
     <Import_RootNamespace>FotoABIld</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)AmountSizeHandler.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AmountHandler.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MyClass.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Order.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)PriceCalculator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pictures.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PriceHandler.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Serializer.cs" />
   </ItemGroup>
 </Project>
