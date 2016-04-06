@@ -22,20 +22,21 @@ namespace FotoABIld
             listProperties = listproperties;
         }
 
-        public int CalculateTotalPrice()
+        public int CalculateTotalPrice(int smallPhotos, int mediumSmallPhotos, int mediumLargePhotos, int largePhotos)
         {
-            return CalculateSmall() + CalculateMediumSmall() + CalculateMediumLarge() + CalculateLarge();
+            return CalculateSmall(smallPhotos) + CalculateMediumSmall(mediumSmallPhotos) +
+                CalculateMediumLarge(mediumLargePhotos) + CalculateLarge(largePhotos);
         }
 
-        public int CalculateSmall()
+        public int CalculateSmall(int smallPhotos)
         {
             var priceSmall = 0;
 
-            var list10X15 = listProperties.Where(item => item.Size.Equals("10x15")).ToList();
-            var list11X15 = listProperties.Where(item => item.Size.Equals("11x15")).ToList();
-            Size10X15Amount = list10X15.Sum(item => item.Amount);
-            Size11X15Amount = list11X15.Sum(item => item.Amount);
-            var smallPhotos = Size10X15Amount + Size11X15Amount;
+            //var list10X15 = listProperties.Where(item => item.Size.Equals("10x15")).ToList();
+            //var list11X15 = listProperties.Where(item => item.Size.Equals("11x15")).ToList();
+            //Size10X15Amount = list10X15.Sum(item => item.Amount);
+            //Size11X15Amount = list11X15.Sum(item => item.Amount);
+            //var smallPhotos = Size10X15Amount + Size11X15Amount;
 
             if (smallPhotos < 20)
                 priceSmall = smallPhotos * 10;
@@ -48,14 +49,14 @@ namespace FotoABIld
             return priceSmall;
         }
 
-        public int CalculateMediumSmall()
+        public int CalculateMediumSmall(int mediumSmallPhotos)
         {
             var priceMediumSmall = 0;
-            var list13X18 = listProperties.Where(item => item.Size.Equals("13x18(vit kant)"));
-            var list15X21 = listProperties.Where(item => item.Size.Equals("15x21"));
-            Size13X18Amount = list13X18.Sum(item => item.Amount);
-            Size15X21Amount = list15X21.Sum(item => item.Amount);
-            var mediumSmallPhotos = Size13X18Amount + Size15X21Amount;
+            //var list13X18 = listProperties.Where(item => item.Size.Equals("13x18(vit kant)"));
+            //var list15X21 = listProperties.Where(item => item.Size.Equals("15x21"));
+            //Size13X18Amount = list13X18.Sum(item => item.Amount);
+            //Size15X21Amount = list15X21.Sum(item => item.Amount);
+            //var mediumSmallPhotos = Size13X18Amount + Size15X21Amount;
 
 
             if (mediumSmallPhotos > 9)
@@ -81,14 +82,14 @@ namespace FotoABIld
             return priceMediumSmall;
         }
 
-        public int CalculateMediumLarge()
+        public int CalculateMediumLarge(int mediumLargePhotos)
         {
             var priceMediumLarge = 0;
-            var list18X24 = listProperties.Where(item => item.Size.Equals("18x24(vit kant)"));
-            var list20X30 = listProperties.Where(item => item.Size.Equals("20x30"));
-            Size18X24Amount = list18X24.Sum(item => item.Amount);
-            Size20X30Amount = list20X30.Sum(item => item.Amount);
-            var mediumLargePhotos = Size18X24Amount + Size20X30Amount;
+            //var list18X24 = listProperties.Where(item => item.Size.Equals("18x24(vit kant)"));
+            //var list20X30 = listProperties.Where(item => item.Size.Equals("20x30"));
+            //Size18X24Amount = list18X24.Sum(item => item.Amount);
+            //Size20X30Amount = list20X30.Sum(item => item.Amount);
+            //var mediumLargePhotos = Size18X24Amount + Size20X30Amount;
 
             if (mediumLargePhotos > 9)
                 priceMediumLarge = mediumLargePhotos * 30;
@@ -112,14 +113,14 @@ namespace FotoABIld
             return priceMediumLarge;
 
         }
-        public int CalculateLarge()
+        public int CalculateLarge(int largePhotos)
         {
             var priceLarge = 0;
-            var list24X30 = listProperties.Where(item => item.Size.Equals("24x30(vit kant)"));
-            var list25X38 = listProperties.Where(item => item.Size.Equals("25x38"));
-            Size24X30Amount = list24X30.Sum(item => item.Amount);
-            Size25X38Amount = list25X38.Sum(item => item.Amount);
-            var largePhotos = Size24X30Amount + Size25X38Amount;
+            //var list24X30 = listProperties.Where(item => item.Size.Equals("24x30(vit kant)"));
+            //var list25X38 = listProperties.Where(item => item.Size.Equals("25x38"));
+            //Size24X30Amount = list24X30.Sum(item => item.Amount);
+            //Size25X38Amount = list25X38.Sum(item => item.Amount);
+            //var largePhotos = Size24X30Amount + Size25X38Amount;
 
             if (largePhotos > 9)
                 priceLarge = largePhotos * 40;
