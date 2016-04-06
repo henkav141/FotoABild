@@ -13,6 +13,7 @@ using Android.Views;
 using Android.Widget;
 using Java.IO;
 using Lyft.Scissors;
+using Com.Isseiaoki.Simplecropview;
 
 namespace FotoABIld.Droid
 {
@@ -39,15 +40,17 @@ namespace FotoABIld.Droid
 
         private void Init()
         {
-            var cropView = FindViewById<CropView>(Resource.Id.crop_view);
-            
+            var cropView = FindViewById<CropImageView>(Resource.Id.cropImageView);
+            var finalView = FindViewById<ImageView>(Resource.Id.croppedImageView);
+
             Button cancelButton = FindViewById<Button>(Resource.Id.CancelButton);
             Button doneButton = FindViewById<Button>(Resource.Id.doneButton);
             cancelButton.Click += CancelButton_Click;
-            //doneButton.Click +=;
-            var sizeHeight = cropView.ViewportHeight;
-            var sizeWidth = cropView.ViewportWidth;
+            //doneButton.Click +=;            
             position = Intent.GetStringExtra("image");
+
+            Button cropButton = FindViewById<Button>(Resource.Id.cropbutton1);
+            cropButton.Click += delegate { finalView.SetImageBitmap(cropView.CroppedBitmap); };
 
 
             File imgFile = new File(position);
@@ -55,17 +58,8 @@ namespace FotoABIld.Droid
             {
                 Bitmap bitMap = BitmapFactory.DecodeFile(imgFile.AbsolutePath);
                 cropView.SetImageBitmap(bitMap);
-                
+
             }
-
-
-            
-            sizeHeight = 10;
-            sizeWidth = 15;
-
-
-
-
 
         }
 

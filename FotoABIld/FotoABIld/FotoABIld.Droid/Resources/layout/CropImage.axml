@@ -15,6 +15,13 @@
         android:layout_weight="8"
         android:id="@+id/linearLayout6"
         android:background="#1F2F40" />
+    <Button
+        android:id="@+id/cropbutton1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="16dp"
+        android:text="CROP" />
     <LinearLayout
         android:orientation="vertical"
         android:minWidth="25px"
@@ -40,11 +47,18 @@
         android:id="@+id/linearLayout3"
         android:background="@android:color/white"
         android:weightSum="3">
-        <com.lyft.android.scissors.CropView
-            android:id="@+id/crop_view"
-            app:cropviewViewportHeightRatio="0.9"
+        <com.isseiaoki.simplecropview.CropImageView
+            android:id="@+id/cropImageView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="250dp"
+            android:padding="16dp"
+            app:cropMode="ratio_1_1" />
+        <ImageView
+            android:id="@+id/croppedImageView"
+            android:layout_margin="16dp"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
     </LinearLayout>
     <LinearLayout
         android:orientation="horizontal"
