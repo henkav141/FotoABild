@@ -46,9 +46,7 @@ namespace FotoABIld.Droid
             cropView = FindViewById<CropImageView>(Resource.Id.cropImageView);
             var finalView = FindViewById<ImageView>(Resource.Id.croppedImageView);
             cropView.SetHandleShowMode(CropImageView.ShowMode.ShowOnTouch);
-            Button cancelButton = FindViewById<Button>(Resource.Id.CancelButton);
             Button doneButton = FindViewById<Button>(Resource.Id.doneButton);
-            cancelButton.Click += CancelButton_Click;
             //doneButton.Click +=;            
 
             //hämtar informationen om bilden (storlek, sökväg till exempel)från föregående skärm.
@@ -82,11 +80,6 @@ namespace FotoABIld.Droid
 
         }
 
-        private void CancelButton_Click(object sender, EventArgs e)
-        {
-            var edit = new Intent(this, typeof(EditPictureActivity));
-            StartActivity(edit);
-        }
         //roterar highlightView vid knapptryck.
         private void RotateCropView(object sender, EventArgs e)
         {

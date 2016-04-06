@@ -44,8 +44,8 @@
             android:id="@+id/cropImageView"
             android:layout_width="match_parent"
             android:layout_height="270dp"
-            android:padding="10dp"
-            app:cropMode="ratio_1_1" />
+            app:cropMode="ratio_1_1"
+            android:padding="10dp" />
         <ImageView
             android:id="@+id/croppedImageView"
             android:layout_margin="16dp"
@@ -59,33 +59,34 @@
         android:minHeight="25px"
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:layout_weight="5"
         android:id="@+id/linearLayout4"
         android:background="#1F2F40"
-        android:paddingTop="50px">
+        android:paddingTop="50px"
+        android:layout_weight="5">
         <Button
-            android:text="Avbryt"
+            android:text="Rotera vy"
+            android:id="@+id/rotateCropView"
+            android:textColor="#1F2F40"
+            android:background="#ffbe1f"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:layout_width="50dp" />
+        <Button
+            android:text="Rotera bild"
+            android:id="@+id/rotateButton"
+            android:textColor="#1F2F40"
+            android:background="#ffbe1f"
             android:layout_width="50dp"
             android:layout_height="40dp"
-            android:id="@+id/CancelButton"
-            android:background="#ffbe1f"
-            android:textColor="#1F2F40"
             android:layout_weight="1" />
         <Button
             android:id="@+id/cropbutton1"
-            android:text="CROP"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-        <Button
-            android:text="Rotera2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/rotateCropView" />
-        <Button
-            android:text="Rotera"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/rotateButton" />
+            android:text="Beskär"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:textColor="#1F2F40"
+            android:background="#ffbe1f"
+            android:layout_weight="1" />
         <Button
             android:text="Klar"
             android:layout_width="50dp"

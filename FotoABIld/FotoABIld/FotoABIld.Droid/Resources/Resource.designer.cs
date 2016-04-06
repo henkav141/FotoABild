@@ -293,8 +293,8 @@ namespace FotoABIld.Droid
 			// aapt resource value: 0x7f080017
 			public const int cropImageView = 2131230743;
 			
-			// aapt resource value: 0x7f080019
-			public const int cropbutton1 = 2131230745;
+			// aapt resource value: 0x7f08001b
+			public const int cropbutton1 = 2131230747;
 			
 			// aapt resource value: 0x7f080018
 			public const int croppedImageView = 2131230744;
@@ -422,11 +422,11 @@ namespace FotoABIld.Droid
 			// aapt resource value: 0x7f080043
 			public const int receipttext = 2131230787;
 			
-			// aapt resource value: 0x7f08001b
-			public const int rotateButton = 2131230747;
-			
 			// aapt resource value: 0x7f08001a
-			public const int rotateCropView = 2131230746;
+			public const int rotateButton = 2131230746;
+			
+			// aapt resource value: 0x7f080019
+			public const int rotateCropView = 2131230745;
 			
 			// aapt resource value: 0x7f08003f
 			public const int scrollView1 = 2131230783;
