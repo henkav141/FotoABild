@@ -25,6 +25,9 @@ namespace FotoABIld.Droid
         private int index;
         private string position;
         private string size;
+        private CropImageView cropView;
+        private bool highlightView = true;
+        private Dictionary<string, int> dictionary; 
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -40,25 +43,35 @@ namespace FotoABIld.Droid
 
         private void Init()
         {
-            var cropView = FindViewById<CropImageView>(Resource.Id.cropImageView);
+            cropView = FindViewById<CropImageView>(Resource.Id.cropImageView);
             var finalView = FindViewById<ImageView>(Resource.Id.croppedImageView);
-
+            cropView.SetHandleShowMode(CropImageView.ShowMode.ShowOnTouch);
             Button cancelButton = FindViewById<Button>(Resource.Id.CancelButton);
             Button doneButton = FindViewById<Button>(Resource.Id.doneButton);
             cancelButton.Click += CancelButton_Click;
             //doneButton.Click +=;            
+
+            //hämtar informationen om bilden (storlek, sökväg till exempel)från föregående skärm.
             picture = (PictureProperties)Intent.GetParcelableExtra("image");
             position = picture.FilePath;
             size = picture.Size;
 
             Button cropButton = FindViewById<Button>(Resource.Id.cropbutton1);
             cropButton.Click += delegate { finalView.SetImageBitmap(cropView.CroppedBitmap); };
-
+            
             Button rotateButton = FindViewById<Button>(Resource.Id.rotateButton);
             rotateButton.Click += delegate { cropView.RotateImage(CropImageView.RotateDegrees.Rotate90d); };
-            var dictionary = GetRatio();
+
+
+            
+            //sätter ration för bilden genom att hämta värden från dictionarymetoden GetRatio.
+            dictionary = GetRatio();
             cropView.SetCustomRatio(dictionary["height"], dictionary["width"]);
 
+            Button rotateCropViewButton = FindViewById<Button>(Resource.Id.rotateCropView);
+            rotateCropViewButton.Click += RotateCropView;
+
+            //sätter bildens sökväg i en bitmap, så att bilden visas på skärmen.
             File imgFile = new File(position);
             if (imgFile.Exists())
             {
@@ -74,7 +87,21 @@ namespace FotoABIld.Droid
             var edit = new Intent(this, typeof(EditPictureActivity));
             StartActivity(edit);
         }
-
+        //roterar highlightView vid knapptryck.
+        private void RotateCropView(object sender, EventArgs e)
+        {
+            if (highlightView)
+            {
+                cropView.SetCustomRatio(dictionary["width"], dictionary["height"]);
+                highlightView = false;
+            }
+            else
+            {
+                cropView.SetCustomRatio(dictionary["height"], dictionary["width"]);
+                highlightView = true;
+            }
+        }
+        //Metod för att hämta ut värdena från spinnern där man väljer storlek på bilden (10x15 till exempel blir två intvärden, 10 och 15).
         private Dictionary<string, int> GetRatio()
         {
             var dictionary = new Dictionary<string, int>();

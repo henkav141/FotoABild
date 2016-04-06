@@ -43,7 +43,7 @@
         <com.isseiaoki.simplecropview.CropImageView
             android:id="@+id/cropImageView"
             android:layout_width="match_parent"
-            android:layout_height="350dp"
+            android:layout_height="270dp"
             android:padding="10dp"
             app:cropMode="ratio_1_1" />
         <ImageView
@@ -76,6 +76,11 @@
             android:text="CROP"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
+        <Button
+            android:text="Rotera2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rotateCropView" />
         <Button
             android:text="Rotera"
             android:layout_width="wrap_content"
