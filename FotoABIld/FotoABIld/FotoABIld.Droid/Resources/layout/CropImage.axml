@@ -15,13 +15,6 @@
         android:layout_weight="8"
         android:id="@+id/linearLayout6"
         android:background="#1F2F40" />
-    <Button
-        android:id="@+id/cropbutton1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="16dp"
-        android:text="CROP" />
     <LinearLayout
         android:orientation="vertical"
         android:minWidth="25px"
@@ -50,8 +43,8 @@
         <com.isseiaoki.simplecropview.CropImageView
             android:id="@+id/cropImageView"
             android:layout_width="match_parent"
-            android:layout_height="250dp"
-            android:padding="16dp"
+            android:layout_height="350dp"
+            android:padding="10dp"
             app:cropMode="ratio_1_1" />
         <ImageView
             android:id="@+id/croppedImageView"
@@ -78,6 +71,16 @@
             android:background="#ffbe1f"
             android:textColor="#1F2F40"
             android:layout_weight="1" />
+        <Button
+            android:id="@+id/cropbutton1"
+            android:text="CROP"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <Button
+            android:text="Rotera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rotateButton" />
         <Button
             android:text="Klar"
             android:layout_width="50dp"
