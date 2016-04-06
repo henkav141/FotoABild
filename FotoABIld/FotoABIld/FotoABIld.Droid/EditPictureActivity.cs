@@ -96,7 +96,8 @@ namespace FotoABIld.Droid
         private void CropButton_Click(object sender, EventArgs e)
         {
             var crop = new Intent(this, typeof(CropImageActivity));
-            crop.PutExtra("image", picture.FilePath);
+            crop.PutExtra("image", picture);
+
             StartActivity(crop);
 
         }
