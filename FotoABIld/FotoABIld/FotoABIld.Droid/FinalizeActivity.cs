@@ -42,7 +42,7 @@ namespace FotoABIld.Droid
             var cancelButton = FindViewById<Button>(Resource.Id.CancelButton);
             nameSurname = FindViewById<TextView>(Resource.Id.finalizeNameSurnameText);
             email = FindViewById<TextView>(Resource.Id.finalizeEmail);
-            phoneNumber = FindViewById<TextView>(Resource.Id.finalizeEmail);
+            phoneNumber = FindViewById<TextView>(Resource.Id.finalizePhoneNumber);
             
             order = JsonConvert.DeserializeObject<Order>(objectString);
             nameSurname.Text = order.Name + " " + order.Surname;
@@ -52,28 +52,55 @@ namespace FotoABIld.Droid
             cancelButton.Click += CancelButton_Click;
         }
 
+
         private void AddTableRow()
         {
-            List<String> differentSizes = (order.Pictures.Select(picture => picture.Size).Distinct().ToList());
+            var differentSizes = (order.Pictures.Select(picture => picture.Size).Distinct().ToList());
             var tableLayout = FindViewById<TableLayout>(Resource.Id.amountTable);
+            var tablerowList = new List<TableRow>();
+            var pricecalculator = new PriceCalculator(order.Pictures);
+            pricecalculator.CalculateTotalPrice();
             foreach (var size in differentSizes)
             {
                 var tableRow = new TableRow(this);
-
                 
-                var layoutParameters = new TableRow.LayoutParams(TableRow.LayoutParams.WrapContent, TableRow.LayoutParams.WrapContent, 1f);
-                var params2 = new TableRow.LayoutParams(TableRow.LayoutParams.FillParent, TableRow.LayoutParams.WrapContent);
-                var textView = new TextView(this);
-                textView.LayoutParameters = layoutParameters;
-                textView.Text = size;
-                textView.Gravity = GravityFlags.Left;
-                textView.SetTextColor(Color.ParseColor("#1F2F40"));
-                textView.SetTextSize(ComplexUnitType.Dip,20);
-                tableRow.LayoutParameters = params2;
-                tableRow.AddView(textView);
+                var layoutParameters = new TableRow.LayoutParams(TableRow.LayoutParams.WrapContent, TableRow.LayoutParams.MatchParent, 1);
+                var layoutParameters2 = new TableRow.LayoutParams(TableRow.LayoutParams.WrapContent, TableRow.LayoutParams.MatchParent, 2);
+
+                var sizeText = new TextView(this)
+                {
+                    LayoutParameters = layoutParameters,
+                    Text = size,
+                    Gravity = GravityFlags.Left,
+                    TextSize = 20
+
+                };
+                var amountText = new TextView(this)
+                {
+                    LayoutParameters = layoutParameters2,
+                    Text = size,
+                    Gravity = GravityFlags.Right,
+                    TextSize = 20
+
+                };
+                var priceText = new TextView(this)
+                {
+                    LayoutParameters = layoutParameters,
+                    Text = size,
+                    Gravity = GravityFlags.Right,
+                    TextSize = 20
+                };
+                sizeText.SetTextColor(Color.Black);
+                amountText.SetTextColor(Color.Black);
+                priceText.SetTextColor(Color.Black);
+                tableRow.AddView(amountText);
+                tableRow.AddView(sizeText);
+                tableRow.AddView(priceText);
                 tableLayout.AddView(tableRow);
-
-
+            }
+            foreach (var tableRow in tablerowList)
+            {
+                tableLayout.AddView(tableRow);
             }
 
 

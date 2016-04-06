@@ -44,8 +44,8 @@
             <RelativeLayout
                 android:layout_height="match_parent"
                 android:layout_width="match_parent"
-                android:paddingLeft="40dp"
-                android:paddingRight="40dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
                 android:id="@+id/RelativeLayout">
                 <TextView
                     android:text="Se över dina uppgifter."
@@ -140,7 +140,7 @@
                 </LinearLayout>
                 <TableLayout
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="wrap_content"
                     android:layout_below="@id/emailLayout"
                     android:id="@+id/amountTable">
                     <TableRow>
@@ -171,30 +171,6 @@
                             android:gravity="right" />
                     </TableRow>
                     <TableRow>
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:text="10x15"
-                            android:layout_weight="1"
-                            android:textColor="#000000"
-                            android:textSize="20dp"
-                            android:gravity="left" />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:text="10"
-                            android:layout_weight="2"
-                            android:textColor="#000000"
-                            android:textSize="20dp"
-                            android:gravity="center" />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:text="100kr"
-                            android:layout_weight="1"
-                            android:textColor="#000000"
-                            android:textSize="20dp"
-                            android:gravity="right" />
                     </TableRow>
                 </TableLayout>
             </RelativeLayout>
