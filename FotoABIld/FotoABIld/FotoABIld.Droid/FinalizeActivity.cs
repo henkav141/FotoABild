@@ -56,6 +56,8 @@ namespace FotoABIld.Droid
         private void AddTableRow()
         {
             var differentSizes = (order.Pictures.Select(picture => picture.Size).Distinct().ToList());
+            differentSizes = differentSizes.OrderBy(size => size).ToList();
+            
             var tableLayout = FindViewById<TableLayout>(Resource.Id.amountTable);
             var tablerowList = new List<TableRow>();
             var amountHandler = new AmountHandler(order.Pictures);
@@ -65,6 +67,7 @@ namespace FotoABIld.Droid
                 
                 var layoutParameters = new TableRow.LayoutParams(TableRow.LayoutParams.WrapContent, TableRow.LayoutParams.MatchParent, 1);
                 var layoutParameters2 = new TableRow.LayoutParams(TableRow.LayoutParams.WrapContent, TableRow.LayoutParams.MatchParent, 2);
+
 
                 var sizeText = new TextView(this)
                 {
@@ -80,23 +83,40 @@ namespace FotoABIld.Droid
                     Text = amountHandler.GetAmountofSize(size).ToString(),
                     Gravity = GravityFlags.Right,
                     TextSize = 20
-
                 };
+
                 var priceText = new TextView(this)
                 {
                     LayoutParameters = layoutParameters,
-                    Text = size,
+                    Text = PriceHandler.GetPriceOfSize(size, order.Pictures).ToString(),
                     Gravity = GravityFlags.Right,
                     TextSize = 20
                 };
+                if (differentSizes.Contains("10x15") && differentSizes.Contains("11x15") && size.Equals("10x15"))
+                {
+                    var amount = amountHandler.GetAmountofSize(size) + amountHandler.GetAmountofSize("11x15");
+
+                    priceText.Text = PriceCalculator.CalculatePrice("10x15", amount).ToString();
+
+                }
+                if (differentSizes.Contains("10x15") && differentSizes.Contains("11x15") && size.Equals("11x15"))
+                    priceText.Text = "";
+
+
                 sizeText.SetTextColor(Color.Black);
                 amountText.SetTextColor(Color.Black);
                 priceText.SetTextColor(Color.Black);
                 tableRow.AddView(sizeText);
                 tableRow.AddView(amountText);
                 tableRow.AddView(priceText);
+
+
+
                 tableLayout.AddView(tableRow);
             }
+            var layoutParameters3 = new TableRow.LayoutParams(TableRow.LayoutParams.MatchParent, TableRow.LayoutParams.MatchParent, 1);
+
+
             foreach (var tableRow in tablerowList)
             {
                 tableLayout.AddView(tableRow);

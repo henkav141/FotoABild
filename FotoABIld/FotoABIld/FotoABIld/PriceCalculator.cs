@@ -6,13 +6,43 @@ namespace FotoABIld
     public static class PriceCalculator
     {
 
-        public static int CalculateTotalPrice(int smallPhotos, int mediumSmallPhotos, int mediumLargePhotos, int largePhotos)
+        public static int CalculateTotalPrice(List<Pictures> pictureList)
         {
+            var amountHandler = new AmountHandler(pictureList);
+
+            var smallPhotos = amountHandler.GetAmountofSize("10x15") + amountHandler.GetAmountofSize("11x15");
+            var mediumSmallPhotos = amountHandler.GetAmountofSize("13x18(vit kant)") +
+                                    amountHandler.GetAmountofSize("15x21");
+            var mediumLargePhotos = amountHandler.GetAmountofSize("18x24") + amountHandler.GetAmountofSize("20x30");
+
+            var largePhotos = amountHandler.GetAmountofSize("24x30(vit kant)") + amountHandler.GetAmountofSize("25x38");
             return CalculateSmall(smallPhotos) + CalculateMediumSmall(mediumSmallPhotos) +
                 CalculateMediumLarge(mediumLargePhotos) + CalculateLarge(largePhotos);
         }
 
-        public static int CalculateSmall(int smallPhotos)
+        public static int CalculatePrice(string size, int photos)
+        {
+            var price = 0;
+            if (size.Equals("10x15") || size.Equals("11x15"))
+            {
+                price = CalculateSmall(photos);
+            }
+            else if (size.Equals("13x18(vit kant)") || size.Equals("15x21"))
+            {
+                price = CalculateMediumSmall(photos);
+            }
+            else if (size.Equals("18x24(vit kant)") || size.Equals("20x30"))
+            {
+                price = CalculateMediumLarge(photos);
+            }
+            else if (size.Equals("24x30(vit kant)") || size.Equals("25x38"))
+            {
+                price = CalculateLarge(photos);
+            }
+
+            return price;
+        }
+        private static int CalculateSmall(int smallPhotos)
         {
             var priceSmall = 0;
 
@@ -33,7 +63,7 @@ namespace FotoABIld
             return priceSmall;
         }
 
-        public static int CalculateMediumSmall(int mediumSmallPhotos)
+        private static int CalculateMediumSmall(int mediumSmallPhotos)
         {
             var priceMediumSmall = 0;
             //var list13X18 = listProperties.Where(item => item.Size.Equals("13x18(vit kant)"));
@@ -66,7 +96,7 @@ namespace FotoABIld
             return priceMediumSmall;
         }
 
-        public static int CalculateMediumLarge(int mediumLargePhotos)
+        private static int CalculateMediumLarge(int mediumLargePhotos)
         {
             var priceMediumLarge = 0;
             //var list18X24 = listProperties.Where(item => item.Size.Equals("18x24(vit kant)"));
@@ -97,7 +127,7 @@ namespace FotoABIld
             return priceMediumLarge;
 
         }
-        public static int CalculateLarge(int largePhotos)
+        private static int CalculateLarge(int largePhotos)
         {
             var priceLarge = 0;
             //var list24X30 = listProperties.Where(item => item.Size.Equals("24x30(vit kant)"));

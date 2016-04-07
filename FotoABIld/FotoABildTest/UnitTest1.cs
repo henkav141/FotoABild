@@ -27,15 +27,14 @@ namespace FotoABildTest
             var amounthandler = new AmountHandler(sharedpropertieslist);
 
             int expected1 = 100 + 420 * 15 + 360 + 630;
-            var actual1 = PriceCalculator.CalculateTotalPrice(amounthandler.GetAmountofSize("10x15"), 
-                amounthandler.GetAmountofSize("15x21"), amounthandler.GetAmountofSize("20x30"), amounthandler.GetAmountofSize("25x38"));
+            var actual1 = PriceCalculator.CalculateTotalPrice(sharedpropertieslist);
 
             var expected2 = 420*15;
-            var actual2 = PriceCalculator.CalculateMediumSmall(amounthandler.GetAmountofSize("15x21"));
+            var actual2 = PriceCalculator.CalculatePrice("15x21",amounthandler.GetAmountofSize("15x21"));
             var expected3 = 360;
-            var actual3 = PriceCalculator.CalculateMediumLarge(amounthandler.GetAmountofSize("20x30"));
+            var actual3 = PriceCalculator.CalculatePrice("20x30", amounthandler.GetAmountofSize("20x30"));
             var expected4 = 630;
-            var actual4 = PriceCalculator.CalculateLarge(amounthandler.GetAmountofSize("25x38"));
+            var actual4 = PriceCalculator.CalculatePrice("25x38",amounthandler.GetAmountofSize("25x38"));
 
 
 
