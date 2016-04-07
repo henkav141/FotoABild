@@ -18,7 +18,7 @@ namespace FotoABIld.Droid
     [Activity(Label = "ReceiptActivity")]
     public class ReceiptActivity : Activity
     {
-        private PriceCalculator priceCalc;
+        
         bool opened = true;
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -27,11 +27,11 @@ namespace FotoABIld.Droid
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.Receipt);
 
-            priceCalc = new PriceCalculator(CreateSampleList());
-            priceCalc.CalculateTotalPrice();
+            //priceCalc = new PriceCalculator(CreateSampleList());
+            //priceCalc.CalculateTotalPrice();
             
 
-            var readyText = FindViewById<TextView>(Resource.Id.finalPrice).Text = priceCalc.CalculateTotalPrice().ToString();
+            //var readyText = FindViewById<TextView>(Resource.Id.finalPrice).Text = priceCalc.CalculateTotalPrice().ToString();
             SetDate();
 
             // Create your application here

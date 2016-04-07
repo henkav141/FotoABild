@@ -14,7 +14,8 @@ namespace FotoABIld
         }
         public  int GetAmountofSize(string switchSize)
         {
-            return PictureList.Count(pictures => pictures.Size.Equals(switchSize));
-        }
+
+            return PictureList.Where(picture => picture.Size.Equals(switchSize)).Sum(picture => picture.Amount);
+     }
     }
 }

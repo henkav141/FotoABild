@@ -3,32 +3,16 @@ using System.Linq;
 
 namespace FotoABIld
 {
-    public class PriceCalculator
+    public static class PriceCalculator
     {
-        public int Size10X15Amount { get; set; }
-        public int Size11X15Amount { get; set; }
-        public int Size13X18Amount { get; set; }
-        public int Size15X21Amount { get; set; }
-        public int Size18X24Amount { get; set; }
-        public int Size20X30Amount { get; set; }
-        public int Size24X30Amount { get; set; }
-        public int Size25X38Amount { get; set; }
 
-        private readonly List<Pictures> listProperties;
-
-
-        public PriceCalculator(List<Pictures> listproperties)
-        {
-            listProperties = listproperties;
-        }
-
-        public int CalculateTotalPrice(int smallPhotos, int mediumSmallPhotos, int mediumLargePhotos, int largePhotos)
+        public static int CalculateTotalPrice(int smallPhotos, int mediumSmallPhotos, int mediumLargePhotos, int largePhotos)
         {
             return CalculateSmall(smallPhotos) + CalculateMediumSmall(mediumSmallPhotos) +
                 CalculateMediumLarge(mediumLargePhotos) + CalculateLarge(largePhotos);
         }
 
-        public int CalculateSmall(int smallPhotos)
+        public static int CalculateSmall(int smallPhotos)
         {
             var priceSmall = 0;
 
@@ -44,12 +28,12 @@ namespace FotoABIld
                 priceSmall = smallPhotos * 4;
             else if (smallPhotos > 29 && smallPhotos < 60)
                 priceSmall = smallPhotos * 3;
-             else if (Size10X15Amount > 59)
+             else if (smallPhotos > 59)
                 priceSmall = smallPhotos * 2;
             return priceSmall;
         }
 
-        public int CalculateMediumSmall(int mediumSmallPhotos)
+        public static int CalculateMediumSmall(int mediumSmallPhotos)
         {
             var priceMediumSmall = 0;
             //var list13X18 = listProperties.Where(item => item.Size.Equals("13x18(vit kant)"));
@@ -61,7 +45,7 @@ namespace FotoABIld
 
             if (mediumSmallPhotos > 9)
                 priceMediumSmall = mediumSmallPhotos * 15;
-            else if (Size13X18Amount < 3)
+            else if (mediumSmallPhotos < 3)
                 priceMediumSmall = mediumSmallPhotos * 40;
             else if (mediumSmallPhotos % 3 == 1 && mediumSmallPhotos < 10)
             {
@@ -82,7 +66,7 @@ namespace FotoABIld
             return priceMediumSmall;
         }
 
-        public int CalculateMediumLarge(int mediumLargePhotos)
+        public static int CalculateMediumLarge(int mediumLargePhotos)
         {
             var priceMediumLarge = 0;
             //var list18X24 = listProperties.Where(item => item.Size.Equals("18x24(vit kant)"));
@@ -113,7 +97,7 @@ namespace FotoABIld
             return priceMediumLarge;
 
         }
-        public int CalculateLarge(int largePhotos)
+        public static int CalculateLarge(int largePhotos)
         {
             var priceLarge = 0;
             //var list24X30 = listProperties.Where(item => item.Size.Equals("24x30(vit kant)"));
