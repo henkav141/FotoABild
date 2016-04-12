@@ -5,8 +5,8 @@ namespace FotoABIld.iOS.Controllers
 {
 	public partial class ViewController : UIViewController
 	{
-        
-		public ViewController (IntPtr handle) : base (handle)
+        // No code here since the segue is being initialized in the design mode
+        public ViewController (IntPtr handle) : base (handle)
 		{ 
 
 		}

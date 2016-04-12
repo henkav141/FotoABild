@@ -57,7 +57,7 @@ namespace FotoABIld.iOS.Controllers
             var destination = (EditImageController)segue.DestinationViewController;
             var imageToPass = (ImageResult)sender;
 
-            //Give the properties in DestinationViewController value of the locale variables e.g. the list of images and the selected image.
+            //Give the properties in DestinationViewController value of the locale variables e.g. the name of the image and the selected image.
             destination.EditImageControllerImage = imageToPass.TheImage.Image;
             EditImageController.EditControllerName = imageToPass.TheName;
         }
@@ -106,6 +106,7 @@ namespace FotoABIld.iOS.Controllers
             this.PresentViewController(picker, true, null);
         }
 
+        // Test code for button
         partial void NextBtn_Activated(UIBarButtonItem sender)
         {
             foreach (var t in ImageHandlerList)
