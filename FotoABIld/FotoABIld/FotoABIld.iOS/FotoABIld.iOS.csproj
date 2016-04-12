@@ -56,9 +56,20 @@
     <ConsolePause>false</ConsolePause>
     <MtouchArch>ARMv7, ARM64</MtouchArch>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
-    <MtouchProfiling>true</MtouchProfiling>
+    <MtouchProfiling>True</MtouchProfiling>
     <CodesignKey>iPhone Developer</CodesignKey>
-    <MtouchDebug>true</MtouchDebug>
+    <MtouchDebug>True</MtouchDebug>
+    <MtouchSdkVersion>9.3</MtouchSdkVersion>
+    <MtouchLink>SdkOnly</MtouchLink>
+    <MtouchFastDev>False</MtouchFastDev>
+    <MtouchUseLlvm>False</MtouchUseLlvm>
+    <MtouchUseThumb>False</MtouchUseThumb>
+    <MtouchUseSGen>False</MtouchUseSGen>
+    <MtouchUseRefCounting>False</MtouchUseRefCounting>
+    <OptimizePNGs>True</OptimizePNGs>
+    <MtouchFloat32>False</MtouchFloat32>
+    <DeviceSpecificBuild>False</DeviceSpecificBuild>
+    <MtouchI18n />
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AllianceCustomPicker">
@@ -157,6 +168,11 @@
     <Compile Include="Controllers\EditImageController.designer.cs">
       <DependentUpon>EditImageController.cs</DependentUpon>
     </Compile>
+    <Compile Include="CropImageController.cs" />
+    <Compile Include="CropImageController.designer.cs">
+      <DependentUpon>CropImageController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CropperView.cs" />
     <Compile Include="ImageHandler.cs" />
     <Compile Include="ImageResult.cs" />
     <Compile Include="ImageResult.designer.cs">

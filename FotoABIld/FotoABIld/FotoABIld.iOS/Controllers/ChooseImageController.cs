@@ -58,7 +58,6 @@ namespace FotoABIld.iOS.Controllers
             var imageToPass = (ImageResult)sender;
 
             //Give the properties in DestinationViewController value of the locale variables e.g. the list of images and the selected image.
-            //EditImageController.EditImageControllerList = list;
             destination.EditImageControllerImage = imageToPass.TheImage.Image;
             EditImageController.EditControllerName = imageToPass.TheName;
         }

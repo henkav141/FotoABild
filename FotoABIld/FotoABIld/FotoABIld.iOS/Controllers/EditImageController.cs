@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using CoreFoundation;
+using CoreGraphics;
 using Foundation;
 using UIKit;
 
@@ -24,21 +26,22 @@ namespace FotoABIld.iOS.Controllers
             get; set;
         }
 
-
         public override void ViewDidAppear(bool animated)
         {
             base.ViewDidAppear(animated);
 
+
+
             twetImage.Image = EditImageControllerImage;
-            barbtn.Clicked += BarbtnOnClicked;
+            //barbtn.Clicked += BarbtnOnClicked;
             Console.WriteLine(EditControllerName);
         }
 
-	    private void BarbtnOnClicked(object sender, EventArgs eventArgs)
-	    {
+	    //private void BarbtnOnClicked(object sender, EventArgs eventArgs)
+	    //{
+           
+     //   }
 
-	                
-	    }
 
 
     }

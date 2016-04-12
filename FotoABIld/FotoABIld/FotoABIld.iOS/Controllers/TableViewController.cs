@@ -1,6 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
+using System.Net.Mime;
+using CoreGraphics;
 using Foundation;
 using Microsoft.Scripting.Utils;
 using UIKit;
@@ -57,7 +60,7 @@ namespace FotoABIld.iOS.Controllers
                     }
                     tableView.DeselectRow(indexPath, false);
                 };
-
+                
                 dialog.SelectedItem = "1";
                 dialog.Show();
             }
@@ -111,8 +114,14 @@ namespace FotoABIld.iOS.Controllers
             // If crop image row is selected
             else if (tableView.CellAt(indexPath).Equals(cropImageCell))
             {
-                Console.WriteLine(cropImageCell.TextLabel);
-                tableView.DeselectRow(indexPath, false);
+                foreach (
+                    var x in
+                        ChooseImageController.ImageHandlerList.Where(
+                            x => x.Name.Equals(EditImageController.EditControllerName)))
+                {                   
+                    Console.WriteLine(cropImageCell.TextLabel);
+                    tableView.DeselectRow(indexPath, false);
+                }
             }
 
         }
@@ -125,6 +134,7 @@ namespace FotoABIld.iOS.Controllers
             return new string(Enumerable.Repeat(chars, length)
               .Select(s => s[random.Next(s.Length)]).ToArray());
         }
+
 
     }
 }
