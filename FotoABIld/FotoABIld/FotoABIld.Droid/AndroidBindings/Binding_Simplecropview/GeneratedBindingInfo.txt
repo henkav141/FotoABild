@@ -1,0 +1,6 @@
+Binding for:
+com.isseiaoki:simplecropview:1.0.16
+
+Dependencies:
+
+simplecropview-1.0.16.aar,    Path=C:\Users\Richard\.gradle\caches\modules-2\files-2.1\com.isseiaoki\simplecropview\1.0.16\63c3acf97e7e02c709f59f6b722337e802af0e9f\simplecropview-1.0.16.aar

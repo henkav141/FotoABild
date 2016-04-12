@@ -84,7 +84,6 @@ namespace FotoABIld.Droid
         private void DoneButton_Click(object sender, EventArgs e)
         {
             picture.Amount = numberPicker.Value;
-            picture.Size = spinner.SelectedItem.ToString();
             var bundle = new Bundle();
             bundle.PutParcelable("picture",picture);
             bundle.PutBoolean("bool", true);
@@ -96,7 +95,8 @@ namespace FotoABIld.Droid
         private void CropButton_Click(object sender, EventArgs e)
         {
             var crop = new Intent(this, typeof(CropImageActivity));
-            crop.PutExtra("image", picture.FilePath);
+            crop.PutExtra("image", picture);
+
             StartActivity(crop);
 
         }
@@ -115,12 +115,17 @@ namespace FotoABIld.Droid
             var adapter = ArrayAdapter.CreateFromResource(this, Resource.Array.Sizes, Android.Resource.Layout.SimpleSpinnerItem);
             adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerItem);
             spinner.Adapter = adapter;
-            
+            spinner.ItemSelected += spinner_ItemSelected;
             if (!size.Equals(null))
             {
                 var spinnerPosition = adapter.GetPosition(size);
                 spinner.SetSelection(spinnerPosition);
             }
+        }
+
+        private void spinner_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
+        {
+            picture.Size = spinner.SelectedItem.ToString();
         }
 
 

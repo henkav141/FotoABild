@@ -40,11 +40,18 @@
         android:id="@+id/linearLayout3"
         android:background="@android:color/white"
         android:weightSum="3">
-        <com.lyft.android.scissors.CropView
-            android:id="@+id/crop_view"
-            app:cropviewViewportHeightRatio="0.9"
+        <com.isseiaoki.simplecropview.CropImageView
+            android:id="@+id/cropImageView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="270dp"
+            app:cropMode="ratio_1_1"
+            android:padding="10dp" />
+        <ImageView
+            android:id="@+id/croppedImageView"
+            android:layout_margin="16dp"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
     </LinearLayout>
     <LinearLayout
         android:orientation="horizontal"
@@ -52,17 +59,33 @@
         android:minHeight="25px"
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:layout_weight="5"
         android:id="@+id/linearLayout4"
         android:background="#1F2F40"
-        android:paddingTop="50px">
+        android:paddingTop="50px"
+        android:layout_weight="5">
         <Button
-            android:text="Avbryt"
+            android:text="Rotera vy"
+            android:id="@+id/rotateCropView"
+            android:textColor="#1F2F40"
+            android:background="#ffbe1f"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:layout_width="50dp" />
+        <Button
+            android:text="Rotera bild"
+            android:id="@+id/rotateButton"
+            android:textColor="#1F2F40"
+            android:background="#ffbe1f"
             android:layout_width="50dp"
             android:layout_height="40dp"
-            android:id="@+id/CancelButton"
-            android:background="#ffbe1f"
+            android:layout_weight="1" />
+        <Button
+            android:id="@+id/cropbutton1"
+            android:text="Beskär"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
             android:textColor="#1F2F40"
+            android:background="#ffbe1f"
             android:layout_weight="1" />
         <Button
             android:text="Klar"
