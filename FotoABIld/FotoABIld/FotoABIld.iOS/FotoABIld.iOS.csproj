@@ -197,10 +197,6 @@
     <BundleResource Include="logo.png" />
   </ItemGroup>
   <ItemGroup>
-    <XamarinComponentReference Include="alliancePicker">
-      <Visible>False</Visible>
-      <Version>2.1.1</Version>
-    </XamarinComponentReference>
     <XamarinComponentReference Include="elcimagepicker">
       <Visible>False</Visible>
       <Version>1.3</Version>
