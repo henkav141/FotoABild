@@ -49,6 +49,7 @@ namespace FotoABIld.Droid
             //doneButton.Click +=;            
             
             // Gets information about the image (size and path for example) from the previous screen.
+            //
             picture = (PictureProperties)Intent.GetParcelableExtra("image");
             position = picture.FilePath;
             size = picture.Size;
