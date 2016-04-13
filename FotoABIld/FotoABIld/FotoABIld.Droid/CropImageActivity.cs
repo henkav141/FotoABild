@@ -48,8 +48,8 @@ namespace FotoABIld.Droid
             cropView.SetHandleShowMode(CropImageView.ShowMode.ShowOnTouch);
             Button doneButton = FindViewById<Button>(Resource.Id.doneButton);
             //doneButton.Click +=;            
-
-            //hämtar informationen om bilden (storlek, sökväg till exempel)från föregående skärm.
+            
+            // Gets information about the image (size and path for example) from the previous screen.
             picture = (PictureProperties)Intent.GetParcelableExtra("image");
             position = picture.FilePath;
             size = picture.Size;
@@ -61,15 +61,14 @@ namespace FotoABIld.Droid
             rotateButton.Click += delegate { cropView.RotateImage(CropImageView.RotateDegrees.Rotate90d); };
 
 
-            
-            //sätter ration för bilden genom att hämta värden från dictionarymetoden GetRatio.
+            //Sets the aspect ration for the image by getting values from the dictionary method GetRatio.
             dictionary = GetRatio();
             cropView.SetCustomRatio(dictionary["height"], dictionary["width"]);
 
             Button rotateCropViewButton = FindViewById<Button>(Resource.Id.rotateCropView);
             rotateCropViewButton.Click += RotateCropView;
 
-            //sätter bildens sökväg i en bitmap, så att bilden visas på skärmen.
+            //Sets the image path to a bitmap, so that the picture displays on the screen.
             File imgFile = new File(position);
             if (imgFile.Exists())
             {
@@ -79,8 +78,7 @@ namespace FotoABIld.Droid
             }
 
         }
-
-        //roterar highlightView vid knapptryck.
+        //Rotates the highlightview on a click.
         private void RotateCropView(object sender, EventArgs e)
         {
             if (highlightView)
@@ -94,7 +92,7 @@ namespace FotoABIld.Droid
                 highlightView = true;
             }
         }
-        //Metod för att hämta ut värdena från spinnern där man väljer storlek på bilden (10x15 till exempel blir två intvärden, 10 och 15).
+        //Method for getting the values from the choose size spinner (10x15 becomes two int values, 10 and 15).
         private Dictionary<string, int> GetRatio()
         {
             var dictionary = new Dictionary<string, int>();
