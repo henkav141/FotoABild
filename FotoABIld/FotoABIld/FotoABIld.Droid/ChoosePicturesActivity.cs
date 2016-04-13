@@ -35,7 +35,6 @@ namespace FotoABIld.Droid
 
         private ImageLoader imageLoader;
         private ViewSwitcher viewSwitcher;
-        //private ImageAdapter imageAdapter;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -43,13 +42,13 @@ namespace FotoABIld.Droid
 
             base.OnCreate(savedInstanceState);
 
-            // Create your application here
             SetContentView(Resource.Layout.ChoosePictures);
             InitImageLoader();
             Init();
 
         }
 
+        //Initializes the imageloader with certain properties.
         private void InitImageLoader()
         {
             var defaultOptions =
@@ -101,7 +100,7 @@ namespace FotoABIld.Droid
 
 
         }
-
+        //Action for when you click on an item in the gridview
        private void gridGallery_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
             var i = new Intent(this, typeof (EditPictureActivity));
@@ -118,22 +117,20 @@ namespace FotoABIld.Droid
             var intent = new Intent(this, typeof(MainActivity));
             StartActivity(intent);
         }
-
+        //For when you continue after selecting a picture
         private void NextButton_Click(object sender, EventArgs e)
         {
-            
-            var serializePictures = pictureList;
+            //Serializes the list of pictures to a JSON string to be deserializes in another activity
             string objectString = JsonConvert.SerializeObject(pictureList, Formatting.Indented);
             System.Console.WriteLine(objectString);
 
             var next = new Intent(this, typeof(CustomerInformationActivity));
-            var test = JsonConvert.DeserializeObject<List<PictureProperties>>(objectString);
 
 
             next.PutExtra("pictureList", objectString);
             StartActivity(next);
         }
-
+        //A method using the result of an action above
         protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
         {
             base.OnActivityResult(requestCode, resultCode, data);
@@ -142,6 +139,7 @@ namespace FotoABIld.Droid
             
             base.OnActivityResult(requestCode, resultCode, data);
 
+            //When selected a single picture. Not used
             if (requestCode == 100 && resultCode == Result.Ok)
             {
                 adapter.Clear();
@@ -152,6 +150,7 @@ namespace FotoABIld.Droid
                 imageLoader.DisplayImage("file://" + single_path, imgSinglePick);
 
             }
+                //When selected multiple picture this is run to put them in the gridview through an adapter
             else if (requestCode == 200 && resultCode == Result.Ok)
             {
                 String[] all_path = data.GetStringArrayExtra("all_path");
@@ -174,6 +173,7 @@ namespace FotoABIld.Droid
 
                 adapter.AddAll(dataT);
             }
+                //After changing properties this one saves the changed properties in the picturelist or creates a new one if that was requested.
             else if (requestCode == 300 && resultCode == Result.Ok)
             {
                 var bundle = data.GetBundleExtra("bundle");

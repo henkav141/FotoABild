@@ -4,6 +4,7 @@ using System.Xml.Serialization;
 
 namespace FotoABIld
 {
+    //Unused class to serialzie and deserialize objects to XML.
     public class Serializer<T> where T:class,new ()
     {
         public string FilePath { get; set; }

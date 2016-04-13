@@ -1,5 +1,6 @@
 ﻿namespace FotoABIld
 {
+    //Model of the properties saved for each picture
     public class Pictures
     {
         public string FilePath { get; set; }

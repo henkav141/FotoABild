@@ -27,6 +27,7 @@ using Com.Nostra13.Universalimageloader.Core.Assist;
 
 namespace FotoABIld.Droid
 {
+    //Used component to create a custom gallery to chose pictures from.
     [IntentFilter(
         new[] { Action.ActionPick, Action.ActionPickMultiple },
         Categories = new[] { Intent.CategoryDefault })]

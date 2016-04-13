@@ -10,7 +10,7 @@ using Newtonsoft.Json;
 
 namespace FotoABIld
 {   
-    
+    //Parcelable class to be used as a model for pictures. Will be replaced by the shared class Pictures.
     public sealed class PictureProperties : Java.Lang.Object, IParcelable
     {
         [JsonProperty]

@@ -7,15 +7,17 @@ namespace FotoABIld
 {
     public  class AmountHandler   
     {
+        
         private  List<Pictures> PictureList { get; set; }
         public AmountHandler(List<Pictures> pictureList)
         {
             PictureList = pictureList;
         }
-        public  int GetAmountofSize(string switchSize)
+        //Method to calculate the amount of a certain size.
+        public  int GetAmountofSize(string size)
         {
 
-            return PictureList.Where(picture => picture.Size.Equals(switchSize)).Sum(picture => picture.Amount);
+            return PictureList.Where(picture => picture.Size.Equals(size)).Sum(picture => picture.Amount);
      }
     }
 }

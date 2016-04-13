@@ -3,9 +3,11 @@ using System.Linq;
 
 namespace FotoABIld
 {
+    //Class to calculate the prices of an order.
     public static class PriceCalculator
     {
 
+        //Calculates the total price of an order
         public static int CalculateTotalPrice(List<Pictures> pictureList)
         {
             var amountHandler = new AmountHandler(pictureList);
@@ -20,6 +22,7 @@ namespace FotoABIld
                 CalculateMediumLarge(mediumLargePhotos) + CalculateLarge(largePhotos);
         }
 
+        //Calculates the price of the pictures in a certain pricepool.
         public static int CalculatePrice(string size, int photos)
         {
             var price = 0;

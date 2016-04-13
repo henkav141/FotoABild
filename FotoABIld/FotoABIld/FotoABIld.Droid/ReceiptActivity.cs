@@ -20,7 +20,7 @@ namespace FotoABIld.Droid
     {
         
         bool opened = true;
-
+        //Class that creates the receipt. Commented because of errors after changing the PriceCalculator.
         protected override void OnCreate(Bundle savedInstanceState)
         {
             Window.RequestFeature(WindowFeatures.NoTitle);

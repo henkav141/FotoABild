@@ -27,7 +27,7 @@ namespace FotoABIld.Droid
 
             // Create your application here
         }
-
+        //Loads views and the StringHTML from the Resources/String folder to load HTML.
         private void Init()
         {
             var text = FindViewById<TextView>(Resource.Id.pricetext);

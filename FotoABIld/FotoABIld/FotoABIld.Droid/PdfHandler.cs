@@ -7,6 +7,7 @@ namespace FotoABIld.Droid
 {
     public class PdfHandler
     {
+        //Creates a PDFdocument out of a Receipt View to save to the externalstoragedirectory
         public void CreateDocument(View v)
         {
             var pdfDoc = new PdfDocument();
@@ -19,7 +20,7 @@ namespace FotoABIld.Droid
 
             pdfDoc.FinishPage(page);
             
-            var path = Android.OS.Environment.ExternalStorageDirectory + "/hej.pdf";
+            var path = Android.OS.Environment.ExternalStorageDirectory + "/test.pdf";
 
             try
             {

@@ -69,7 +69,7 @@ namespace FotoABIld.Droid
             }
 
         }
-
+        //Creates a copy of the image wanted to have two of the same pictures with different properties
         void copyButton_Click(object sender, EventArgs e)
         {
             var copyImage = new PictureProperties(position,0,"10x15");
@@ -80,7 +80,7 @@ namespace FotoABIld.Droid
             SetResult(Result.Ok,intent);
             Finish();
         }
-
+        
         private void DoneButton_Click(object sender, EventArgs e)
         {
             picture.Amount = numberPicker.Value;

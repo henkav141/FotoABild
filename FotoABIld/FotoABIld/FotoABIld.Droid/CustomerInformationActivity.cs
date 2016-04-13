@@ -29,7 +29,6 @@ namespace FotoABIld.Droid
 
             base.OnCreate(savedInstanceState);
 
-            // Create your application here
             SetContentView(Resource.Layout.CustomerInformation);
 
 
@@ -49,6 +48,9 @@ namespace FotoABIld.Droid
             nextButton.Click += NextButton_Click;
         }
 
+        //Method used to get a list of Pictures instead of PictureProperties. 
+        //Will be changed when PictureProperties is changed to Pictures
+        //Deserializes a JSON string when sent from another intent
         private List<Pictures> CreatePictureList()
         {
             var objectString = Intent.GetStringExtra("pictureList");
@@ -67,10 +69,11 @@ namespace FotoABIld.Droid
 
         private void CancelButton_Click(object sender, EventArgs e)
         {
-            var home = new Intent(this, typeof(MainActivity));
-            StartActivity(home);
+            Finish();
+
         }
 
+        //Continuing to finalizeactivity with the JSON string of the order details.
         private void NextButton_Click(object sender, EventArgs e)
         {
             var order = new Order(nameText.Text,surnameText.Text,emailText.Text,phoneNumber.Text,CreatePictureList()

@@ -13,6 +13,7 @@ using Uri = Android.Net.Uri;
 
 namespace FotoABIld.Droid
 {
+    //Not used class. Was used to get images into a gridview
     public class ImageAdapter : BaseAdapter
     {
         Context context;

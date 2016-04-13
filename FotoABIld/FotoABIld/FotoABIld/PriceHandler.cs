@@ -5,6 +5,7 @@ using System.Text;
 
 namespace FotoABIld
 {
+    //Class not used because of the change of pricecalculator. Calculated the price of a certain size.
     public static class PriceHandler
     {
 

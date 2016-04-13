@@ -4,6 +4,7 @@ using System.Text;
 
 namespace FotoABIld
 {
+    //A model over the properties saved in an order
     public class Order
     {
         public string Name { get; set; }

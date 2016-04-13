@@ -52,7 +52,8 @@ namespace FotoABIld.Droid
             cancelButton.Click += CancelButton_Click;
         }
 
-
+        //Skapar TableRows för varje unik storlek som finns i ordern och lägger till antal och pris för varje.
+        //Fungerar ej till 100% beroende på prisrabatter ännu
         private void AddTableRow()
         {
             var differentSizes = (order.Pictures.Select(picture => picture.Size).Distinct().ToList());
