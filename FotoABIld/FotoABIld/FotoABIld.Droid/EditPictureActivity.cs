@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 
@@ -15,6 +16,8 @@ using Com.Nostra13.Universalimageloader.Cache.Memory.Impl;
 using Com.Nostra13.Universalimageloader.Core;
 using Com.Nostra13.Universalimageloader.Core.Assist;
 using Java.IO;
+using Newtonsoft.Json;
+using File = Java.IO.File;
 
 namespace FotoABIld.Droid
 {
@@ -97,7 +100,7 @@ namespace FotoABIld.Droid
             var crop = new Intent(this, typeof(CropImageActivity));
             crop.PutExtra("image", picture);
 
-            StartActivity(crop);
+            StartActivityForResult(crop, 100);
 
         }
 
@@ -126,6 +129,27 @@ namespace FotoABIld.Droid
         private void spinner_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
         {
             picture.Size = spinner.SelectedItem.ToString();
+        }
+
+        protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
+        {
+            base.OnActivityResult(requestCode, resultCode, data);
+
+            if (resultCode == Result.Ok)
+            {
+                //var result = data.GetStringExtra("CroppedBitmap");
+                //var resultDeserialized = JsonConvert.DeserializeObject<Bitmap>(result);
+                //imageView.SetImageBitmap(resultDeserialized);
+                var sdCardPath = Android.OS.Environment.ExternalStorageDirectory.AbsolutePath;
+                var filePath = System.IO.Path.Combine(sdCardPath, "cropped.jpeg");
+
+                if (System.IO.File.Exists(filePath))
+                {
+                    var imageFile =new Java.IO.File(filePath);
+                    Bitmap bitmap = BitmapFactory.DecodeFile(filePath);
+                    imageView.SetImageBitmap(bitmap);
+                }
+            }
         }
 
 
