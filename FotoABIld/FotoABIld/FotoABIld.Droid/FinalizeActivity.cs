@@ -124,15 +124,29 @@ namespace FotoABIld.Droid
                 var priceText = new TextView(this)
                 {
                     LayoutParameters = lPPrice,
-                    Gravity = GravityFlags.Right,
+                    Gravity = GravityFlags.Bottom|GravityFlags.Right,
+                    
                     TextSize = 20
                 };
+
                 var amount = differentSizes.Sum(size => amountHandler.GetAmountofSize(size));
                 if(differentSizes.Count > 0)
                 priceText.Text = PriceCalculator.CalculatePrice(differentSizes[0],amount).ToString();
+                priceText.SetBackgroundColor(Color.Aqua);
                 priceText.SetTextColor(Color.Black);
                 horizontalLayout.AddView(priceText);
+                summarizeLayout.AddView(CreateDivider());
+
             }
+        }
+
+        private View CreateDivider()
+        {
+            var view = new View(this);
+            view.SetBackgroundColor(Color.ParseColor("#1F2F40"));
+            view.LayoutParameters = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MatchParent,10);
+
+            return view;
         }
         //private void AddTableRow()
         //{
