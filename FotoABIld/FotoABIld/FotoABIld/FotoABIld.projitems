@@ -13,6 +13,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Order.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)PriceCalculator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pictures.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PriceClass.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)PriceHandler.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Serializer.cs" />
   </ItemGroup>
