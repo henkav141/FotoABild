@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 
@@ -7,13 +8,15 @@ using Android.App;
 using Android.Content;
 using Android.Content.PM;
 using Android.Graphics;
+using Android.Graphics.Drawables;
 using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
-using Java.IO;
 using Lyft.Scissors;
 using Com.Isseiaoki.Simplecropview;
+using Newtonsoft.Json;
+using File = Java.IO.File;
 
 namespace FotoABIld.Droid
 {
@@ -28,7 +31,7 @@ namespace FotoABIld.Droid
         private CropImageView cropView;
         private bool highlightView = true;
         private Dictionary<string, int> dictionary; 
-
+        
         protected override void OnCreate(Bundle savedInstanceState)
         {
             Window.RequestFeature(WindowFeatures.NoTitle);
@@ -46,7 +49,8 @@ namespace FotoABIld.Droid
             var finalView = FindViewById<ImageView>(Resource.Id.croppedImageView);
             cropView.SetHandleShowMode(CropImageView.ShowMode.ShowOnTouch);
             Button doneButton = FindViewById<Button>(Resource.Id.doneButton);
-            //doneButton.Click +=;            
+            doneButton.Click += doneButton_Click;
+
             
             // Gets information about the image (size and path for example) from the previous screen.
             //
@@ -92,6 +96,27 @@ namespace FotoABIld.Droid
                 highlightView = true;
             }
         }
+
+        void ExportBitmapAsJpeg(Bitmap bitmap)
+        {
+            var sdCardPath = Android.OS.Environment.ExternalStorageDirectory.AbsolutePath;
+            var filePath = System.IO.Path.Combine(sdCardPath, "cropped.jpeg");
+            var stream = new FileStream(filePath, FileMode.Create);
+            bitmap.Compress(Bitmap.CompressFormat.Jpeg, 100, stream);
+            stream.Close();
+        }
+
+        private void doneButton_Click(object sender, EventArgs e)
+        {
+            ExportBitmapAsJpeg(cropView.CroppedBitmap);
+            //string objectString = JsonConvert.SerializeObject(cropView.CroppedBitmap, Formatting.Indented);
+            //var done = new Intent().PutExtra("CroppedBitmap", objectString);
+            SetResult(Result.Ok);
+            Finish();
+        }
+
+
+
         //Method for getting the values from the choose size spinner (10x15 becomes two int values, 10 and 15).
         private Dictionary<string, int> GetRatio()
         {
