@@ -24,7 +24,7 @@ namespace FotoABIld.Droid
     [Activity(Label = "CropImageActivity", ConfigurationChanges = ConfigChanges.Orientation, ScreenOrientation = ScreenOrientation.Portrait)]
     public class CropImageActivity : Activity
     {
-        private PictureProperties picture;
+        private Pictures picture;
         private int amount;
         private int index;
         private string position;
@@ -55,14 +55,14 @@ namespace FotoABIld.Droid
             
             // Gets information about the image (size and path for example) from the previous screen.
             //
-            picture = (PictureProperties)Intent.GetParcelableExtra("image");
+            picture = JsonConvert.DeserializeObject<Pictures>(Intent.GetStringExtra("image"));
             position = picture.FilePath;
             size = picture.Size;
 
-            Button cropButton = FindViewById<Button>(Resource.Id.cropbutton1);
+            var cropButton = FindViewById<Button>(Resource.Id.cropbutton1);
             cropButton.Click += delegate { finalView.SetImageBitmap(cropView.CroppedBitmap); };
             
-            Button rotateButton = FindViewById<Button>(Resource.Id.rotateButton);
+            var rotateButton = FindViewById<Button>(Resource.Id.rotateButton);
             rotateButton.Click += delegate { cropView.RotateImage(CropImageView.RotateDegrees.Rotate90d); };
 
 
@@ -126,35 +126,34 @@ namespace FotoABIld.Droid
                     dictionary.Add("height", 10);
                     dictionary.Add("width", 15);
                     break;
-               case "11x15":
+                case "11x15":
                     dictionary.Add("height", 11);
                     dictionary.Add("width", 15);
                     break;
-               case "13x18(vit kant)":
+                case "13x18(vit kant)":
                     dictionary.Add("height", 13);
                     dictionary.Add("width", 18);
                     break;
-               case "15x21":
+                case "15x21":
                     dictionary.Add("height", 15);
                     dictionary.Add("width", 21);
                     break;
-               case "18x24(vit kant)":
+                case "18x24(vit kant)":
                     dictionary.Add("height", 18);
                     dictionary.Add("width", 24);
                     break;
-               case "20x30":
+                case "20x30":
                     dictionary.Add("height", 20);
                     dictionary.Add("width", 30);
                     break;
-               case "24x30(vit kant)":
+                case "24x30(vit kant)":
                     dictionary.Add("height", 24);
                     dictionary.Add("width", 30);
                     break;
-               case "25x38":
+                case "25x38":
                     dictionary.Add("height", 25);
                     dictionary.Add("width", 38);
                     break;
-
             }
             return dictionary;
         }

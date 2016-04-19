@@ -104,7 +104,6 @@
     <Compile Include="MultiImagePicker\ImageAdapter.cs" />
     <Compile Include="Activities\MainActivity.cs" />
     <Compile Include="PdfHandler.cs" />
-    <Compile Include="PictureProperties.cs" />
     <Compile Include="Activities\PricesSizesActivity.cs" />
     <Compile Include="Activities\ReceiptActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />

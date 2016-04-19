@@ -24,7 +24,7 @@ namespace FotoABIld.Droid
     public class ChoosePicturesActivity : Activity
     {
         private int editIndex;
-        private List<PictureProperties> pictureList; 
+        private List<Pictures> pictureList; 
         private GridView gridGallery;
         private Handler handler;
         private GalleryAdapter adapter;
@@ -104,10 +104,12 @@ namespace FotoABIld.Droid
        private void gridGallery_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
             var i = new Intent(this, typeof (EditPictureActivity));
+            
+           var objectString = JsonConvert.SerializeObject(pictureList[e.Position]);
 
            
-           i.PutExtra("picture",pictureList[e.Position]);
-           editIndex = e.Position;
+            i.PutExtra("picture",objectString);
+            editIndex = e.Position;
             StartActivityForResult(i,300);
             
         }
@@ -121,7 +123,7 @@ namespace FotoABIld.Droid
         private void NextButton_Click(object sender, EventArgs e)
         {
             //Serializes the list of pictures to a JSON string to be deserializes in another activity
-            string objectString = JsonConvert.SerializeObject(pictureList, Formatting.Indented);
+            var objectString = JsonConvert.SerializeObject(pictureList, Formatting.Indented);
             System.Console.WriteLine(objectString);
 
             var next = new Intent(this, typeof(CustomerInformationActivity));
@@ -157,12 +159,12 @@ namespace FotoABIld.Droid
 
 
                 dataT = new List<CustomGallery>();
-                pictureList = new List<PictureProperties>();
+                pictureList = new List<Pictures>();
 
                 foreach (string uri in all_path)
                 {
-                    CustomGallery item = new CustomGallery();
-                    PictureProperties picture = new PictureProperties(uri);
+                    var item = new CustomGallery();
+                    var picture = new Pictures(uri);
                     
                     pictureList.Add(picture);
                    
@@ -179,12 +181,13 @@ namespace FotoABIld.Droid
                 var bundle = data.GetBundleExtra("bundle");
                 if (bundle.GetBoolean("bool"))
                 {
-                    var picture = (PictureProperties) bundle.GetParcelable("picture");
+                    
+                    var picture = JsonConvert.DeserializeObject<Pictures>(bundle.GetString("picture"));
                     pictureList[editIndex] = picture;
                 }
                 else
                 {
-                    var picture = (PictureProperties)bundle.GetParcelable("picture");
+                    var picture = JsonConvert.DeserializeObject<Pictures>(bundle.GetString("picture"));
                     pictureList.Add(picture);
                     var item = new CustomGallery {SdCardPath = picture.FilePath};
                     dataT.Add(item);

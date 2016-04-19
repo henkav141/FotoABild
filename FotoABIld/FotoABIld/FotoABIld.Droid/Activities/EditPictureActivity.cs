@@ -30,7 +30,7 @@ namespace FotoABIld.Droid
         private ImageView imageView;
         private NumberPicker numberPicker;
         private Spinner spinner;
-        private PictureProperties picture;
+        private Pictures picture;
         private int amount;
         private int index;
         private string position;
@@ -60,8 +60,8 @@ namespace FotoABIld.Droid
             copyButton.Click += copyButton_Click;
             doneButton.Click += DoneButton_Click;
             cropButton.Click += CropButton_Click;
-            //var bundle = Intent.Extras;
-            picture = (PictureProperties)Intent.GetParcelableExtra("picture");
+
+            picture = JsonConvert.DeserializeObject<Pictures>(Intent.GetStringExtra("picture"));
             position = picture.FilePath;
             amount = picture.Amount;
             size = picture.Size;
@@ -77,9 +77,10 @@ namespace FotoABIld.Droid
         //Creates a copy of the image wanted to have two of the same pictures with different properties
         void copyButton_Click(object sender, EventArgs e)
         {
-            var copyImage = new PictureProperties(position,0,"10x15");
+            var copyImage = new Pictures(position,0,"10x15");
             var bundle = new Bundle();
-            bundle.PutParcelable("picture", copyImage);
+            var objectString = JsonConvert.SerializeObject(copyImage);
+            bundle.PutString("picture", objectString);
             bundle.PutBoolean("bool",false);
             var intent = new Intent().PutExtra("bundle", bundle);
             SetResult(Result.Ok,intent);
@@ -90,7 +91,8 @@ namespace FotoABIld.Droid
         {
             picture.Amount = numberPicker.Value;
             var bundle = new Bundle();
-            bundle.PutParcelable("picture",picture);
+            var objectString = JsonConvert.SerializeObject(picture);
+            bundle.PutString("picture",objectString);
             bundle.PutBoolean("bool", true);
             var intent = new Intent().PutExtra("bundle",bundle);
             SetResult(Result.Ok,intent);
@@ -100,7 +102,8 @@ namespace FotoABIld.Droid
         private void CropButton_Click(object sender, EventArgs e)
         {
             var crop = new Intent(this, typeof(CropImageActivity));
-            crop.PutExtra("image", picture);
+            var objectString = JsonConvert.SerializeObject(picture);
+            crop.PutExtra("image", objectString);
 
             StartActivityForResult(crop, 100);
 

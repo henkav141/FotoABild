@@ -13,6 +13,12 @@
             Amount = amount;
             Size = size;
         }
+        public Pictures(string filePath)
+        {
+            FilePath = filePath;
+            Amount = 1;
+            Size = "10x15";
+        }
         public Pictures() { }
     }
 }

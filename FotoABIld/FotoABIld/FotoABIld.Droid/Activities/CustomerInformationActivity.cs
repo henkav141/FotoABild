@@ -48,24 +48,7 @@ namespace FotoABIld.Droid
             nextButton.Click += NextButton_Click;
         }
 
-        //Method used to get a list of Pictures instead of PictureProperties. 
-        //Will be changed when PictureProperties is changed to Pictures
-        //Deserializes a JSON string when sent from another intent
-        private List<Pictures> CreatePictureList()
-        {
-            var objectString = Intent.GetStringExtra("pictureList");
-            List<PictureProperties> picturePropertyList = null;
-            if (!string.IsNullOrEmpty(objectString))
-            {
-               picturePropertyList = JsonConvert.DeserializeObject<List<PictureProperties>>(objectString);
-            }
-            if (picturePropertyList == null) return null;
-            var pictureList = picturePropertyList.Select(pictureProperty => 
-                new Pictures(pictureProperty.FilePath, pictureProperty.Amount, pictureProperty.Size)).ToList();
 
-
-            return pictureList;
-        } 
 
         private void CancelButton_Click(object sender, EventArgs e)
         {
@@ -76,8 +59,8 @@ namespace FotoABIld.Droid
         //Continuing to finalizeactivity with the JSON string of the order details.
         private void NextButton_Click(object sender, EventArgs e)
         {
-            var order = new Order(nameText.Text,surnameText.Text,emailText.Text,phoneNumber.Text,CreatePictureList()
-                );
+            var pictureList = JsonConvert.DeserializeObject<List<Pictures>>(Intent.GetStringExtra("pictureList"));
+            var order = new Order(nameText.Text,surnameText.Text,emailText.Text,phoneNumber.Text,pictureList);
             var objectString = JsonConvert.SerializeObject(order);
             var next = new Intent(this, typeof(FinalizeActivity));
             next.PutExtra("order", objectString);
