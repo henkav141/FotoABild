@@ -13,7 +13,7 @@ namespace FotoABildTest
         {
             var sharedpropertieslist = new List<Pictures>();
             var shared1 = new Pictures("", 25, "10x15");
-            var shared2 = new Pictures("", 420, "15x21");
+            var shared2 = new Pictures("", 25, "15x21");
             var shared3 = new Pictures("", 7, "20x30");
             var shared4 = new Pictures("", 2, "25x38");
             var shared5 = new Pictures("", 7, "25x38");
@@ -29,7 +29,7 @@ namespace FotoABildTest
             int expected1 = 100 + 420 * 15 + 360 + 630;
             var actual1 = PriceCalculator.CalculateTotalPrice(sharedpropertieslist);
 
-            var expected2 = 420*15;
+            var expected2 = 25*15;
             var actual2 = PriceCalculator.CalculatePrice("15x21",amounthandler.GetAmountofSize("15x21"));
             var expected3 = 360;
             var actual3 = PriceCalculator.CalculatePrice("20x30", amounthandler.GetAmountofSize("20x30"));

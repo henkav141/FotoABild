@@ -89,24 +89,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Action.cs" />
-    <Compile Include="ChoosePicturesActivity.cs" />
-    <Compile Include="CropImageActivity.cs" />
-    <Compile Include="CustomerInformationActivity.cs" />
-    <Compile Include="CustomGallery.cs" />
-    <Compile Include="CustomGalleryActivity.cs" />
-    <Compile Include="EditPictureActivity.cs" />
-    <Compile Include="FinalizeActivity.cs" />
+    <Compile Include="MultiImagePicker\Action.cs" />
+    <Compile Include="Activities\ChoosePicturesActivity.cs" />
+    <Compile Include="Activities\CropImageActivity.cs" />
+    <Compile Include="Activities\CustomerInformationActivity.cs" />
+    <Compile Include="MultiImagePicker\CustomGallery.cs" />
+    <Compile Include="Activities\CustomGalleryActivity.cs" />
+    <Compile Include="Activities\EditPictureActivity.cs" />
+    <Compile Include="Activities\FinalizeActivity.cs" />
     <Compile Include="FlyOutContainer.cs" />
-    <Compile Include="GalleryAdapter.cs" />
-    <Compile Include="HelpActivity.cs" />
-    <Compile Include="HistoryActivity.cs" />
-    <Compile Include="ImageAdapter.cs" />
-    <Compile Include="MainActivity.cs" />
+    <Compile Include="MultiImagePicker\GalleryAdapter.cs" />
+    <Compile Include="Activities\HelpActivity.cs" />
+    <Compile Include="Activities\HistoryActivity.cs" />
+    <Compile Include="MultiImagePicker\ImageAdapter.cs" />
+    <Compile Include="Activities\MainActivity.cs" />
     <Compile Include="PdfHandler.cs" />
     <Compile Include="PictureProperties.cs" />
-    <Compile Include="PricesSizesActivity.cs" />
-    <Compile Include="ReceiptActivity.cs" />
+    <Compile Include="Activities\PricesSizesActivity.cs" />
+    <Compile Include="Activities\ReceiptActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
