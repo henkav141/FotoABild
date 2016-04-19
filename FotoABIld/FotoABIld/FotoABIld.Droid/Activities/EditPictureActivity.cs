@@ -17,6 +17,7 @@ using Com.Nostra13.Universalimageloader.Core;
 using Com.Nostra13.Universalimageloader.Core.Assist;
 using Java.IO;
 using Newtonsoft.Json;
+using Environment = System.Environment;
 using File = Java.IO.File;
 
 namespace FotoABIld.Droid
@@ -34,6 +35,7 @@ namespace FotoABIld.Droid
         private int index;
         private string position;
         private string size;
+        private string pictureName;
         protected override void OnCreate(Bundle savedInstanceState)
 
         {
@@ -137,15 +139,11 @@ namespace FotoABIld.Droid
 
             if (resultCode == Result.Ok)
             {
-                //var result = data.GetStringExtra("CroppedBitmap");
-                //var resultDeserialized = JsonConvert.DeserializeObject<Bitmap>(result);
-                //imageView.SetImageBitmap(resultDeserialized);
-                var sdCardPath = Android.OS.Environment.ExternalStorageDirectory.AbsolutePath;
+                var sdCardPath = System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
                 var filePath = System.IO.Path.Combine(sdCardPath, "cropped.jpeg");
 
                 if (System.IO.File.Exists(filePath))
                 {
-                    var imageFile =new Java.IO.File(filePath);
                     Bitmap bitmap = BitmapFactory.DecodeFile(filePath);
                     imageView.SetImageBitmap(bitmap);
                 }
