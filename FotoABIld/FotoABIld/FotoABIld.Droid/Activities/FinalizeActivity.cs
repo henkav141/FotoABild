@@ -13,6 +13,7 @@ using Android.Util;
 using Android.Views;
 using Android.Widget;
 using Newtonsoft.Json;
+using Java.IO;
 
 namespace FotoABIld.Droid
 {
@@ -29,7 +30,6 @@ namespace FotoABIld.Droid
 
             base.OnCreate(savedInstanceState);
 
-            // Create your application here
             SetContentView(Resource.Layout.FinalizeOrder);
 
             Init();
@@ -41,6 +41,7 @@ namespace FotoABIld.Droid
         {
             var objectString = Intent.GetStringExtra("order");
             var cancelButton = FindViewById<Button>(Resource.Id.CancelButton);
+            var placeOrderButton = FindViewById<Button>(Resource.Id.PlaceOrderButton);
             nameSurname = FindViewById<TextView>(Resource.Id.finalizeNameSurnameText);
             email = FindViewById<TextView>(Resource.Id.finalizeEmail);
             phoneNumber = FindViewById<TextView>(Resource.Id.finalizePhoneNumber);
@@ -51,7 +52,10 @@ namespace FotoABIld.Droid
             phoneNumber.Text = order.PhoneNumber;
 
             cancelButton.Click += CancelButton_Click;
+            placeOrderButton.Click += placeOrderButton_Click;
         }
+
+
 
         private void AddTableRow(PriceClass priceClass)
         {
@@ -173,71 +177,24 @@ namespace FotoABIld.Droid
             };
             return layout;
         }
-        //private void AddTableRow()
-        //{
-        //    var differentSizes = (order.Pictures.Select(picture => picture.Size).Distinct().ToList());
-        //    differentSizes = differentSizes.OrderBy(size => size).ToList();
+
+        void placeOrderButton_Click(object sender, EventArgs e)
+        {
+            var folderName = "FotoABildKvitton";
             
-        //    var tableLayout = FindViewById<TableLayout>(Resource.Id.summarizePictures);
-        //    var amountHandler = new AmountHandler(order.Pictures);
-        //    foreach (var size in differentSizes)
-        //    {
-        //        var tableRow = new TableRow(this);
-                
-        //        var layoutParameters = new TableRow.LayoutParams(TableRow.LayoutParams.WrapContent, TableRow.LayoutParams.MatchParent, 1);
-        //        var layoutParameters2 = new TableRow.LayoutParams(TableRow.LayoutParams.WrapContent, TableRow.LayoutParams.MatchParent, 2);
+            var file = new File(Android.OS.Environment.ExternalStorageDirectory, folderName);
+            if (!file.Exists())
+            {
+                file.Mkdirs();
+            }
+            var filePath = Android.OS.Environment.ExternalStorageDirectory + "/FotoABildKvitton/" + order.Email + order.Surname + order.Pictures.Count;
+            var xmlWriter = new Serializer<Order>();
+            xmlWriter.Serialize(order, filePath);
 
-
-        //        var sizeText = new TextView(this)
-        //        {
-        //            LayoutParameters = layoutParameters,
-        //            Text = size,
-        //            Gravity = GravityFlags.Left,
-        //            TextSize = 20
-
-        //        };
-        //        var amountText = new TextView(this)
-        //        {
-        //            LayoutParameters = layoutParameters2,
-        //            Text = amountHandler.GetAmountofSize(size).ToString(),
-        //            Gravity = GravityFlags.Right,
-        //            TextSize = 20
-        //        };
-
-        //        var priceText = new TextView(this)
-        //        {
-        //            LayoutParameters = layoutParameters,
-        //            Text = PriceHandler.GetPriceOfSize(size, order.Pictures).ToString(),
-        //            Gravity = GravityFlags.Right,
-        //            TextSize = 20
-        //        };
-        //        if (differentSizes.Contains("10x15") && differentSizes.Contains("11x15") && size.Equals("10x15"))
-        //        {
-        //            var amount = amountHandler.GetAmountofSize(size) + amountHandler.GetAmountofSize("11x15");
-
-        //            priceText.Text = PriceCalculator.CalculatePrice("10x15", amount).ToString();
-
-        //        }
-        //        if (differentSizes.Contains("10x15") && differentSizes.Contains("11x15") && size.Equals("11x15"))
-        //            priceText.Text = "";
-
-
-
-        //        tableRow.AddView(sizeText);
-        //        tableRow.AddView(amountText);
-        //        tableRow.AddView(priceText);
-
-
-
-        //        tableLayout.AddView(tableRow);
-        //    }
-
-        //}
-
+        }
         private void CancelButton_Click(object sender, EventArgs e)
         {
-            var info = new Intent(this, typeof(CustomerInformationActivity));
-            StartActivity(info);
+            Finish();
         }
     }
 }
