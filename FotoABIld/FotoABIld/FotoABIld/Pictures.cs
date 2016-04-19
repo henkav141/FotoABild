@@ -13,5 +13,6 @@
             Amount = amount;
             Size = size;
         }
+        public Pictures() { }
     }
 }

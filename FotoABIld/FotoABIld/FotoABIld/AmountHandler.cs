@@ -19,5 +19,10 @@ namespace FotoABIld
 
             return PictureList.Where(picture => picture.Size.Equals(size)).Sum(picture => picture.Amount);
      }
+
+        public int GetTotalAmount()
+        {
+            return PictureList.Sum(picture => picture.Amount);
+        }
     }
 }

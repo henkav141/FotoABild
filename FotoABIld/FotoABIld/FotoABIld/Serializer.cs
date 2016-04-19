@@ -7,37 +7,36 @@ namespace FotoABIld
     //Unused class to serialzie and deserialize objects to XML.
     public class Serializer<T> where T:class,new ()
     {
-        public string FilePath { get; set; }
         public XmlSerializer XmlSerializer { get; set; }
 
-        public Serializer(string filePath)
+        public Serializer()
         {
-            FilePath = filePath;
+            
             XmlSerializer = new XmlSerializer(typeof(T));
         }
-        public void Serialize(T item)
+        public void Serialize(T item, string filePath)
         {
             try
             {
-                using (var streamwriter = new StreamWriter(FilePath))
+                using (var streamwriter = new StreamWriter(filePath))
                 {
                     XmlSerializer.Serialize(streamwriter,item);
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 
-                Console.WriteLine("Problem with Serialize");
+                Console.WriteLine("Could not Serialize the object");
             }
         }
 
-        public T DeSerialize()
+        public T DeSerialize(string filePath)
         {
 
-            if (!File.Exists(FilePath))
+            if (!File.Exists(filePath))
                 return new T();
 
-            using (var streamreader = new StreamReader(FilePath))
+            using (var streamreader = new StreamReader(filePath))
                 {
                     return XmlSerializer.Deserialize(streamreader) as T;
                 }

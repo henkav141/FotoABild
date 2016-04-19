@@ -8,8 +8,7 @@ namespace FotoABildTest
     [TestClass]
     public class UnitTest1
     {
-        [TestMethod]
-        public void TestMethod1()
+        private Order CreateTestOrder()
         {
             var sharedpropertieslist = new List<Pictures>();
             var shared1 = new Pictures("", 25, "10x15");
@@ -22,7 +21,23 @@ namespace FotoABildTest
             sharedpropertieslist.Add(shared3);
             sharedpropertieslist.Add(shared4);
             sharedpropertieslist.Add(shared5);
+            var order = new Order("förnamn", "efternamn", "@@@", "123123", sharedpropertieslist);
+            return order;
+        }
 
+        [TestMethod]
+        public void TestGetAllAmount()
+        {
+            var amounthandler = new AmountHandler(CreateTestOrder().Pictures);
+            var expected = 66;
+            var actual = amounthandler.GetTotalAmount();
+            Assert.AreEqual(expected,actual);
+        }
+        [TestMethod]
+        public void TestMethod1()
+        {
+
+            var sharedpropertieslist = CreateTestOrder().Pictures;
 
             var amounthandler = new AmountHandler(sharedpropertieslist);
 
@@ -42,7 +57,6 @@ namespace FotoABildTest
             Assert.AreEqual(expected2, actual2);
             Assert.AreEqual(expected3, actual3);
             Assert.AreEqual(expected4, actual4);
-
         }
     }
 }
