@@ -16,6 +16,7 @@ using Android.Widget;
 using Lyft.Scissors;
 using Com.Isseiaoki.Simplecropview;
 using Newtonsoft.Json;
+using Environment = System.Environment;
 using File = Java.IO.File;
 
 namespace FotoABIld.Droid
@@ -99,7 +100,7 @@ namespace FotoABIld.Droid
 
         void ExportBitmapAsJpeg(Bitmap bitmap)
         {
-            var sdCardPath = Android.OS.Environment.ExternalStorageDirectory.AbsolutePath;
+            var sdCardPath = System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             var filePath = System.IO.Path.Combine(sdCardPath, "cropped.jpeg");
             var stream = new FileStream(filePath, FileMode.Create);
             bitmap.Compress(Bitmap.CompressFormat.Jpeg, 100, stream);
@@ -109,8 +110,6 @@ namespace FotoABIld.Droid
         private void doneButton_Click(object sender, EventArgs e)
         {
             ExportBitmapAsJpeg(cropView.CroppedBitmap);
-            //string objectString = JsonConvert.SerializeObject(cropView.CroppedBitmap, Formatting.Indented);
-            //var done = new Intent().PutExtra("CroppedBitmap", objectString);
             SetResult(Result.Ok);
             Finish();
         }
