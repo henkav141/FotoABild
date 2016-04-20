@@ -8,6 +8,7 @@ using Android.App;
 using Android.Content;
 using Android.Content.PM;
 using Android.Graphics;
+using Android.Graphics.Drawables;
 using Android.OS;
 using Android.Runtime;
 using Android.Views;
@@ -26,7 +27,7 @@ namespace FotoABIld.Droid
             base.OnCreate(savedInstanceState);
 
             SetContentView(Resource.Layout.OrderHistory);
-
+            PopulateListView();
             Init();
         }
 
@@ -43,6 +44,32 @@ namespace FotoABIld.Droid
             StartActivity(home);
         }
 
+        private void PopulateListView()
+        {
+            var listItems = CreateOrderStrings();
+
+            var adapter = new LayoutAdapter(this, listItems);
+
+            var listView = FindViewById<ListView>(Resource.Id.orderListView);
+            
+            listView.Adapter = adapter;
+        }
+
+        private List<TextView> CreateOrderStrings()
+        {
+            var lPText = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MatchParent,
+            ViewGroup.LayoutParams.MatchParent);
+            var list = new List<TextView>();
+            foreach (var order in GetOrders())
+            {
+                var amountHandler = new AmountHandler(order.Pictures);
+                var text = (order.Date.ToString("yyyy-M-d") + "   " 
+                    + amountHandler.GetTotalAmount() + " bilder" + "   " 
+                    + PriceCalculator.CalculateTotalPrice(order.Pictures) + " kr");
+                list.Add(ViewCreator.CreateTextView(GravityFlags.NoGravity, lPText, text, this, 20, Color.ParseColor("#1F2F40")));
+            }
+            return list;
+        }
 
         private void CreateOrderLayouts()
         {
@@ -50,7 +77,7 @@ namespace FotoABIld.Droid
                 ViewGroup.LayoutParams.WrapContent);
             var lPTextView = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WrapContent,
                 ViewGroup.LayoutParams.WrapContent);
-            var orderHistoryView = FindViewById<LinearLayout>(Resource.Id.orderHistoryView);
+            //var orderHistoryView = FindViewById<LinearLayout>(Resource.Id.);
             foreach (var order in GetOrders())
             {
 
@@ -63,24 +90,26 @@ namespace FotoABIld.Droid
 
                 var dateText = ViewCreator.CreateTextView(GravityFlags.NoGravity, lPTextView,
                     order.Date.ToString("yyyy-M-d"), this,20, (Color.ParseColor("#1F2F40")));
-                dateText.SetPadding(0,0,10,0);
+                
+                dateText.PaintFlags = PaintFlags.UnderlineText;
+
 
                 var amountText = ViewCreator.CreateTextView(GravityFlags.NoGravity, lPTextView,
-                    amountHandler.GetTotalAmount() + " bilder", this,20, (Color.ParseColor("#1F2F40")));
-                amountText.SetPadding(10,0,10,0);
+                    "   " + amountHandler.GetTotalAmount() + " bilder", this, 20, (Color.ParseColor("#1F2F40")));
+                
+                amountText.PaintFlags = PaintFlags.UnderlineText;
 
                 var priceText = ViewCreator.CreateTextView(GravityFlags.NoGravity, lPTextView,
-                    PriceCalculator.CalculateTotalPrice(order.Pictures) + " kr", this,20, (Color.ParseColor("#1F2F40")));
+                    "   " + PriceCalculator.CalculateTotalPrice(order.Pictures) + " kr", this,20, (Color.ParseColor("#1F2F40")));
 
-                priceText.SetPadding(10,0,0,0);
+                
                 priceText.PaintFlags = PaintFlags.UnderlineText;
                 
 
                 horizontalLinearLayout.AddView(dateText);
                 horizontalLinearLayout.AddView(amountText);
                 horizontalLinearLayout.AddView(priceText);
-                
-                orderHistoryView.AddView(horizontalLinearLayout);
+                //orderHistoryView.AddView(horizontalLinearLayout);
 
 
 

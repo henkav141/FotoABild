@@ -46,20 +46,12 @@
             android:id="@+id/textView1"
             android:textColor="#000000"
             android:layout_gravity="center_horizontal" />
-        <ScrollView
-            android:layout_height="match_parent"
+        <ListView
             android:layout_width="match_parent"
-            android:paddingTop="25dp">
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                android:gravity="center"
-                android:id="@+id/orderHistoryView"
-                android:paddingLeft="40dp"
-                android:paddingRight="40dp"
-                android:background="#000000" />
-        </ScrollView>
+            android:layout_height="wrap_content"
+            android:id="@+id/orderListView"
+            android:divider="#1F2F40"
+            android:dividerHeight="1dp" />
     </LinearLayout>
     <LinearLayout
         android:orientation="horizontal"

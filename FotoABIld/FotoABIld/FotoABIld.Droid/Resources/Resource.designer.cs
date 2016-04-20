@@ -378,7 +378,7 @@ namespace FotoABIld.Droid
 			public const int orderButton = 2131230779;
 			
 			// aapt resource value: 0x7f08003e
-			public const int orderHistoryView = 2131230782;
+			public const int orderListView = 2131230782;
 			
 			// aapt resource value: 0x7f08002c
 			public const int phoneNumberLayout = 2131230764;
@@ -490,25 +490,28 @@ namespace FotoABIld.Droid
 			public const int HelpPage = 2130903048;
 			
 			// aapt resource value: 0x7f030009
-			public const int Main = 2130903049;
+			public const int ListItem = 2130903049;
 			
 			// aapt resource value: 0x7f03000a
-			public const int MainFrame = 2130903050;
+			public const int Main = 2130903050;
 			
 			// aapt resource value: 0x7f03000b
-			public const int OrderHistory = 2130903051;
+			public const int MainFrame = 2130903051;
 			
 			// aapt resource value: 0x7f03000c
-			public const int PricesSizes = 2130903052;
+			public const int OrderHistory = 2130903052;
 			
 			// aapt resource value: 0x7f03000d
-			public const int Receipt = 2130903053;
+			public const int PricesSizes = 2130903053;
 			
 			// aapt resource value: 0x7f03000e
-			public const int SideMenuLayout = 2130903054;
+			public const int Receipt = 2130903054;
 			
 			// aapt resource value: 0x7f03000f
-			public const int titlebar = 2130903055;
+			public const int SideMenuLayout = 2130903055;
+			
+			// aapt resource value: 0x7f030010
+			public const int titlebar = 2130903056;
 			
 			static Layout()
 			{

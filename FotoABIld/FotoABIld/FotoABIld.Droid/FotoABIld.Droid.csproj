@@ -89,6 +89,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LayoutAdapter.cs" />
     <Compile Include="MultiImagePicker\Action.cs" />
     <Compile Include="Activities\ChoosePicturesActivity.cs" />
     <Compile Include="Activities\CropImageActivity.cs" />
@@ -265,6 +266,7 @@
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_launcher.png" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\no_media.jpg" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\top_bar.png" />
+    <AndroidResource Include="Resources\layout\ListItem.xml" />
     <Content Include="UniversalImageLoader.dll" />
   </ItemGroup>
   <ItemGroup>
