@@ -10,7 +10,9 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using FotoABIld.Droid.UITools;
 using Java.IO;
+using Newtonsoft.Json;
 using Uri = Android.Net.Uri;
 
 namespace FotoABIld.Droid
@@ -20,6 +22,7 @@ namespace FotoABIld.Droid
     {
         
         bool opened = true;
+        private Order order;
         //Class that creates the receipt. Commented because of errors after changing the PriceCalculator.
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -27,14 +30,14 @@ namespace FotoABIld.Droid
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.Receipt);
 
-            //priceCalc = new PriceCalculator(CreateSampleList());
-            //priceCalc.CalculateTotalPrice();
-            
+            order = JsonConvert.DeserializeObject<Order>(Intent.GetStringExtra("order"));
+            var priceClass = new PriceClass(order.Pictures);
 
-            //var readyText = FindViewById<TextView>(Resource.Id.finalPrice).Text = priceCalc.CalculateTotalPrice().ToString();
+            SummarizePictures(priceClass);
+            FindViewById<TextView>(Resource.Id.finalPrice).Text = PriceCalculator.CalculateTotalPrice(order.Pictures).ToString();
             SetDate();
 
-            // Create your application here
+            
         }
 
         private void SetDate()
@@ -48,21 +51,7 @@ namespace FotoABIld.Droid
             readyText.SetPadding(0,dpAsPixels,0,0);
 
         }
-        private List<Pictures> CreateSampleList()
-        {
-            var sharedpropertieslist = new List<Pictures>();
-            var shared1 = new Pictures("", 25, "10x15");
-            var shared2 = new Pictures("", 420, "15x21");
-            var shared3 = new Pictures("", 7, "20x30");
-            var shared4 = new Pictures("", 0, "25x38");
-            var shared5 = new Pictures("", 1, "25x38");
-            sharedpropertieslist.Add(shared1);
-            sharedpropertieslist.Add(shared2);
-            sharedpropertieslist.Add(shared3);
-            sharedpropertieslist.Add(shared4);
-            sharedpropertieslist.Add(shared5);
-            return sharedpropertieslist;
-        }
+
 
         public override void OnWindowFocusChanged(bool hasFocus)
         {
@@ -70,77 +59,72 @@ namespace FotoABIld.Droid
             opened = false;
             var pdfcreator = new PdfHandler();
             pdfcreator.CreateDocument(FindViewById(Resource.Id.receiptlayout));
-            File file = new File(Android.OS.Environment.ExternalStorageDirectory.AbsolutePath + "/hej.pdf");
+            File file = new File(Android.OS.Environment.ExternalStorageDirectory.AbsolutePath + "/¨test.pdf");
             Intent intent = new Intent(Intent.ActionView);
             intent.SetDataAndType(Uri.FromFile(file), "application/pdf");
             intent.SetFlags(ActivityFlags.NoHistory);
             StartActivity(intent);
         }
 
-        private void CreateTextViews(string switchSize)
+        private void SummarizePictures(PriceClass priceClass)
         {
-            //var amounthandler = new AmountHandler(CreateSampleList());
-            //var size = "";
-            //var amount = "";
-            //var price = "";
-            //switch (switchSize)
-            //{
-            //    case "10x15": case "11x15":
-            //        size = "10x15 och 11x15";
-            //        amount = amounthandler.GetAmountofSize(switchSize).ToString();
-            //        price = priceCalc.CalculateSmall().ToString();
-            //        break;
-            //    case "15x21":
-            //    case "13x18(vit kant)":
-            //        size = "13x18 och 15x21";
-            //        amount = amounthandler.GetAmountofSize(switchSize).ToString();
-            //        price = priceCalc.CalculateMediumSmall().ToString();
-
-            //        break;
-            //    case "18x24(vit kant)":
-            //    case "20x30":
-            //        size = "13x18 och 20x30";
-            //        intamount = priceCalc.Size20X30Amount + priceCalc.Size18X24Amount;
-            //        amount = intamount.ToString();
-            //        price = priceCalc.CalculateMediumLarge().ToString();
-            //        break;
-            //    case "24x30(vit kant)":
-            //    case "25x38":
-            //        size = "24x30 och 25x38";
-            //        intamount = priceCalc.Size25X38Amount + priceCalc.Size24X30Amount;
-            //        amount = intamount.ToString();
-            //        price = priceCalc.CalculateLarge().ToString();
-            //        break;
-            //}
+            var amountHandler = new AmountHandler(order.Pictures);
+            var lPWeight1 = new LinearLayout.LayoutParams(0,
+                ViewGroup.LayoutParams.WrapContent, 1);
+            var lPWeight2 = new LinearLayout.LayoutParams(0,
+                ViewGroup.LayoutParams.WrapContent, 2);
+            var lpNoWeight = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MatchParent,
+                ViewGroup.LayoutParams.WrapContent);
+            var lPHorizontalWeight1 = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MatchParent,
+                ViewGroup.LayoutParams.WrapContent, 1);
+            var lPHorizontalWeight2 = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MatchParent,
+                ViewGroup.LayoutParams.WrapContent, 2);
+            var lPPrice = new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.MatchParent, 1);
 
 
-            //var sizeLayout = FindViewById<LinearLayout>(Resource.Id.sizeLayout);
-            //var amountLayout = FindViewById<LinearLayout>(Resource.Id.amountLayout);
-            //var priceLayout = FindViewById<LinearLayout>(Resource.Id.priceLayout);
-            //var layoutparams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MatchParent,
-            //    LinearLayout.LayoutParams.WrapContent);
+            var summarizeLayout = FindViewById<LinearLayout>(Resource.Id.summarizeOrder);
+            summarizeLayout.AddView(ViewCreator.CreateDivider(this, Color.ParseColor("#1F2F40")));
+            foreach (List<Pictures> picturelist in priceClass.PriceClasses)
+            {
+                var horizontalLayout = ViewCreator.CreateLinearLayout(this, lpNoWeight, Orientation.Horizontal);
 
-            
-            
+                var sizeLayout = ViewCreator.CreateLinearLayout(this, lPWeight2, Orientation.Vertical);
+
+                var amountLayout = ViewCreator.CreateLinearLayout(this, lPWeight1, Orientation.Vertical);
 
 
-            //var sizeText = new TextView(this) { LayoutParameters = layoutparams, TextSize = 20 };
-            //sizeText.SetTextColor(Color.Black);
-            //sizeText.Gravity = GravityFlags.Center;
-            //sizeText.Text = size;
-            //sizeLayout.AddView(sizeText);
+                var differentSizes = picturelist.Select(picture => picture.Size).Distinct().ToList();
+                differentSizes = differentSizes.OrderBy(size => size).ToList();
 
-            //var amountText = new TextView(this) { LayoutParameters = layoutparams, TextSize = 20 };
-            //amountText.SetTextColor(Color.Black);
-            //amountText.Gravity = GravityFlags.Center;
-            //    amountText.Text = amount;
-            //amountLayout.AddView(amountText);
+                summarizeLayout.AddView(horizontalLayout);
+                horizontalLayout.AddView(sizeLayout);
+                horizontalLayout.AddView(amountLayout);
+                foreach (var size in differentSizes)
+                {
+                    var sizeText = ViewCreator.CreateTextView(GravityFlags.Left, lPHorizontalWeight2, size, this, 20, Color.Black);
+                    sizeText.SetBackgroundColor(Color.NavajoWhite);
+                    var amountText = ViewCreator.CreateTextView(GravityFlags.CenterHorizontal, lPHorizontalWeight1,
+                        amountHandler.GetAmountofSize(size).ToString(), this, 20, Color.Black);
+                    amountText.SetBackgroundColor(Color.BlanchedAlmond);
+                    sizeLayout.AddView(sizeText);
+                    amountLayout.AddView(amountText);
+                }
 
-            //var priceText = new TextView(this) { LayoutParameters = layoutparams, TextSize = 20 };
-            //priceText.SetTextColor(Color.Black);
-            //priceText.Gravity = GravityFlags.Center;
-            //    priceText.Text = price;
-            //priceLayout.AddView(priceText);
+                if (picturelist == null && picturelist.Count <= 0) continue;
+
+
+
+                var amount = differentSizes.Sum(size => amountHandler.GetAmountofSize(size));
+
+                if (differentSizes.Count > 0)
+                {
+                    var price = PriceCalculator.CalculatePrice(differentSizes[0], amount) + " kr";
+                    var priceText = ViewCreator.CreateTextView(GravityFlags.Right, lPPrice,
+                    price, this, 20, Color.Black);
+                    horizontalLayout.AddView(priceText);
+                }
+                summarizeLayout.AddView(ViewCreator.CreateDivider(this, Color.ParseColor("#1F2F40")));
+            }
         }
 
     }

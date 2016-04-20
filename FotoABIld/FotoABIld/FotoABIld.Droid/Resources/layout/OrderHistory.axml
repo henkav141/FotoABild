@@ -55,7 +55,10 @@
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 android:gravity="center"
-                android:id="@+id/orderHistoryView" />
+                android:id="@+id/orderHistoryView"
+                android:paddingLeft="40dp"
+                android:paddingRight="40dp"
+                android:background="#000000" />
         </ScrollView>
     </LinearLayout>
     <LinearLayout
