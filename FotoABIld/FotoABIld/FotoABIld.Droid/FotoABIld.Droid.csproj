@@ -108,6 +108,7 @@
     <Compile Include="Activities\ReceiptActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UITools\ViewCreator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -12,6 +12,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using FotoABIld.Droid.UITools;
 
 namespace FotoABIld.Droid
 {
@@ -55,45 +56,32 @@ namespace FotoABIld.Droid
 
                 var amountHandler = new AmountHandler(order.Pictures);
 
-                var horizontalLinearLayout = new LinearLayout(this)
-                {
-                    Orientation = Orientation.Horizontal,
-                    LayoutParameters = lPHorizontal,
-                    
-                };
+                var horizontalLinearLayout = ViewCreator.CreateLinearLayout(this, lPHorizontal,Orientation.Horizontal);
                 horizontalLinearLayout.SetGravity(GravityFlags.CenterHorizontal);
                 horizontalLinearLayout.SetPadding(0,10,0,0);
-                var dateText = new TextView(this)
-                {
-                    LayoutParameters = lPTextView,
-                    TextSize = 20,
-                    Text = order.Date.ToString("yyyy-M-d")
-                };
-                dateText.SetPadding(0,0,10,0);
-                var amountText = new TextView(this)
-                {
-                    LayoutParameters = lPTextView,
-                    TextSize = 20,
-                    Text = amountHandler.GetTotalAmount() + " bilder"
-                };
-                amountText.SetPadding(10,0,10,0);
-                var priceText = new TextView(this)
-                {
-                    LayoutParameters = lPTextView,
-                    TextSize = 20,
-                    Text = PriceCalculator.CalculateTotalPrice(order.Pictures) + " kr"
-                };
-                priceText.SetPadding(10,0,0,0);
+                
 
-                dateText.SetTextColor(Color.ParseColor("#1F2F40"));
-                amountText.SetTextColor(Color.ParseColor("#1F2F40"));
-                priceText.SetTextColor(Color.ParseColor("#1F2F40"));
-                priceText.SetBackgroundColor(Color.Azure);
+                var dateText = ViewCreator.CreateTextView(GravityFlags.NoGravity, lPTextView,
+                    order.Date.ToString("yyyy-M-d"), this,20, (Color.ParseColor("#1F2F40")));
+                dateText.SetPadding(0,0,10,0);
+
+                var amountText = ViewCreator.CreateTextView(GravityFlags.NoGravity, lPTextView,
+                    amountHandler.GetTotalAmount() + " bilder", this,20, (Color.ParseColor("#1F2F40")));
+                amountText.SetPadding(10,0,10,0);
+
+                var priceText = ViewCreator.CreateTextView(GravityFlags.NoGravity, lPTextView,
+                    PriceCalculator.CalculateTotalPrice(order.Pictures) + " kr", this,20, (Color.ParseColor("#1F2F40")));
+
+                priceText.SetPadding(10,0,0,0);
+                priceText.PaintFlags = PaintFlags.UnderlineText;
+                
 
                 horizontalLinearLayout.AddView(dateText);
                 horizontalLinearLayout.AddView(amountText);
                 horizontalLinearLayout.AddView(priceText);
+                
                 orderHistoryView.AddView(horizontalLinearLayout);
+
 
 
             }

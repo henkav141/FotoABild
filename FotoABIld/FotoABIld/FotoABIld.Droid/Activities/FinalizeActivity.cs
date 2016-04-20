@@ -12,6 +12,7 @@ using Android.Runtime;
 using Android.Util;
 using Android.Views;
 using Android.Widget;
+using FotoABIld.Droid.UITools;
 using Newtonsoft.Json;
 using Java.IO;
 
@@ -34,7 +35,7 @@ namespace FotoABIld.Droid
 
             Init();
             var priceClass = new PriceClass(order.Pictures);
-            AddTableRow(priceClass);
+            SummarizePictures(priceClass);
         }
 
         private void Init()
@@ -57,7 +58,7 @@ namespace FotoABIld.Droid
 
 
 
-        private void AddTableRow(PriceClass priceClass)
+        private void SummarizePictures(PriceClass priceClass)
         {
             var amountHandler = new AmountHandler(order.Pictures);
             var lPWeight1 = new LinearLayout.LayoutParams(0,
@@ -74,15 +75,14 @@ namespace FotoABIld.Droid
 
 
             var summarizeLayout = FindViewById<LinearLayout>(Resource.Id.summarizePictures);
-            summarizeLayout.AddView(CreateDivider());
+            summarizeLayout.AddView(ViewCreator.CreateDivider(this, Color.ParseColor("#1F2F40")));
             foreach (List<Pictures> picturelist in priceClass.PriceClasses)
             {
-                var horizontalLayout = CreateLinearLayout(lpNoWeight, Orientation.Horizontal);
+                var horizontalLayout = ViewCreator.CreateLinearLayout(this,lpNoWeight, Orientation.Horizontal);
 
-                var sizeLayout = CreateLinearLayout(lPWeight2, Orientation.Vertical);
+                var sizeLayout = ViewCreator.CreateLinearLayout(this,lPWeight2, Orientation.Vertical);
 
-                var amountLayout = CreateLinearLayout(lPWeight1, Orientation.Vertical);
-
+                var amountLayout = ViewCreator.CreateLinearLayout(this,lPWeight1, Orientation.Vertical);
 
 
                 var differentSizes = picturelist.Select(picture => picture.Size).Distinct().ToList();
@@ -93,10 +93,10 @@ namespace FotoABIld.Droid
                 horizontalLayout.AddView(amountLayout);
                 foreach (var size in differentSizes)
                 {
-                    var sizeText = CreateSizeTextView(lPHorizontalWeight2,size);
+                    var sizeText = ViewCreator.CreateTextView(GravityFlags.Left, lPHorizontalWeight2, size, this, 20, Color.Black);
                     sizeText.SetBackgroundColor(Color.NavajoWhite);
-                    var amountText = CreateAmountTextView(lPHorizontalWeight1,
-                        amountHandler.GetAmountofSize(size).ToString());
+                    var amountText = ViewCreator.CreateTextView(GravityFlags.CenterHorizontal,lPHorizontalWeight1,
+                        amountHandler.GetAmountofSize(size).ToString(), this, 20, Color.Black);
                     amountText.SetBackgroundColor(Color.BlanchedAlmond);
                     sizeLayout.AddView(sizeText);
                     amountLayout.AddView(amountText);
@@ -111,76 +111,17 @@ namespace FotoABIld.Droid
                 if (differentSizes.Count > 0)
                 {
                     var price = PriceCalculator.CalculatePrice(differentSizes[0], amount) + " kr";
-                    var priceText = CreatePriceTextView(lPPrice,
-                    price);
+                    var priceText = ViewCreator.CreateTextView(GravityFlags.Right|GravityFlags.Bottom,lPPrice,
+                    price,this,20,Color.Black);
                     horizontalLayout.AddView(priceText);
                 }
-                summarizeLayout.AddView(CreateDivider());
+                summarizeLayout.AddView(ViewCreator.CreateDivider(this,Color.ParseColor("#1F2F40")));
             }
-        }
-
-        private View CreateSizeTextView(ViewGroup.LayoutParams lP, string size)
-        {
-            var sizeText = new TextView(this)
-            {
-                LayoutParameters = lP,
-                Text = size,
-                Gravity = GravityFlags.Left,
-                TextSize = 20
-
-            };
-            sizeText.SetTextColor(Color.Black);
-            return sizeText;
-        } 
-
-        private View CreateAmountTextView(ViewGroup.LayoutParams lP, string amount)
-        {
-            var amountText = new TextView(this)
-            {
-                LayoutParameters = lP,
-                Text = amount,
-                Gravity = GravityFlags.CenterHorizontal,
-                TextSize = 20
-            };
-            amountText.SetTextColor(Color.Black);
-            return amountText;
-        }
-
-        private View CreatePriceTextView(ViewGroup.LayoutParams lP, string price)
-        {
-            var priceText = new TextView(this)
-            {
-                LayoutParameters = lP,
-                Gravity = GravityFlags.Bottom | GravityFlags.Right,
-
-                TextSize = 20
-            };
-            priceText.Text = price;
-            priceText.SetTextColor(Color.Black);
-            return priceText;
-        }
-        private View CreateDivider()
-        {
-            var view = new View(this);
-            view.SetBackgroundColor(Color.ParseColor("#1F2F40"));
-            view.LayoutParameters = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MatchParent,1);
-
-            return view;
-        }
-
-        private LinearLayout CreateLinearLayout(ViewGroup.LayoutParams lP,Orientation orientation)
-        {
-            var layout = new LinearLayout(this)
-            {
-                LayoutParameters = lP,
-                Orientation = orientation
-            };
-            return layout;
         }
 
         void placeOrderButton_Click(object sender, EventArgs e)
         {
-            var folderName = "FotoABildKvitton";
+            const string folderName = "FotoABildKvitton";
             
             var file = new File(Android.OS.Environment.ExternalStorageDirectory, folderName);
             if (!file.Exists())
@@ -190,6 +131,9 @@ namespace FotoABIld.Droid
             var filePath = Android.OS.Environment.ExternalStorageDirectory + "/FotoABildKvitton/" + order.Email + order.Surname + order.Pictures.Count;
             var xmlWriter = new Serializer<Order>();
             xmlWriter.Serialize(order, filePath);
+            var intent = new Intent(this,typeof(ReceiptActivity));
+            intent.PutExtra("order", Intent.GetStringExtra("order"));
+            StartActivity(intent);
 
         }
         private void CancelButton_Click(object sender, EventArgs e)
