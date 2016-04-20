@@ -29,6 +29,7 @@ namespace FotoABIld.Droid
         private int index;
         private string position;
         private string size;
+        private string name;
         private CropImageView cropView;
         private bool highlightView = true;
         private Dictionary<string, int> dictionary; 
@@ -58,6 +59,7 @@ namespace FotoABIld.Droid
             picture = JsonConvert.DeserializeObject<Pictures>(Intent.GetStringExtra("image"));
             position = picture.FilePath;
             size = picture.Size;
+            name = picture.Name;
 
             var cropButton = FindViewById<Button>(Resource.Id.cropbutton1);
             cropButton.Click += delegate { finalView.SetImageBitmap(cropView.CroppedBitmap); };
@@ -78,6 +80,7 @@ namespace FotoABIld.Droid
             if (imgFile.Exists())
             {
                 Bitmap bitMap = BitmapFactory.DecodeFile(imgFile.AbsolutePath);
+                name = imgFile.Name;
                 cropView.SetImageBitmap(bitMap);
 
             }
@@ -97,11 +100,12 @@ namespace FotoABIld.Droid
                 highlightView = true;
             }
         }
-
+        //exports the cropped image as an .jpeg file, also adds the " - cropped" affix, as not to overwrite the original image.
         void ExportBitmapAsJpeg(Bitmap bitmap)
         {
             var sdCardPath = System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-            var filePath = System.IO.Path.Combine(sdCardPath, "cropped.jpeg");
+            var fileNameWithoutExtension = System.IO.Path.GetFileNameWithoutExtension(name);
+            var filePath = System.IO.Path.Combine(sdCardPath, fileNameWithoutExtension + " - cropped" + ".jpeg");
             var stream = new FileStream(filePath, FileMode.Create);
             bitmap.Compress(Bitmap.CompressFormat.Jpeg, 100, stream);
             stream.Close();
@@ -110,6 +114,7 @@ namespace FotoABIld.Droid
         private void doneButton_Click(object sender, EventArgs e)
         {
             ExportBitmapAsJpeg(cropView.CroppedBitmap);
+
             SetResult(Result.Ok);
             Finish();
         }

@@ -184,6 +184,8 @@ namespace FotoABIld.Droid
                     
                     var picture = JsonConvert.DeserializeObject<Pictures>(bundle.GetString("picture"));
                     pictureList[editIndex] = picture;
+                    dataT[editIndex].SdCardPath = picture.FilePath;
+                    adapter.AddAll(dataT);
                 }
                 else
                 {

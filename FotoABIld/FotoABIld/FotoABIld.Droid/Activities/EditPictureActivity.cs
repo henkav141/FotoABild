@@ -65,11 +65,13 @@ namespace FotoABIld.Droid
             position = picture.FilePath;
             amount = picture.Amount;
             size = picture.Size;
+            pictureName = picture.Name;
 
             File imgFile = new File(position);
             if (imgFile.Exists())
             {
                 Bitmap bitMap = BitmapFactory.DecodeFile(imgFile.AbsolutePath);
+                pictureName = imgFile.Name;
                 imageView.SetImageBitmap(bitMap);
             }
 
@@ -77,7 +79,7 @@ namespace FotoABIld.Droid
         //Creates a copy of the image wanted to have two of the same pictures with different properties
         void copyButton_Click(object sender, EventArgs e)
         {
-            var copyImage = new Pictures(position,0,"10x15");
+            var copyImage = new Pictures(position,0,"10x15","");
             var bundle = new Bundle();
             var objectString = JsonConvert.SerializeObject(copyImage);
             bundle.PutString("picture", objectString);
@@ -104,7 +106,7 @@ namespace FotoABIld.Droid
             var crop = new Intent(this, typeof(CropImageActivity));
             var objectString = JsonConvert.SerializeObject(picture);
             crop.PutExtra("image", objectString);
-
+            
             StartActivityForResult(crop, 100);
 
         }
@@ -135,7 +137,7 @@ namespace FotoABIld.Droid
         {
             picture.Size = spinner.SelectedItem.ToString();
         }
-
+        //if the user crops the image, the newly cropped version gets loaded into the imageview.
         protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
         {
             base.OnActivityResult(requestCode, resultCode, data);
@@ -143,13 +145,15 @@ namespace FotoABIld.Droid
             if (resultCode == Result.Ok)
             {
                 var sdCardPath = System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-                var filePath = System.IO.Path.Combine(sdCardPath, "cropped.jpeg");
-
+                var croppedImageName = System.IO.Path.GetFileNameWithoutExtension(pictureName);
+                var filePath = System.IO.Path.Combine(sdCardPath, croppedImageName + " - cropped" + ".jpeg");
+                
                 if (System.IO.File.Exists(filePath))
                 {
                     Bitmap bitmap = BitmapFactory.DecodeFile(filePath);
                     imageView.SetImageBitmap(bitmap);
                 }
+                picture.FilePath = filePath;
             }
         }
 
