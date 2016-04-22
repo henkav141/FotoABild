@@ -13,7 +13,14 @@
         android:layout_height="0dp"
         android:layout_weight="8"
         android:id="@+id/linearLayout6"
-        android:background="#1F2F40" />
+        android:background="#1F2F40">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/trash_can"
+            android:layout_gravity="right"
+            android:id="@+id/trashCanIcon" />
+    </LinearLayout>
     <LinearLayout
         android:orientation="vertical"
         android:minWidth="25px"

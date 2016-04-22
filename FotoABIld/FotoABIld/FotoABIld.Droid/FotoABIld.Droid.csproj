@@ -107,8 +107,10 @@
     <Compile Include="PdfHandler.cs" />
     <Compile Include="Activities\PricesSizesActivity.cs" />
     <Compile Include="Activities\ReceiptActivity.cs" />
+    <Compile Include="Activities\OrderHistoryItemActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TrashListViewAdapter.cs" />
     <Compile Include="UITools\ViewCreator.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -152,6 +154,9 @@
       <SubType>AndroidResource</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\Receipt.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\OrderHistoryItem.axml">
       <SubType>AndroidResource</SubType>
     </AndroidResource>
   </ItemGroup>
@@ -267,6 +272,10 @@
     <AndroidResource Include="Resources\drawable-xxxhdpi\no_media.jpg" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\top_bar.png" />
     <AndroidResource Include="Resources\layout\ListItem.xml" />
+    <AndroidResource Include="Resources\drawable-hdpi\trash_can.png" />
+    <AndroidResource Include="Resources\layout\TrashCheckBox.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
     <Content Include="UniversalImageLoader.dll" />
   </ItemGroup>
   <ItemGroup>

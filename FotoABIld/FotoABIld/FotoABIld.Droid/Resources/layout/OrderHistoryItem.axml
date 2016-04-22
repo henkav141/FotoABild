@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:minWidth="25px"
+    android:minHeight="25px">
+    <LinearLayout
+        android:orientation="vertical"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="8"
+        android:id="@+id/linearLayout6"
+        android:background="#1F2F40" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="12"
+        android:id="@+id/linearLayout2"
+        android:background="#ffd042">
+        <ImageView
+            android:src="@drawable/logo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/imageView1" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="60"
+        android:id="@+id/linearLayout3"
+        android:background="@android:color/white">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:layout_gravity="center">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:textColor="#1F2F40"
+                android:text="Order: "
+                android:gravity="center"
+                android:id="@+id/orderNumberText"
+                android:paddingBottom="15dp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:textColor="#1F2F40"
+                android:text="Korten förväntas vara framkallade "
+                android:gravity="center"
+                android:id="@+id/expectedCollectText"
+                android:paddingBottom="15dp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:textColor="#1F2F40"
+                android:gravity="center"
+                android:id="@+id/nameText"
+                android:paddingBottom="15dp"
+                android:text="Namn: " />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:textColor="#1F2F40"
+                android:gravity="center"
+                android:id="@+id/phoneNumberText"
+                android:paddingBottom="15dp"
+                android:text="Telefonnummer: " />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:textColor="#1F2F40"
+                android:gravity="center"
+                android:id="@+id/amountText"
+                android:paddingBottom="15dp"
+                android:text="Antal kort: " />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:textColor="#1F2F40"
+                android:gravity="center"
+                android:id="@+id/priceText"
+                android:paddingBottom="15dp"
+                android:text="Kostnad: " />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:textColor="#1F2F40"
+                android:layout_gravity="center"
+                android:id="@+id/emailMessageText"
+                android:paddingBottom="15dp"
+                android:text="En kopia av ditt kvitto har skickats till: " />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_weight="5"
+        android:id="@+id/linearLayout4"
+        android:background="#1F2F40"
+        android:paddingTop="50px">
+        <Button
+            android:text="Avbryt"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:id="@+id/CancelButton"
+            android:background="#ffbe1f"
+            android:textColor="#1F2F40"
+            android:layout_weight="1" />
+        <Button
+            android:text="Hem"
+            android:layout_width="50dp"
+            android:id="@+id/homeButton"
+            android:background="#ffbe1f"
+            android:textColor="#1F2F40"
+            android:layout_height="40dp"
+            android:layout_weight="1" />
+    </LinearLayout>
+</LinearLayout>

@@ -13,12 +13,13 @@ using Android.Widget;
 
 namespace FotoABIld.Droid
 {
-    public class LayoutAdapter : BaseAdapter<TextView>
+    public class LayoutAdapter : BaseAdapter<Order>
     {
-        private List<TextView> items;
+        private List<Order> items;
         private Activity context;
 
-        public LayoutAdapter(Activity context, List<TextView> items) : base()
+        public LayoutAdapter(Activity context, List<Order> items)
+
         {
             this.items = items;
             this.context = context;
@@ -29,7 +30,7 @@ namespace FotoABIld.Droid
         {
             return position;
         }
-        public override TextView this[int position]
+        public override Order this[int position]
         {
             get { return items[position]; }
         }
@@ -39,12 +40,17 @@ namespace FotoABIld.Droid
         }
         public override View GetView(int position, View convertView, ViewGroup parent)
         {
-            var view = convertView; // re-use an existing view, if one is available
-            if (view == null) // otherwise create a new one
+            var view = convertView;
+            if (view == null) 
                 view = context.LayoutInflater.Inflate(Android.Resource.Layout.SimpleListItem1, null);
-            var text = view.FindViewById<TextView>(Android.Resource.Id.Text1);
-            text.Text = items[position].Text;
-            text.SetTextColor(Color.ParseColor("#1F2F40"));
+            var textView = view.FindViewById<TextView>(Android.Resource.Id.Text1);
+            var amountHandler = new AmountHandler(items[position].Pictures);
+            var text = (items[position].Date.ToString("yyyy-M-d") + "   " 
+                    + amountHandler.GetTotalAmount() + " bilder" + "   "
+                    + PriceCalculator.CalculateTotalPrice(items[position].Pictures) + " kr");
+            textView.Text = text;
+
+            textView.SetTextColor(Color.ParseColor("#1F2F40"));
 
             return view;    
         }

@@ -13,13 +13,16 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using FotoABIld.Droid.Resources.layout;
 using FotoABIld.Droid.UITools;
+using Newtonsoft.Json;
 
 namespace FotoABIld.Droid
 {
     [Activity(Label = "HistoryActivity", ConfigurationChanges = ConfigChanges.Orientation, ScreenOrientation = ScreenOrientation.Portrait)]
     public class HistoryActivity : Activity
     {
+        private ListView listView;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             Window.RequestFeature(WindowFeatures.NoTitle);
@@ -27,7 +30,6 @@ namespace FotoABIld.Droid
             base.OnCreate(savedInstanceState);
 
             SetContentView(Resource.Layout.OrderHistory);
-            PopulateListView();
             Init();
         }
 
@@ -37,39 +39,32 @@ namespace FotoABIld.Droid
             CreateOrderLayouts();
             
             homeButton.Click += homeButton_Click;
+            listView = FindViewById<ListView>(Resource.Id.orderListView);
+            var adapter = new LayoutAdapter(this, GetOrders());
+            listView.Adapter = adapter;
+            listView.ItemClick += listView_ItemClick;
+            var trashCan = FindViewById<ImageView>(Resource.Id.trashCanIcon);
+            trashCan.Click += trashCan_Click;
+        }
+
+        void trashCan_Click(object sender, EventArgs e)
+        {
+            listView.Adapter = new TrashListViewAdapter(this,GetOrders());
+        }
+
+        void listView_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
+        {
+            var intent = new Intent(this, typeof (OrderHistoryItemActivity));
+            var objectString = JsonConvert.SerializeObject(GetOrders()[e.Position]);
+            intent.PutExtra("order", objectString);
+            StartActivity(intent);
+
         }
         private void homeButton_Click(object sender, EventArgs e)
         {
-            var home = new Intent(this, typeof(MainActivity));
-            StartActivity(home);
+            Finish();
         }
 
-        private void PopulateListView()
-        {
-            var listItems = CreateOrderStrings();
-
-            var adapter = new LayoutAdapter(this, listItems);
-
-            var listView = FindViewById<ListView>(Resource.Id.orderListView);
-            
-            listView.Adapter = adapter;
-        }
-
-        private List<TextView> CreateOrderStrings()
-        {
-            var lPText = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MatchParent,
-            ViewGroup.LayoutParams.MatchParent);
-            var list = new List<TextView>();
-            foreach (var order in GetOrders())
-            {
-                var amountHandler = new AmountHandler(order.Pictures);
-                var text = (order.Date.ToString("yyyy-M-d") + "   " 
-                    + amountHandler.GetTotalAmount() + " bilder" + "   " 
-                    + PriceCalculator.CalculateTotalPrice(order.Pictures) + " kr");
-                list.Add(ViewCreator.CreateTextView(GravityFlags.NoGravity, lPText, text, this, 20, Color.ParseColor("#1F2F40")));
-            }
-            return list;
-        }
 
         private void CreateOrderLayouts()
         {
@@ -77,7 +72,7 @@ namespace FotoABIld.Droid
                 ViewGroup.LayoutParams.WrapContent);
             var lPTextView = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WrapContent,
                 ViewGroup.LayoutParams.WrapContent);
-            //var orderHistoryView = FindViewById<LinearLayout>(Resource.Id.);
+            
             foreach (var order in GetOrders())
             {
 
