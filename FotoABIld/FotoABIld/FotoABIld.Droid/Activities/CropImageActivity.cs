@@ -13,7 +13,6 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
-using Lyft.Scissors;
 using Com.Isseiaoki.Simplecropview;
 using Newtonsoft.Json;
 using Environment = System.Environment;
