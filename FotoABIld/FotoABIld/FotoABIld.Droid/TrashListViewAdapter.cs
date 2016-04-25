@@ -42,7 +42,7 @@ namespace FotoABIld.Droid
         private  class CheckBoxHolder
         {
             public TextView info;
-            public ImageView checkbox;
+            public CheckBox checkbox;
         }
         public override View GetView(int position, View convertView, ViewGroup parent)
         {
@@ -53,7 +53,7 @@ namespace FotoABIld.Droid
 
 
             holder.info = view.FindViewById<TextView>(Resource.Id.listItemText);
-            holder.checkbox = view.FindViewById<ImageView>(Resource.Id.listItemCheckBox);
+            holder.checkbox = view.FindViewById<CheckBox>(Resource.Id.listItemCheckBox);
             var amountHandler = new AmountHandler(items[position].Pictures);
             var text = (items[position].Date.ToString("yyyy-M-d") + "   "
             + amountHandler.GetTotalAmount() + " bilder" + "   "

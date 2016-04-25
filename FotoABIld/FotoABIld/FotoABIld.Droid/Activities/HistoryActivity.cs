@@ -24,12 +24,14 @@ namespace FotoABIld.Droid
     public class HistoryActivity : Activity
     {
         private ListView listView;
-        private List<Order> order;
+        private List<Order> orders;
         private Button homeButton;
         private Button deleteHistoryButton;
         private ViewSwitcher buttonViewSwitcher;
         private ViewSwitcher listViewSwitcher;
         private ListView deleteListView ;
+        private LayoutAdapter adapter;
+        private TrashListViewAdapter deleteAdapter;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -51,37 +53,67 @@ namespace FotoABIld.Droid
             deleteListView = FindViewById<ListView>(Resource.Id.deleteListView);
             var trashCan = FindViewById<ImageView>(Resource.Id.trashCanIcon);
             
-            order = GetOrders();
+            orders = GetOrders();
             homeButton.Click += homeButton_Click;
             deleteHistoryButton.Click += deleteHistoryButton_Click;
-            var adapter = new LayoutAdapter(this, order);
-            var deleteAdapter = new TrashListViewAdapter(this,order);
+            adapter = new LayoutAdapter(this, orders);
+            deleteAdapter = new TrashListViewAdapter(this,orders);
             listView.Adapter = adapter;
 
             listView.ItemClick += listView_ItemClick;
             deleteListView.Adapter = deleteAdapter;
             deleteListView.ChoiceMode = ChoiceMode.Multiple;
-
+            deleteListView.ItemClick +=deleteListView_ItemClick;
             trashCan.Click += trashCan_Click;
 
+        }
+
+        private void deleteListView_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
+        {
+            var listItem = (RelativeLayout)deleteListView.GetChildAt(e.Position - deleteListView.FirstVisiblePosition);
+            var checkbox = (CheckBox)listItem.GetChildAt(listItem.ChildCount -1);
+           checkbox.Toggle();
         }
 
         void deleteHistoryButton_Click(object sender, EventArgs e)
         {
             var checkedList = deleteListView.CheckedItemPositions;
-            var positions = new List<Order>();
+            var positions = new List<int>();
             if (checkedList != null)
             {
                 for (var i = 0; i < checkedList.Size(); i++)
                 {
                     if(checkedList.ValueAt(i))
                     {
-                        var item = listView.Adapter.GetItem(
-                                              checkedList.KeyAt(i)).ToString();
+                        positions.Add(i);
+
                     }
                 }
             }
-            
+            foreach (var position in positions)
+            {
+                orders.Remove(orders[position]);
+            }
+            adapter.NotifyDataSetChanged();
+            deleteAdapter.NotifyDataSetChanged();
+            listViewSwitcher.ShowNext();
+            buttonViewSwitcher.ShowNext();
+            RemoveChecked();
+            foreach (var order in orders)
+            {
+                Serializer<Order>.Serialize(order, Android.OS.Environment.ExternalStorageDirectory + "/FotoABildKvitton/" + order.Email + order.Surname + order.Pictures.Count);
+            }
+
+        }
+
+        private void RemoveChecked()
+        {
+            for (var i = 0; i < deleteListView.ChildCount-1; i++)
+            {
+                var listItem = (RelativeLayout)deleteListView.GetChildAt(i - deleteListView.FirstVisiblePosition);
+                var checkbox = (CheckBox) listItem.GetChildAt(listItem.ChildCount - 1);
+                checkbox.Checked = false;
+            }
         }
 
         void trashCan_Click(object sender, EventArgs e)
@@ -95,7 +127,7 @@ namespace FotoABIld.Droid
         void listView_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
             var intent = new Intent(this, typeof (OrderHistoryItemActivity));
-            var objectString = JsonConvert.SerializeObject(order[e.Position]);
+            var objectString = JsonConvert.SerializeObject(orders[e.Position]);
             intent.PutExtra("order", objectString);
             StartActivity(intent);
 
@@ -108,15 +140,10 @@ namespace FotoABIld.Droid
 
         private List<Order> GetOrders()
         {
-            var xmlserializer = new Serializer<Order>();
+
             var filepath = Android.OS.Environment.ExternalStorageDirectory + "/FotoABildKvitton/";
             var filenames = GetFileNames(filepath);
-            var orders = filenames.Select(filename => xmlserializer.DeSerialize(filepath + "/" + filename)).ToList();
-
-            foreach (var order in orders)
-            {
-                  Console.WriteLine(order.Pictures.Count);
-            }
+            var orders = filenames.Select(filename => Serializer<Order>.DeSerialize(filepath + "/" + filename)).ToList();
             return orders;
         }
 

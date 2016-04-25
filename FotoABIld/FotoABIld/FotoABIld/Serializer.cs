@@ -5,16 +5,16 @@ using System.Xml.Serialization;
 namespace FotoABIld
 {
     //Unused class to serialzie and deserialize objects to XML.
-    public class Serializer<T> where T:class,new ()
+    public static class Serializer<T> where T:class,new ()
     {
-        public XmlSerializer XmlSerializer { get; set; }
+        private static XmlSerializer XmlSerializer { get; set; }
 
-        public Serializer()
+         static Serializer()
         {
             
             XmlSerializer = new XmlSerializer(typeof(T));
         }
-        public void Serialize(T item, string filePath)
+         public static void Serialize(T item, string filePath)
         {
             try
             {
@@ -30,7 +30,7 @@ namespace FotoABIld
             }
         }
 
-        public T DeSerialize(string filePath)
+         public static T DeSerialize(string filePath)
         {
 
             if (!File.Exists(filePath))

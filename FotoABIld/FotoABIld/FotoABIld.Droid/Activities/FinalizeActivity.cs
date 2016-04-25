@@ -129,8 +129,8 @@ namespace FotoABIld.Droid
                 file.Mkdirs();
             }
             var filePath = Android.OS.Environment.ExternalStorageDirectory + "/FotoABildKvitton/" + order.Email + order.Surname + order.Pictures.Count;
-            var xmlWriter = new Serializer<Order>();
-            xmlWriter.Serialize(order, filePath);
+            
+            Serializer<Order>.Serialize(order, filePath);
             var intent = new Intent(this,typeof(ReceiptActivity));
             intent.PutExtra("order", Intent.GetStringExtra("order"));
             StartActivity(intent);
