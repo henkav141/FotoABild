@@ -17,6 +17,7 @@ using Com.Nostra13.Universalimageloader.Core;
 using Com.Nostra13.Universalimageloader.Core.Assist;
 using Java.IO;
 using Newtonsoft.Json;
+using Square.Picasso;
 using Environment = System.Environment;
 using File = Java.IO.File;
 
@@ -72,7 +73,8 @@ namespace FotoABIld.Droid
             {
                 Bitmap bitMap = BitmapFactory.DecodeFile(imgFile.AbsolutePath);
                 pictureName = imgFile.Name;
-                imageView.SetImageBitmap(bitMap);
+                LoadImage();
+                //imageView.SetImageBitmap(bitMap);
             }
 
         }
@@ -87,6 +89,11 @@ namespace FotoABIld.Droid
             var intent = new Intent().PutExtra("bundle", bundle);
             SetResult(Result.Ok,intent);
             Finish();
+        }
+
+        private void LoadImage()
+        {
+            Picasso.With(this).Load(new File(position)).Into(imageView);
         }
         
         private void DoneButton_Click(object sender, EventArgs e)
