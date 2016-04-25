@@ -276,6 +276,7 @@
     <AndroidResource Include="Resources\layout\TrashCheckBox.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
+    <AndroidResource Include="Resources\layout\OrderHistoryListItem.xml" />
     <Content Include="UniversalImageLoader.dll" />
   </ItemGroup>
   <ItemGroup>

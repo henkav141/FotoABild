@@ -11,6 +11,7 @@ using Android.Graphics;
 using Android.Graphics.Drawables;
 using Android.OS;
 using Android.Runtime;
+using Android.Util;
 using Android.Views;
 using Android.Widget;
 using FotoABIld.Droid.Resources.layout;
@@ -23,6 +24,13 @@ namespace FotoABIld.Droid
     public class HistoryActivity : Activity
     {
         private ListView listView;
+        private List<Order> order;
+        private Button homeButton;
+        private Button deleteHistoryButton;
+        private ViewSwitcher buttonViewSwitcher;
+        private ViewSwitcher listViewSwitcher;
+        private ListView deleteListView ;
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             Window.RequestFeature(WindowFeatures.NoTitle);
@@ -35,27 +43,59 @@ namespace FotoABIld.Droid
 
         private void Init()
         {
-            var homeButton = FindViewById<Button>(Resource.Id.HomeButton);
-            CreateOrderLayouts();
-            
-            homeButton.Click += homeButton_Click;
+             homeButton = FindViewById<Button>(Resource.Id.HomeButton);
+            deleteHistoryButton = FindViewById<Button>(Resource.Id.RemoveHistoryButton);
+            buttonViewSwitcher = FindViewById<ViewSwitcher>(Resource.Id.buttonViewSwitcher);
+            listViewSwitcher = FindViewById<ViewSwitcher>(Resource.Id.itemListViewSwitcher);
             listView = FindViewById<ListView>(Resource.Id.orderListView);
-            var adapter = new LayoutAdapter(this, GetOrders());
-            listView.Adapter = adapter;
-            listView.ItemClick += listView_ItemClick;
+            deleteListView = FindViewById<ListView>(Resource.Id.deleteListView);
             var trashCan = FindViewById<ImageView>(Resource.Id.trashCanIcon);
+            
+            order = GetOrders();
+            homeButton.Click += homeButton_Click;
+            deleteHistoryButton.Click += deleteHistoryButton_Click;
+            var adapter = new LayoutAdapter(this, order);
+            var deleteAdapter = new TrashListViewAdapter(this,order);
+            listView.Adapter = adapter;
+
+            listView.ItemClick += listView_ItemClick;
+            deleteListView.Adapter = deleteAdapter;
+            deleteListView.ChoiceMode = ChoiceMode.Multiple;
+
             trashCan.Click += trashCan_Click;
+
+        }
+
+        void deleteHistoryButton_Click(object sender, EventArgs e)
+        {
+            var checkedList = deleteListView.CheckedItemPositions;
+            var positions = new List<Order>();
+            if (checkedList != null)
+            {
+                for (var i = 0; i < checkedList.Size(); i++)
+                {
+                    if(checkedList.ValueAt(i))
+                    {
+                        var item = listView.Adapter.GetItem(
+                                              checkedList.KeyAt(i)).ToString();
+                    }
+                }
+            }
+            
         }
 
         void trashCan_Click(object sender, EventArgs e)
         {
-            listView.Adapter = new TrashListViewAdapter(this,GetOrders());
+            listViewSwitcher.ShowNext();
+            buttonViewSwitcher.ShowNext();
+
+
         }
 
         void listView_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
             var intent = new Intent(this, typeof (OrderHistoryItemActivity));
-            var objectString = JsonConvert.SerializeObject(GetOrders()[e.Position]);
+            var objectString = JsonConvert.SerializeObject(order[e.Position]);
             intent.PutExtra("order", objectString);
             StartActivity(intent);
 
@@ -65,51 +105,6 @@ namespace FotoABIld.Droid
             Finish();
         }
 
-
-        private void CreateOrderLayouts()
-        {
-            var lPHorizontal = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MatchParent,
-                ViewGroup.LayoutParams.WrapContent);
-            var lPTextView = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WrapContent,
-                ViewGroup.LayoutParams.WrapContent);
-            
-            foreach (var order in GetOrders())
-            {
-
-                var amountHandler = new AmountHandler(order.Pictures);
-
-                var horizontalLinearLayout = ViewCreator.CreateLinearLayout(this, lPHorizontal,Orientation.Horizontal);
-                horizontalLinearLayout.SetGravity(GravityFlags.CenterHorizontal);
-                horizontalLinearLayout.SetPadding(0,10,0,0);
-                
-
-                var dateText = ViewCreator.CreateTextView(GravityFlags.NoGravity, lPTextView,
-                    order.Date.ToString("yyyy-M-d"), this,20, (Color.ParseColor("#1F2F40")));
-                
-                dateText.PaintFlags = PaintFlags.UnderlineText;
-
-
-                var amountText = ViewCreator.CreateTextView(GravityFlags.NoGravity, lPTextView,
-                    "   " + amountHandler.GetTotalAmount() + " bilder", this, 20, (Color.ParseColor("#1F2F40")));
-                
-                amountText.PaintFlags = PaintFlags.UnderlineText;
-
-                var priceText = ViewCreator.CreateTextView(GravityFlags.NoGravity, lPTextView,
-                    "   " + PriceCalculator.CalculateTotalPrice(order.Pictures) + " kr", this,20, (Color.ParseColor("#1F2F40")));
-
-                
-                priceText.PaintFlags = PaintFlags.UnderlineText;
-                
-
-                horizontalLinearLayout.AddView(dateText);
-                horizontalLinearLayout.AddView(amountText);
-                horizontalLinearLayout.AddView(priceText);
-                //orderHistoryView.AddView(horizontalLinearLayout);
-
-
-
-            }
-        }
 
         private List<Order> GetOrders()
         {
@@ -128,7 +123,6 @@ namespace FotoABIld.Droid
         private List<string> GetFileNames(string filePath)
         {
             var directoryInfo = new DirectoryInfo(filePath);
-            //var filenames = Directory.GetFiles(filePath, "*.xml");
 
             return directoryInfo.GetFiles().Select(item => item.Name).ToList();
         } 
