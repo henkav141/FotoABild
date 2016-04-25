@@ -72,25 +72,17 @@
     <MtouchI18n />
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AllianceCustomPicker">
-      <HintPath>..\..\Components\alliancePicker-2.1.1\lib\ios-unified\AllianceCustomPicker.dll</HintPath>
-    </Reference>
     <Reference Include="ELCImagePicker">
       <HintPath>..\..\Components\elcimagepicker-1.3\lib\ios-unified\ELCImagePicker.dll</HintPath>
     </Reference>
     <Reference Include="Mono.Dynamic.Interpreter" />
     <Reference Include="MonoTouch.Dialog-1" />
-    <Reference Include="SDWebImage, Version=3.7.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Xamarin.SDWebImage.3.7.5\lib\Xamarin.iOS\SDWebImage.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Xamarin.iOS" />
-    <Reference Include="XamDialogs, Version=1.0.5736.39882, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\xamdialogs.1.0.0.1\lib\Xamarin.iOS10\XamDialogs.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="XamDialogs">
+      <HintPath>..\..\Components\xamdialogs-1.0\lib\ios-unified\XamDialogs.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -168,11 +160,6 @@
     <Compile Include="Controllers\EditImageController.designer.cs">
       <DependentUpon>EditImageController.cs</DependentUpon>
     </Compile>
-    <Compile Include="CropImageController.cs" />
-    <Compile Include="CropImageController.designer.cs">
-      <DependentUpon>CropImageController.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CropperView.cs" />
     <Compile Include="ImageHandler.cs" />
     <Compile Include="ImageResult.cs" />
     <Compile Include="ImageResult.designer.cs">
@@ -184,27 +171,17 @@
     <Compile Include="Controllers\MainNavController.designer.cs">
       <DependentUpon>MainNavController.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\TableViewController.cs" />
-    <Compile Include="Controllers\TableViewController.designer.cs">
-      <DependentUpon>TableViewController.cs</DependentUpon>
-    </Compile>
     <Compile Include="Controllers\ViewController.cs" />
     <Compile Include="Controllers\ViewController.designer.cs">
       <DependentUpon>ViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="TableViewController.cs" />
+    <Compile Include="TableViewController.designer.cs">
+      <DependentUpon>TableViewController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="logo.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <XamarinComponentReference Include="elcimagepicker">
-      <Visible>False</Visible>
-      <Version>1.3</Version>
-    </XamarinComponentReference>
-    <XamarinComponentReference Include="xamdialogs">
-      <Visible>False</Visible>
-      <Version>1.0</Version>
-    </XamarinComponentReference>
   </ItemGroup>
   <Import Project="..\FotoABIld\FotoABIld.projitems" Label="Shared" Condition="Exists('..\FotoABIld\FotoABIld.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />

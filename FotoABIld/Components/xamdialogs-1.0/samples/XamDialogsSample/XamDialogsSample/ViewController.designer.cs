@@ -9,21 +9,21 @@ using System;
 using System.CodeDom.Compiler;
 using UIKit;
 
-namespace FotoABIld.iOS
+namespace XamDialogsSample
 {
-	[Register ("CropImageController")]
-	partial class CropImageController
+	[Register ("ViewController")]
+	partial class ViewController
 	{
-		[Outlet]
+		[Action ("ShowDatePicker:")]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UIImageView cropImageView { get; set; }
+		partial void ShowDatePicker (UIButton sender);
+
+		[Action ("ShowSimplePicker:")]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		partial void ShowSimplePicker (UIButton sender);
 
 		void ReleaseDesignerOutlets ()
 		{
-			if (cropImageView != null) {
-				cropImageView.Dispose ();
-				cropImageView = null;
-			}
 		}
 	}
 }
