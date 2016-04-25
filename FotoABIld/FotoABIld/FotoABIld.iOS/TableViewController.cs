@@ -1,24 +1,19 @@
-using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Net.Mime;
-using CoreGraphics;
 using Foundation;
-using Microsoft.Scripting.Utils;
+using System;
+using System.CodeDom.Compiler;
+using System.Collections.Generic;
+using System.Linq;
+using FotoABIld.iOS.Controllers;
 using UIKit;
 using XamDialogs;
 
-namespace FotoABIld.iOS.Controllers
+namespace FotoABIld.iOS
 {
-    
 	partial class TableViewController : UITableViewController
 	{
-        public TableViewController (IntPtr handle) : base (handle)
-        {
-            
-        }
-
+		public TableViewController (IntPtr handle) : base (handle)
+		{
+		}
 
         public override void ViewDidAppear(bool animated)
         {
@@ -60,7 +55,7 @@ namespace FotoABIld.iOS.Controllers
                     }
                     tableView.DeselectRow(indexPath, false);
                 };
-                
+
                 dialog.SelectedItem = "1";
                 dialog.Show();
             }
@@ -68,7 +63,7 @@ namespace FotoABIld.iOS.Controllers
             //Checks indexpath at UITableView and creates appropriate picker
             else if (tableView.CellAt(indexPath).Equals(formatCell))
             {
-                var dialog = new XamSimplePickerDialog(new List<string>() { "10x15", "11x15", "13x18 - Vit kant", "15x21", "18x24 - Vit kant", "20x30", "24x30 - Vit kant", "25x38"})
+                var dialog = new XamSimplePickerDialog(new List<string>() { "10x15", "11x15", "13x18 - Vit kant", "15x21", "18x24 - Vit kant", "20x30", "24x30 - Vit kant", "25x38" })
                 {
                     Title = "Format",
                     Message = "Välj vilket format du vill ha av bilden",
@@ -96,11 +91,15 @@ namespace FotoABIld.iOS.Controllers
             {
                 // A new list has to be created and added to, since it is not possible to add to a list that is performing a foreach loop
                 var newList = (from r in ChooseImageController.ImageHandlerList
-                    where r.Name.Equals(EditImageController.EditControllerName)
-                    select new ImageHandler(r.Image, r.Path, r.Name)
-                    {
-                        Image = r.Image, ImageAmount = 1, ImageFormat = "10x15", Name = RandomString(12) + r.Name, Path = r.Path
-                    }).ToList();
+                               where r.Name.Equals(EditImageController.EditControllerName)
+                               select new ImageHandler(r.Image, r.Path, r.Name)
+                               {
+                                   Image = r.Image,
+                                   ImageAmount = 1,
+                                   ImageFormat = "10x15",
+                                   Name = RandomString(12) + r.Name,
+                                   Path = r.Path
+                               }).ToList();
 
                 // Iterate through the new list and add the new item to the original list
                 foreach (var t in newList)
@@ -118,7 +117,7 @@ namespace FotoABIld.iOS.Controllers
                     var x in
                         ChooseImageController.ImageHandlerList.Where(
                             x => x.Name.Equals(EditImageController.EditControllerName)))
-                {                   
+                {
                     Console.WriteLine(cropImageCell.TextLabel);
                     tableView.DeselectRow(indexPath, false);
                 }
