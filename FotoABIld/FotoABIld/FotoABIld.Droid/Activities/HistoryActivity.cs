@@ -11,17 +11,19 @@ using Android.Graphics;
 using Android.Graphics.Drawables;
 using Android.OS;
 using Android.Runtime;
+using Android.Support.V7.App;
 using Android.Util;
 using Android.Views;
 using Android.Widget;
 using FotoABIld.Droid.Resources.layout;
 using FotoABIld.Droid.UITools;
+using Java.Lang;
 using Newtonsoft.Json;
 
 namespace FotoABIld.Droid
 {
     [Activity(Label = "HistoryActivity", ConfigurationChanges = ConfigChanges.Orientation, ScreenOrientation = ScreenOrientation.Portrait)]
-    public class HistoryActivity : Activity
+    public class HistoryActivity : AppCompatActivity
     {
         private ListView listView;
         private List<Order> orders;
@@ -32,6 +34,7 @@ namespace FotoABIld.Droid
         private ListView deleteListView ;
         private LayoutAdapter adapter;
         private TrashListViewAdapter deleteAdapter;
+        private Android.Support.V7.Widget.Toolbar toolbar;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -52,7 +55,8 @@ namespace FotoABIld.Droid
             listView = FindViewById<ListView>(Resource.Id.orderListView);
             deleteListView = FindViewById<ListView>(Resource.Id.deleteListView);
             var trashCan = FindViewById<ImageView>(Resource.Id.trashCanIcon);
-            
+            toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
+            SetSupportActionBar(toolbar);
             orders = GetOrders();
             homeButton.Click += homeButton_Click;
             deleteHistoryButton.Click += deleteHistoryButton_Click;
@@ -99,10 +103,10 @@ namespace FotoABIld.Droid
             listViewSwitcher.ShowNext();
             buttonViewSwitcher.ShowNext();
             RemoveChecked();
-            foreach (var order in orders)
-            {
-                Serializer<Order>.Serialize(order, Android.OS.Environment.ExternalStorageDirectory + "/FotoABildKvitton/" + order.Email + order.Surname + order.Pictures.Count);
-            }
+
+            
+                Serializer <List<Order>>.Serialize(orders, FilesDir + "/FotoABildKvitton");
+            
 
         }
 
@@ -141,17 +145,26 @@ namespace FotoABIld.Droid
         private List<Order> GetOrders()
         {
 
-            var filepath = Android.OS.Environment.ExternalStorageDirectory + "/FotoABildKvitton/";
-            var filenames = GetFileNames(filepath);
-            var orders = filenames.Select(filename => Serializer<Order>.DeSerialize(filepath + "/" + filename)).ToList();
+            var filepath = FilesDir + "/FotoABildKvitton";
+
+            orders = Serializer<List<Order>>.DeSerialize(filepath);
             return orders;
         }
 
-        private List<string> GetFileNames(string filePath)
+        
+            public override bool OnOptionsItemSelected(IMenuItem item)
         {
-            var directoryInfo = new DirectoryInfo(filePath);
+            switch (item.ItemId)
+            {
+                case Resource.Id.action_delete:
 
-            return directoryInfo.GetFiles().Select(item => item.Name).ToList();
-        } 
+                    return true;
+
+                default:
+
+                    return base.OnOptionsItemSelected(item);
+
+            }
+        }
     }
 }

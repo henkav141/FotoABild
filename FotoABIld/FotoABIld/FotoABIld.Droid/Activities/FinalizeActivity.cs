@@ -121,16 +121,20 @@ namespace FotoABIld.Droid
 
         void placeOrderButton_Click(object sender, EventArgs e)
         {
-            const string folderName = "FotoABildKvitton";
-            
-            var file = new File(Android.OS.Environment.ExternalStorageDirectory, folderName);
-            if (!file.Exists())
+
+            try
             {
-                file.Mkdirs();
+                
+               var currentOrders =  Serializer<List<Order>>.DeSerialize(FilesDir + "/FotoABildKvitton");
+               currentOrders.Add(order);
+                Serializer<List<Order>>.Serialize(currentOrders,FilesDir + "/FotoABildKvitton");
+
             }
-            var filePath = Android.OS.Environment.ExternalStorageDirectory + "/FotoABildKvitton/" + order.Email + order.Surname + order.Pictures.Count;
-            
-            Serializer<Order>.Serialize(order, filePath);
+            catch (Exception exception)
+            {
+                System.Console.WriteLine("Could not save orders");
+            }
+
             var intent = new Intent(this,typeof(ReceiptActivity));
             intent.PutExtra("order", Intent.GetStringExtra("order"));
             StartActivity(intent);
