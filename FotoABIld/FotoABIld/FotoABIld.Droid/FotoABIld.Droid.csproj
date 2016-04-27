@@ -280,7 +280,16 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\OrderHistoryListItem.xml" />
-    <AndroidResource Include="Resources\Menu\ToolBarMenu.xml" />
+    <AndroidResource Include="Resources\Menu\MenuItems.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-hdpi\ic_action_discard.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_action_discard.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_action_discard.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_action_discard.png" />
+    <AndroidResource Include="Resources\layout\ToolBar.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
     <Content Include="UniversalImageLoader.dll" />
   </ItemGroup>
   <ItemGroup>

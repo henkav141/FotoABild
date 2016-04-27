@@ -22,7 +22,7 @@ using Newtonsoft.Json;
 
 namespace FotoABIld.Droid
 {
-    [Activity(Label = "HistoryActivity", ConfigurationChanges = ConfigChanges.Orientation, ScreenOrientation = ScreenOrientation.Portrait)]
+    [Activity(Label = "HistoryActivity",Theme ="@style/AppBaseTheme",ConfigurationChanges = ConfigChanges.Orientation, ScreenOrientation = ScreenOrientation.Portrait)]
     public class HistoryActivity : AppCompatActivity
     {
         private ListView listView;
@@ -34,7 +34,7 @@ namespace FotoABIld.Droid
         private ListView deleteListView ;
         private LayoutAdapter adapter;
         private TrashListViewAdapter deleteAdapter;
-        private Android.Support.V7.Widget.Toolbar toolbar;
+        private Android.Support.V7.Widget.Toolbar toolbar;  
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -43,7 +43,13 @@ namespace FotoABIld.Droid
             base.OnCreate(savedInstanceState);
 
             SetContentView(Resource.Layout.OrderHistory);
+            
             Init();
+        }
+        public override bool OnCreateOptionsMenu(IMenu menu)
+        {
+            MenuInflater.Inflate(Resource.Menu.MenuItems,menu);
+            return base.OnCreateOptionsMenu(menu);
         }
 
         private void Init()
@@ -54,9 +60,13 @@ namespace FotoABIld.Droid
             listViewSwitcher = FindViewById<ViewSwitcher>(Resource.Id.itemListViewSwitcher);
             listView = FindViewById<ListView>(Resource.Id.orderListView);
             deleteListView = FindViewById<ListView>(Resource.Id.deleteListView);
-            var trashCan = FindViewById<ImageView>(Resource.Id.trashCanIcon);
+            //var trashCan = FindViewById<ImageView>(Resource.Id.trashCanIcon);
             toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
             SetSupportActionBar(toolbar);
+            SupportActionBar.SetDisplayShowTitleEnabled(false);
+            SupportActionBar.SetDisplayShowHomeEnabled(true);
+        
+
             orders = GetOrders();
             homeButton.Click += homeButton_Click;
             deleteHistoryButton.Click += deleteHistoryButton_Click;
@@ -68,7 +78,7 @@ namespace FotoABIld.Droid
             deleteListView.Adapter = deleteAdapter;
             deleteListView.ChoiceMode = ChoiceMode.Multiple;
             deleteListView.ItemClick +=deleteListView_ItemClick;
-            trashCan.Click += trashCan_Click;
+            //trashCan.Click += trashCan_Click;
 
         }
 
@@ -152,19 +162,6 @@ namespace FotoABIld.Droid
         }
 
         
-            public override bool OnOptionsItemSelected(IMenuItem item)
-        {
-            switch (item.ItemId)
-            {
-                case Resource.Id.action_delete:
 
-                    return true;
-
-                default:
-
-                    return base.OnOptionsItemSelected(item);
-
-            }
-        }
     }
 }

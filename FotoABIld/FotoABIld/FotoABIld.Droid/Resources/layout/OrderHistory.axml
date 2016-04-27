@@ -5,22 +5,15 @@
     android:layout_height="fill_parent"
     android:minWidth="25px"
     android:minHeight="25px">
-    <android.support.v7.widget.Toolbar
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="8"
-        android:id="@+id/toolbar"
-        android:background="#1F2F40"
-        android:elevation="4dp"
-        android:theme="@style/ThemeOverlay.AppCompat.ActionBar">
-        <ImageView
+<!--<ImageView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:src="@drawable/trash_can"
             android:layout_gravity="right"
-            android:id="@+id/trashCanIcon" />
-    </android.support.v7.widget.Toolbar>
+            android:id="@+id/trashCanIcon" />-->
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/ToolBar" />
     <LinearLayout
         android:orientation="vertical"
         android:minWidth="25px"
