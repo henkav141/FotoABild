@@ -54,6 +54,7 @@ namespace FotoABIld.Droid
 
             holder.info = view.FindViewById<TextView>(Resource.Id.listItemText);
             holder.checkbox = view.FindViewById<CheckBox>(Resource.Id.listItemCheckBox);
+
             var amountHandler = new AmountHandler(items[position].Pictures);
             var text = (items[position].Date.ToString("yyyy-M-d") + "   "
             + amountHandler.GetTotalAmount() + " bilder" + "   "
@@ -63,9 +64,10 @@ namespace FotoABIld.Droid
 
 
 
-            
 
-            
+
+
+
             return view;
         }
     }

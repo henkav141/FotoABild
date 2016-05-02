@@ -16,6 +16,7 @@ using Android.Widget;
 using FotoABIld.Droid.UITools;
 using Newtonsoft.Json;
 using Java.IO;
+using Environment = Android.OS.Environment;
 using Toolbar = Android.Support.V7.Widget.Toolbar;
 
 namespace FotoABIld.Droid
@@ -141,16 +142,18 @@ namespace FotoABIld.Droid
                var currentOrders =  Serializer<List<Order>>.DeSerialize(FilesDir + "/FotoABildKvitton");
                currentOrders.Add(order);
                 Serializer<List<Order>>.Serialize(currentOrders,FilesDir + "/FotoABildKvitton");
+                
 
             }
-            catch (Exception exception)
+            catch
             {
                 System.Console.WriteLine("Could not save orders");
             }
+            LacHandler.CreateLacFile(order, Environment.ExternalStorageDirectory + "/androidfotoabild/testFile.LAC");
 
-            var intent = new Intent(this,typeof(ReceiptActivity));
-            intent.PutExtra("order", Intent.GetStringExtra("order"));
-            StartActivity(intent);
+            //var intent = new Intent(this,typeof(ReceiptActivity));
+            //intent.PutExtra("order", Intent.GetStringExtra("order"));
+            //StartActivity(intent);
 
         }
         private void CancelButton_Click(object sender, EventArgs e)

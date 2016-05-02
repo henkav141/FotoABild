@@ -99,12 +99,13 @@ namespace FotoABIld.Droid
                 {
                     if(checkedList.ValueAt(i))
                     {
-                        positions.Add(i);
-
+                        positions.Add(checkedList.KeyAt(i));
+                        
                     }
                 }
             }
-            foreach (var position in positions)
+
+            foreach (var position in positions.OrderByDescending(v=>v))
             {
                 orders.Remove(orders[position]);
             }

@@ -10,6 +10,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)AmountHandler.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)LacHandler.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Order.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)PriceCalculator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pictures.cs" />
