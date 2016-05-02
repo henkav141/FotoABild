@@ -10,6 +10,7 @@ using Android.Content.PM;
 using Android.Graphics;
 using Android.OS;
 using Android.Runtime;
+using Android.Support.V7.App;
 using Android.Views;
 using Android.Widget;
 using Com.Nostra13.Universalimageloader.Cache.Memory.Impl;
@@ -21,7 +22,7 @@ using Newtonsoft.Json;
 namespace FotoABIld.Droid
 {
     [Activity(Label = "ChoosePicturesActivity", ConfigurationChanges = ConfigChanges.Orientation, ScreenOrientation = ScreenOrientation.Portrait)]
-    public class ChoosePicturesActivity : Activity
+    public class ChoosePicturesActivity : AppCompatActivity
     {
         private int editIndex;
         private List<Pictures> pictureList; 
@@ -35,6 +36,8 @@ namespace FotoABIld.Droid
 
         private ImageLoader imageLoader;
         private ViewSwitcher viewSwitcher;
+        private Android.Support.V7.Widget.Toolbar toolbar;
+
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -46,6 +49,11 @@ namespace FotoABIld.Droid
             InitImageLoader();
             Init();
 
+        }
+        public override bool OnCreateOptionsMenu(IMenu menu)
+        {
+            MenuInflater.Inflate(Resource.Menu.ActionBarItems, menu);
+            return base.OnCreateOptionsMenu(menu);
         }
 
         //Initializes the imageloader with certain properties.
@@ -79,6 +87,10 @@ namespace FotoABIld.Droid
 
             viewSwitcher = FindViewById<ViewSwitcher>(Resource.Id.viewSwitcher);
             viewSwitcher.DisplayedChild = 1;
+            toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
+            SetSupportActionBar(toolbar);
+            SupportActionBar.SetDisplayShowTitleEnabled(false);
+            SupportActionBar.SetDisplayShowHomeEnabled(true);
 
             Button cancelButton = FindViewById<Button>(Resource.Id.CancelButton);
             chooseButton = FindViewById<Button>(Resource.Id.ChoosePicturesButton);

@@ -9,22 +9,26 @@ using Android.Content.PM;
 using Android.Graphics;
 using Android.OS;
 using Android.Runtime;
+using Android.Support.V7.App;
 using Android.Util;
 using Android.Views;
 using Android.Widget;
 using FotoABIld.Droid.UITools;
 using Newtonsoft.Json;
 using Java.IO;
+using Toolbar = Android.Support.V7.Widget.Toolbar;
 
 namespace FotoABIld.Droid
 {
     [Activity(Label = "FinalizeActivity", ConfigurationChanges = ConfigChanges.Orientation, ScreenOrientation = ScreenOrientation.Portrait)]
-    public class FinalizeActivity : Activity
+    public class FinalizeActivity : AppCompatActivity
     {
         private TextView nameSurname;
         private TextView phoneNumber;
         private TextView email;
-        private Order order; 
+        private Order order;
+        private Toolbar toolbar;
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             Window.RequestFeature(WindowFeatures.NoTitle);
@@ -36,6 +40,11 @@ namespace FotoABIld.Droid
             Init();
             var priceClass = new PriceClass(order.Pictures);
             SummarizePictures(priceClass);
+        }
+        public override bool OnCreateOptionsMenu(IMenu menu)
+        {
+            MenuInflater.Inflate(Resource.Menu.ActionBarItems, menu);
+            return base.OnCreateOptionsMenu(menu);
         }
 
         private void Init()
@@ -54,6 +63,10 @@ namespace FotoABIld.Droid
 
             cancelButton.Click += CancelButton_Click;
             placeOrderButton.Click += placeOrderButton_Click;
+            toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
+            SetSupportActionBar(toolbar);
+            SupportActionBar.SetDisplayShowTitleEnabled(false);
+            SupportActionBar.SetDisplayShowHomeEnabled(true);
         }
 
 

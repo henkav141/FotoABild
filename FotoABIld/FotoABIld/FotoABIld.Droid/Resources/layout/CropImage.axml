@@ -6,15 +6,9 @@
     android:layout_height="fill_parent"
     android:minWidth="25px"
     android:minHeight="25px">
-    <LinearLayout
-        android:orientation="vertical"
-        android:minWidth="25px"
-        android:minHeight="25px"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="8"
-        android:id="@+id/linearLayout6"
-        android:background="#1F2F40" />
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/ToolBar" />
     <LinearLayout
         android:orientation="vertical"
         android:minWidth="25px"

@@ -10,6 +10,7 @@ using Android.Content.PM;
 using Android.Graphics;
 using Android.OS;
 using Android.Runtime;
+using Android.Support.V7.App;
 using Android.Views;
 using Android.Widget;
 using Com.Nostra13.Universalimageloader.Cache.Memory.Impl;
@@ -20,11 +21,12 @@ using Newtonsoft.Json;
 using Square.Picasso;
 using Environment = System.Environment;
 using File = Java.IO.File;
+using Toolbar = Android.Support.V7.Widget.Toolbar;
 
 namespace FotoABIld.Droid
 {
     [Activity(Label = "EditPictureActivity", ConfigurationChanges = ConfigChanges.Orientation, ScreenOrientation = ScreenOrientation.Portrait)]
-    public class EditPictureActivity : Activity
+    public class EditPictureActivity : AppCompatActivity
 
 
     {
@@ -37,6 +39,8 @@ namespace FotoABIld.Droid
         private string position;
         private string size;
         private string pictureName;
+        private Toolbar toolbar;
+
         protected override void OnCreate(Bundle savedInstanceState)
 
         {
@@ -44,12 +48,16 @@ namespace FotoABIld.Droid
 
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.EditPicture);
-           // Create your application here
 
             Init();
             InitNumberPicker();
             InitSpinner();
 
+        }
+        public override bool OnCreateOptionsMenu(IMenu menu)
+        {
+            MenuInflater.Inflate(Resource.Menu.ActionBarItems, menu);
+            return base.OnCreateOptionsMenu(menu);
         }
 
         private void Init()
@@ -74,8 +82,12 @@ namespace FotoABIld.Droid
                 Bitmap bitMap = BitmapFactory.DecodeFile(imgFile.AbsolutePath);
                 pictureName = imgFile.Name;
                 LoadImage();
-                //imageView.SetImageBitmap(bitMap);
+                
             }
+            toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
+            SetSupportActionBar(toolbar);
+            SupportActionBar.SetDisplayShowTitleEnabled(false);
+            SupportActionBar.SetDisplayShowHomeEnabled(true);
 
         }
         //Creates a copy of the image wanted to have two of the same pictures with different properties

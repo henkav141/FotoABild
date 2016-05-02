@@ -280,16 +280,28 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\OrderHistoryListItem.xml" />
-    <AndroidResource Include="Resources\Menu\MenuItems.xml">
+    <AndroidResource Include="Resources\Menu\ActionBarMenuOrderHistory.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable-hdpi\ic_action_discard.png" />
-    <AndroidResource Include="Resources\drawable-mdpi\ic_action_discard.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\ic_action_discard.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\ic_action_discard.png" />
     <AndroidResource Include="Resources\layout\ToolBar.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
+    <AndroidResource Include="Resources\drawable-hdpi\ic_delete_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_delete_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_delete_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_delete_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_delete_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_help_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_help_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_help_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_help_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_help_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_help_white_18dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_help_white_18dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_help_white_18dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_help_white_18dp.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_help_white_18dp.png" />
+    <AndroidResource Include="Resources\Menu\ActionBarItems.xml" />
     <Content Include="UniversalImageLoader.dll" />
   </ItemGroup>
   <ItemGroup>
@@ -308,6 +320,7 @@
       <Version>23.1.1.1</Version>
     </XamarinComponentReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="..\FotoABIld\FotoABIld.projitems" Label="Shared" Condition="Exists('..\FotoABIld\FotoABIld.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
 </Project>

@@ -11,17 +11,19 @@ using Android.Graphics;
 using Android.Graphics.Drawables;
 using Android.OS;
 using Android.Runtime;
+using Android.Support.V7.App;
 using Android.Views;
 using Android.Widget;
 using Com.Isseiaoki.Simplecropview;
 using Newtonsoft.Json;
 using Environment = System.Environment;
 using File = Java.IO.File;
+using Toolbar = Android.Support.V7.Widget.Toolbar;
 
 namespace FotoABIld.Droid
 {
     [Activity(Label = "CropImageActivity", ConfigurationChanges = ConfigChanges.Orientation, ScreenOrientation = ScreenOrientation.Portrait)]
-    public class CropImageActivity : Activity
+    public class CropImageActivity : AppCompatActivity
     {
         private Pictures picture;
         private int amount;
@@ -31,8 +33,9 @@ namespace FotoABIld.Droid
         private string name;
         private CropImageView cropView;
         private bool highlightView = true;
-        private Dictionary<string, int> dictionary; 
-        
+        private Dictionary<string, int> dictionary;
+        private Toolbar toolbar;
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             Window.RequestFeature(WindowFeatures.NoTitle);
@@ -42,6 +45,11 @@ namespace FotoABIld.Droid
             SetContentView(Resource.Layout.CropImage);
             Init();
             
+        }
+        public override bool OnCreateOptionsMenu(IMenu menu)
+        {
+            MenuInflater.Inflate(Resource.Menu.ActionBarItems, menu);
+            return base.OnCreateOptionsMenu(menu);
         }
 
         private void Init()
@@ -83,6 +91,10 @@ namespace FotoABIld.Droid
                 cropView.SetImageBitmap(bitMap);
 
             }
+            toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
+            SetSupportActionBar(toolbar);
+            SupportActionBar.SetDisplayShowTitleEnabled(false);
+            SupportActionBar.SetDisplayShowHomeEnabled(true);
 
         }
         //Rotates the highlightview on a click.

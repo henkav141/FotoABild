@@ -8,15 +8,17 @@ using Android.Content;
 using Android.Content.PM;
 using Android.OS;
 using Android.Runtime;
+using Android.Support.V7.App;
 using Android.Views;
 using Android.Widget;
 using Newtonsoft.Json;
+using Toolbar = Android.Support.V7.Widget.Toolbar;
 
 namespace FotoABIld.Droid.Resources.layout
 {
     [Activity(Label = "HistoryActivity", ConfigurationChanges = ConfigChanges.Orientation,
         ScreenOrientation = ScreenOrientation.Portrait)]
-    public class OrderHistoryItemActivity : Activity
+    public class OrderHistoryItemActivity : AppCompatActivity
     {
         private TextView orderNumber;
         private TextView expectedCollect;
@@ -26,6 +28,8 @@ namespace FotoABIld.Droid.Resources.layout
         private TextView price;
         private TextView email;
         private Order order;
+        private Toolbar toolbar;
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             Window.RequestFeature(WindowFeatures.NoTitle);
@@ -33,6 +37,11 @@ namespace FotoABIld.Droid.Resources.layout
             SetContentView(Resource.Layout.OrderHistoryItem);
             Init();
             FillData();
+        }
+        public override bool OnCreateOptionsMenu(IMenu menu)
+        {
+            MenuInflater.Inflate(Resource.Menu.ActionBarItems, menu);
+            return base.OnCreateOptionsMenu(menu);
         }
 
         private void Init()
@@ -49,6 +58,10 @@ namespace FotoABIld.Droid.Resources.layout
 
             var objectString = Intent.GetStringExtra("order");
             order = JsonConvert.DeserializeObject<Order>(objectString);
+            toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
+            SetSupportActionBar(toolbar);
+            SupportActionBar.SetDisplayShowTitleEnabled(false);
+            SupportActionBar.SetDisplayShowHomeEnabled(true);
         }
 
         private void FillData()

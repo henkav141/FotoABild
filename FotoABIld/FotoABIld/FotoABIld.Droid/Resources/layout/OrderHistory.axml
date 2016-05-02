@@ -5,12 +5,6 @@
     android:layout_height="fill_parent"
     android:minWidth="25px"
     android:minHeight="25px">
-<!--<ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:src="@drawable/trash_can"
-            android:layout_gravity="right"
-            android:id="@+id/trashCanIcon" />-->
     <include
         android:id="@+id/toolbar"
         layout="@layout/ToolBar" />

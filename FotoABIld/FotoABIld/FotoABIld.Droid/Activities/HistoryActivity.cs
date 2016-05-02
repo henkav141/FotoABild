@@ -48,7 +48,7 @@ namespace FotoABIld.Droid
         }
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
-            MenuInflater.Inflate(Resource.Menu.MenuItems,menu);
+            MenuInflater.Inflate(Resource.Menu.ActionBarMenuOrderHistory,menu);
             return base.OnCreateOptionsMenu(menu);
         }
 
@@ -89,7 +89,7 @@ namespace FotoABIld.Droid
            checkbox.Toggle();
         }
 
-        void deleteHistoryButton_Click(object sender, EventArgs e)
+        private void deleteHistoryButton_Click(object sender, EventArgs e)
         {
             var checkedList = deleteListView.CheckedItemPositions;
             var positions = new List<int>();
@@ -130,13 +130,7 @@ namespace FotoABIld.Droid
             }
         }
 
-        void trashCan_Click(object sender, EventArgs e)
-        {
-            listViewSwitcher.ShowNext();
-            buttonViewSwitcher.ShowNext();
 
-
-        }
 
         void listView_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
@@ -160,8 +154,27 @@ namespace FotoABIld.Droid
             orders = Serializer<List<Order>>.DeSerialize(filepath);
             return orders;
         }
+       
+public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            switch (item.ItemId)
+            {
+                case Resource.Id.action_delete:
+                    listViewSwitcher.ShowNext();
+                    buttonViewSwitcher.ShowNext();
+                    return true;
 
-        
+                case Resource.Id.action_help:
+                    Console.WriteLine("hej");
+                    return true;
+
+                default:
+
+                    return OnOptionsItemSelected(item);
+            }
+        }
+
+
 
     }
 }
