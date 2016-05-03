@@ -25,7 +25,7 @@ namespace FotoABIld
             PhoneNumber = phonenumber;
             Pictures = pictures;
             Date = DateTime.Now;
-            OrderId = "TestOrderId";
+            OrderId = OrderHandler.CreateOrderId();
 
         }
 

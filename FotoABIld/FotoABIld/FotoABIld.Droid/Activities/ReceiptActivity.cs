@@ -35,6 +35,7 @@ namespace FotoABIld.Droid
 
             SummarizePictures(priceClass);
             FindViewById<TextView>(Resource.Id.finalPrice).Text = PriceCalculator.CalculateTotalPrice(order.Pictures).ToString();
+            FindViewById<TextView>(Resource.Id.orderNumberText).Text = order.OrderId;
             SetDate();
 
             
@@ -55,15 +56,15 @@ namespace FotoABIld.Droid
 
         public override void OnWindowFocusChanged(bool hasFocus)
         {
-            if (!opened) return;
-            opened = false;
-            var pdfcreator = new PdfHandler();
-            pdfcreator.CreateDocument(FindViewById(Resource.Id.receiptlayout));
-            File file = new File(Android.OS.Environment.ExternalStorageDirectory.AbsolutePath + "/¨test.pdf");
-            Intent intent = new Intent(Intent.ActionView);
-            intent.SetDataAndType(Uri.FromFile(file), "application/pdf");
-            intent.SetFlags(ActivityFlags.NoHistory);
-            StartActivity(intent);
+            //if (!opened) return;
+            //opened = false;
+            //var pdfcreator = new PdfHandler();
+            //pdfcreator.CreateDocument(FindViewById(Resource.Id.receiptlayout));
+            //File file = new File(Android.OS.Environment.ExternalStorageDirectory.AbsolutePath + "/¨test.pdf");
+            //Intent intent = new Intent(Intent.ActionView);
+            //intent.SetDataAndType(Uri.FromFile(file), "application/pdf");
+            //intent.SetFlags(ActivityFlags.NoHistory);
+            //StartActivity(intent);
         }
 
         private void SummarizePictures(PriceClass priceClass)

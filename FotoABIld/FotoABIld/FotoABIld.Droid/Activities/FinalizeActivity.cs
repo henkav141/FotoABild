@@ -149,7 +149,11 @@ namespace FotoABIld.Droid
             {
                 System.Console.WriteLine("Could not save orders");
             }
+            OrderHandler.CreateOutputFolder(Environment.ExternalStorageDirectory.AbsolutePath + "/" + order.OrderId + "/");
+            OrderHandler.FillOutPutFolder(order, Environment.ExternalStorageDirectory.AbsolutePath + "/androidfotoabild/");
+
             LacHandler.CreateLacFile(order, Environment.ExternalStorageDirectory + "/androidfotoabild/testFile.LAC");
+
 
             //var intent = new Intent(this,typeof(ReceiptActivity));
             //intent.PutExtra("order", Intent.GetStringExtra("order"));
