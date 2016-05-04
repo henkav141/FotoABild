@@ -79,10 +79,8 @@ namespace FotoABIld.Droid
             File imgFile = new File(position);
             if (imgFile.Exists())
             {
-                Bitmap bitMap = BitmapFactory.DecodeFile(imgFile.AbsolutePath);
                 pictureName = imgFile.Name;
                 LoadImage();
-                
             }
             toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
             SetSupportActionBar(toolbar);
@@ -105,7 +103,7 @@ namespace FotoABIld.Droid
 
         private void LoadImage()
         {
-            Picasso.With(this).Load(new File(position)).Into(imageView);
+            Picasso.With(this).Load(new File(position)).Fit().Into(imageView);
         }
         
         private void DoneButton_Click(object sender, EventArgs e)
