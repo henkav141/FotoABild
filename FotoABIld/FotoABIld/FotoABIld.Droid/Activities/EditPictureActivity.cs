@@ -19,6 +19,7 @@ using Com.Nostra13.Universalimageloader.Core.Assist;
 using Java.IO;
 using Newtonsoft.Json;
 using Square.Picasso;
+using Console = System.Console;
 using Environment = System.Environment;
 using File = Java.IO.File;
 using Toolbar = Android.Support.V7.Widget.Toolbar;
@@ -91,7 +92,8 @@ namespace FotoABIld.Droid
         //Creates a copy of the image wanted to have two of the same pictures with different properties
         void copyButton_Click(object sender, EventArgs e)
         {
-            var copyImage = new Pictures(position,0,"10x15","");
+            var copyImageName = pictureName + "copy";
+            var copyImage = new Pictures(position,0,"10x15",copyImageName,"-2");
             var bundle = new Bundle();
             var objectString = JsonConvert.SerializeObject(copyImage);
             bundle.PutString("picture", objectString);
@@ -108,7 +110,7 @@ namespace FotoABIld.Droid
         
         private void DoneButton_Click(object sender, EventArgs e)
         {
-            picture.Amount = numberPicker.Value;
+            
             var bundle = new Bundle();
             var objectString = JsonConvert.SerializeObject(picture);
             bundle.PutString("picture",objectString);
@@ -134,6 +136,13 @@ namespace FotoABIld.Droid
             numberPicker.MinValue = 0;
             numberPicker.MaxValue = 100;
             numberPicker.Value = amount;
+            numberPicker.ValueChanged += NumberPicker_ValueChanged; 
+            
+        }
+
+        private void NumberPicker_ValueChanged(object sender, NumberPicker.ValueChangeEventArgs e)
+        {
+            picture.Amount = numberPicker.Value;
         }
 
         private void InitSpinner()
@@ -148,6 +157,7 @@ namespace FotoABIld.Droid
                 var spinnerPosition = adapter.GetPosition(size);
                 spinner.SetSelection(spinnerPosition);
             }
+            
         }
 
         private void spinner_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)

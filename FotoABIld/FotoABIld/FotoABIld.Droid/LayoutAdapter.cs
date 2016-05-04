@@ -23,6 +23,8 @@ namespace FotoABIld.Droid
 
         {
             this.items = items;
+            this.items.Reverse();
+            
             this.context = context;
         }
 
@@ -46,7 +48,7 @@ namespace FotoABIld.Droid
                 view = context.LayoutInflater.Inflate(Resource.Layout.OrderHistoryListItem, null);
             var textView = view.FindViewById<TextView>(Resource.Id.listItemText);
             var amountHandler = new AmountHandler(items[position].Pictures);
-            var text = (items[position].Date.ToString("yyyy-M-d") + "   " 
+            var text = (items[position].Date.ToString("yyyy-MM-dd") + "   " 
                     + amountHandler.GetTotalAmount() + " bilder" + "   "
                     + PriceCalculator.CalculateTotalPrice(items[position].Pictures) + " kr");
             textView.Text = text;

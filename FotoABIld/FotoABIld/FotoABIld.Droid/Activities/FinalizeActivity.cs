@@ -135,7 +135,8 @@ namespace FotoABIld.Droid
 
         void placeOrderButton_Click(object sender, EventArgs e)
         {
-
+            order.Date = 
+            order.Date.AddHours(1);
             try
             {
                 
@@ -149,7 +150,8 @@ namespace FotoABIld.Droid
             {
                 System.Console.WriteLine("Could not save orders");
             }
-            order.Date = order.Date.AddHours(1);
+
+
             var filepath = Environment.ExternalStorageDirectory.AbsolutePath + "/" + order.OrderId + "/";
             OrderHandler.CreateOutputFolder(filepath);
             OrderHandler.FillOutPutFolder(order, filepath);

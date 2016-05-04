@@ -68,7 +68,7 @@ namespace FotoABIld.Droid.Resources.layout
         {
             var amountHandler = new AmountHandler(order.Pictures);
             orderNumber.Text += "TestOrderNumber";
-            expectedCollect.Text += order.Date.ToString("hh.mm, yyyy-MM-dd");
+            expectedCollect.Text += order.Date.ToString("HH.mm, yyyy-MM-dd");
             name.Text += order.Name + " " + order.Surname;
             phoneNumber.Text += order.PhoneNumber;
             amount.Text += amountHandler.GetTotalAmount().ToString();

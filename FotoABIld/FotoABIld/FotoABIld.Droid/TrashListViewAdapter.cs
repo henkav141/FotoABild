@@ -23,7 +23,9 @@ namespace FotoABIld.Droid
         public TrashListViewAdapter(Activity context, List<Order> items)
         {
             this.items = items;
+            
             this.context = context;
+            
         }
 
 
@@ -56,7 +58,7 @@ namespace FotoABIld.Droid
             holder.checkbox = view.FindViewById<CheckBox>(Resource.Id.listItemCheckBox);
 
             var amountHandler = new AmountHandler(items[position].Pictures);
-            var text = (items[position].Date.ToString("yyyy-M-d") + "   "
+            var text = (items[position].Date.ToString("yyyy-MM-dd") + "   "
             + amountHandler.GetTotalAmount() + " bilder" + "   "
             + PriceCalculator.CalculateTotalPrice(items[position].Pictures) + " kr");
             holder.info.Text = text;
