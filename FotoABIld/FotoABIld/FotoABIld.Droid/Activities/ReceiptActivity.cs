@@ -43,10 +43,9 @@ namespace FotoABIld.Droid
 
         private void SetDate()
         {
-            var datetime = DateTime.Now;
-            datetime = datetime.AddHours(1);
+
             var readyText = FindViewById<TextView>(Resource.Id.thankText);
-            readyText.Text = "Din beställning kommer att vara klar " + datetime.ToString("yyyy-MM-dd hh:mm");
+            readyText.Text = "Din beställning kommer att vara klar " + order.Date.ToString("yyyy-MM-dd hh:mm");
             var scale = Resources.DisplayMetrics.Density;
             var dpAsPixels = (int) (60*scale);
             readyText.SetPadding(0,dpAsPixels,0,0);

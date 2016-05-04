@@ -173,10 +173,11 @@ namespace FotoABIld.Droid
                 dataT = new List<CustomGallery>();
                 pictureList = new List<Pictures>();
 
-                foreach (string uri in all_path)
+                foreach (var uri in all_path)
                 {
                     var item = new CustomGallery();
                     var picture = new Pictures(uri);
+                    picture.Name = System.IO.Path.GetFileNameWithoutExtension(uri) + ".jpeg";
                     
                     pictureList.Add(picture);
                    

@@ -149,10 +149,12 @@ namespace FotoABIld.Droid
             {
                 System.Console.WriteLine("Could not save orders");
             }
-            OrderHandler.CreateOutputFolder(Environment.ExternalStorageDirectory.AbsolutePath + "/" + order.OrderId + "/");
-            OrderHandler.FillOutPutFolder(order, Environment.ExternalStorageDirectory.AbsolutePath + "/androidfotoabild/");
-
-            LacHandler.CreateLacFile(order, Environment.ExternalStorageDirectory + "/androidfotoabild/testFile.LAC");
+            order.Date = order.Date.AddHours(1);
+            var filepath = Environment.ExternalStorageDirectory.AbsolutePath + "/" + order.OrderId + "/";
+            OrderHandler.CreateOutputFolder(filepath);
+            OrderHandler.FillOutPutFolder(order, filepath);
+            var lacHandler = new LacHandler(order, filepath + order.OrderId + ".LAC",filepath);
+            lacHandler.CreateLacFile();
 
 
             //var intent = new Intent(this,typeof(ReceiptActivity));

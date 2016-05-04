@@ -26,8 +26,10 @@ namespace FotoABIld
 
             for (var index = 0; index < order.Pictures.Count; index++)
             {
+
                 var picture = order.Pictures[index];
-                File.Copy(picture.FilePath, targetPath + "/" + index);
+                if(!File.Exists(targetPath + picture.Name))
+                File.Copy(picture.FilePath, targetPath + picture.Name );
 
 
             }

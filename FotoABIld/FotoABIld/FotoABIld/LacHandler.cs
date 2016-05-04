@@ -5,16 +5,28 @@ using System.Text;
 
 namespace FotoABIld
 {
-    public static class LacHandler
+    public  class LacHandler
     {
-        public static void CreateLacFile(Order order,string filepath)
+        private Order order;
+        private string folderfilepath;
+        private string lacfilepath;
+        private List<FileInfo> fileInfoList;
+        public LacHandler(Order order, string lacfilepath, string folderfilepath)
         {
-            var lacText = new List<string> {FillUserDetails(order), FillOrderDetails(order)};
-
-            File.WriteAllLines(filepath, lacText);
+            this.order = order;
+            this.folderfilepath = folderfilepath;
+            this.lacfilepath = lacfilepath;
+            fileInfoList = new List<FileInfo>();
+        }
+        public  void CreateLacFile()
+        {
+            GetFileInfo();
+            var lacText = new List<string> {FillUserDetails(), FillOrderDetails(), FillFilesTransmitted(), FillFileSizes() };
+            
+            File.WriteAllLines(lacfilepath, lacText);
         }
 
-        private  static string FillUserDetails(Order order)
+        private   string FillUserDetails()
         {
             return "[User Details]" + "\r\n" +
                    "FirstName=" + order.Name + "\r\n" +
@@ -24,15 +36,47 @@ namespace FotoABIld
 
         }
 
-        private static string FillOrderDetails(Order order)
+        private  string FillOrderDetails()
         {
-            return "[OrderDetails]" + "\r\n" +
-                   "OrderReference=" + "" + "\r\n" +
+            return "[Order Details]\r\n" +
+                   "OrderReference=\r\n" +
                    "orderid=" + order.OrderId + "\r\n" +
                    "TotalPrice=" + PriceCalculator.CalculateTotalPrice(order.Pictures) + "\r\n" +
                    "OrderDate=" + DateTime.Now.ToString("dd/MM/yy hh:mm") + "\r\n" +
                    "ReturnDate=" + order.Date.ToString("dd/MM/yy hh:mm") + "\r\n";
 
+        }
+
+        private  string FillFilesTransmitted()
+        {
+            var transmittedString = "[Files Transmitted]\r\n";
+            for (int index = 0; index < fileInfoList.Count; index++)
+            {
+                var fileInfo = fileInfoList[index];
+                transmittedString += index + 1 + "=" + fileInfo.FullName + "\r\n";
+            }
+            return transmittedString;
+        }
+
+        private string FillFileSizes()
+        {
+            var sizeString = "[File Sizes]\r\n";
+            for (int index = 0; index < fileInfoList.Count; index++)
+            {
+                var fileInfo = fileInfoList[index];
+                sizeString = index + 1 + "=" + fileInfo.Length + "\r\n";
+            }
+            return sizeString;
+        }
+
+        private  void GetFileInfo()
+        {
+            var filenames = Directory.GetFiles(folderfilepath,"*.jpeg");
+            foreach (var filename in filenames)
+            {
+                var fileinfo = new FileInfo(filename);
+                fileInfoList.Add(fileinfo);
+            }
         }
     }
 }
