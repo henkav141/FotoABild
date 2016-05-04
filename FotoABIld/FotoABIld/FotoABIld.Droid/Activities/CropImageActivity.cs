@@ -16,8 +16,10 @@ using Android.Views;
 using Android.Widget;
 using Com.Isseiaoki.Simplecropview;
 using Newtonsoft.Json;
+using Square.Picasso;
 using Environment = System.Environment;
 using File = Java.IO.File;
+using Math = Java.Lang.Math;
 using Toolbar = Android.Support.V7.Widget.Toolbar;
 
 namespace FotoABIld.Droid
@@ -86,10 +88,8 @@ namespace FotoABIld.Droid
             File imgFile = new File(position);
             if (imgFile.Exists())
             {
-                Bitmap bitMap = BitmapFactory.DecodeFile(imgFile.AbsolutePath);
                 name = imgFile.Name;
-                cropView.SetImageBitmap(bitMap);
-
+                LoadImage();
             }
             toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
             SetSupportActionBar(toolbar);
@@ -97,6 +97,13 @@ namespace FotoABIld.Droid
             SupportActionBar.SetDisplayShowHomeEnabled(true);
 
         }
+
+        private void LoadImage()
+        {
+            Picasso.With(this).Load(new File(position)).Fit().Into(cropView);
+        }
+
+
         //Rotates the highlightview on a click.
         private void RotateCropView(object sender, EventArgs e)
         {
