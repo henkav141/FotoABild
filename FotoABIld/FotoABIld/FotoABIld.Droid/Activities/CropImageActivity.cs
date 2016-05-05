@@ -61,6 +61,7 @@ namespace FotoABIld.Droid
             cropView = FindViewById<CropImageView>(Resource.Id.cropImageView);
             var finalView = FindViewById<ImageView>(Resource.Id.croppedImageView);
             cropView.SetHandleShowMode(CropImageView.ShowMode.ShowAlways);
+            cropView.SetGuideShowMode(CropImageView.ShowMode.ShowOnTouch);
             Button doneButton = FindViewById<Button>(Resource.Id.doneButton);
             doneButton.Click += doneButton_Click;
 
