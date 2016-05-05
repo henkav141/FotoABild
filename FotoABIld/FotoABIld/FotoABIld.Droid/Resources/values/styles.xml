@@ -19,9 +19,12 @@
 
     </style>
      
-  <style name="ActionBar" parent="android:Widget.Holo.Light.ActionBar.Solid.Inverse">
+  <style name="ActionBar" parent="Theme.AppCompat.Light.NoActionBar">
     <item name ="android:background">#1F2F40 </item>
     <item name="android:displayOptions">useLogo</item>
+   <item name="android:textColorSecondary">#ffbe1f </item>
+    <item name="android:textColorPrimary">#ffbe1f </item>
+    <item name ="android:layout_height">wrap_content</item>
     
   </style>
   <style name="AppTheme.Picker" parent="Theme.AppCompat.Light.NoActionBar" >

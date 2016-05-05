@@ -306,6 +306,7 @@
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_help_white_18dp.png" />
     <AndroidResource Include="Resources\Menu\ActionBarItems.xml" />
     <AndroidResource Include="Resources\layout\SpinnerItem.xml" />
+    <AndroidResource Include="Resources\layout\HamburgerMenu.xml" />
     <Content Include="UniversalImageLoader.dll" />
   </ItemGroup>
   <ItemGroup>

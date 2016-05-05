@@ -7,22 +7,25 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using Android.Support.V7.App;
+using Toolbar = Android.Support.V7.Widget.Toolbar;
 
 
 namespace FotoABIld.Droid
 {
     [Activity(Label = "FotoABIld.Droid", MainLauncher = true, Icon = "@drawable/icon",
         ConfigurationChanges = ConfigChanges.Orientation, ScreenOrientation = ScreenOrientation.Portrait)]
-	public class MainActivity : Activity
-	{
+	public class MainActivity : AppCompatActivity
+    {
 	    private FlyOutContainer menu;
+        private Toolbar toolbar;
 
-		protected override void OnCreate (Bundle bundle)
+        protected override void OnCreate (Bundle bundle)
 		{
-			base.OnCreate (bundle);
             Window.RequestFeature(WindowFeatures.NoTitle);
+            base.OnCreate (bundle);
+            
 
-			// Set our view from the "main" layout resource
 			SetContentView (Resource.Layout.MainFrame);
 
 		    Button orderButton = FindViewById<Button>(Resource.Id.orderButton);
@@ -51,8 +54,14 @@ namespace FotoABIld.Droid
                 if (!menu.AnimatedOpened) return;
                 menu.AnimatedOpened = !menu.AnimatedOpened;
             };
+            toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
+            SetSupportActionBar(toolbar);
+            SupportActionBar.SetDisplayShowTitleEnabled(false);
+            SupportActionBar.SetDisplayShowHomeEnabled(true);
+            
+            
 
-		}
+        }
 
         private void OrderButton_Click(object sender, EventArgs e)
         {
