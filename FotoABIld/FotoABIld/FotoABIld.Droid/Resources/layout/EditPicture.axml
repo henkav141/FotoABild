@@ -64,11 +64,12 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:id="@+id/numberLabel"
-                        android:textColor="#ffffff" />
+                        android:textColor="#ffbe1f" />
                     <NumberPicker
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:id="@+id/numberPicker1"
+                        android:theme="@style/AppTheme.Picker"
                         android:background="#1F2F40" />
                 </LinearLayout>
                 <LinearLayout
@@ -81,12 +82,13 @@
                         android:text="Välj Storlek"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textColor="#ffffff" />
+                        android:textColor="#ffbe1f" />
                     <Spinner
                         android:id="@+id/spinner"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:theme="@style/AppTheme.Picker" />
                 </LinearLayout>
             </LinearLayout>
             <LinearLayout

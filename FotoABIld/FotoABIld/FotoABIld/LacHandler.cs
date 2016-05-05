@@ -64,7 +64,7 @@ namespace FotoABIld
             for (int index = 0; index < fileInfoList.Count; index++)
             {
                 var fileInfo = fileInfoList[index];
-                sizeString = index + 1 + "=" + fileInfo.Length + "\r\n";
+                sizeString += index + 1 + "=" + fileInfo.Length + "\r\n";
             }
             return sizeString;
         }

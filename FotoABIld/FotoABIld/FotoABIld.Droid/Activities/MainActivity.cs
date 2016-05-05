@@ -52,8 +52,7 @@ namespace FotoABIld.Droid
                 menu.AnimatedOpened = !menu.AnimatedOpened;
             };
 
-
-        }
+		}
 
         private void OrderButton_Click(object sender, EventArgs e)
         {
