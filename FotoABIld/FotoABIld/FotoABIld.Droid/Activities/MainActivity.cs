@@ -14,11 +14,10 @@ using Toolbar = Android.Support.V7.Widget.Toolbar;
 
 namespace FotoABIld.Droid
 {
-    [Activity(Label = "FotoABIld.Droid", MainLauncher = true, Icon = "@drawable/icon",
+    [Activity(Theme = "@style/AppTheme",Label = "FotoABIld.Droid", MainLauncher = true, Icon = "@drawable/icon",
         ConfigurationChanges = ConfigChanges.Orientation, ScreenOrientation = ScreenOrientation.Portrait)]
 	public class MainActivity : AppCompatActivity
     {
-	    private FlyOutContainer menu;
         private Toolbar toolbar;
         private string[] drawerItems;
         private DrawerLayout drawerLayout;
@@ -31,24 +30,18 @@ namespace FotoABIld.Droid
             base.OnCreate(bundle);
             
 
-			SetContentView (Resource.Layout.MainFrame);
+			SetContentView (Resource.Layout.Main);
 
 		    Button orderButton = FindViewById<Button>(Resource.Id.orderButton);
 		    Button historyButton = FindViewById<Button>(Resource.Id.historyButton);
-            var historyText = FindViewById<EditText>(Resource.Id.HistoryText);
-		    var orderText = FindViewById<EditText>(Resource.Id.OrderText);
-		    var helpText = FindViewById<EditText>(Resource.Id.HelpText);
-		    var priceText = FindViewById<EditText>(Resource.Id.PriceText);
+
 		    
             orderButton.Click += OrderButton_Click;
 		    historyButton.Click += HistoryButton_Click;
-		    historyText.Click += HistoryButton_Click;
-		    orderText.Click += OrderButton_Click;
-		    helpText.Click += HelpButton_Click;
-		    priceText.Click += priceText_Click;
+
             
 
-            menu = FindViewById<FlyOutContainer>(Resource.Id.BaseContainer);
+            //menu = FindViewById<FlyOutContainer>(Resource.Id.BaseContainer);
       //      var menuButton = FindViewById<ImageView>(Resource.Id.FlyOutMenuButton);
 		    //var homeText = FindViewById<EditText>(Resource.Id.HomeText);
 		    //menuButton.Click += (sender, e) => {
@@ -63,12 +56,17 @@ namespace FotoABIld.Droid
             SetSupportActionBar(toolbar);
             SupportActionBar.SetDisplayShowTitleEnabled(false);
             SupportActionBar.SetDisplayShowHomeEnabled(true);
+            SupportActionBar.SetDisplayHomeAsUpEnabled(true);
+            
             drawerItems = new []{"Hem","Beställ Kort", "Tidigare beställningar", "Priser och storlekar", "Hjälp" };
             drawerListView = FindViewById<ListView>(Resource.Id.left_drawer);
             
             
             drawerListView.Adapter = new ArrayAdapter<string>(this, Resource.Layout.drawer_list_item,drawerItems);
+            drawerListView.ItemClick += DrawerListView_ItemClick;
             drawerLayout = (DrawerLayout)FindViewById(Resource.Id.drawer_layout);
+            
+
             drawerToggle = new ActionBarDrawerToggle(
                 this,
                 drawerLayout,
@@ -76,11 +74,40 @@ namespace FotoABIld.Droid
                 Resource.String.hello,
                 Resource.String.app_name
                 );
-
+            drawerToggle.SyncState();
+            
 
 
 
 		}
+
+        private void DrawerListView_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
+        {
+            Intent intent;
+            switch (e.Position)
+            {
+                case 0:
+                    drawerLayout.CloseDrawers();
+                    break;
+                case 1:
+                    intent = new Intent(this, typeof(ChoosePicturesActivity));
+                    StartActivity(intent);
+                    break;
+                case 2:
+                    intent = new Intent(this, typeof(HistoryActivity));
+                    StartActivity(intent);
+                    break;
+                case 3:
+                    intent = new Intent(this, typeof(PricesSizesActivity));
+                    StartActivity(intent);
+                       break;
+                case 4:
+                    intent = new Intent(this, typeof(HelpActivity));
+                    StartActivity(intent);
+                    break;
+            }
+        }
+
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
             MenuInflater.Inflate(Resource.Menu.ActionBarItems, menu);
@@ -98,20 +125,7 @@ namespace FotoABIld.Droid
 	        var history = new Intent(this, typeof(HistoryActivity));
             StartActivity(history);
 	    }
-
-	    private void HelpButton_Click(object sender, EventArgs e)
-	    {
-            if (!menu.AnimatedOpened) return;
-	        var help = new Intent(this, typeof(HelpActivity));
-            StartActivity(help);
-	    }
-
-	    private void priceText_Click(object sender, EventArgs e)
-	    {
-	        if (!menu.AnimatedOpened) return;
-	        var price = new Intent(this, typeof (PricesSizesActivity));
-	        StartActivity(price);
-	    }
+        
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
             switch (item.ItemId)

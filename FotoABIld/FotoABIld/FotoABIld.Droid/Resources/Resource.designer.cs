@@ -2503,8 +2503,8 @@ namespace FotoABIld.Droid
 		public partial class Style
 		{
 			
-			// aapt resource value: 0x7f080135
-			public const int ActionBar = 2131231029;
+			// aapt resource value: 0x7f080136
+			public const int ActionBar = 2131231030;
 			
 			// aapt resource value: 0x7f08007d
 			public const int AlertDialog_AppCompat = 2131230845;
@@ -2524,8 +2524,8 @@ namespace FotoABIld.Droid
 			// aapt resource value: 0x7f080134
 			public const int AppTheme = 2131231028;
 			
-			// aapt resource value: 0x7f080136
-			public const int AppTheme_Picker = 2131231030;
+			// aapt resource value: 0x7f080137
+			public const int AppTheme_Picker = 2131231031;
 			
 			// aapt resource value: 0x7f080081
 			public const int Base_AlertDialog_AppCompat = 2131230849;
@@ -2946,6 +2946,9 @@ namespace FotoABIld.Droid
 			
 			// aapt resource value: 0x7f080073
 			public const int Base_Widget_AppCompat_Toolbar_Button_Navigation = 2131230835;
+			
+			// aapt resource value: 0x7f080135
+			public const int DrawerArrowStyle = 2131231029;
 			
 			// aapt resource value: 0x7f080010
 			public const int Platform_AppCompat = 2131230736;
