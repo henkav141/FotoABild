@@ -51,6 +51,9 @@
       <HintPath>..\..\packages\Newtonsoft.Json.8.0.3\lib\portable-net40+sl5+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="PhotoView">
+      <HintPath>..\..\Components\PhotoView-1.2.4\lib\android\PhotoView.dll</HintPath>
+    </Reference>
     <Reference Include="Plugin.CurrentActivity, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Plugin.CurrentActivity.1.0.1\lib\MonoAndroid10\Plugin.CurrentActivity.dll</HintPath>
       <Private>True</Private>
@@ -311,6 +314,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <XamarinComponentReference Include="PhotoView">
+      <Visible>False</Visible>
+      <Version>1.2.4</Version>
+    </XamarinComponentReference>
     <XamarinComponentReference Include="square.picasso">
       <Visible>False</Visible>
       <Version>2.5.2.2</Version>

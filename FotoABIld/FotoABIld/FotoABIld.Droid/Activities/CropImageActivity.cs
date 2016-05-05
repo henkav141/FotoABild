@@ -15,6 +15,7 @@ using Android.Support.V7.App;
 using Android.Views;
 using Android.Widget;
 using Com.Isseiaoki.Simplecropview;
+using ImageViews.Photo;
 using Newtonsoft.Json;
 using Square.Picasso;
 using Environment = System.Environment;
@@ -38,6 +39,7 @@ namespace FotoABIld.Droid
         private Dictionary<string, int> dictionary;
         private Toolbar toolbar;
 
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             Window.RequestFeature(WindowFeatures.NoTitle);
@@ -58,7 +60,7 @@ namespace FotoABIld.Droid
         {
             cropView = FindViewById<CropImageView>(Resource.Id.cropImageView);
             var finalView = FindViewById<ImageView>(Resource.Id.croppedImageView);
-            cropView.SetHandleShowMode(CropImageView.ShowMode.ShowOnTouch);
+            cropView.SetHandleShowMode(CropImageView.ShowMode.ShowAlways);
             Button doneButton = FindViewById<Button>(Resource.Id.doneButton);
             doneButton.Click += doneButton_Click;
 
@@ -84,6 +86,7 @@ namespace FotoABIld.Droid
             Button rotateCropViewButton = FindViewById<Button>(Resource.Id.rotateCropView);
             rotateCropViewButton.Click += RotateCropView;
 
+
             //Sets the image path to a bitmap, so that the picture displays on the screen.
             File imgFile = new File(position);
             if (imgFile.Exists())
@@ -95,6 +98,7 @@ namespace FotoABIld.Droid
             SetSupportActionBar(toolbar);
             SupportActionBar.SetDisplayShowTitleEnabled(false);
             SupportActionBar.SetDisplayShowHomeEnabled(true);
+
 
         }
 
