@@ -105,7 +105,7 @@ namespace FotoABIld.Droid
 
         private void LoadImage()
         {
-            Picasso.With(this).Load(new File(position)).Fit().Into(cropView);
+            Picasso.With(this).Load(new File(position)).Fit().CenterInside().Into(cropView);
         }
 
 

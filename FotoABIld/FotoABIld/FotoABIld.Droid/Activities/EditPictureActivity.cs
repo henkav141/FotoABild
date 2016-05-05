@@ -105,7 +105,7 @@ namespace FotoABIld.Droid
 
         private void LoadImage()
         {
-            Picasso.With(this).Load(new File(position)).Fit().Into(imageView);
+            Picasso.With(this).Load(new File(position)).Fit().CenterInside().Into(imageView);
         }
         
         private void DoneButton_Click(object sender, EventArgs e)
