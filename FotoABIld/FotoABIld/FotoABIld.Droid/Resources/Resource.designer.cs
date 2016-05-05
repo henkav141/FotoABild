@@ -1670,14 +1670,14 @@ namespace FotoABIld.Droid
 			// aapt resource value: 0x7f0b004e
 			public const int action_context_bar = 2131427406;
 			
-			// aapt resource value: 0x7f0b00bc
-			public const int action_delete = 2131427516;
+			// aapt resource value: 0x7f0b00bd
+			public const int action_delete = 2131427517;
 			
 			// aapt resource value: 0x7f0b0093
 			public const int action_divider = 2131427475;
 			
-			// aapt resource value: 0x7f0b00bb
-			public const int action_help = 2131427515;
+			// aapt resource value: 0x7f0b00bc
+			public const int action_help = 2131427516;
 			
 			// aapt resource value: 0x7f0b0002
 			public const int action_menu_divider = 2131427330;
@@ -1883,8 +1883,8 @@ namespace FotoABIld.Droid
 			// aapt resource value: 0x7f0b0073
 			public const int linearLayout7 = 2131427443;
 			
-			// aapt resource value: 0x7f0b00ba
-			public const int listItemCheckBox = 2131427514;
+			// aapt resource value: 0x7f0b00bb
+			public const int listItemCheckBox = 2131427515;
 			
 			// aapt resource value: 0x7f0b00aa
 			public const int listItemText = 2131427498;
@@ -2074,6 +2074,9 @@ namespace FotoABIld.Droid
 			
 			// aapt resource value: 0x7f0b0076
 			public const int spinner = 2131427446;
+			
+			// aapt resource value: 0x7f0b00ba
+			public const int spinnerItem = 2131427514;
 			
 			// aapt resource value: 0x7f0b0007
 			public const int split_action_bar = 2131427335;
@@ -2348,16 +2351,19 @@ namespace FotoABIld.Droid
 			public const int SideMenuLayout = 2130903092;
 			
 			// aapt resource value: 0x7f030035
-			public const int support_simple_spinner_dropdown_item = 2130903093;
+			public const int SpinnerItem = 2130903093;
 			
 			// aapt resource value: 0x7f030036
-			public const int titlebar = 2130903094;
+			public const int support_simple_spinner_dropdown_item = 2130903094;
 			
 			// aapt resource value: 0x7f030037
-			public const int ToolBar = 2130903095;
+			public const int titlebar = 2130903095;
 			
 			// aapt resource value: 0x7f030038
-			public const int TrashCheckBox = 2130903096;
+			public const int ToolBar = 2130903096;
+			
+			// aapt resource value: 0x7f030039
+			public const int TrashCheckBox = 2130903097;
 			
 			static Layout()
 			{
@@ -2502,6 +2508,9 @@ namespace FotoABIld.Droid
 			
 			// aapt resource value: 0x7f080134
 			public const int AppTheme = 2131231028;
+			
+			// aapt resource value: 0x7f080136
+			public const int AppTheme_Picker = 2131231030;
 			
 			// aapt resource value: 0x7f080081
 			public const int Base_AlertDialog_AppCompat = 2131230849;

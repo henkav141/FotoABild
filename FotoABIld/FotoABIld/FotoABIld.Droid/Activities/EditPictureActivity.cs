@@ -136,6 +136,8 @@ namespace FotoABIld.Droid
             numberPicker.MinValue = 0;
             numberPicker.MaxValue = 100;
             numberPicker.Value = amount;
+            
+            
             numberPicker.ValueChanged += NumberPicker_ValueChanged; 
             
         }
@@ -148,10 +150,11 @@ namespace FotoABIld.Droid
         private void InitSpinner()
         {
             spinner = FindViewById<Spinner>(Resource.Id.spinner);
-            var adapter = ArrayAdapter.CreateFromResource(this, Resource.Array.Sizes, Android.Resource.Layout.SimpleSpinnerItem);
-            adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerItem);
+            var adapter = ArrayAdapter.CreateFromResource(this, Resource.Array.Sizes, Resource.Layout.SpinnerItem);
+            adapter.SetDropDownViewResource(Resource.Layout.SpinnerItem);
             spinner.Adapter = adapter;
             spinner.ItemSelected += spinner_ItemSelected;
+            
             if (!size.Equals(null))
             {
                 var spinnerPosition = adapter.GetPosition(size);
@@ -171,7 +174,7 @@ namespace FotoABIld.Droid
 
             if (resultCode == Result.Ok)
             {
-                var sdCardPath = System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+                var sdCardPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
                 var croppedImageName = System.IO.Path.GetFileNameWithoutExtension(pictureName);
                 var filePath = System.IO.Path.Combine(sdCardPath, croppedImageName + " - cropped" + ".jpeg");
                 
