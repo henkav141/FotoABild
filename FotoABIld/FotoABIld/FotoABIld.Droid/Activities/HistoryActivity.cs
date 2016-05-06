@@ -166,7 +166,6 @@ public override bool OnOptionsItemSelected(IMenuItem item)
                     return true;
 
                 case Resource.Id.action_help:
-                    Console.WriteLine("hej");
                     return true;
 
                 default:

@@ -16,8 +16,14 @@
     <style name="AppTheme" parent="AppBaseTheme">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
             <item name="android:actionBarStyle"> @style/ActionBar</item>
+            <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
 
     </style>
+
+  <style name="DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
+    <item name="spinBars">true</item>
+    <item name="color">#ffbe1f</item>
+  </style>
      
   <style name="ActionBar" parent="Theme.AppCompat.Light.NoActionBar">
     <item name ="android:background">#1F2F40 </item>

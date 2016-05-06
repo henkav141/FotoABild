@@ -73,8 +73,7 @@ namespace FotoABIld.Droid
             size = picture.Size;
             name = picture.Name;
 
-            var cropButton = FindViewById<Button>(Resource.Id.cropbutton1);
-            cropButton.Click += delegate { finalView.SetImageBitmap(cropView.CroppedBitmap); };
+
             
             var rotateButton = FindViewById<Button>(Resource.Id.rotateButton);
             rotateButton.Click += delegate { cropView.RotateImage(CropImageView.RotateDegrees.Rotate90d); };
