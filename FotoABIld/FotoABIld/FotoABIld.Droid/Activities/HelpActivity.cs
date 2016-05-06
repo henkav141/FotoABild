@@ -25,15 +25,19 @@ namespace FotoABIld.Droid
             Window.RequestFeature(WindowFeatures.NoTitle);
 
             base.OnCreate(savedInstanceState);
-
-            // Create your application here
             SetContentView(Resource.Layout.HelpPage);
 
-            Button cancelButton = FindViewById<Button>(Resource.Id.CancelButton);
+            Button homeButton = FindViewById<Button>(Resource.Id.backButton);
 
-            cancelButton.Click += CancelButton_Click;
+            homeButton.Click += HomeButton_Click;
             Init();
         }
+
+        private void HomeButton_Click(object sender, EventArgs e)
+        {
+            Finish();
+        }
+
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
             MenuInflater.Inflate(Resource.Menu.ActionBarItems, menu);
@@ -48,10 +52,5 @@ namespace FotoABIld.Droid
             SupportActionBar.SetDisplayShowHomeEnabled(true);
         }
 
-        private void CancelButton_Click(object sender, EventArgs e)
-        {
-            var home = new Intent(this, typeof(MainActivity));
-            StartActivity(home);
-        }
     }
 }

@@ -52,20 +52,12 @@
         android:background="#1F2F40"
         android:paddingTop="50px">
         <Button
-            android:text="Avbryt"
-            android:layout_width="50dp"
+            android:text="Tillbaka"
+            android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:id="@+id/CancelButton"
+            android:id="@+id/backButton"
             android:background="#ffbe1f"
             android:textColor="#1F2F40"
-            android:layout_weight="1" />
-        <Button
-            android:text="Nästa"
-            android:layout_width="50dp"
-            android:id="@+id/NextButton"
-            android:background="#ffbe1f"
-            android:textColor="#1F2F40"
-            android:layout_height="40dp"
             android:layout_weight="1" />
     </LinearLayout>
 </LinearLayout>

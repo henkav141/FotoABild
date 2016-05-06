@@ -166,6 +166,8 @@ public override bool OnOptionsItemSelected(IMenuItem item)
                     return true;
 
                 case Resource.Id.action_help:
+                    var intent = new Intent(this,typeof(HelpActivity));
+                    StartActivity(intent);
                     return true;
 
                 default:

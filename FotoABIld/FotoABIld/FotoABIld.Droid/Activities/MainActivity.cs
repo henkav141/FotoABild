@@ -3,6 +3,7 @@ using System.Net.Mime;
 using Android.App;
 using Android.Content;
 using Android.Content.PM;
+using Android.Graphics;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
@@ -24,48 +25,51 @@ namespace FotoABIld.Droid
         private ListView drawerListView;
         private ActionBarDrawerToggle drawerToggle;
 
-        protected override void OnCreate (Bundle bundle)
-		{
+        protected override void OnCreate(Bundle bundle)
+        {
             Window.RequestFeature(WindowFeatures.NoTitle);
             base.OnCreate(bundle);
-            
 
-			SetContentView (Resource.Layout.Main);
 
-		    Button orderButton = FindViewById<Button>(Resource.Id.orderButton);
-		    Button historyButton = FindViewById<Button>(Resource.Id.historyButton);
+            SetContentView(Resource.Layout.Main);
+            Init();
+            InitActionBar();
+            InitDrawer();
+        }
 
-		    
+
+        private void Init()
+        {
+        
+            var orderButton = FindViewById<Button>(Resource.Id.orderButton);
+            var historyButton = FindViewById<Button>(Resource.Id.historyButton);
+
+
             orderButton.Click += OrderButton_Click;
-		    historyButton.Click += HistoryButton_Click;
+            historyButton.Click += HistoryButton_Click;
+        }
+    
 
-            
-
-            //menu = FindViewById<FlyOutContainer>(Resource.Id.BaseContainer);
-      //      var menuButton = FindViewById<ImageView>(Resource.Id.FlyOutMenuButton);
-		    //var homeText = FindViewById<EditText>(Resource.Id.HomeText);
-		    //menuButton.Click += (sender, e) => {
-		    //                                       menu.AnimatedOpened = !menu.AnimatedOpened; };
-
-            //homeText.Click += (sender, e) =>
-            //{
-            //    if (!menu.AnimatedOpened) return;
-            //    menu.AnimatedOpened = !menu.AnimatedOpened;
-            //};
+        private void InitActionBar()
+        {
             toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
             SetSupportActionBar(toolbar);
             SupportActionBar.SetDisplayShowTitleEnabled(false);
             SupportActionBar.SetDisplayShowHomeEnabled(true);
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
-            
-            drawerItems = new []{"Hem","Beställ Kort", "Tidigare beställningar", "Priser och storlekar", "Hjälp" };
+        }
+
+        private void InitDrawer()
+        {
+            drawerItems = new[] { "Hem", "Beställ Kort", "Priser och storlekar", "Tidigare beställningar", "Hjälp" };
             drawerListView = FindViewById<ListView>(Resource.Id.left_drawer);
-            
-            
-            drawerListView.Adapter = new ArrayAdapter<string>(this, Resource.Layout.drawer_list_item,drawerItems);
+
+
+            drawerListView.Adapter = new ArrayAdapter<string>(this, Resource.Layout.drawer_list_item, drawerItems);
             drawerListView.ItemClick += DrawerListView_ItemClick;
             drawerLayout = (DrawerLayout)FindViewById(Resource.Id.drawer_layout);
-            
+            drawerLayout.SetScrimColor(Color.Transparent);
+
 
             drawerToggle = new ActionBarDrawerToggle(
                 this,
@@ -75,11 +79,7 @@ namespace FotoABIld.Droid
                 Resource.String.app_name
                 );
             drawerToggle.SyncState();
-            
-
-
-
-		}
+        }
 
         private void DrawerListView_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
@@ -93,11 +93,11 @@ namespace FotoABIld.Droid
                     intent = new Intent(this, typeof(ChoosePicturesActivity));
                     StartActivity(intent);
                     break;
-                case 2:
+                case 3:
                     intent = new Intent(this, typeof(HistoryActivity));
                     StartActivity(intent);
                     break;
-                case 3:
+                case 2:
                     intent = new Intent(this, typeof(PricesSizesActivity));
                     StartActivity(intent);
                        break;
