@@ -184,6 +184,21 @@ namespace FotoABIld.Droid
             }
             return dictionary;
         }
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            switch (item.ItemId)
+            {
+
+                case Resource.Id.action_help:
+                    StartActivity(new Intent(this, typeof(HelpActivity)));
+
+                    return true;
+
+                default:
+
+                    return OnOptionsItemSelected(item);
+            }
+        }
 
     }
 }

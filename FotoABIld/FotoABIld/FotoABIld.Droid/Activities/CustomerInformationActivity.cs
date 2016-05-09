@@ -80,5 +80,20 @@ namespace FotoABIld.Droid
             next.PutExtra("order", objectString);
             StartActivity(next);
         }
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            switch (item.ItemId)
+            {
+
+                case Resource.Id.action_help:
+                    StartActivity(new Intent(this, typeof(HelpActivity)));
+
+                    return true;
+
+                default:
+
+                    return OnOptionsItemSelected(item);
+            }
+        }
     }
 }

@@ -167,6 +167,21 @@ namespace FotoABIld.Droid
         {
             picture.Size = spinner.SelectedItem.ToString();
         }
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            switch (item.ItemId)
+            {
+
+                case Resource.Id.action_help:
+                    StartActivity(new Intent(this, typeof(HelpActivity)));
+
+                    return true;
+
+                default:
+
+                    return OnOptionsItemSelected(item);
+            }
+        }
         //if the user crops the image, the newly cropped version gets loaded into the imageview.
         protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
         {
@@ -186,6 +201,7 @@ namespace FotoABIld.Droid
                 picture.FilePath = filePath;
             }
         }
+
 
 
 

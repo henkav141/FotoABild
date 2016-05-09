@@ -144,6 +144,21 @@ namespace FotoABIld.Droid
             next.PutExtra("pictureList", objectString);
             StartActivity(next);
         }
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            switch (item.ItemId)
+            {
+
+                case Resource.Id.action_help:
+                    StartActivity(new Intent(this, typeof(HelpActivity)));
+
+                    return true;
+
+                default:
+
+                    return OnOptionsItemSelected(item);
+            }
+        }
         //A method using the result of an action above
         protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
         {

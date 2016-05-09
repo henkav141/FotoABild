@@ -132,6 +132,8 @@ namespace FotoABIld.Droid
             {
 
                 case Resource.Id.action_help:
+                    StartActivity(new Intent(this, typeof(HelpActivity)));
+
                     return true;
 
                 default:
