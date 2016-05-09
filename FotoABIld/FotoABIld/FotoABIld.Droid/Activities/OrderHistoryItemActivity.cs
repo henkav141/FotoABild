@@ -8,6 +8,7 @@ using Android.Content;
 using Android.Content.PM;
 using Android.OS;
 using Android.Runtime;
+using Android.Support.V4.App;
 using Android.Support.V7.App;
 using Android.Views;
 using Android.Widget;
@@ -16,7 +17,7 @@ using Toolbar = Android.Support.V7.Widget.Toolbar;
 
 namespace FotoABIld.Droid.Resources.layout
 {
-    [Activity(Label = "HistoryActivity", ConfigurationChanges = ConfigChanges.Orientation,
+    [Activity(ParentActivity = typeof(HistoryActivity),Label = "HistoryActivity", ConfigurationChanges = ConfigChanges.Orientation,
         ScreenOrientation = ScreenOrientation.Portrait)]
     public class OrderHistoryItemActivity : AppCompatActivity
     {
@@ -62,6 +63,7 @@ namespace FotoABIld.Droid.Resources.layout
             SetSupportActionBar(toolbar);
             SupportActionBar.SetDisplayShowTitleEnabled(false);
             SupportActionBar.SetDisplayShowHomeEnabled(true);
+            SupportActionBar.SetDisplayHomeAsUpEnabled(true);
         }
 
         private void FillData()
@@ -80,7 +82,9 @@ namespace FotoABIld.Droid.Resources.layout
         {
             switch (item.ItemId)
             {
-
+                case Android.Resource.Id.Home:
+                    OnBackPressed();
+                    return true;
                 case Resource.Id.action_help:
                     StartActivity(new Intent(this, typeof(HelpActivity)));
 

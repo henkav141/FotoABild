@@ -11,6 +11,7 @@ using Android.Graphics;
 using Android.Graphics.Drawables;
 using Android.OS;
 using Android.Runtime;
+using Android.Support.V4.App;
 using Android.Support.V7.App;
 using Android.Views;
 using Android.Widget;
@@ -25,7 +26,7 @@ using Toolbar = Android.Support.V7.Widget.Toolbar;
 
 namespace FotoABIld.Droid
 {
-    [Activity(Label = "CropImageActivity", ConfigurationChanges = ConfigChanges.Orientation, ScreenOrientation = ScreenOrientation.Portrait)]
+    [Activity(ParentActivity = typeof(EditPictureActivity),Label = "CropImageActivity", ConfigurationChanges = ConfigChanges.Orientation, ScreenOrientation = ScreenOrientation.Portrait)]
     public class CropImageActivity : AppCompatActivity
     {
         private Pictures picture;
@@ -98,6 +99,7 @@ namespace FotoABIld.Droid
             SetSupportActionBar(toolbar);
             SupportActionBar.SetDisplayShowTitleEnabled(false);
             SupportActionBar.SetDisplayShowHomeEnabled(true);
+            SupportActionBar.SetDisplayHomeAsUpEnabled(true);
 
 
         }
@@ -188,7 +190,9 @@ namespace FotoABIld.Droid
         {
             switch (item.ItemId)
             {
-
+                case Android.Resource.Id.Home:
+                    OnBackPressed();
+                    return true;
                 case Resource.Id.action_help:
                     StartActivity(new Intent(this, typeof(HelpActivity)));
 

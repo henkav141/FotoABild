@@ -11,6 +11,7 @@ using Android.Graphics;
 using Android.Graphics.Drawables;
 using Android.OS;
 using Android.Runtime;
+using Android.Support.V4.App;
 using Android.Support.V7.App;
 using Android.Util;
 using Android.Views;
@@ -22,7 +23,7 @@ using Newtonsoft.Json;
 
 namespace FotoABIld.Droid
 {
-    [Activity(Label = "HistoryActivity",Theme ="@style/AppBaseTheme",ConfigurationChanges = ConfigChanges.Orientation, ScreenOrientation = ScreenOrientation.Portrait)]
+    [Activity(ParentActivity = typeof(MainActivity),Label = "HistoryActivity",Theme ="@style/AppBaseTheme",ConfigurationChanges = ConfigChanges.Orientation, ScreenOrientation = ScreenOrientation.Portrait)]
     public class HistoryActivity : AppCompatActivity
     {
         private ListView listView;
@@ -65,7 +66,8 @@ namespace FotoABIld.Droid
             SetSupportActionBar(toolbar);
             SupportActionBar.SetDisplayShowTitleEnabled(false);
             SupportActionBar.SetDisplayShowHomeEnabled(true);
-        
+            SupportActionBar.SetDisplayHomeAsUpEnabled(true);
+
 
             orders = GetOrders();
             homeButton.Click += homeButton_Click;
@@ -160,6 +162,9 @@ public override bool OnOptionsItemSelected(IMenuItem item)
         {
             switch (item.ItemId)
             {
+                case Android.Resource.Id.Home:
+                    NavUtils.NavigateUpFromSameTask(this);
+                    return true;
                 case Resource.Id.action_delete:
                     listViewSwitcher.ShowNext();
                     buttonViewSwitcher.ShowNext();

@@ -10,6 +10,7 @@ using Android.Content.PM;
 using Android.Graphics;
 using Android.OS;
 using Android.Runtime;
+using Android.Support.V4.App;
 using Android.Support.V7.App;
 using Android.Views;
 using Android.Widget;
@@ -21,7 +22,7 @@ using Newtonsoft.Json;
 
 namespace FotoABIld.Droid
 {
-    [Activity(Label = "ChoosePicturesActivity", ConfigurationChanges = ConfigChanges.Orientation, ScreenOrientation = ScreenOrientation.Portrait)]
+    [Activity(ParentActivity = typeof(MainActivity),Label = "ChoosePicturesActivity", ConfigurationChanges = ConfigChanges.Orientation, ScreenOrientation = ScreenOrientation.Portrait)]
     public class ChoosePicturesActivity : AppCompatActivity
     {
         private int editIndex;
@@ -91,6 +92,7 @@ namespace FotoABIld.Droid
             SetSupportActionBar(toolbar);
             SupportActionBar.SetDisplayShowTitleEnabled(false);
             SupportActionBar.SetDisplayShowHomeEnabled(true);
+            SupportActionBar.SetDisplayHomeAsUpEnabled(true);
 
             Button cancelButton = FindViewById<Button>(Resource.Id.CancelButton);
             chooseButton = FindViewById<Button>(Resource.Id.ChoosePicturesButton);
@@ -148,12 +150,16 @@ namespace FotoABIld.Droid
         {
             switch (item.ItemId)
             {
+                case Android.Resource.Id.Home:
+                    NavUtils.NavigateUpFromSameTask(this);
+                    return true;
 
                 case Resource.Id.action_help:
                     StartActivity(new Intent(this, typeof(HelpActivity)));
 
                     return true;
-
+                   
+                    
                 default:
 
                     return OnOptionsItemSelected(item);

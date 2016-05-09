@@ -9,6 +9,7 @@ using Android.Content.PM;
 using Android.Graphics;
 using Android.OS;
 using Android.Runtime;
+using Android.Support.V4.App;
 using Android.Support.V7.App;
 using Android.Util;
 using Android.Views;
@@ -21,7 +22,7 @@ using Toolbar = Android.Support.V7.Widget.Toolbar;
 
 namespace FotoABIld.Droid
 {
-    [Activity(Label = "FinalizeActivity", ConfigurationChanges = ConfigChanges.Orientation, ScreenOrientation = ScreenOrientation.Portrait)]
+    [Activity(ParentActivity = typeof(CustomGalleryActivity),Label = "FinalizeActivity", ConfigurationChanges = ConfigChanges.Orientation, ScreenOrientation = ScreenOrientation.Portrait)]
     public class FinalizeActivity : AppCompatActivity
     {
         private TextView nameSurname;
@@ -68,6 +69,7 @@ namespace FotoABIld.Droid
             SetSupportActionBar(toolbar);
             SupportActionBar.SetDisplayShowTitleEnabled(false);
             SupportActionBar.SetDisplayShowHomeEnabled(true);
+            SupportActionBar.SetDisplayHomeAsUpEnabled(true);
         }
 
 
@@ -172,7 +174,9 @@ namespace FotoABIld.Droid
         {
             switch (item.ItemId)
             {
-
+                case Android.Resource.Id.Home:
+                    OnBackPressed();
+                    return true;
                 case Resource.Id.action_help:
                     StartActivity(new Intent(this, typeof(HelpActivity)));
 

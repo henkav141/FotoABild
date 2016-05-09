@@ -8,6 +8,7 @@ using Android.Content;
 using Android.Content.PM;
 using Android.OS;
 using Android.Runtime;
+using Android.Support.V4.App;
 using Android.Support.V7.App;
 using Android.Text;
 using Android.Views;
@@ -16,7 +17,7 @@ using Toolbar = Android.Support.V7.Widget.Toolbar;
 
 namespace FotoABIld.Droid
 {
-    [Activity(Label = "PricesSizesActivity",ConfigurationChanges = ConfigChanges.Orientation,ScreenOrientation = ScreenOrientation.Portrait)]
+    [Activity(ParentActivity = typeof(MainActivity),Label = "PricesSizesActivity",ConfigurationChanges = ConfigChanges.Orientation,ScreenOrientation = ScreenOrientation.Portrait)]
     public class PricesSizesActivity : AppCompatActivity
     {
         private Toolbar toolbar ;
@@ -50,6 +51,7 @@ namespace FotoABIld.Droid
             SetSupportActionBar(toolbar);
             SupportActionBar.SetDisplayShowTitleEnabled(false);
             SupportActionBar.SetDisplayShowHomeEnabled(true);
+            SupportActionBar.SetDisplayHomeAsUpEnabled(true);
         }
 
         private void BackButtonOnClick(object sender, EventArgs eventArgs)
@@ -60,7 +62,9 @@ namespace FotoABIld.Droid
         {
             switch (item.ItemId)
             {
-
+                case Android.Resource.Id.Home:
+                    OnBackPressed();
+                    return true;
                 case Resource.Id.action_help:
                     StartActivity(new Intent(this, typeof(HelpActivity)));
 

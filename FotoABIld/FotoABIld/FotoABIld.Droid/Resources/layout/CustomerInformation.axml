@@ -33,7 +33,7 @@
         android:id="@+id/linearLayout3"
         android:background="@android:color/white">
         <EditText
-            android:inputType="textPersonName"
+            android:inputType="textPersonName|textCapWords"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/CustomerInfoNameText"
@@ -43,7 +43,7 @@
             android:textColorHint="#1F2F40"
             android:textColor="#000000" />
         <EditText
-            android:inputType="textPersonName"
+            android:inputType="textPersonName|textCapWords"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/CustomerInfoSurnameText"
@@ -63,7 +63,7 @@
             android:textColorHint="#1F2F40"
             android:textColor="#000000" />
         <EditText
-            android:inputType="textEmailAddress"
+            android:inputType="textEmailAddress|textCapWords"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/CustomerInfoEmailText"
