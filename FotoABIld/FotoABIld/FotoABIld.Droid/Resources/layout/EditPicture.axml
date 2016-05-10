@@ -5,15 +5,9 @@
     android:layout_height="fill_parent"
     android:minWidth="25px"
     android:minHeight="25px">
-    <LinearLayout
-        android:orientation="vertical"
-        android:minWidth="25px"
-        android:minHeight="25px"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="8"
-        android:id="@+id/linearLayout6"
-        android:background="#1F2F40" />
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/ToolBar" />
     <LinearLayout
         android:orientation="vertical"
         android:minWidth="25px"
@@ -70,11 +64,12 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:id="@+id/numberLabel"
-                        android:textColor="#ffffff" />
+                        android:textColor="#ffbe1f" />
                     <NumberPicker
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:id="@+id/numberPicker1"
+                        android:theme="@style/AppTheme.Picker"
                         android:background="#1F2F40" />
                 </LinearLayout>
                 <LinearLayout
@@ -87,12 +82,13 @@
                         android:text="Välj Storlek"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textColor="#ffffff" />
+                        android:textColor="#ffbe1f" />
                     <Spinner
                         android:id="@+id/spinner"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:theme="@style/AppTheme.Picker" />
                 </LinearLayout>
             </LinearLayout>
             <LinearLayout
@@ -100,34 +96,32 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:weightSum="2">
+                android:weightSum="2"
+                android:minWidth="25px"
+                android:minHeight="25px">
                 <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:id="@+id/linearLayout8"
+                    android:paddingTop="30px"
                     android:background="#1F2F40">
                     <Button
-                        android:layout_height="match_parent"
-                        android:layout_width="match_parent"
                         android:id="@+id/cropButton"
                         android:text="Beskär Bilden"
                         android:background="#ffbe1f"
-                        android:textColor="#1F2F40" />
-                </LinearLayout>
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="match_parent"
-                    android:background="#1F2F40">
+                        android:textColor="#1F2F40"
+                        android:layout_width="50dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="1" />
                     <Button
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
                         android:text="Skapa Kopia"
                         android:id="@+id/copyButton"
                         android:background="#ffbe1f"
-                        android:textColor="#1F2F40" />
+                        android:textColor="#1F2F40"
+                        android:layout_width="50dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="1" />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>

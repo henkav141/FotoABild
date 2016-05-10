@@ -23,7 +23,9 @@ namespace FotoABIld.Droid
         public TrashListViewAdapter(Activity context, List<Order> items)
         {
             this.items = items;
+            
             this.context = context;
+            
         }
 
 
@@ -54,20 +56,20 @@ namespace FotoABIld.Droid
 
             holder.info = view.FindViewById<TextView>(Resource.Id.listItemText);
             holder.checkbox = view.FindViewById<CheckBox>(Resource.Id.listItemCheckBox);
+
             var amountHandler = new AmountHandler(items[position].Pictures);
-            var text = (items[position].Date.ToString("yyyy-M-d") + "   "
+            var text = (items[position].Date.ToString("yyyy-MM-dd") + "   "
             + amountHandler.GetTotalAmount() + " bilder" + "   "
             + PriceCalculator.CalculateTotalPrice(items[position].Pictures) + " kr");
             holder.info.Text = text;
-            holder.info.TextSize = 20;
-            holder.info.SetTextColor(Color.ParseColor("#1F2F40"));
-            var pixels = (int)context.Resources.DisplayMetrics.Density*15;
-            holder.info.SetPadding(0, 0, 0,pixels);
 
 
-            
 
-            
+
+
+
+
+
             return view;
         }
     }

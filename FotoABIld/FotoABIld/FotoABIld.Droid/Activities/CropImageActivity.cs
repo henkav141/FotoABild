@@ -11,18 +11,23 @@ using Android.Graphics;
 using Android.Graphics.Drawables;
 using Android.OS;
 using Android.Runtime;
+using Android.Support.V4.App;
+using Android.Support.V7.App;
 using Android.Views;
 using Android.Widget;
-using Lyft.Scissors;
 using Com.Isseiaoki.Simplecropview;
+using ImageViews.Photo;
 using Newtonsoft.Json;
+using Square.Picasso;
 using Environment = System.Environment;
 using File = Java.IO.File;
+using Math = Java.Lang.Math;
+using Toolbar = Android.Support.V7.Widget.Toolbar;
 
 namespace FotoABIld.Droid
 {
-    [Activity(Label = "CropImageActivity", ConfigurationChanges = ConfigChanges.Orientation, ScreenOrientation = ScreenOrientation.Portrait)]
-    public class CropImageActivity : Activity
+    [Activity(ParentActivity = typeof(EditPictureActivity),Label = "CropImageActivity", ConfigurationChanges = ConfigChanges.Orientation, ScreenOrientation = ScreenOrientation.Portrait)]
+    public class CropImageActivity : AppCompatActivity
     {
         private Pictures picture;
         private int amount;
@@ -32,8 +37,10 @@ namespace FotoABIld.Droid
         private string name;
         private CropImageView cropView;
         private bool highlightView = true;
-        private Dictionary<string, int> dictionary; 
-        
+        private Dictionary<string, int> dictionary;
+        private Toolbar toolbar;
+
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             Window.RequestFeature(WindowFeatures.NoTitle);
@@ -44,12 +51,18 @@ namespace FotoABIld.Droid
             Init();
             
         }
+        public override bool OnCreateOptionsMenu(IMenu menu)
+        {
+            MenuInflater.Inflate(Resource.Menu.ActionBarItems, menu);
+            return base.OnCreateOptionsMenu(menu);
+        }
 
         private void Init()
         {
             cropView = FindViewById<CropImageView>(Resource.Id.cropImageView);
             var finalView = FindViewById<ImageView>(Resource.Id.croppedImageView);
-            cropView.SetHandleShowMode(CropImageView.ShowMode.ShowOnTouch);
+            cropView.SetHandleShowMode(CropImageView.ShowMode.ShowAlways);
+            cropView.SetGuideShowMode(CropImageView.ShowMode.ShowOnTouch);
             Button doneButton = FindViewById<Button>(Resource.Id.doneButton);
             doneButton.Click += doneButton_Click;
 
@@ -61,8 +74,7 @@ namespace FotoABIld.Droid
             size = picture.Size;
             name = picture.Name;
 
-            var cropButton = FindViewById<Button>(Resource.Id.cropbutton1);
-            cropButton.Click += delegate { finalView.SetImageBitmap(cropView.CroppedBitmap); };
+
             
             var rotateButton = FindViewById<Button>(Resource.Id.rotateButton);
             rotateButton.Click += delegate { cropView.RotateImage(CropImageView.RotateDegrees.Rotate90d); };
@@ -75,17 +87,29 @@ namespace FotoABIld.Droid
             Button rotateCropViewButton = FindViewById<Button>(Resource.Id.rotateCropView);
             rotateCropViewButton.Click += RotateCropView;
 
+
             //Sets the image path to a bitmap, so that the picture displays on the screen.
             File imgFile = new File(position);
             if (imgFile.Exists())
             {
-                Bitmap bitMap = BitmapFactory.DecodeFile(imgFile.AbsolutePath);
                 name = imgFile.Name;
-                cropView.SetImageBitmap(bitMap);
-
+                LoadImage();
             }
+            toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
+            SetSupportActionBar(toolbar);
+            SupportActionBar.SetDisplayShowTitleEnabled(false);
+            SupportActionBar.SetDisplayShowHomeEnabled(true);
+            SupportActionBar.SetDisplayHomeAsUpEnabled(true);
+
 
         }
+
+        private void LoadImage()
+        {
+            Picasso.With(this).Load(new File(position)).Fit().CenterInside().Into(cropView);
+        }
+
+
         //Rotates the highlightview on a click.
         private void RotateCropView(object sender, EventArgs e)
         {
@@ -161,6 +185,23 @@ namespace FotoABIld.Droid
                     break;
             }
             return dictionary;
+        }
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            switch (item.ItemId)
+            {
+                case Android.Resource.Id.Home:
+                    OnBackPressed();
+                    return true;
+                case Resource.Id.action_help:
+                    StartActivity(new Intent(this, typeof(HelpActivity)));
+
+                    return true;
+
+                default:
+
+                    return OnOptionsItemSelected(item);
+            }
         }
 
     }

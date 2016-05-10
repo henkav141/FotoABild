@@ -35,6 +35,7 @@ namespace FotoABIld.Droid
 
             SummarizePictures(priceClass);
             FindViewById<TextView>(Resource.Id.finalPrice).Text = PriceCalculator.CalculateTotalPrice(order.Pictures).ToString();
+            FindViewById<TextView>(Resource.Id.orderNumberText).Text = order.OrderId;
             SetDate();
 
             
@@ -42,10 +43,9 @@ namespace FotoABIld.Droid
 
         private void SetDate()
         {
-            var datetime = DateTime.Now;
-            datetime = datetime.AddHours(1);
+
             var readyText = FindViewById<TextView>(Resource.Id.thankText);
-            readyText.Text = "Din beställning kommer att vara klar " + datetime.ToString("yyyy-MM-dd hh:mm");
+            readyText.Text = "Din beställning kommer att vara klar " + order.Date.ToString("yyyy-MM-dd hh:mm");
             var scale = Resources.DisplayMetrics.Density;
             var dpAsPixels = (int) (60*scale);
             readyText.SetPadding(0,dpAsPixels,0,0);
@@ -55,15 +55,15 @@ namespace FotoABIld.Droid
 
         public override void OnWindowFocusChanged(bool hasFocus)
         {
-            if (!opened) return;
-            opened = false;
-            var pdfcreator = new PdfHandler();
-            pdfcreator.CreateDocument(FindViewById(Resource.Id.receiptlayout));
-            File file = new File(Android.OS.Environment.ExternalStorageDirectory.AbsolutePath + "/¨test.pdf");
-            Intent intent = new Intent(Intent.ActionView);
-            intent.SetDataAndType(Uri.FromFile(file), "application/pdf");
-            intent.SetFlags(ActivityFlags.NoHistory);
-            StartActivity(intent);
+            //if (!opened) return;
+            //opened = false;
+            //var pdfcreator = new PdfHandler();
+            //pdfcreator.CreateDocument(FindViewById(Resource.Id.receiptlayout));
+            //File file = new File(Android.OS.Environment.ExternalStorageDirectory.AbsolutePath + "/¨test.pdf");
+            //Intent intent = new Intent(Intent.ActionView);
+            //intent.SetDataAndType(Uri.FromFile(file), "application/pdf");
+            //intent.SetFlags(ActivityFlags.NoHistory);
+            //StartActivity(intent);
         }
 
         private void SummarizePictures(PriceClass priceClass)

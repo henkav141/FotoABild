@@ -10,6 +10,8 @@ using Android.Content.PM;
 using Android.Graphics;
 using Android.OS;
 using Android.Runtime;
+using Android.Support.V4.App;
+using Android.Support.V7.App;
 using Android.Views;
 using Android.Widget;
 using Com.Nostra13.Universalimageloader.Cache.Memory.Impl;
@@ -20,8 +22,8 @@ using Newtonsoft.Json;
 
 namespace FotoABIld.Droid
 {
-    [Activity(Label = "ChoosePicturesActivity", ConfigurationChanges = ConfigChanges.Orientation, ScreenOrientation = ScreenOrientation.Portrait)]
-    public class ChoosePicturesActivity : Activity
+    [Activity(ParentActivity = typeof(MainActivity),Label = "ChoosePicturesActivity", ConfigurationChanges = ConfigChanges.Orientation, ScreenOrientation = ScreenOrientation.Portrait)]
+    public class ChoosePicturesActivity : AppCompatActivity
     {
         private int editIndex;
         private List<Pictures> pictureList; 
@@ -35,6 +37,8 @@ namespace FotoABIld.Droid
 
         private ImageLoader imageLoader;
         private ViewSwitcher viewSwitcher;
+        private Android.Support.V7.Widget.Toolbar toolbar;
+
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -46,6 +50,11 @@ namespace FotoABIld.Droid
             InitImageLoader();
             Init();
 
+        }
+        public override bool OnCreateOptionsMenu(IMenu menu)
+        {
+            MenuInflater.Inflate(Resource.Menu.ActionBarItems, menu);
+            return base.OnCreateOptionsMenu(menu);
         }
 
         //Initializes the imageloader with certain properties.
@@ -79,6 +88,11 @@ namespace FotoABIld.Droid
 
             viewSwitcher = FindViewById<ViewSwitcher>(Resource.Id.viewSwitcher);
             viewSwitcher.DisplayedChild = 1;
+            toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
+            SetSupportActionBar(toolbar);
+            SupportActionBar.SetDisplayShowTitleEnabled(false);
+            SupportActionBar.SetDisplayShowHomeEnabled(true);
+            SupportActionBar.SetDisplayHomeAsUpEnabled(true);
 
             Button cancelButton = FindViewById<Button>(Resource.Id.CancelButton);
             chooseButton = FindViewById<Button>(Resource.Id.ChoosePicturesButton);
@@ -132,6 +146,25 @@ namespace FotoABIld.Droid
             next.PutExtra("pictureList", objectString);
             StartActivity(next);
         }
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            switch (item.ItemId)
+            {
+                case Android.Resource.Id.Home:
+                    NavUtils.NavigateUpFromSameTask(this);
+                    return true;
+
+                case Resource.Id.action_help:
+                    StartActivity(new Intent(this, typeof(HelpActivity)));
+
+                    return true;
+                   
+                    
+                default:
+
+                    return OnOptionsItemSelected(item);
+            }
+        }
         //A method using the result of an action above
         protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
         {
@@ -161,10 +194,11 @@ namespace FotoABIld.Droid
                 dataT = new List<CustomGallery>();
                 pictureList = new List<Pictures>();
 
-                foreach (string uri in all_path)
+                foreach (var uri in all_path)
                 {
                     var item = new CustomGallery();
                     var picture = new Pictures(uri);
+                    picture.Name = System.IO.Path.GetFileNameWithoutExtension(uri) + ".jpeg";
                     
                     pictureList.Add(picture);
                    

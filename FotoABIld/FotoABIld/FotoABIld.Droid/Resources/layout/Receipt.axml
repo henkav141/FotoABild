@@ -31,8 +31,9 @@
             android:textSize="20dp"
             android:textColor="#000000"
             android:padding="10dp"
-            android:text="Ordernummer:5043398b"
-            android:gravity="center" />
+            android:text="Ordernummer:"
+            android:gravity="center"
+            android:id="@+id/orderNumberText" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"

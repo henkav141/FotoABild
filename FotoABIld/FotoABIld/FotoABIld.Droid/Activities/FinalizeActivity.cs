@@ -9,22 +9,28 @@ using Android.Content.PM;
 using Android.Graphics;
 using Android.OS;
 using Android.Runtime;
+using Android.Support.V4.App;
+using Android.Support.V7.App;
 using Android.Util;
 using Android.Views;
 using Android.Widget;
 using FotoABIld.Droid.UITools;
 using Newtonsoft.Json;
 using Java.IO;
+using Environment = Android.OS.Environment;
+using Toolbar = Android.Support.V7.Widget.Toolbar;
 
 namespace FotoABIld.Droid
 {
-    [Activity(Label = "FinalizeActivity", ConfigurationChanges = ConfigChanges.Orientation, ScreenOrientation = ScreenOrientation.Portrait)]
-    public class FinalizeActivity : Activity
+    [Activity(ParentActivity = typeof(CustomGalleryActivity),Label = "FinalizeActivity", ConfigurationChanges = ConfigChanges.Orientation, ScreenOrientation = ScreenOrientation.Portrait)]
+    public class FinalizeActivity : AppCompatActivity
     {
         private TextView nameSurname;
         private TextView phoneNumber;
         private TextView email;
-        private Order order; 
+        private Order order;
+        private Toolbar toolbar;
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             Window.RequestFeature(WindowFeatures.NoTitle);
@@ -36,6 +42,11 @@ namespace FotoABIld.Droid
             Init();
             var priceClass = new PriceClass(order.Pictures);
             SummarizePictures(priceClass);
+        }
+        public override bool OnCreateOptionsMenu(IMenu menu)
+        {
+            MenuInflater.Inflate(Resource.Menu.ActionBarItems, menu);
+            return base.OnCreateOptionsMenu(menu);
         }
 
         private void Init()
@@ -54,6 +65,11 @@ namespace FotoABIld.Droid
 
             cancelButton.Click += CancelButton_Click;
             placeOrderButton.Click += placeOrderButton_Click;
+            toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
+            SetSupportActionBar(toolbar);
+            SupportActionBar.SetDisplayShowTitleEnabled(false);
+            SupportActionBar.SetDisplayShowHomeEnabled(true);
+            SupportActionBar.SetDisplayHomeAsUpEnabled(true);
         }
 
 
@@ -121,24 +137,55 @@ namespace FotoABIld.Droid
 
         void placeOrderButton_Click(object sender, EventArgs e)
         {
-            const string folderName = "FotoABildKvitton";
-            
-            var file = new File(Android.OS.Environment.ExternalStorageDirectory, folderName);
-            if (!file.Exists())
+            order.Date = 
+            order.Date.AddHours(1);
+            try
             {
-                file.Mkdirs();
+                
+               var currentOrders =  Serializer<List<Order>>.DeSerialize(FilesDir + "/FotoABildKvitton");
+               currentOrders.Add(order);
+                Serializer<List<Order>>.Serialize(currentOrders,FilesDir + "/FotoABildKvitton");
+                
+
             }
-            var filePath = Android.OS.Environment.ExternalStorageDirectory + "/FotoABildKvitton/" + order.Email + order.Surname + order.Pictures.Count;
-            var xmlWriter = new Serializer<Order>();
-            xmlWriter.Serialize(order, filePath);
-            var intent = new Intent(this,typeof(ReceiptActivity));
-            intent.PutExtra("order", Intent.GetStringExtra("order"));
-            StartActivity(intent);
+            catch
+            {
+                System.Console.WriteLine("Could not save orders");
+            }
+
+
+            var filepath = Environment.ExternalStorageDirectory.AbsolutePath + "/" + order.OrderId + "/";
+            OrderHandler.CreateOutputFolder(filepath);
+            OrderHandler.FillOutPutFolder(order, filepath);
+            var lacHandler = new LacHandler(order, filepath + order.OrderId + ".LAC",filepath);
+            lacHandler.CreateLacFile();
+
+
+            //var intent = new Intent(this,typeof(ReceiptActivity));
+            //intent.PutExtra("order", Intent.GetStringExtra("order"));
+            //StartActivity(intent);
 
         }
         private void CancelButton_Click(object sender, EventArgs e)
         {
             Finish();
+        }
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            switch (item.ItemId)
+            {
+                case Android.Resource.Id.Home:
+                    OnBackPressed();
+                    return true;
+                case Resource.Id.action_help:
+                    StartActivity(new Intent(this, typeof(HelpActivity)));
+
+                    return true;
+
+                default:
+
+                    return OnOptionsItemSelected(item);
+            }
         }
     }
 }

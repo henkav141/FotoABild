@@ -8,6 +8,7 @@ using Android.Content;
 using Android.Graphics;
 using Android.OS;
 using Android.Runtime;
+using Android.Util;
 using Android.Views;
 using Android.Widget;
 
@@ -22,6 +23,8 @@ namespace FotoABIld.Droid
 
         {
             this.items = items;
+            this.items.Reverse();
+            
             this.context = context;
         }
 
@@ -42,14 +45,14 @@ namespace FotoABIld.Droid
         {
             var view = convertView;
             if (view == null) 
-                view = context.LayoutInflater.Inflate(Android.Resource.Layout.SimpleListItem1, null);
-            var textView = view.FindViewById<TextView>(Android.Resource.Id.Text1);
+                view = context.LayoutInflater.Inflate(Resource.Layout.OrderHistoryListItem, null);
+            var textView = view.FindViewById<TextView>(Resource.Id.listItemText);
             var amountHandler = new AmountHandler(items[position].Pictures);
-            var text = (items[position].Date.ToString("yyyy-M-d") + "   " 
+            var text = (items[position].Date.ToString("yyyy-MM-dd") + "   " 
                     + amountHandler.GetTotalAmount() + " bilder" + "   "
                     + PriceCalculator.CalculateTotalPrice(items[position].Pictures) + " kr");
             textView.Text = text;
-
+            textView.SetTextSize(ComplexUnitType.Dip,20);
             textView.SetTextColor(Color.ParseColor("#1F2F40"));
 
             return view;    

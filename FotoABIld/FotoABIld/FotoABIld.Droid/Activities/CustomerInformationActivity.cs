@@ -8,14 +8,17 @@ using Android.Content;
 using Android.Content.PM;
 using Android.OS;
 using Android.Runtime;
+using Android.Support.V4.App;
+using Android.Support.V7.App;
 using Android.Views;
 using Android.Widget;
 using Newtonsoft.Json;
+using Toolbar = Android.Support.V7.Widget.Toolbar;
 
 namespace FotoABIld.Droid
 {
-    [Activity(Label = "CustomerInformationActivity", ConfigurationChanges = ConfigChanges.Orientation, ScreenOrientation = ScreenOrientation.Portrait)]
-    public class CustomerInformationActivity : Activity
+    [Activity(ParentActivity = typeof(ChoosePicturesActivity),Label = "CustomerInformationActivity", ConfigurationChanges = ConfigChanges.Orientation, ScreenOrientation = ScreenOrientation.Portrait)]
+    public class CustomerInformationActivity : AppCompatActivity
     {
         private Button cancelButton;
         private Button nextButton;
@@ -23,6 +26,8 @@ namespace FotoABIld.Droid
         private TextView surnameText;
         private TextView phoneNumber;
         private TextView emailText;
+        private Toolbar toolbar;
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             Window.RequestFeature(WindowFeatures.NoTitle);
@@ -33,6 +38,11 @@ namespace FotoABIld.Droid
 
 
             Init();
+        }
+        public override bool OnCreateOptionsMenu(IMenu menu)
+        {
+            MenuInflater.Inflate(Resource.Menu.ActionBarItems, menu);
+            return base.OnCreateOptionsMenu(menu);
         }
 
         private void Init()
@@ -46,7 +56,13 @@ namespace FotoABIld.Droid
 
             cancelButton.Click += CancelButton_Click;
             nextButton.Click += NextButton_Click;
+            toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
+            SetSupportActionBar(toolbar);
+            SupportActionBar.SetDisplayShowTitleEnabled(false);
+            SupportActionBar.SetDisplayShowHomeEnabled(true);
+            SupportActionBar.SetDisplayHomeAsUpEnabled(true);
         }
+
 
 
 
@@ -65,6 +81,23 @@ namespace FotoABIld.Droid
             var next = new Intent(this, typeof(FinalizeActivity));
             next.PutExtra("order", objectString);
             StartActivity(next);
+        }
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            switch (item.ItemId)
+            {
+                case Android.Resource.Id.Home:
+                    OnBackPressed();
+                    return true;
+                case Resource.Id.action_help:
+                    StartActivity(new Intent(this, typeof(HelpActivity)));
+
+                    return true;
+
+                default:
+
+                    return OnOptionsItemSelected(item);
+            }
         }
     }
 }

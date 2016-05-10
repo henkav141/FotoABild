@@ -51,6 +51,9 @@
       <HintPath>..\..\packages\Newtonsoft.Json.8.0.3\lib\portable-net40+sl5+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="PhotoView">
+      <HintPath>..\..\Components\PhotoView-1.2.4\lib\android\PhotoView.dll</HintPath>
+    </Reference>
     <Reference Include="Plugin.CurrentActivity, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Plugin.CurrentActivity.1.0.1\lib\MonoAndroid10\Plugin.CurrentActivity.dll</HintPath>
       <Private>True</Private>
@@ -64,7 +67,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Square.OkHttp, Version=2.4.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Square.OkHttp.2.4.0.0\lib\MonoAndroid\Square.OkHttp.dll</HintPath>
+      <HintPath>..\..\packages\Square.OkHttp.2.4.0.1\lib\MonoAndroid\Square.OkHttp.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Square.OkIO, Version=1.5.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -85,6 +88,10 @@
     </Reference>
     <Reference Include="Xamarin.Android.Support.v4, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Xamarin.Android.Support.v4.23.1.1.1\lib\MonoAndroid403\Xamarin.Android.Support.v4.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.v7.AppCompat, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xamarin.Android.Support.v7.AppCompat.23.1.1.1\lib\MonoAndroid403\Xamarin.Android.Support.v7.AppCompat.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>
@@ -271,11 +278,39 @@
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_launcher.png" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\no_media.jpg" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\top_bar.png" />
-    <AndroidResource Include="Resources\layout\ListItem.xml" />
     <AndroidResource Include="Resources\drawable-hdpi\trash_can.png" />
     <AndroidResource Include="Resources\layout\TrashCheckBox.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
+    <AndroidResource Include="Resources\layout\OrderHistoryListItem.xml" />
+    <AndroidResource Include="Resources\Menu\ActionBarMenuOrderHistory.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\ToolBar.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-hdpi\ic_delete_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_delete_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_delete_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_delete_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_delete_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_help_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_help_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_help_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_help_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_help_white_24dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_help_white_18dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_help_white_18dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_help_white_18dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_help_white_18dp.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_help_white_18dp.png" />
+    <AndroidResource Include="Resources\Menu\ActionBarItems.xml" />
+    <AndroidResource Include="Resources\layout\SpinnerItem.xml" />
+    <AndroidResource Include="Resources\layout\HamburgerMenu.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\drawer_list_item.xml" />
+    <AndroidResource Include="Resources\layout\PopUp.xml" />
     <Content Include="UniversalImageLoader.dll" />
   </ItemGroup>
   <ItemGroup>
@@ -285,11 +320,20 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <XamarinComponentReference Include="Lyft.Scissors.Picasso">
+    <XamarinComponentReference Include="PhotoView">
       <Visible>False</Visible>
-      <Version>1.0.1.0</Version>
+      <Version>1.2.4</Version>
+    </XamarinComponentReference>
+    <XamarinComponentReference Include="square.picasso">
+      <Visible>False</Visible>
+      <Version>2.5.2.2</Version>
+    </XamarinComponentReference>
+    <XamarinComponentReference Include="xamandroidsupportv7appcompat">
+      <Visible>False</Visible>
+      <Version>23.1.1.1</Version>
     </XamarinComponentReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="..\FotoABIld\FotoABIld.projitems" Label="Shared" Condition="Exists('..\FotoABIld\FotoABIld.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
 </Project>

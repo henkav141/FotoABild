@@ -6,22 +6,16 @@
     android:layout_height="fill_parent"
     android:minWidth="25px"
     android:minHeight="25px">
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/ToolBar" />
     <LinearLayout
         android:orientation="vertical"
         android:minWidth="25px"
         android:minHeight="25px"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="8"
-        android:id="@+id/linearLayout6"
-        android:background="#1F2F40" />
-    <LinearLayout
-        android:orientation="vertical"
-        android:minWidth="25px"
-        android:minHeight="25px"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="12"
+        android:layout_weight="10"
         android:id="@+id/linearLayout2"
         android:background="#ffd042">
         <ImageView
@@ -43,7 +37,7 @@
         <com.isseiaoki.simplecropview.CropImageView
             android:id="@+id/cropImageView"
             android:layout_width="match_parent"
-            android:layout_height="270dp"
+            android:layout_height="350dp"
             app:cropMode="ratio_1_1"
             android:padding="10dp" />
         <ImageView
@@ -78,14 +72,6 @@
             android:background="#ffbe1f"
             android:layout_width="50dp"
             android:layout_height="40dp"
-            android:layout_weight="1" />
-        <Button
-            android:id="@+id/cropbutton1"
-            android:text="Beskär"
-            android:layout_width="50dp"
-            android:layout_height="40dp"
-            android:textColor="#1F2F40"
-            android:background="#ffbe1f"
             android:layout_weight="1" />
         <Button
             android:text="Klar"

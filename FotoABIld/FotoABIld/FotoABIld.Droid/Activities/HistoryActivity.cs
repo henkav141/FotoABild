@@ -11,18 +11,32 @@ using Android.Graphics;
 using Android.Graphics.Drawables;
 using Android.OS;
 using Android.Runtime;
+using Android.Support.V4.App;
+using Android.Support.V7.App;
+using Android.Util;
 using Android.Views;
 using Android.Widget;
 using FotoABIld.Droid.Resources.layout;
 using FotoABIld.Droid.UITools;
+using Java.Lang;
 using Newtonsoft.Json;
 
 namespace FotoABIld.Droid
 {
-    [Activity(Label = "HistoryActivity", ConfigurationChanges = ConfigChanges.Orientation, ScreenOrientation = ScreenOrientation.Portrait)]
-    public class HistoryActivity : Activity
+    [Activity(ParentActivity = typeof(MainActivity),Label = "HistoryActivity",Theme ="@style/AppBaseTheme",ConfigurationChanges = ConfigChanges.Orientation, ScreenOrientation = ScreenOrientation.Portrait)]
+    public class HistoryActivity : AppCompatActivity
     {
         private ListView listView;
+        private List<Order> orders;
+        private Button homeButton;
+        private Button deleteHistoryButton;
+        private ViewSwitcher buttonViewSwitcher;
+        private ViewSwitcher listViewSwitcher;
+        private ListView deleteListView ;
+        private LayoutAdapter adapter;
+        private TrashListViewAdapter deleteAdapter;
+        private Android.Support.V7.Widget.Toolbar toolbar;  
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             Window.RequestFeature(WindowFeatures.NoTitle);
@@ -30,32 +44,101 @@ namespace FotoABIld.Droid
             base.OnCreate(savedInstanceState);
 
             SetContentView(Resource.Layout.OrderHistory);
+            
             Init();
+        }
+        public override bool OnCreateOptionsMenu(IMenu menu)
+        {
+            MenuInflater.Inflate(Resource.Menu.ActionBarMenuOrderHistory,menu);
+            return base.OnCreateOptionsMenu(menu);
         }
 
         private void Init()
         {
-            var homeButton = FindViewById<Button>(Resource.Id.HomeButton);
-            CreateOrderLayouts();
-            
-            homeButton.Click += homeButton_Click;
+             homeButton = FindViewById<Button>(Resource.Id.HomeButton);
+            deleteHistoryButton = FindViewById<Button>(Resource.Id.RemoveHistoryButton);
+            buttonViewSwitcher = FindViewById<ViewSwitcher>(Resource.Id.buttonViewSwitcher);
+            listViewSwitcher = FindViewById<ViewSwitcher>(Resource.Id.itemListViewSwitcher);
             listView = FindViewById<ListView>(Resource.Id.orderListView);
-            var adapter = new LayoutAdapter(this, GetOrders());
+            deleteListView = FindViewById<ListView>(Resource.Id.deleteListView);
+            //var trashCan = FindViewById<ImageView>(Resource.Id.trashCanIcon);
+            toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
+            SetSupportActionBar(toolbar);
+            SupportActionBar.SetDisplayShowTitleEnabled(false);
+            SupportActionBar.SetDisplayShowHomeEnabled(true);
+            SupportActionBar.SetDisplayHomeAsUpEnabled(true);
+
+
+            orders = GetOrders();
+            homeButton.Click += homeButton_Click;
+            deleteHistoryButton.Click += deleteHistoryButton_Click;
+            adapter = new LayoutAdapter(this, orders);
+            deleteAdapter = new TrashListViewAdapter(this,orders);
             listView.Adapter = adapter;
+
             listView.ItemClick += listView_ItemClick;
-            var trashCan = FindViewById<ImageView>(Resource.Id.trashCanIcon);
-            trashCan.Click += trashCan_Click;
+            deleteListView.Adapter = deleteAdapter;
+            deleteListView.ChoiceMode = ChoiceMode.Multiple;
+            deleteListView.ItemClick +=deleteListView_ItemClick;
+            //trashCan.Click += trashCan_Click;
+
         }
 
-        void trashCan_Click(object sender, EventArgs e)
+        private void deleteListView_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
-            listView.Adapter = new TrashListViewAdapter(this,GetOrders());
+            var listItem = (RelativeLayout)deleteListView.GetChildAt(e.Position - deleteListView.FirstVisiblePosition);
+            var checkbox = (CheckBox)listItem.GetChildAt(listItem.ChildCount -1);
+           checkbox.Toggle();
         }
+
+        private void deleteHistoryButton_Click(object sender, EventArgs e)
+        {
+            var checkedList = deleteListView.CheckedItemPositions;
+            var positions = new List<int>();
+            if (checkedList != null)
+            {
+                for (var i = 0; i < checkedList.Size(); i++)
+                {
+                    if(checkedList.ValueAt(i))
+                    {
+                        positions.Add(checkedList.KeyAt(i));
+                        
+                    }
+                }
+            }
+
+            foreach (var position in positions.OrderByDescending(v=>v))
+            {
+                orders.Remove(orders[position]);
+            }
+            adapter.NotifyDataSetChanged();
+            deleteAdapter.NotifyDataSetChanged();
+            listViewSwitcher.ShowNext();
+            buttonViewSwitcher.ShowNext();
+            RemoveChecked();
+
+            
+                Serializer <List<Order>>.Serialize(orders, FilesDir + "/FotoABildKvitton");
+            
+
+        }
+
+        private void RemoveChecked()
+        {
+            for (var i = 0; i < deleteListView.ChildCount-1; i++)
+            {
+                var listItem = (RelativeLayout)deleteListView.GetChildAt(i - deleteListView.FirstVisiblePosition);
+                var checkbox = (CheckBox) listItem.GetChildAt(listItem.ChildCount - 1);
+                checkbox.Checked = false;
+            }
+        }
+
+
 
         void listView_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
             var intent = new Intent(this, typeof (OrderHistoryItemActivity));
-            var objectString = JsonConvert.SerializeObject(GetOrders()[e.Position]);
+            var objectString = JsonConvert.SerializeObject(orders[e.Position]);
             intent.PutExtra("order", objectString);
             StartActivity(intent);
 
@@ -66,71 +149,39 @@ namespace FotoABIld.Droid
         }
 
 
-        private void CreateOrderLayouts()
-        {
-            var lPHorizontal = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MatchParent,
-                ViewGroup.LayoutParams.WrapContent);
-            var lPTextView = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WrapContent,
-                ViewGroup.LayoutParams.WrapContent);
-            
-            foreach (var order in GetOrders())
-            {
-
-                var amountHandler = new AmountHandler(order.Pictures);
-
-                var horizontalLinearLayout = ViewCreator.CreateLinearLayout(this, lPHorizontal,Orientation.Horizontal);
-                horizontalLinearLayout.SetGravity(GravityFlags.CenterHorizontal);
-                horizontalLinearLayout.SetPadding(0,10,0,0);
-                
-
-                var dateText = ViewCreator.CreateTextView(GravityFlags.NoGravity, lPTextView,
-                    order.Date.ToString("yyyy-M-d"), this,20, (Color.ParseColor("#1F2F40")));
-                
-                dateText.PaintFlags = PaintFlags.UnderlineText;
-
-
-                var amountText = ViewCreator.CreateTextView(GravityFlags.NoGravity, lPTextView,
-                    "   " + amountHandler.GetTotalAmount() + " bilder", this, 20, (Color.ParseColor("#1F2F40")));
-                
-                amountText.PaintFlags = PaintFlags.UnderlineText;
-
-                var priceText = ViewCreator.CreateTextView(GravityFlags.NoGravity, lPTextView,
-                    "   " + PriceCalculator.CalculateTotalPrice(order.Pictures) + " kr", this,20, (Color.ParseColor("#1F2F40")));
-
-                
-                priceText.PaintFlags = PaintFlags.UnderlineText;
-                
-
-                horizontalLinearLayout.AddView(dateText);
-                horizontalLinearLayout.AddView(amountText);
-                horizontalLinearLayout.AddView(priceText);
-                //orderHistoryView.AddView(horizontalLinearLayout);
-
-
-
-            }
-        }
-
         private List<Order> GetOrders()
         {
-            var xmlserializer = new Serializer<Order>();
-            var filepath = Android.OS.Environment.ExternalStorageDirectory + "/FotoABildKvitton/";
-            var filenames = GetFileNames(filepath);
-            var orders = filenames.Select(filename => xmlserializer.DeSerialize(filepath + "/" + filename)).ToList();
 
-            foreach (var order in orders)
-            {
-                  Console.WriteLine(order.Pictures.Count);
-            }
+            var filepath = FilesDir + "/FotoABildKvitton";
+
+            orders = Serializer<List<Order>>.DeSerialize(filepath);
             return orders;
         }
-
-        private List<string> GetFileNames(string filePath)
+       
+public override bool OnOptionsItemSelected(IMenuItem item)
         {
-            var directoryInfo = new DirectoryInfo(filePath);
-            //var filenames = Directory.GetFiles(filePath, "*.xml");
+            switch (item.ItemId)
+            {
+                case Android.Resource.Id.Home:
+                    NavUtils.NavigateUpFromSameTask(this);
+                    return true;
+                case Resource.Id.action_delete:
+                    listViewSwitcher.ShowNext();
+                    buttonViewSwitcher.ShowNext();
+                    return true;
 
-            return directoryInfo.GetFiles().Select(item => item.Name).ToList();
-        } 
+                case Resource.Id.action_help:
+                    
+                    StartActivity(new Intent(this, typeof(HelpActivity)));
+                    return true;
+
+                default:
+
+                    return OnOptionsItemSelected(item);
+            }
+        }
+
+
+
     }
 }

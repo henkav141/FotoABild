@@ -5,22 +5,9 @@
     android:layout_height="fill_parent"
     android:minWidth="25px"
     android:minHeight="25px">
-    <LinearLayout
-        android:orientation="vertical"
-        android:minWidth="25px"
-        android:minHeight="25px"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="8"
-        android:id="@+id/linearLayout6"
-        android:background="#1F2F40">
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:src="@drawable/trash_can"
-            android:layout_gravity="right"
-            android:id="@+id/trashCanIcon" />
-    </LinearLayout>
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/ToolBar" />
     <LinearLayout
         android:orientation="vertical"
         android:minWidth="25px"
@@ -53,30 +40,52 @@
             android:id="@+id/textView1"
             android:textColor="#000000"
             android:layout_gravity="center_horizontal" />
-        <ListView
+        <ViewSwitcher
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/orderListView"
-            android:divider="#1F2F40"
-            android:dividerHeight="1dp" />
+            android:layout_height="match_parent"
+            android:id="@+id/itemListViewSwitcher">
+            <ListView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/orderListView"
+                android:divider="#1F2F40"
+                android:dividerHeight="1dp" />
+            <ListView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/deleteListView"
+                android:divider="#1F2F40"
+                android:dividerHeight="1dp" />
+        </ViewSwitcher>
     </LinearLayout>
     <LinearLayout
         android:orientation="horizontal"
-        android:minWidth="25px"
-        android:minHeight="25px"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:layout_weight="5"
         android:id="@+id/linearLayout4"
         android:background="#1F2F40"
         android:paddingTop="50px">
-        <Button
-            android:text="Hem"
-            android:layout_width="50dp"
-            android:layout_height="40dp"
-            android:id="@+id/HomeButton"
-            android:background="#ffbe1f"
-            android:textColor="#1F2F40"
-            android:layout_weight="1" />
+        <ViewSwitcher
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/buttonViewSwitcher">
+            <Button
+                android:text="Hem"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:id="@+id/HomeButton"
+                android:background="#ffbe1f"
+                android:textColor="#1F2F40"
+                android:layout_weight="1" />
+            <Button
+                android:text="Ta bort historik"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:id="@+id/RemoveHistoryButton"
+                android:background="#ffbe1f"
+                android:textColor="#1F2F40"
+                android:layout_weight="1" />
+        </ViewSwitcher>
     </LinearLayout>
 </LinearLayout>
