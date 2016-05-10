@@ -24,6 +24,7 @@ namespace FotoABIld.Droid
         private DrawerLayout drawerLayout;
         private ListView drawerListView;
         private ActionBarDrawerToggle drawerToggle;
+        private PopupWindow popupWindow;
 
         protected override void OnCreate(Bundle bundle)
         {
@@ -132,8 +133,15 @@ namespace FotoABIld.Droid
             {
 
                 case Resource.Id.action_help:
-                    StartActivity(new Intent(this, typeof(HelpActivity)));
-
+                    //StartActivity(new Intent(this, typeof(HelpActivity)));
+                    var popupView = LayoutInflater.Inflate(Resource.Layout.PopUp, null);
+                    popupWindow = new PopupWindow(popupView,ViewGroup.LayoutParams.MatchParent, ViewGroup.LayoutParams.MatchParent);
+                    
+                    //var dismiss = FindViewById<Button>(Resource.Id.dismiss);
+                    //dismiss.Click += (sender, args) => popupWindow.Dismiss();
+                    popupWindow.ShowAsDropDown(FindViewById<LinearLayout>(Resource.Id.linearLayout2),50,50);
+                    
+                    
                     return true;
 
                 default:
@@ -141,6 +149,7 @@ namespace FotoABIld.Droid
                     return OnOptionsItemSelected(item);
             }
         }
+
 
     }
 }
