@@ -13,7 +13,8 @@
     <item>24x30(vit kant)</item>
     <item>25x38</item>
   </string-array>
-  <string name="priceandsize"> <![CDATA[<p><strong>Våra storlekar på blankt papper:</strong></p>
+  <string name="priceandsize"> <![CDATA[
+  <p><strong>Våra storlekar på blankt papper:</strong></p>
 <ul>
 <li>10 x 15 cm(10,2 x 15,2)</li><br/>
 <li>11 x 15 cm (11,4 x 15,2)</li><br/>
@@ -52,7 +53,8 @@
 <li>100kr/st</li><br/>
 <li>3 st vid samma tillfälle 210 kr</li><br/>
 <li>10 st eller fler vid samma tillfälle 40kr/st</li><br/>
-</ul>]]></string>
+</ul>]]>
+  </string>
   <string name ="date">
     <u>2016-04-04</u>
   </string>
@@ -61,6 +63,37 @@
   </string>
   <string name ="price">
     <u> | 160;- </u>
+  </string>
+  <string name="mainPageHelp">
+      <![CDATA[
+    <p>
+    FotoABild hjälper dig att snabbt och smidigt framkalla bilder från mobilens fotoalbum. 
+    Ordern skapas i mobilen men betalas sedan i affär. För att beställa bilder så går du igenom de här stegen.
+    </p>
+    </br>
+    </br>
+    </br>
+    <ol type=1>
+      <li> 1.Klicka på beställ kort</li>    <br/>
+      <li> 2.Klicka på "Välj bilder" och markera de bilder du vill ha framkallade</li>    <br/>
+      <li> 3.Ändra egenskaper på bilderna genom att klicka på dem. Här kan du ändra antal, storlek och även beskära bilderna. 
+      Om du vill ha samma bild i olika format eller olika beskurna så kan du även kopiera bilden här.</li>    <br/>
+      <li> 4.Fyll i dina användaruppgifter</li>    <br/>
+      <li> 5.Gå noga igenom beställningen och klicka sedan på Beställ</li>    <br/>
+      <li> 6.Då skickas bilderna till butiken för framkallning, som du kan hämta ut. Ett kvitto skickas även till din e-postadress
+      </li>    <br/>
+    </ol>
+    Om du stöter på problem finns det mer detaljerade hjälprutor för varje steg i beställningen.
+    <br/>
+        <br/>
+            <br/>
+                <br/>
+                    <br/>
+                        <br/>
+    
+    <strong>Datahantering</strong>
+    <p> När beställningen läggs så kan det använda en stor datamängd. Därför rekommenderar vi att du är ansluten till ett Wi-fi för att lägga en beställning.
+    ]]>
   </string>
 
 </resources>

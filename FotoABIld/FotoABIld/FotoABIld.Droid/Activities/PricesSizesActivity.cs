@@ -30,7 +30,6 @@ namespace FotoABIld.Droid
             SetContentView(Resource.Layout.PricesSizes);
             Init();
 
-            // Create your application here
         }
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
