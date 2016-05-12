@@ -31,17 +31,20 @@ namespace FotoABIld.Droid.Activities
             var width = displaymetrics.WidthPixels;
             var height = displaymetrics.HeightPixels;
 
-            Window.SetLayout((int) (0.8*width), (int) (0.8*height));
-
+            Window.SetLayout((int) (0.8*width),(int) (0.5*height));
 
             text = FindViewById<TextView>(Resource.Id.popupText);
-            var htmlasstring = GetString(Resource.String.mainPageHelp);
+            text.Click += Text_Click;
+            var htmlasstring = GetString(Resource.String.cropImageHelp);
             var htmlSpanned = Html.FromHtml(htmlasstring);
             text.SetText(htmlSpanned, TextView.BufferType.Spannable);
-
-
-
-
         }
+
+        private void Text_Click(object sender, EventArgs e)
+        {
+            Finish();
+        }
+
+
     }
 }

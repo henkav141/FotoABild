@@ -98,7 +98,9 @@ namespace FotoABIld.Droid
             var copyImage = new Pictures(position,0,"10x15",copyImageName,"-2");
             var bundle = new Bundle();
             var objectString = JsonConvert.SerializeObject(copyImage);
-            bundle.PutString("picture", objectString);
+            var objectString2 = JsonConvert.SerializeObject(picture);
+            bundle.PutString("pictureCopy", objectString);
+            bundle.PutString("picture", objectString2);
             bundle.PutBoolean("bool",false);
             var intent = new Intent().PutExtra("bundle", bundle);
             SetResult(Result.Ok,intent);

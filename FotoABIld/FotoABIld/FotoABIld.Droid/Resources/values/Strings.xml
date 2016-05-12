@@ -66,6 +66,7 @@
   </string>
   <string name="mainPageHelp">
       <![CDATA[
+                    <h2> Foto A-Bild<h2/> </br>
     <p>
     FotoABild hjälper dig att snabbt och smidigt framkalla bilder från mobilens fotoalbum. 
     Ordern skapas i mobilen men betalas sedan i affär. För att beställa bilder så går du igenom de här stegen.
@@ -94,6 +95,45 @@
     <strong>Datahantering</strong>
     <p> När beställningen läggs så kan det använda en stor datamängd. Därför rekommenderar vi att du är ansluten till ett Wi-fi för att lägga en beställning.
     ]]>
+  </string>
+  
+  <string name ="choosePictureHelp">
+    <![CDATA[
+              <h2> Välj Bilder<h2/> <br/>
+    <p>För att välja bilder tryck på <b>"Välj Bilder"</b>. <br/><br/> \n
+    Markera sedan de bilder du vill framkalla. När kryssrutan är bockad så är den vald. <br/>
+    <br/>\n
+    När du har valt alla bilder du vill framkalla trycker du på <b>"Klar"</b> för att bekräfta dina val.<br/><br/> \n
+    För att Beskära, Kopiera,<br/>Ändra Storlek eller Ändra Antal så trycker du på den bild som ska modifieras.<br/><br/>\n
+    \n
+    </p>]]>
+  
+  </string>
+  <string name ="editPictureHelp">
+    <![CDATA[
+                  <h2> Ändra Bilder<h2/> <br/>
+    <p>
+    Ändra Antal: Bestäm antal bilder genom att antingen dra snurran till det antal som önskas.<br/>
+    <br/>
+    Ändra Storlek: Bestäm storleken av bilden genom att öppna menyn och välja storlek.<br/>
+    <br/>
+    Kopiera: Kopiera bilden för att ställa ha samma bild med olika storlekar eller annan beskärning.<br/>
+    <br/>
+    Beskär Bild: Här finns möjligheten att beskära bilden i den storlek som är vald. Du måste bestämma storlek innan beskärning.
+    
+    
+    </p>]]>
+  </string>
+  <string name ="cropImageHelp">
+    <![CDATA[ <h2> Beskär Bilder<h2/> <br/>
+    <p>
+    <b> OBS </b>
+    <br/>
+    För att beskära en bild i rätt storlek måste det bestämmas tidigare.
+    <br/
+    Genom att dra beskärningsvyn över det område av bilden som du vill använda. <br/>
+    Du kan även rotera både beskärningsvyn och bilden <br/>för att förenkla processen. <br/>
+    När du är nöjd trycker du på <b>Klar</b>-knappen för att avsluta beskärningen. ]]>
   </string>
 
 </resources>

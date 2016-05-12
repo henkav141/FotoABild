@@ -218,14 +218,15 @@ namespace FotoABIld.Droid
                     
                     var picture = JsonConvert.DeserializeObject<Pictures>(bundle.GetString("picture"));
                     pictureList[editIndex] = picture;
-                    dataT[editIndex].SdCardPath = picture.FilePath;
-                    adapter.AddAll(dataT);
+                    adapter.NotifyDataSetChanged();
                 }
                 else
                 {
+                    var pictureCopy = JsonConvert.DeserializeObject<Pictures>(bundle.GetString("pictureCopy"));
                     var picture = JsonConvert.DeserializeObject<Pictures>(bundle.GetString("picture"));
-                    pictureList.Add(picture);
-                    var item = new CustomGallery {SdCardPath = picture.FilePath};
+                    pictureList[editIndex] = picture;
+                    pictureList.Add(pictureCopy);
+                    var item = new CustomGallery {SdCardPath = pictureCopy.FilePath};
                     dataT.Add(item);
                     adapter.AddAll(dataT);
                 }
