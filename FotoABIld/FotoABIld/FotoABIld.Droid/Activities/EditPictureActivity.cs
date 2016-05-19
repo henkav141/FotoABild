@@ -17,6 +17,7 @@ using Android.Widget;
 using Com.Nostra13.Universalimageloader.Cache.Memory.Impl;
 using Com.Nostra13.Universalimageloader.Core;
 using Com.Nostra13.Universalimageloader.Core.Assist;
+using FotoABIld.Droid.Activities;
 using Java.IO;
 using Newtonsoft.Json;
 using Square.Picasso;
@@ -95,7 +96,7 @@ namespace FotoABIld.Droid
         void copyButton_Click(object sender, EventArgs e)
         {
             var copyImageName = pictureName + "copy";
-            var copyImage = new Pictures(position,0,"10x15",copyImageName,"-2");
+            var copyImage = new Pictures(picture.FilePath,0,"10x15",copyImageName,"-2");
             var bundle = new Bundle();
             var objectString = JsonConvert.SerializeObject(copyImage);
             var objectString2 = JsonConvert.SerializeObject(picture);
@@ -179,7 +180,9 @@ namespace FotoABIld.Droid
                     OnBackPressed();
                     return true;
                 case Resource.Id.action_help:
-                    StartActivity(new Intent(this, typeof(HelpActivity)));
+                    var intent = new Intent(this, typeof(HelpPopupActivity));
+                    intent.PutExtra("help", GetString(Resource.String.editPictureHelp));
+                    StartActivity(intent);
 
                     return true;
 

@@ -35,7 +35,7 @@ namespace FotoABIld.Droid.Activities
 
             text = FindViewById<TextView>(Resource.Id.popupText);
             text.Click += Text_Click;
-            var htmlasstring = GetString(Resource.String.cropImageHelp);
+            var htmlasstring = Intent.GetStringExtra("help");
             var htmlSpanned = Html.FromHtml(htmlasstring);
             text.SetText(htmlSpanned, TextView.BufferType.Spannable);
         }

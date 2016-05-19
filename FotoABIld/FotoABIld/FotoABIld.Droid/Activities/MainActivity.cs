@@ -134,14 +134,9 @@ namespace FotoABIld.Droid
             {
 
                 case Resource.Id.action_help:
-                    //StartActivity(new Intent(this, typeof(HelpActivity)));
-                    //var popupView = LayoutInflater.Inflate(Resource.Layout.PopUp, null);
-                    //popupWindow = new PopupWindow(popupView,ViewGroup.LayoutParams.MatchParent, ViewGroup.LayoutParams.WrapContent);
-                    
-                    ////var dismiss = FindViewById<Button>(Resource.Id.dismiss);
-                    ////dismiss.Click += (sender, args) => popupWindow.Dismiss();
-                    //popupWindow.ShowAsDropDown(FindViewById(Resource.Id.toolbar),50,0);
-                    StartActivity(new Intent(this, typeof(HelpPopupActivity)));
+                    var intent = new Intent(this, typeof(HelpPopupActivity));
+                    intent.PutExtra("help", GetString(Resource.String.mainPageHelp));
+                    StartActivity(intent);
                     
                     
                     return true;
