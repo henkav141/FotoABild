@@ -10,6 +10,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)AmountHandler.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Serializer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)EmailHandler.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)OrderHandler.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)LacHandler.cs" />
@@ -17,6 +18,5 @@
     <Compile Include="$(MSBuildThisFileDirectory)PriceCalculator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pictures.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)PriceClass.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Serializer.cs" />
   </ItemGroup>
 </Project>

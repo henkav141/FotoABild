@@ -78,12 +78,6 @@
             android:orientation="vertical"
             android:clickable="true"
             android:layout_marginTop="?attr/actionBarSize">
-            <ImageView
-                android:layout_width="240dp"
-                android:layout_height="120dp"
-                android:layout_gravity="start"
-                android:src="@drawable/richard"
-                android:background="#1F2F40" />
             <ListView
                 android:id="@+id/left_drawer"
                 android:layout_width="240dp"

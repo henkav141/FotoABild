@@ -1499,73 +1499,76 @@ namespace FotoABIld.Droid
 			public const int abc_textfield_search_material = 2130837572;
 			
 			// aapt resource value: 0x7f020045
-			public const int btn = 2130837573;
+			public const int border = 2130837573;
 			
 			// aapt resource value: 0x7f020046
-			public const int btn_hover = 2130837574;
+			public const int btn = 2130837574;
 			
 			// aapt resource value: 0x7f020047
-			public const int btn_sel = 2130837575;
+			public const int btn_hover = 2130837575;
 			
 			// aapt resource value: 0x7f020048
-			public const int checkbox_selected = 2130837576;
+			public const int btn_sel = 2130837576;
 			
 			// aapt resource value: 0x7f020049
-			public const int checkbox_up = 2130837577;
+			public const int checkbox_selected = 2130837577;
 			
 			// aapt resource value: 0x7f02004a
-			public const int hamburgermeny = 2130837578;
+			public const int checkbox_up = 2130837578;
 			
 			// aapt resource value: 0x7f02004b
-			public const int Hamburgermenyv2 = 2130837579;
+			public const int hamburgermeny = 2130837579;
 			
 			// aapt resource value: 0x7f02004c
-			public const int Henrik = 2130837580;
+			public const int Hamburgermenyv2 = 2130837580;
 			
 			// aapt resource value: 0x7f02004d
-			public const int ic_content_add = 2130837581;
+			public const int Henrik = 2130837581;
 			
 			// aapt resource value: 0x7f02004e
-			public const int ic_content_content_cut = 2130837582;
+			public const int ic_content_add = 2130837582;
 			
 			// aapt resource value: 0x7f02004f
-			public const int ic_delete_white_24dp = 2130837583;
+			public const int ic_content_content_cut = 2130837583;
 			
 			// aapt resource value: 0x7f020050
-			public const int ic_help_white_18dp = 2130837584;
+			public const int ic_delete_white_24dp = 2130837584;
 			
 			// aapt resource value: 0x7f020051
-			public const int ic_help_white_24dp = 2130837585;
+			public const int ic_help_white_18dp = 2130837585;
 			
 			// aapt resource value: 0x7f020052
-			public const int ic_launcher = 2130837586;
+			public const int ic_help_white_24dp = 2130837586;
 			
 			// aapt resource value: 0x7f020053
-			public const int Icon = 2130837587;
+			public const int ic_launcher = 2130837587;
 			
 			// aapt resource value: 0x7f020054
-			public const int Johan = 2130837588;
+			public const int Icon = 2130837588;
 			
 			// aapt resource value: 0x7f020055
-			public const int logo = 2130837589;
+			public const int Johan = 2130837589;
 			
 			// aapt resource value: 0x7f020056
-			public const int no_media = 2130837590;
-			
-			// aapt resource value: 0x7f02005b
-			public const int notification_template_icon_bg = 2130837595;
+			public const int logo = 2130837590;
 			
 			// aapt resource value: 0x7f020057
-			public const int on_focus_checkbox = 2130837591;
+			public const int no_media = 2130837591;
+			
+			// aapt resource value: 0x7f02005c
+			public const int notification_template_icon_bg = 2130837596;
 			
 			// aapt resource value: 0x7f020058
-			public const int richard = 2130837592;
+			public const int on_focus_checkbox = 2130837592;
 			
 			// aapt resource value: 0x7f020059
-			public const int top_bar = 2130837593;
+			public const int richard = 2130837593;
 			
 			// aapt resource value: 0x7f02005a
-			public const int trash_can = 2130837594;
+			public const int top_bar = 2130837594;
+			
+			// aapt resource value: 0x7f02005b
+			public const int trash_can = 2130837595;
 			
 			static Drawable()
 			{
@@ -1580,8 +1583,8 @@ namespace FotoABIld.Droid
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f0b00b1
-			public const int BackButton = 2131427505;
+			// aapt resource value: 0x7f0b00b4
+			public const int BackButton = 2131427508;
 			
 			// aapt resource value: 0x7f0b0092
 			public const int BaseContainer = 2131427474;
@@ -1604,35 +1607,35 @@ namespace FotoABIld.Droid
 			// aapt resource value: 0x7f0b006e
 			public const int CustomerInfoSurnameText = 2131427438;
 			
-			// aapt resource value: 0x7f0b00b7
-			public const int FlyOutMenu = 2131427511;
+			// aapt resource value: 0x7f0b00ba
+			public const int FlyOutMenu = 2131427514;
 			
 			// aapt resource value: 0x7f0b0089
 			public const int FlyOutMenuButton = 2131427465;
 			
-			// aapt resource value: 0x7f0b00bd
-			public const int HelpText = 2131427517;
+			// aapt resource value: 0x7f0b00c0
+			public const int HelpText = 2131427520;
 			
-			// aapt resource value: 0x7f0b00bb
-			public const int HistoryText = 2131427515;
+			// aapt resource value: 0x7f0b00be
+			public const int HistoryText = 2131427518;
 			
 			// aapt resource value: 0x7f0b00a4
 			public const int HomeButton = 2131427492;
 			
-			// aapt resource value: 0x7f0b00b9
-			public const int HomeText = 2131427513;
+			// aapt resource value: 0x7f0b00bc
+			public const int HomeText = 2131427516;
 			
 			// aapt resource value: 0x7f0b0062
 			public const int NextButton = 2131427426;
 			
-			// aapt resource value: 0x7f0b00ba
-			public const int OrderText = 2131427514;
+			// aapt resource value: 0x7f0b00bd
+			public const int OrderText = 2131427517;
 			
 			// aapt resource value: 0x7f0b0082
 			public const int PlaceOrderButton = 2131427458;
 			
-			// aapt resource value: 0x7f0b00bc
-			public const int PriceText = 2131427516;
+			// aapt resource value: 0x7f0b00bf
+			public const int PriceText = 2131427519;
 			
 			// aapt resource value: 0x7f0b0079
 			public const int RelativeLayout = 2131427449;
@@ -1640,8 +1643,8 @@ namespace FotoABIld.Droid
 			// aapt resource value: 0x7f0b00a5
 			public const int RemoveHistoryButton = 2131427493;
 			
-			// aapt resource value: 0x7f0b00b8
-			public const int SideMenu = 2131427512;
+			// aapt resource value: 0x7f0b00bb
+			public const int SideMenu = 2131427515;
 			
 			// aapt resource value: 0x7f0b0093
 			public const int action0 = 2131427475;
@@ -1670,14 +1673,14 @@ namespace FotoABIld.Droid
 			// aapt resource value: 0x7f0b004e
 			public const int action_context_bar = 2131427406;
 			
-			// aapt resource value: 0x7f0b00c1
-			public const int action_delete = 2131427521;
+			// aapt resource value: 0x7f0b00c4
+			public const int action_delete = 2131427524;
 			
 			// aapt resource value: 0x7f0b0097
 			public const int action_divider = 2131427479;
 			
-			// aapt resource value: 0x7f0b00c0
-			public const int action_help = 2131427520;
+			// aapt resource value: 0x7f0b00c3
+			public const int action_help = 2131427523;
 			
 			// aapt resource value: 0x7f0b0002
 			public const int action_menu_divider = 2131427330;
@@ -1808,8 +1811,8 @@ namespace FotoABIld.Droid
 			// aapt resource value: 0x7f0b007a
 			public const int finalCheck = 2131427450;
 			
-			// aapt resource value: 0x7f0b00b5
-			public const int finalPrice = 2131427509;
+			// aapt resource value: 0x7f0b00b8
+			public const int finalPrice = 2131427512;
 			
 			// aapt resource value: 0x7f0b0080
 			public const int finalizeEmail = 2131427456;
@@ -1895,8 +1898,8 @@ namespace FotoABIld.Droid
 			// aapt resource value: 0x7f0b0076
 			public const int linearLayout8 = 2131427446;
 			
-			// aapt resource value: 0x7f0b00bf
-			public const int listItemCheckBox = 2131427519;
+			// aapt resource value: 0x7f0b00c2
+			public const int listItemCheckBox = 2131427522;
 			
 			// aapt resource value: 0x7f0b00ae
 			public const int listItemText = 2131427502;
@@ -1964,11 +1967,20 @@ namespace FotoABIld.Droid
 			// aapt resource value: 0x7f0b00a9
 			public const int phoneNumberText = 2131427497;
 			
+			// aapt resource value: 0x7f0b00af
+			public const int popUpLayout = 2131427503;
+			
+			// aapt resource value: 0x7f0b00b0
+			public const int popUpScrollView = 2131427504;
+			
+			// aapt resource value: 0x7f0b00b1
+			public const int popupText = 2131427505;
+			
 			// aapt resource value: 0x7f0b00ab
 			public const int priceText = 2131427499;
 			
-			// aapt resource value: 0x7f0b00b0
-			public const int pricetext = 2131427504;
+			// aapt resource value: 0x7f0b00b3
+			public const int pricetext = 2131427507;
 			
 			// aapt resource value: 0x7f0b0005
 			public const int progress_circular = 2131427333;
@@ -2003,11 +2015,11 @@ namespace FotoABIld.Droid
 			// aapt resource value: 0x7f0b0029
 			public const int ratio_free = 2131427369;
 			
-			// aapt resource value: 0x7f0b00b2
-			public const int receiptlayout = 2131427506;
+			// aapt resource value: 0x7f0b00b5
+			public const int receiptlayout = 2131427509;
 			
-			// aapt resource value: 0x7f0b00b3
-			public const int receipttext = 2131427507;
+			// aapt resource value: 0x7f0b00b6
+			public const int receipttext = 2131427510;
 			
 			// aapt resource value: 0x7f0b006b
 			public const int rotateButton = 2131427435;
@@ -2027,8 +2039,8 @@ namespace FotoABIld.Droid
 			// aapt resource value: 0x7f0b003f
 			public const int scrollView = 2131427391;
 			
-			// aapt resource value: 0x7f0b00af
-			public const int scrollView1 = 2131427503;
+			// aapt resource value: 0x7f0b00b2
+			public const int scrollView1 = 2131427506;
 			
 			// aapt resource value: 0x7f0b0051
 			public const int search_badge = 2131427409;
@@ -2087,8 +2099,8 @@ namespace FotoABIld.Droid
 			// aapt resource value: 0x7f0b0075
 			public const int spinner = 2131427445;
 			
-			// aapt resource value: 0x7f0b00be
-			public const int spinnerItem = 2131427518;
+			// aapt resource value: 0x7f0b00c1
+			public const int spinnerItem = 2131427521;
 			
 			// aapt resource value: 0x7f0b0007
 			public const int split_action_bar = 2131427335;
@@ -2108,8 +2120,8 @@ namespace FotoABIld.Droid
 			// aapt resource value: 0x7f0b0058
 			public const int submit_area = 2131427416;
 			
-			// aapt resource value: 0x7f0b00b4
-			public const int summarizeOrder = 2131427508;
+			// aapt resource value: 0x7f0b00b7
+			public const int summarizeOrder = 2131427511;
 			
 			// aapt resource value: 0x7f0b0081
 			public const int summarizePictures = 2131427457;
@@ -2129,8 +2141,8 @@ namespace FotoABIld.Droid
 			// aapt resource value: 0x7f0b008a
 			public const int textView1 = 2131427466;
 			
-			// aapt resource value: 0x7f0b00b6
-			public const int thankText = 2131427510;
+			// aapt resource value: 0x7f0b00b9
+			public const int thankText = 2131427513;
 			
 			// aapt resource value: 0x7f0b0099
 			public const int time = 2131427481;
@@ -2481,11 +2493,23 @@ namespace FotoABIld.Droid
 			// aapt resource value: 0x7f050014
 			public const int app_name = 2131034132;
 			
+			// aapt resource value: 0x7f05001b
+			public const int choosePictureHelp = 2131034139;
+			
+			// aapt resource value: 0x7f05001d
+			public const int cropImageHelp = 2131034141;
+			
 			// aapt resource value: 0x7f050017
 			public const int date = 2131034135;
 			
+			// aapt resource value: 0x7f05001c
+			public const int editPictureHelp = 2131034140;
+			
 			// aapt resource value: 0x7f050015
 			public const int hello = 2131034133;
+			
+			// aapt resource value: 0x7f05001a
+			public const int mainPageHelp = 2131034138;
 			
 			// aapt resource value: 0x7f050019
 			public const int price = 2131034137;
@@ -2532,6 +2556,9 @@ namespace FotoABIld.Droid
 			
 			// aapt resource value: 0x7f080137
 			public const int AppTheme_Picker = 2131231031;
+			
+			// aapt resource value: 0x7f080138
+			public const int AppTheme_Popup = 2131231032;
 			
 			// aapt resource value: 0x7f080081
 			public const int Base_AlertDialog_AppCompat = 2131230849;

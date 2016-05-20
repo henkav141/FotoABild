@@ -13,7 +13,8 @@
     <item>24x30(vit kant)</item>
     <item>25x38</item>
   </string-array>
-  <string name="priceandsize"> <![CDATA[<p><strong>Våra storlekar på blankt papper:</strong></p>
+  <string name="priceandsize"> <![CDATA[
+  <p><strong>Våra storlekar på blankt papper:</strong></p>
 <ul>
 <li>10 x 15 cm(10,2 x 15,2)</li><br/>
 <li>11 x 15 cm (11,4 x 15,2)</li><br/>
@@ -52,7 +53,8 @@
 <li>100kr/st</li><br/>
 <li>3 st vid samma tillfälle 210 kr</li><br/>
 <li>10 st eller fler vid samma tillfälle 40kr/st</li><br/>
-</ul>]]></string>
+</ul>]]>
+  </string>
   <string name ="date">
     <u>2016-04-04</u>
   </string>
@@ -61,6 +63,78 @@
   </string>
   <string name ="price">
     <u> | 160;- </u>
+  </string>
+  <string name="mainPageHelp">
+      <![CDATA[
+                    <h2> Foto A-Bild<h2/> </br>
+    <p>
+    FotoABild hjälper dig att snabbt och smidigt framkalla bilder från mobilens fotoalbum. 
+    Ordern skapas i mobilen men betalas sedan i affär. För att beställa bilder så går du igenom de här stegen.
+    </p>
+    </br>
+    </br>
+    </br>
+    <ol type=1>
+      <li> 1.Klicka på beställ kort</li>    <br/>
+      <li> 2.Klicka på "Välj bilder" och markera de bilder du vill ha framkallade</li>    <br/>
+      <li> 3.Ändra egenskaper på bilderna genom att klicka på dem. Här kan du ändra antal, storlek och även beskära bilderna. 
+      Om du vill ha samma bild i olika format eller olika beskurna så kan du även kopiera bilden här.</li>    <br/>
+      <li> 4.Fyll i dina användaruppgifter</li>    <br/>
+      <li> 5.Gå noga igenom beställningen och klicka sedan på Beställ</li>    <br/>
+      <li> 6.Då skickas bilderna till butiken för framkallning, som du kan hämta ut. Ett kvitto skickas även till din e-postadress
+      </li>    <br/>
+    </ol>
+    Om du stöter på problem finns det mer detaljerade hjälprutor för varje steg i beställningen.
+    <br/>
+        <br/>
+            <br/>
+                <br/>
+                    <br/>
+                        <br/>
+    
+    <strong>Datahantering</strong>
+    <p> När beställningen läggs så kan det använda en stor datamängd. Därför rekommenderar vi att du är ansluten till ett Wi-fi för att lägga en beställning.
+    ]]>
+  </string>
+  
+  <string name ="choosePictureHelp">
+    <![CDATA[
+              <h2> Välj Bilder<h2/> <br/>
+    <p>För att välja bilder tryck på <b>"Välj Bilder"</b>. <br/><br/> \n
+    Markera sedan de bilder du vill framkalla. När kryssrutan är bockad så är den vald. <br/>
+    <br/>\n
+    När du har valt alla bilder du vill framkalla trycker du på <b>"Klar"</b> för att bekräfta dina val.<br/><br/> \n
+    För att Beskära, Kopiera,<br/>Ändra Storlek eller Ändra Antal så trycker du på den bild som ska modifieras.<br/><br/>\n
+    \n
+    </p>]]>
+  
+  </string>
+  <string name ="editPictureHelp">
+    <![CDATA[
+                  <h2> Ändra Bilder<h2/> <br/>
+    <p>
+    Ändra Antal: Bestäm antal bilder genom att antingen dra snurran till det antal som önskas.<br/>
+    <br/>
+    Ändra Storlek: Bestäm storleken av bilden genom att öppna menyn och välja storlek.<br/>
+    <br/>
+    Kopiera: Kopiera bilden för att ställa ha samma bild med olika storlekar eller annan beskärning.<br/>
+    <br/>
+    Beskär Bild: Här finns möjligheten att beskära bilden i den storlek som är vald. Du måste bestämma storlek innan beskärning.
+    
+    
+    </p>]]>
+  </string>
+  <string name ="cropImageHelp">
+    <![CDATA[ <h2> Beskär Bilder<h2/> <br/>
+    <p>
+    <b> OBS </b>
+    <br/>
+    För att beskära en bild i rätt storlek måste det bestämmas tidigare.
+    <br/>
+    
+    Man beskär bilden genom att dra beskärningsvyn över det område av bilden som du vill använda. <br/>
+    Du kan även rotera både beskärningsvyn och bilden för att förenkla processen. <br/>
+    När du är nöjd trycker du på <b>Klar</b>-knappen för att avsluta beskärningen. ]]>
   </string>
 
 </resources>

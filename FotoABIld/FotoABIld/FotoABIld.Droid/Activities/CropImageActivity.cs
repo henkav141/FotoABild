@@ -16,6 +16,7 @@ using Android.Support.V7.App;
 using Android.Views;
 using Android.Widget;
 using Com.Isseiaoki.Simplecropview;
+using FotoABIld.Droid.Activities;
 using ImageViews.Photo;
 using Newtonsoft.Json;
 using Square.Picasso;
@@ -194,7 +195,9 @@ namespace FotoABIld.Droid
                     OnBackPressed();
                     return true;
                 case Resource.Id.action_help:
-                    StartActivity(new Intent(this, typeof(HelpActivity)));
+                    var intent = new Intent(this, typeof(HelpPopupActivity));
+                    intent.PutExtra("help", GetString(Resource.String.cropImageHelp));
+                    StartActivity(intent);
 
                     return true;
 

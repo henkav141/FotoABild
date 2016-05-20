@@ -17,6 +17,7 @@ using Android.Widget;
 using Com.Nostra13.Universalimageloader.Cache.Memory.Impl;
 using Com.Nostra13.Universalimageloader.Core;
 using Com.Nostra13.Universalimageloader.Core.Assist;
+using FotoABIld.Droid.Activities;
 using Java.IO;
 using Newtonsoft.Json;
 
@@ -155,7 +156,9 @@ namespace FotoABIld.Droid
                     return true;
 
                 case Resource.Id.action_help:
-                    StartActivity(new Intent(this, typeof(HelpActivity)));
+                    var intent = new Intent(this, typeof(HelpPopupActivity));
+                    intent.PutExtra("help", GetString(Resource.String.choosePictureHelp));
+                    StartActivity(intent);
 
                     return true;
                    
@@ -219,13 +222,15 @@ namespace FotoABIld.Droid
                     var picture = JsonConvert.DeserializeObject<Pictures>(bundle.GetString("picture"));
                     pictureList[editIndex] = picture;
                     dataT[editIndex].SdCardPath = picture.FilePath;
-                    adapter.AddAll(dataT);
+                    adapter.NotifyDataSetChanged();
                 }
                 else
                 {
+                    var pictureCopy = JsonConvert.DeserializeObject<Pictures>(bundle.GetString("pictureCopy"));
                     var picture = JsonConvert.DeserializeObject<Pictures>(bundle.GetString("picture"));
-                    pictureList.Add(picture);
-                    var item = new CustomGallery {SdCardPath = picture.FilePath};
+                    pictureList[editIndex] = picture;
+                    pictureList.Add(pictureCopy);
+                    var item = new CustomGallery {SdCardPath = pictureCopy.FilePath};
                     dataT.Add(item);
                     adapter.AddAll(dataT);
                 }

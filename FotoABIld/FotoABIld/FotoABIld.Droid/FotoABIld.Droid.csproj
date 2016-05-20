@@ -96,6 +96,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Activities\HelpPopupActivity.cs" />
     <Compile Include="LayoutAdapter.cs" />
     <Compile Include="MultiImagePicker\Action.cs" />
     <Compile Include="Activities\ChoosePicturesActivity.cs" />
@@ -258,7 +259,9 @@
     <AndroidResource Include="Resources\values\dimens.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\values\styles.xml" />
+    <AndroidResource Include="Resources\values\styles.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-mdpi\no_media.jpg" />
@@ -310,7 +313,10 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\drawer_list_item.xml" />
-    <AndroidResource Include="Resources\layout\PopUp.xml" />
+    <AndroidResource Include="Resources\layout\PopUp.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-hdpi\border.xml" />
     <Content Include="UniversalImageLoader.dll" />
   </ItemGroup>
   <ItemGroup>

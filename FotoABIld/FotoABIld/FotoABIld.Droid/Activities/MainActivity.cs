@@ -10,6 +10,7 @@ using Android.Widget;
 using Android.OS;
 using Android.Support.V4.Widget;
 using Android.Support.V7.App;
+using FotoABIld.Droid.Activities;
 using Toolbar = Android.Support.V7.Widget.Toolbar;
 
 
@@ -133,13 +134,9 @@ namespace FotoABIld.Droid
             {
 
                 case Resource.Id.action_help:
-                    //StartActivity(new Intent(this, typeof(HelpActivity)));
-                    var popupView = LayoutInflater.Inflate(Resource.Layout.PopUp, null);
-                    popupWindow = new PopupWindow(popupView,ViewGroup.LayoutParams.MatchParent, ViewGroup.LayoutParams.MatchParent);
-                    
-                    //var dismiss = FindViewById<Button>(Resource.Id.dismiss);
-                    //dismiss.Click += (sender, args) => popupWindow.Dismiss();
-                    popupWindow.ShowAsDropDown(FindViewById<LinearLayout>(Resource.Id.linearLayout2),50,50);
+                    var intent = new Intent(this, typeof(HelpPopupActivity));
+                    intent.PutExtra("help", GetString(Resource.String.mainPageHelp));
+                    StartActivity(intent);
                     
                     
                     return true;
