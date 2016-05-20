@@ -20,9 +20,18 @@
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
     <MtouchArch>i386</MtouchArch>
-    <MtouchLink>None</MtouchLink>
-    <MtouchDebug>true</MtouchDebug>
-    <MtouchProfiling>true</MtouchProfiling>
+    <MtouchLink>SdkOnly</MtouchLink>
+    <MtouchDebug>True</MtouchDebug>
+    <MtouchProfiling>False</MtouchProfiling>
+    <MtouchSdkVersion>9.3</MtouchSdkVersion>
+    <MtouchFastDev>False</MtouchFastDev>
+    <MtouchUseLlvm>False</MtouchUseLlvm>
+    <MtouchUseThumb>False</MtouchUseThumb>
+    <MtouchUseSGen>False</MtouchUseSGen>
+    <MtouchUseRefCounting>False</MtouchUseRefCounting>
+    <OptimizePNGs>True</OptimizePNGs>
+    <MtouchFloat32>False</MtouchFloat32>
+    <MtouchI18n />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <DebugType>full</DebugType>
@@ -56,7 +65,7 @@
     <ConsolePause>false</ConsolePause>
     <MtouchArch>ARMv7, ARM64</MtouchArch>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
-    <MtouchProfiling>True</MtouchProfiling>
+    <MtouchProfiling>False</MtouchProfiling>
     <CodesignKey>iPhone Developer</CodesignKey>
     <MtouchDebug>True</MtouchDebug>
     <MtouchSdkVersion>9.3</MtouchSdkVersion>
@@ -160,6 +169,10 @@
     <Compile Include="Controllers\EditImageController.designer.cs">
       <DependentUpon>EditImageController.cs</DependentUpon>
     </Compile>
+    <Compile Include="CropViewController.cs" />
+    <Compile Include="CropViewController.designer.cs">
+      <DependentUpon>CropViewController.cs</DependentUpon>
+    </Compile>
     <Compile Include="ImageHandler.cs" />
     <Compile Include="ImageResult.cs" />
     <Compile Include="ImageResult.designer.cs">
@@ -182,6 +195,15 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="elcapitan.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\CropBindingiOS\CropBindingiOS.csproj">
+      <Project>{09032a64-e9ab-4f69-ac42-7ddb43d2936e}</Project>
+      <Name>CropBindingiOS</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="..\FotoABIld\FotoABIld.projitems" Label="Shared" Condition="Exists('..\FotoABIld\FotoABIld.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />

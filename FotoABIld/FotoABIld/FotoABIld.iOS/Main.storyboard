@@ -424,13 +424,15 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <toolbarItems>
                         <barButtonItem id="6396" translatesAutoresizingMaskIntoConstraints="NO" systemItem="camera">
-                            <connections/>
+                            <connections>
+                                <segue id="6624" destination="6407" kind="show"/>
+                            </connections>
                         </barButtonItem>
                     </toolbarItems>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5464" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="951" y="-435"/>
+            <point key="canvasLocation" x="931" y="-518"/>
         </scene>
         <scene sceneID="6188">
             <objects>
@@ -550,7 +552,51 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6195" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1458" y="-125"/>
+            <point key="canvasLocation" x="1455" y="-416"/>
+        </scene>
+        <scene sceneID="6406">
+            <objects>
+                <viewController id="6407" sceneMemberID="viewController" customClass="CropViewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6404"/>
+                        <viewControllerLayoutGuide type="bottom" id="6405"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6408">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="6650" translatesAutoresizingMaskIntoConstraints="NO">
+                                <rect key="frame" x="0.0" y="109" width="160" height="240"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="109" width="375" height="199"/>
+                                </variation>
+                            </imageView>
+                        </subviews>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="6650"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="6650"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <toolbarItems>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="6462" translatesAutoresizingMaskIntoConstraints="NO"/>
+                        <barButtonItem title="Spara" id="6463" translatesAutoresizingMaskIntoConstraints="NO"/>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="6464" translatesAutoresizingMaskIntoConstraints="NO"/>
+                    </toolbarItems>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="imgV" destination="6650" id="name-outlet-6650"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6409" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1479" y="-92"/>
         </scene>
     </scenes>
     <resources>
@@ -569,6 +615,7 @@
         <image name="right4-32.png" width="32" height="32"/>
         <image name="123.png" width="32" height="32"/>
         <image name="tumblr.jpg" width="2047" height="2015"/>
+        <image name="elcapitan.jpg" width="5120" height="3200"/>
     </resources>
     <color key="tintColor" colorSpace="calibratedRGB" red="1" green="0.81568627450980391" blue="0.25882352941176473" alpha="1"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

@@ -30,19 +30,8 @@ namespace FotoABIld.iOS.Controllers
         {
             base.ViewDidAppear(animated);
 
-
-
             twetImage.Image = EditImageControllerImage;
-            //barbtn.Clicked += BarbtnOnClicked;
             Console.WriteLine(EditControllerName);
         }
-
-	    //private void BarbtnOnClicked(object sender, EventArgs eventArgs)
-	    //{
-           
-     //   }
-
-
-
     }
 }
