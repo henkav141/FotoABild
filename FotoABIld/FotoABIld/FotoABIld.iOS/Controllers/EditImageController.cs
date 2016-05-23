@@ -29,7 +29,8 @@ namespace FotoABIld.iOS.Controllers
         public override void ViewDidAppear(bool animated)
         {
             base.ViewDidAppear(animated);
-
+            this.Title = "Tillbaka";
+            this.NavigationItem.TitleView = new UIView();
             twetImage.Image = EditImageControllerImage;
             Console.WriteLine(EditControllerName);
         }

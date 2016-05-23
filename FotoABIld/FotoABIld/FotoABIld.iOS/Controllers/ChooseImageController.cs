@@ -19,6 +19,8 @@ namespace FotoABIld.iOS.Controllers
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
+            this.Title = "Tillbaka";
+            this.NavigationItem.TitleView = new UIView();
             imageCollection.WeakDataSource = this;
 
         }

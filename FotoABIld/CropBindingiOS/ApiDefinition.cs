@@ -185,12 +185,12 @@ namespace CropBindingiOS
     interface TOCropViewDelegate
     {
         // @required -(void)cropViewDidBecomeResettable:(TOCropView *)cropView;
-        [Abstract]
+        //[Abstract]
         [Export("cropViewDidBecomeResettable:")]
         void CropViewDidBecomeResettable(TOCropView cropView);
 
         // @required -(void)cropViewDidBecomeNonResettable:(TOCropView *)cropView;
-        [Abstract]
+        //[Abstract]
         [Export("cropViewDidBecomeNonResettable:")]
         void CropViewDidBecomeNonResettable(TOCropView cropView);
     }
