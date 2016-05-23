@@ -104,7 +104,8 @@ namespace FotoABIld.Droid
                     StartActivity(intent);
                        break;
                 case 4:
-                    intent = new Intent(this, typeof(HelpActivity));
+                    intent = new Intent(this, typeof(HelpPopupActivity));
+                    intent.PutExtra("help", GetString(Resource.String.mainPageHelp));
                     StartActivity(intent);
                     break;
             }

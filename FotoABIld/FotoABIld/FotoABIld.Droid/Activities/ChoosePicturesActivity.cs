@@ -82,7 +82,8 @@ namespace FotoABIld.Droid
             handler = new Handler();
             gridGallery = FindViewById<GridView>(Resource.Id.gridGallery);
             gridGallery.FastScrollEnabled = true;
-            
+            pictureList = new List<Pictures>();
+
             adapter = new GalleryAdapter(ApplicationContext, imageLoader);
             adapter.IsMultiplePick = false;
             gridGallery.Adapter = adapter;
@@ -138,14 +139,24 @@ namespace FotoABIld.Droid
         private void NextButton_Click(object sender, EventArgs e)
         {
             //Serializes the list of pictures to a JSON string to be deserializes in another activity
-            var objectString = JsonConvert.SerializeObject(pictureList, Formatting.Indented);
-            System.Console.WriteLine(objectString);
-
-            var next = new Intent(this, typeof(CustomerInformationActivity));
+            if (pictureList.Sum(pic => pic.Amount) > 0)
+            {
 
 
-            next.PutExtra("pictureList", objectString);
-            StartActivity(next);
+                var objectString = JsonConvert.SerializeObject(pictureList, Formatting.Indented);
+                System.Console.WriteLine(objectString);
+
+                var next = new Intent(this, typeof(CustomerInformationActivity));
+
+
+                next.PutExtra("pictureList", objectString);
+                StartActivity(next);
+            }
+            else
+            {
+                var toast = Toast.MakeText(this, "Välj en bild för framkallning för att fortsätta beställningen", ToastLength.Long);
+                toast.Show();
+            }
         }
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
@@ -195,7 +206,7 @@ namespace FotoABIld.Droid
 
 
                 dataT = new List<CustomGallery>();
-                pictureList = new List<Pictures>();
+                
 
                 foreach (var uri in all_path)
                 {
