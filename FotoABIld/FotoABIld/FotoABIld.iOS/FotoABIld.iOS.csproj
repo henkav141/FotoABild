@@ -197,9 +197,6 @@
     <BundleResource Include="logo.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="elcapitan.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\..\CropBindingiOS\CropBindingiOS.csproj">
       <Project>{09032a64-e9ab-4f69-ac42-7ddb43d2936e}</Project>
       <Name>CropBindingiOS</Name>
