@@ -12,6 +12,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)AmountHandler.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Serializer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)EmailHandler.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)FtpHandler.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)OrderHandler.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)LacHandler.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Order.cs" />
