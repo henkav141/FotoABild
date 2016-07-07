@@ -155,11 +155,11 @@ namespace FotoABIld.Droid
             }
 
 
-            var filepath = Environment.ExternalStorageDirectory.AbsolutePath + "/" + order.OrderId + "/";
-            OrderHandler.CreateOutputFolder(filepath);
-        
-            var lacHandler = new LacHandler(order, filepath + order.OrderId + ".LAC", filepath);
-            lacHandler.CreateLacFile();
+            //var filepath = Environment.ExternalStorageDirectory.AbsolutePath + "/" + order.OrderId + "/";
+            //OrderHandler.CreateOutputFolder(filepath);
+            //OrderHandler.FillOutPutFolder(order, filepath);
+            //var lacHandler = new LacHandler(order, filepath + order.OrderId + ".LAC",filepath);
+            //lacHandler.CreateLacFile();
 
 
             var toast = Toast.MakeText(this, "Tack för din beställning", ToastLength.Long);
